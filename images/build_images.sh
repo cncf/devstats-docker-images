@@ -39,8 +39,6 @@ then
 fi
 
 rm -f devstats.tar devstatscode.tar devstats-grafana.tar devstats-docker-images.tar grafana-bins.tar
-# TODO: remove when done
-exit 1
 
 if [ -z "$SKIP_FULL" ]
 then
