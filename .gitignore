@@ -55,6 +55,7 @@ sqlite/*.sql
 /report_6months.txt
 /report_alltime.txt
 *.secret
+*.tar
 /error.yaml
 !/contributors_and_emails.csv
 !/contributing_actors*.csv

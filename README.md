@@ -1,18 +1,15 @@
 # devstats-docker-images
-DevStats docker images: minima (hourly cron job sync), full (provisioning/bootstraping), Grafana (UI endpoint)
-# Set default namespace
 
-You should set namespace to 'devstats' first: `./k8s/switch_profile.sh devstats`.
-
+DevStats docker images: minimal (hourly cron job sync), full (provisioning/bootstraping), Grafana (UI endpoint)
 
 # Create and test images
 
 Create and remove docker images:
 
 - To create DevStats docker container images and publish them, use: `DOCKER_USER=... ./k8s/build_images.sh`.
-- To drop local DevStats docker container images use: `DOCKER_USER=... ./k8s/remove_images.sh`. They're not needed locally, only Kubernetes cluster needs them.
+- To drop local DevStats docker container images use: `DOCKER_USER=... ./k8s/remove_images.sh`.
 
-Testing images (this will not mount PVs and will not propagate secrets):
+Testing images:
 
 - To test sync DevStats image (`devstats-minimal` container): `AWS_PROFILE=... DOCKER_USER=... ./k8s/test_image.sh devstats-minimal`.
 - To test provisioning DevStats image (`devstats` container): `AWS_PROFILE=... DOCKER_USER=... ./k8s/test_image.sh devstats`.
