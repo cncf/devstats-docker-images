@@ -21,7 +21,7 @@ tar cf ../devstats-docker-images/devstats-grafana.tar grafana/shared grafana/img
 
 cd "$cwd" || exit 6
 rm -f devstats-docker-images.tar 2>/dev/null
-tar cf devstats-docker-images.tar k8s
+tar cf devstats-docker-images.tar k8s images/Makefile.*
 
 if [ -z "$SKIP_FULL" ]
 then
@@ -39,6 +39,7 @@ then
 fi
 
 rm -f devstats.tar devstatscode.tar devstats-grafana.tar devstats-docker-images.tar grafana-bins.tar
+# TODO: remove when done
 exit 1
 
 if [ -z "$SKIP_FULL" ]
