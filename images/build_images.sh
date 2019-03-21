@@ -25,17 +25,17 @@ tar cf devstats-docker-images.tar k8s
 
 if [ -z "$SKIP_FULL" ]
 then
-  docker build -f ./k8s/Dockerfile.full -t "${DOCKER_USER}/devstats" . || exit 7
+  docker build -f ./images/Dockerfile.full -t "${DOCKER_USER}/devstats" . || exit 7
 fi
 
 if [ -z "$SKIP_MIN" ]
 then
-  docker build -f ./k8s/Dockerfile.minimal -t "${DOCKER_USER}/devstats-minimal" . || exit 8
+  docker build -f ./images/Dockerfile.minimal -t "${DOCKER_USER}/devstats-minimal" . || exit 8
 fi
 
 if [ -z "$SKIP_GRAFANA" ]
 then
-  docker build -f ./k8s/Dockerfile.grafana -t "${DOCKER_USER}/devstats-grafana" . || exit 9
+  docker build -f ./images/Dockerfile.grafana -t "${DOCKER_USER}/devstats-grafana" . || exit 9
 fi
 
 rm -f devstats.tar devstatscode.tar devstats-grafana.tar devstats-docker-images.tar grafana-bins.tar

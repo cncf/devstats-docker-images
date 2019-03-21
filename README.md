@@ -2,17 +2,20 @@
 
 DevStats docker images: minimal (hourly cron job sync), full (provisioning/bootstraping), Grafana (UI endpoint)
 
+
 # Create and test images
 
 Create and remove docker images:
 
-- To create DevStats docker container images and publish them, use: `DOCKER_USER=... ./k8s/build_images.sh`.
-- To drop local DevStats docker container images use: `DOCKER_USER=... ./k8s/remove_images.sh`.
+- To create DevStats docker container images and publish them, use: `DOCKER_USER=... ./images/build_images.sh`.
+- To drop local DevStats docker container images use: `DOCKER_USER=... ./images/remove_images.sh`.
 
-Testing images:
 
-- To test sync DevStats image (`devstats-minimal` container): `AWS_PROFILE=... DOCKER_USER=... ./k8s/test_image.sh devstats-minimal`.
-- To test provisioning DevStats image (`devstats` container): `AWS_PROFILE=... DOCKER_USER=... ./k8s/test_image.sh devstats`.
+# Testing images
+
+- To test sync DevStats image (`devstats-minimal` container): `AWS_PROFILE=... DOCKER_USER=... ./images/test_image.sh devstats-minimal`.
+- To test provisioning DevStats image (`devstats` container): `AWS_PROFILE=... DOCKER_USER=... ./images/test_image.sh devstats`.
+- To test Grafana DevStats image (`devstats-grafana` container): `AWS_PROFILE=... DOCKER_USER=... ./images/test_image.sh devstats-grafana`.
 
 You can also run shell inside the running container:
 
