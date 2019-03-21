@@ -4,9 +4,9 @@ RUN go get -u github.com/cncf/devstatscode
 WORKDIR /go/src/github.com/cncf/devstatscode
 ADD devstats.tar .
 ADD devstatscode.tar .
-ADD devstats-docker-lf.tar .
-RUN make -f ./docker/Makefile dockerinstall
-RUN make -f ./docker/Makefile links
+ADD devstats-docker-images.tar .
+RUN make -f ./k8s/Makefile.full dockerinstall
+RUN make -f ./k8s/Makefile.full links
 FROM alpine
 RUN apk add git bash postgresql-client xz curl
 COPY --from=builder /etc/gha2db /etc/gha2db

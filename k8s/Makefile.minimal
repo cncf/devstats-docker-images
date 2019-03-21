@@ -155,7 +155,7 @@ copydata:
 	cp -R partials/ ${DATADIR}/partials/ || exit 8
 	cp -R scripts/ ${DATADIR}/scripts/ || exit 9
 	cp devel/*.txt ${DATADIR}/ || exit 11
-	cp projects.yaml skip_dates.yaml linux.yaml zephyr.yaml ${DATADIR}/ || exit 12
+	cp projects.yaml skip_dates.yaml ${DATADIR}/ || exit 12
 
 install: ${BINARIES} data
 	${GO_INSTALL} ${GO_BIN_CMDS}
@@ -163,11 +163,8 @@ install: ${BINARIES} data
 	cp -v ${GIT_SCRIPTS} ${GOPATH}/bin
 
 dockerinstall: ${DOCKER_BINARIES} copydata
-	mkdir ${DATADIR}/docker 2>/dev/null || echo "..."
 	mkdir ${DATADIR}/k8s 2>/dev/null || echo "..."
-	chmod 777 ${DATADIR}/docker 2>/dev/null || echo "..."
 	chmod 777 ${DATADIR}/k8s 2>/dev/null || echo "..."
-	cp docker/docker_projects.yaml ${DATADIR}/docker/ || exit 10
 	cp k8s/projects.yaml ${DATADIR}/k8s/ || exit 11
 	${GO_INSTALL} ${GO_DOCKER_BIN_CMDS}
 	cp -v ${GIT_SCRIPTS} ${GOPATH}/bin || exit 12

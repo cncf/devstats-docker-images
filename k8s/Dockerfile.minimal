@@ -4,8 +4,8 @@ RUN go get -u github.com/cncf/devstatscode
 WORKDIR /go/src/github.com/cncf/devstatscode
 ADD devstats.tar .
 ADD devstatscode.tar .
-ADD devstats-docker-lf.tar .
-RUN make -f docker/Makefile.minimal dockerinstall
+ADD devstats-docker-images.tar .
+RUN make -f k8s/Makefile.minimal dockerinstall
 FROM alpine
 RUN apk add git bash
 COPY --from=builder /devstats-minimal/* /usr/bin/
