@@ -16,7 +16,7 @@ tar cf ../devstats-docker-images/grafana-bins.tar replacer sqlitedb
 
 cd ../devstats || exit 5
 rm -f ../devstats-docker-images/devstats.tar ../devstats-docker-images/devstats-grafana.tar 2>/dev/null
-tar cf ../devstats-docker-images/devstats.tar git metrics cdf devel util_sql envoy all lfn shared iovisor mininet opennetworkinglab opensecuritycontroller openswitch p4lang openbmp tungstenfabric cord scripts partials docs cron zephyr linux kubernetes prometheus opentracing fluentd linkerd grpc coredns containerd rkt cni jaeger notary tuf rook vitess nats opa spiffe spire cloudevents telepresence helm openmetrics harbor etcd tikv cortex buildpacks falco dragonfly virtualkubelet kubeedge brigade crio cncf opencontainers istio spinnaker knative jsons/.keep util_sh/make_binary_links.sh projects.yaml companies.yaml skip_dates.yaml github_users.json
+tar cf ../devstats-docker-images/devstats.tar git metrics cdf devel util_sql envoy all lfn shared iovisor mininet opennetworkinglab opensecuritycontroller openswitch p4lang openbmp tungstenfabric cord scripts partials docs cron zephyr linux kubernetes prometheus opentracing fluentd linkerd grpc coredns containerd rkt cni jaeger notary tuf rook vitess nats opa spiffe spire cloudevents telepresence helm openmetrics harbor etcd tikv cortex buildpacks falco dragonfly virtualkubelet kubeedge brigade crio cncf opencontainers istio spinnaker knative tekton jenkins jenkinsx jsons/.keep util_sh/make_binary_links.sh projects.yaml companies.yaml skip_dates.yaml github_users.json
 tar cf ../devstats-docker-images/devstats-grafana.tar grafana/shared grafana/img/*.svg grafana/img/*.png grafana/*/change_title_and_icons.sh grafana/*/custom_sqlite.sql grafana/dashboards/*/*.json
 
 cd "$cwd" || exit 6
