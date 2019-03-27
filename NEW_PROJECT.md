@@ -18,7 +18,7 @@
 
 # If using manual Kubernetes deployment
 
-- Update `github.com/cncf/devstats-k8s-lf/kubernetes/cron_then_all.sh` (optional if using helm chart, but needed for manual K8s deployment).
+- Update `github.com/cncf/devstats-k8s-lf/kubernetes/cron_them_all.sh` (optional if using helm chart, but needed for manual K8s deployment).
 - Update `github.com/cncf/devstats-k8s-lf/kubernetes/provision_them_all.sh` (optional if using helm chart, but needed for manual K8s deployment).
 - Update `github.com/cncf/devstats-k8s-lf/kubernetes/grafanas_for_all.sh` (optional if using helm chart, but needed for manual K8s deployment).
 - Update `github.com/cncf/devstats-k8s-lf/kubernetes/services_for_all.sh` (optional if using helm chart, but needed for manual K8s deployment).
