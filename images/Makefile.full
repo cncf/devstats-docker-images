@@ -143,7 +143,6 @@ util_scripts:
 
 data: util_scripts
 	[ ! -f /tmp/deploy.wip ] || exit 1
-	wait_for_command.sh devstats 3600 || exit 2
 	make copydata
 
 copydata: util_scripts

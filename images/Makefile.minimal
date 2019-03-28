@@ -141,7 +141,6 @@ check: fmt lint imports vet const usedexports errcheck
 data:
 	cp -v ${UTIL_SCRIPTS} ${GOPATH}/bin
 	[ ! -f /tmp/deploy.wip ] || exit 1
-	wait_for_command.sh devstats 3600 || exit 2
 	make copydata
 
 copydata:
