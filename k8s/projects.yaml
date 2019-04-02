@@ -632,7 +632,7 @@ projects:
       - kubernetes-sigs
       - cri-o
     start_date: 2016-09-09T00:00:00Z
-    join_date: 2019-04-01T00:00:00Z
+    join_date: 2019-04-04T00:00:00Z
     psql_db: crio
     main_repo: kubernetes-sigs/cri-o
     annotation_regexp: '^v\d+\.\d+\.\d+$'
