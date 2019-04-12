@@ -4,6 +4,7 @@
 - Update `./k8s/projects.yaml` (add project).
 - Update `./k8s/all_*.txt` (lists of projects to process).
 - Run `DOCKER_USER=... ./images/build_images.sh` to build a new image.
+- Eventually run `DOCKER_USER=... ./images/remove_images.sh` to remove image locally (new image is pushed to the Docker hub).
 
 
 # If using Helm
