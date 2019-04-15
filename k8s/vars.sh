@@ -8,6 +8,11 @@ fi
 export GHA2DB_PROJECTS_YAML="k8s/projects.yaml"
 export LIST_FN_PREFIX="k8s/all_"
 
+user=gha_admin
+if [ ! -z "${PG_USER}" ]
+then
+  user="${PG_USER}"
+fi
 . ./devel/all_projs.sh || exit 3
 for proj in $all
 do
