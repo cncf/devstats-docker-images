@@ -5,6 +5,13 @@ then
   exit 1
 fi
 
+if ( [ -z "$ES_HOST" ] || [ -z "$ES_PORT" ] || [ -z "$ES_PROTO" ] )
+then
+  echo "$0: you need to set ES_PROTO, ES_HOST and ES_PORT to run this script"
+  exit 2
+fi
+
+export GHA2DB_ES_URL="${ES_PROTO}://${ES_HOST}:${ES_PORT}"
 export GHA2DB_PROJECTS_YAML="k8s/projects.yaml"
 export LIST_FN_PREFIX="k8s/all_"
 
