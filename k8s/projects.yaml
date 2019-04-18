@@ -428,7 +428,7 @@ projects:
     start_date: 2015-10-06T00:00:00Z
     join_date: 2018-06-01T00:00:00Z
     psql_db: helm
-    main_repo: kubernetes/helm
+    main_repo: helm/helm
     annotation_regexp: '^v(\d+\.){1,2}\d+$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   openmetrics:
