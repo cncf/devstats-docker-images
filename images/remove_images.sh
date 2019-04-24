@@ -7,4 +7,5 @@ fi
 docker image rm -f "${DOCKER_USER}/devstats"
 docker image rm -f "${DOCKER_USER}/devstats-minimal"
 docker image rm -f "${DOCKER_USER}/devstats-grafana"
+docker image rm -f "${DOCKER_USER}/devstats-patroni"
 docker system prune -f

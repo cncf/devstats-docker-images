@@ -1,0 +1,11 @@
+--- entrypoint.sh	2019-04-24 14:31:23.907038126 +0000
++++ entrypoint.sh	2019-04-24 14:31:54.663248828 +0000
+@@ -12,6 +12,8 @@
+   dcs:
+     postgresql:
+       use_pg_rewind: true
++      parameters:
++        shared_buffers: 1GB
+   initdb:
+   - auth-host: md5
+   - auth-local: trust

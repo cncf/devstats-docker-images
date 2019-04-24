@@ -1,0 +1,6 @@
+FROM jberkus/simple-patroni:v3
+USER root
+RUN apt-get update && apt-get install patch
+COPY patches/entrypoint.sh.patch /
+RUN patch /entrypoint.sh /entrypoint.sh.patch
+USER postgres
