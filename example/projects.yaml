@@ -12,3 +12,15 @@ projects:
     main_repo: cncf/landscape
     annotation_regexp: ''
     files_skip_pattern: ''
+  prometheus:
+    order: 2
+    name: Prometheus
+    status: Graduated
+    command_line:
+      - prometheus
+    start_date: 2014-01-06T00:00:00Z
+    join_date: 2016-05-09T00:00:00Z
+    psql_db: prometheus
+    main_repo: prometheus/prometheus
+    annotation_regexp: '^v?\d+\.\d+\.0$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
