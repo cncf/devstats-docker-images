@@ -5,6 +5,8 @@ WORKDIR /go/src/github.com/cncf/devstatscode
 ADD devstats.tar .
 ADD devstatscode.tar .
 ADD devstats-docker-images.tar .
+ADD grafana-bins.tar .
+RUN cp replacer /usr/bin/
 RUN make -f ./images/Makefile.minimal dockerinstall
 FROM alpine
 RUN apk add git bash
