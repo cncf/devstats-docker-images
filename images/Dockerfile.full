@@ -7,7 +7,7 @@ ADD devstatscode.tar .
 ADD devstats-docker-images.tar .
 ADD grafana-bins.tar .
 RUN cp replacer patches/patch.sh /usr/bin/
-RUN patch.sh
+RUN patch.sh testsrv devstats-demo.net
 RUN make -f ./images/Makefile.full dockerinstall
 RUN make -f ./images/Makefile.full links
 FROM alpine
