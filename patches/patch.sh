@@ -1,8 +1,7 @@
 #!/bin/bash
-for f in $*
+files=`find ./metrics/ -name vars.yaml` || exit 1
+for fn in $files
 do
-  fn="../devstats/metrics/$f/vars.yaml"
-  #fn="./metrics/$f/vars.yaml"
   echo $fn
   MODE=ss0 FROM="hostname, os_hostname" TO="hostname, ':devstats-demo.net'" replacer "$fn"
   MODE=ss0 FROM="':prodsrv=devstats.cncf.io '" TO="':prodsrv=devstats-demo.net '" replacer "$fn"

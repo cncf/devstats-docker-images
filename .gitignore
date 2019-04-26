@@ -50,7 +50,6 @@ drop.sql
 /node_modules/
 sqlite/*.sql
 /*.csv
-/devstats.tar
 /csv/*.csv
 /report_6months.txt
 /report_alltime.txt
