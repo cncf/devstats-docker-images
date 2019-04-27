@@ -1,5 +1,5 @@
---- entrypoint.sh	2019-04-24 14:31:23.907038126 +0000
-+++ entrypoint.sh	2019-04-24 14:31:54.663248828 +0000
+--- entrypoint.sh	2019-04-27 07:12:40.147720329 +0000
++++ entrypoint.sh	2019-04-27 07:11:47.719343215 +0000
 @@ -12,6 +12,9 @@
    dcs:
      postgresql:
@@ -10,3 +10,10 @@
    initdb:
    - auth-host: md5
    - auth-local: trust
+@@ -36,4 +39,6 @@
+ export KUBERNETES_NAMESPACE=$PATRONI_KUBERNETES_NAMESPACE
+ export POD_NAME=$PATRONI_NAME
+
++chmod 0700 /home/postgres/pgdata/pgroot/data
++
+ exec /usr/bin/python3 /usr/local/bin/patroni /home/postgres/patroni.yml
