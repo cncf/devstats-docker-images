@@ -1,5 +1,5 @@
---- entrypoint.sh	2019-04-27 07:12:40.147720329 +0000
-+++ entrypoint.sh	2019-04-27 07:11:47.719343215 +0000
+--- entrypoint.sh       2019-04-27 07:34:18.876742806 +0000
++++ entrypoint.sh   2019-04-27 07:35:28.305213822 +0000
 @@ -12,6 +12,9 @@
    dcs:
      postgresql:
@@ -17,3 +17,4 @@
 +chmod 0700 /home/postgres/pgdata/pgroot/data
 +
  exec /usr/bin/python3 /usr/local/bin/patroni /home/postgres/patroni.yml
+\ No newline at end of file
