@@ -1,4 +1,7 @@
 #!/bin/bash
+export LANGUAGE="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
 service postgresql start || exit 1
 sudo -u postgres createdb gha || exit 2
 sudo -u postgres psql gha -c "create user gha_admin with password 'pwd'" || exit 3
