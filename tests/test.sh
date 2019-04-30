@@ -3,7 +3,7 @@ export LANGUAGE="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 service postgresql start || exit 1
-sudo -u postgres createdb gha || exit 2
+sudo -u postgres psql -c "create database gha with lc_collate = 'en_US.UTF-8' lc_ctype = 'en_US.UTF-8' encoding = 'UTF8' template = 'template0'" || exit 2
 sudo -u postgres psql gha -c "create user gha_admin with password 'pwd'" || exit 3
 sudo -u postgres psql gha -c 'grant all privileges on database "gha" to gha_admin' || exit 4
 sudo -u postgres psql gha -c "alter user gha_admin createdb" || exit 5
