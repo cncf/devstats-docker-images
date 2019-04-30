@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tests
+  labels:
+    name: devstats
+    type: tests
+spec:
+  containers:
+  - image: lukaszgryglicki/devstats-test
+    imagePullPolicy: Always
+    name: tests
+  restartPolicy: Never
