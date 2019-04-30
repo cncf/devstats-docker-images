@@ -11,10 +11,12 @@ sudo -u postgres psql gha -c "create user ro_user with password 'pwd'" || exit 6
 sudo -u postgres psql gha -c 'grant all privileges on database "gha" to ro_user' || exit 7
 sudo -u postgres psql gha -c "create user devstats_team with password 'pwd'" || exit 8
 sudo -u postgres psql gha -c 'grant all privileges on database "gha" to devstats_team' || exit 9
-cd /go/src/github.com/cncf/devstatscode || exit 10
-make || exit 11
-make test || exit 12
-GHA2DB_PROJECT=kubernetes GHA2DB_LOCAL=1 PG_PASS=pwd ./dbtest.sh || exit 13
-cd /go/src/github.com/cncf/devstats || exit 14
-make check || exit 15
-PG_PASS=pwd make test || exit 16
+go get -u github.com/cncf/devstatscode || exit 10
+go get -d github.com/cncf/devstats || exit 11
+cd /go/src/github.com/cncf/devstatscode || exit 12
+make || exit 13
+make test || exit 14
+GHA2DB_PROJECT=kubernetes GHA2DB_LOCAL=1 PG_PASS=pwd ./dbtest.sh || exit 15
+cd /go/src/github.com/cncf/devstats || exit 16
+make check || exit 17
+PG_PASS=pwd make test || exit 18
