@@ -38,31 +38,46 @@ then
   docker build -f ./images/Dockerfile.grafana -t "${DOCKER_USER}/devstats-grafana" . || exit 14
 fi
 
+if [ -z "$SKIP_TEST" ]
+then
+  docker build -f ./images/Dockerfile.test -t "${DOCKER_USER}/devstats-test" . || exit 15
+fi
+
 if [ -z "$SKIP_PATRONI" ]
 then
-  docker build -f ./images/Dockerfile.patroni -t "${DOCKER_USER}/devstats-patroni" . || exit 15
+  docker build -f ./images/Dockerfile.patroni -t "${DOCKER_USER}/devstats-patroni" . || exit 16
 fi
 
 rm -f devstats.tar devstatscode.tar devstats-grafana.tar devstats-docker-images.tar grafana-bins.tar
 
+if [ ! -z "$SKIP_PUSH" ]
+then
+  exit 0
+fi
+
 if [ -z "$SKIP_FULL" ]
 then
-  docker push "${DOCKER_USER}/devstats" || exit 16
+  docker push "${DOCKER_USER}/devstats" || exit 17
 fi
 
 if [ -z "$SKIP_MIN" ]
 then
-  docker push "${DOCKER_USER}/devstats-minimal" || exit 17
+  docker push "${DOCKER_USER}/devstats-minimal" || exit 18
 fi
 
 if [ -z "$SKIP_GRAFANA" ]
 then
-  docker push "${DOCKER_USER}/devstats-grafana" || exit 18
+  docker push "${DOCKER_USER}/devstats-grafana" || exit 19
+fi
+
+if [ -z "$SKIP_TEST" ]
+then
+  docker push "${DOCKER_USER}/devstats-test" || exit 20
 fi
 
 if [ -z "$SKIP_PATRONI" ]
 then
-  docker push "${DOCKER_USER}/devstats-patroni" || exit 19
+  docker push "${DOCKER_USER}/devstats-patroni" || exit 21
 fi
 
 echo 'OK'

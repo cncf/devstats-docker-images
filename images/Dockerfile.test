@@ -1,0 +1,9 @@
+FROM golang:1.12
+RUN apt-get update -y && apt-get upgrade -y && apt-get install -y ca-certificates openssh-client git curl make sudo
+ADD tests/ACCC4CF8.asc .
+RUN sudo apt-key add ACCC4CF8.asc
+ADD tests/pgdg.list /etc/apt/sources.list.d/pgdg.list
+RUN sudo apt update -y && sudo apt -y install postgresql-11
+RUN go get -u github.com/cncf/devstatscode && go get -u golang.org/x/lint/golint && go get -u golang.org/x/tools/cmd/goimports && go get -u github.com/jgautheron/goconst/cmd/goconst && go get -u github.com/jgautheron/usedexports && go get -u github.com/kisielk/errcheck && go get -u github.com/olivere/elastic
+ADD tests/test.sh .
+CMD ./test.sh
