@@ -23,21 +23,8 @@ do
 
   ./devel/check_flag.sh "$db" devstats_running 0 || exit 3
   ./devel/clear_flag.sh "$db" provisioned || exit 4
-
-  if [ -f "./$proj/import_affs.sh" ]
-  then
-    ./$proj/import_affs.sh || exit 5
-  else
-    GHA2DB_PROJECT=$proj PG_DB=$db ./shared/import_affs.sh || exit 6
-  fi
-  if [ -f "./$proj/update_affs.sh" ]
-  then
-    ./$proj/update_affs.sh || exit 7
-  else
-    GHA2DB_PROJECT=$proj PG_DB=$db ./shared/update_affs.sh || exit 8
-  fi
-
-  ./devel/set_flag.sh "$db" provisioned || exit 9
+  GHA2DB_PROJECT=$proj PG_DB=$db ./shared/all_affs.sh || exit 5
+  ./devel/set_flag.sh "$db" provisioned || exit 6
 done
 
 echo 'All affiliations updated'
