@@ -18,6 +18,7 @@ Using kubernetes:
 - To test sync DevStats image (`devstats-minimal` container): `DOCKER_USER=... ./images/test_image_kubernetes.sh devstats-minimal`.
 - To test provisioning DevStats image (`devstats` container): `DOCKER_USER=... ./images/test_image_kubernetes.sh devstats`.
 - To test Grafana DevStats image (`devstats-grafana` container): `DOCKER_USER=... ./images/test_image_kubernetes.sh devstats-grafana`.
+- Amking pushes to GitHb triggers automatic Travis CI builds.
 
 Using docker:
 
