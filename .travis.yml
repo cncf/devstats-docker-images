@@ -2,6 +2,8 @@
 language: go
 services:
   - docker
+before_install:
+  - docker pull lukaszgryglicki/devstats-test
 script:
   - docker run -ti lukaszgryglicki/devstats-test
 notifications:
