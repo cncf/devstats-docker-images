@@ -684,3 +684,15 @@ projects:
     main_repo: networkservicemesh/networkservicemesh
     annotation_regexp: ''
     files_skip_pattern: ''
+  openebs:
+    order: 56
+    name: OpenEBS
+    status: Sandbox
+    command_line:
+      - openebs
+    start_date: 2016-08-01T00:00:00Z
+    join_date: 2019-05-14T00:00:00Z
+    psql_db: openebs
+    main_repo: openebs/openebs
+    annotation_regexp: ''
+    files_skip_pattern: ''
