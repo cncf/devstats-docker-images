@@ -66,8 +66,9 @@ then
   GHA2DB_EXCLUDE_VARS="projects_health_partial_html" ./devel/vars_all.sh || exit 6
 fi
 
+echo "<<< start: errors.txt >>>"
 cat errors.txt 2>/dev/null
-echo "<<< errors.txt >>>"
+echo "<<< end: errors.txt >>>"
 
 ./devel/set_flag.sh "$PROJDB" provisioned || exit 7
 
