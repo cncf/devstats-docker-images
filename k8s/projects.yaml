@@ -696,3 +696,15 @@ projects:
     main_repo: openebs/openebs
     annotation_regexp: ''
     files_skip_pattern: ''
+  opentelemetry:
+    order: 57
+    name: OpenTelemetry
+    status: Sandbox
+    command_line:
+      - open-telemetry
+    start_date: 2019-04-29T00:00:00Z
+    join_date: 2019-05-07T00:00:00Z
+    psql_db: opentelemetry
+    main_repo: open-telemetry/opentelemetry-java
+    annotation_regexp: ''
+    files_skip_pattern: ''
