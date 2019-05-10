@@ -21,7 +21,7 @@ tar cf ../devstats-docker-images/devstats-grafana.tar grafana/shared grafana/img
 
 cd "$cwd" || exit 10
 rm -f devstats-docker-images.tar 2>/dev/null
-tar cf devstats-docker-images.tar k8s example patches images/Makefile.* || exit 11
+tar cf devstats-docker-images.tar k8s example graphql patches images/Makefile.* || exit 11
 
 if [ -z "$SKIP_FULL" ]
 then
