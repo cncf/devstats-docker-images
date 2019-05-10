@@ -5,25 +5,17 @@ then
   exit 1
 fi
 
-export GHA2DB_PROJECTS_YAML="graphql/projects.yaml"
-export LIST_FN_PREFIX="graphql/all_"
+export GHA2DB_PROJECTS_YAML="gql/projects.yaml"
+export LIST_FN_PREFIX="gql/all_"
 
 . ./devel/all_projs.sh || exit 2
 for proj in $all
 do
   db=$proj
-
   ./devel/check_flag.sh "$db" devstats_running 0 || exit 3
   ./devel/clear_flag.sh "$db" provisioned || exit 4
-
-  if [ -f "./$proj/reinit.sh" ]
-  then
-    ./$proj/reinit.sh || exit 5
-  else
-    GHA2DB_PROJECT=$proj PG_DB=$db ./shared/reinit.sh || exit 6
-  fi
-
-  ./devel/set_flag.sh "$db" provisioned || exit 7
+  GHA2DB_PROJECT=$proj PG_DB=$db ./shared/all_affs.sh || exit 5
+  ./devel/set_flag.sh "$db" provisioned || exit 6
 done
 
-echo 'TS data regenerated'
+echo 'All affiliations updated'

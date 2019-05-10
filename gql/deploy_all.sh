@@ -29,8 +29,8 @@ then
 fi
 
 # export PG_ADMIN_USER=sa
-export GHA2DB_PROJECTS_YAML="graphql/projects.yaml"
-export LIST_FN_PREFIX="graphql/all_"
+export GHA2DB_PROJECTS_YAML="gql/projects.yaml"
+export LIST_FN_PREFIX="gql/all_"
 
 if [ ! -z "$ONLY" ]
 then
