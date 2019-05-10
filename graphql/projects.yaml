@@ -5,8 +5,8 @@ projects:
     name: GraphQL
     status: "-"
     command_line: ['graphql']
-    start_date: 2015-12-07T18:00:00Z
-    join_date: 2015-12-07T18:00:00Z
+    start_date: 2015-07-02T00:00:00Z
+    join_date: null
     psql_db: graphql
     main_repo: 'graphql/graphql-js'
     annotation_regexp: '^v\d+\.\d+\.\d+$'
@@ -16,8 +16,8 @@ projects:
     name: GraphQL JavaScript
     status: "-"
     command_line: ['graphql/graphql-js']
-    start_date: 2014-01-06T00:00:00Z
-    join_date: 2016-05-09T00:00:00Z
+    start_date: 2015-07-02T00:00:00Z
+    join_date: null
     psql_db: graphqljs
     main_repo: 'graphql/graphql-js'
     annotation_regexp: '^v\d+\.\d+\.\d+$'
