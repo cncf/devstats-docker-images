@@ -708,3 +708,15 @@ projects:
     main_repo: open-telemetry/opentelemetry-java
     annotation_regexp: ''
     files_skip_pattern: ''
+  graphql:
+    order: 58
+    name: GraphQL
+    status: "-"
+    command_line:
+      - graphql
+    start_date: 2015-07-02T00:00:00Z
+    join_date: null
+    psql_db: graphql
+    main_repo: 'graphql/graphql-js'
+    annotation_regexp: '^v\d+\.\d+\.\d+$'
+    files_skip_pattern: ''
