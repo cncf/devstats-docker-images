@@ -1,1 +1,1 @@
-graphql graphqljs
+graphql graphqljs graphiql expressgraphql graphqlspec
