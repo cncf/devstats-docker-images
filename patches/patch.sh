@@ -9,6 +9,13 @@ then
   echo "$0: you need to specify hostname: devstats-demo.net, graphql.devstats.org etc."
   exit 2
 fi
+if [ -z "$3" ]
+then
+  echo "$0: projects to patch not specified, assuming all"
+  projs="."
+else
+  projs="$3"
+fi
 if [ "$1" = "prodsrv" ]
 then
   fromh='devstats.cncf.io'
@@ -19,7 +26,8 @@ else
   echo "$0: 1st arg must be either prodsrv or testsrv, got: $1"
   exit 3
 fi
-files=`find ./metrics/ -name vars.yaml -o -name sync_vars.yaml` || exit 4
+cd metrics || exit 4
+files=`find $projs -name vars.yaml -o -name sync_vars.yaml` || exit 5
 for fn in $files
 do
   echo "Patching $fn"
