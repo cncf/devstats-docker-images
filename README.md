@@ -1,6 +1,6 @@
 # devstats-docker-images
 
-DevStats docker images: minimal (hourly cron job sync), full (provisioning/bootstraping), Grafana (UI endpoint)
+DevStats docker images: minimal (hourly cron job sync), full (provisioning/bootstraping), Grafana (UI endpoint), Patroni (database), tests.
 
 
 # Create and test images
