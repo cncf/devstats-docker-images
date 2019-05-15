@@ -24,3 +24,15 @@ projects:
     main_repo: prometheus/prometheus
     annotation_regexp: '^v?\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  kubeflow:
+    order: 3
+    name: Kubeflow
+    status: "-"
+    command_line:
+      - kubeflow
+    start_date: 2017-11-30T00:00:00Z
+    join_date: null
+    psql_db: kubeflow
+    main_repo: kubeflow/kubeflow
+    annotation_regexp: '^v?\d+\.\d+\.\d+$'
+    files_skip_pattern: ''
