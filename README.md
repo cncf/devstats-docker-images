@@ -31,4 +31,4 @@ Using docker:
 
 # Adding new projects
 
-See `NEW_PROJECT.md`.
+See `cncf/devstats-helm-example`:`ADDING_NEW_PROJECTS.md` or `NEW_PROJECT.md` (this is only for updating docker images and adding to bare kubernetes deployment).
