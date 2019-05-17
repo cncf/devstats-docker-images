@@ -36,3 +36,15 @@ projects:
     main_repo: kubeflow/kubeflow
     annotation_regexp: '^v?\d+\.\d+\.\d+$'
     files_skip_pattern: ''
+  istio:
+    order: 4
+    name: Istio
+    status: "-"
+    command_line:
+      - istio
+    start_date: 2016-12-01T00:00:00Z
+    join_date: null
+    psql_db: istio
+    main_repo: istio/istio
+    annotation_regexp: ''
+    files_skip_pattern: ''
