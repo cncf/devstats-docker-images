@@ -5,8 +5,9 @@
      postgresql:
        use_pg_rewind: true
 +      parameters:
-+        shared_buffers: 512MB
-+        max_parallel_workers_per_gather: 2
++        shared_buffers: 96GB
++        max_parallel_workers_per_gather: 3
++        max_connections: 300
    initdb:
    - auth-host: md5
    - auth-local: trust
