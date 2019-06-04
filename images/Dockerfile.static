@@ -1,0 +1,3 @@
+FROM nginx
+EXPOSE 80
+COPY index_*.html /usr/share/nginx/html/

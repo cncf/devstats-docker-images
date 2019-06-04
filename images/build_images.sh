@@ -15,9 +15,10 @@ tar cf ../devstats-docker-images/devstatscode.tar cmd vendor *.go || exit 5
 tar cf ../devstats-docker-images/grafana-bins.tar replacer sqlitedb || exit 6
 
 cd ../devstats || exit 7
-rm -f ../devstats-docker-images/devstats.tar ../devstats-docker-images/devstats-grafana.tar 2>/dev/null
+rm -f ../devstats-docker-images/index_*.html ../devstats-docker-images/devstats.tar ../devstats-docker-images/devstats-grafana.tar 2>/dev/null
 tar cf ../devstats-docker-images/devstats.tar git metrics cdf devel util_sql envoy all lfn shared iovisor mininet opennetworkinglab opensecuritycontroller openswitch p4lang openbmp tungstenfabric cord scripts partials docs cron zephyr linux kubernetes prometheus opentracing fluentd linkerd grpc coredns containerd rkt cni jaeger notary tuf rook vitess nats opa spiffe spire cloudevents telepresence helm openmetrics harbor etcd tikv cortex buildpacks falco dragonfly virtualkubelet kubeedge brigade crio networkservicemesh openebs opentelemetry cncf opencontainers istio spinnaker knative tekton jenkins jenkinsx graphql graphqljs graphiql expressgraphql graphqlspec kubeflow jsons/.keep util_sh/setup_scripts.sh util_sh/make_binary_links.sh projects.yaml companies.yaml skip_dates.yaml github_users.json || exit 8
 tar cf ../devstats-docker-images/devstats-grafana.tar grafana/shared grafana/img/*.svg grafana/img/*.png grafana/*/change_title_and_icons.sh grafana/*/custom_sqlite.sql grafana/dashboards/*/*.json || exit 9
+cp apache/www/index_*.html ../devstats-docker-images/ || exit 22
 
 cd "$cwd" || exit 10
 rm -f devstats-docker-images.tar 2>/dev/null
@@ -48,7 +49,12 @@ then
   docker build -f ./images/Dockerfile.patroni -t "${DOCKER_USER}/devstats-patroni" . || exit 16
 fi
 
-rm -f devstats.tar devstatscode.tar devstats-grafana.tar devstats-docker-images.tar grafana-bins.tar
+if [ -z "$SKIP_STATIC" ]
+then
+  docker build -f ./images/Dockerfile.static -t "${DOCKER_USER}/devstats-static" . || exit 23
+fi
+
+rm -f devstats.tar devstatscode.tar devstats-grafana.tar devstats-docker-images.tar grafana-bins.tar index_*.html
 
 if [ ! -z "$SKIP_PUSH" ]
 then
@@ -78,6 +84,11 @@ fi
 if [ -z "$SKIP_PATRONI" ]
 then
   docker push "${DOCKER_USER}/devstats-patroni" || exit 21
+fi
+
+if [ -z "$SKIP_STATIC" ]
+then
+  docker push "${DOCKER_USER}/devstats-static" || exit 24
 fi
 
 echo 'OK'
