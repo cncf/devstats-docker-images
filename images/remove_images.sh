@@ -24,6 +24,14 @@ if [ -z "$SKIP_TEST" ]
 then
   docker image rm -f "${DOCKER_USER}/devstats-test"
 fi
+if [ -z "$SKIP_STATIC" ]
+then
+  docker image rm -f "${DOCKER_USER}/devstats-static-test"
+  docker image rm -f "${DOCKER_USER}/devstats-static-prod"
+  docker image rm -f "${DOCKER_USER}/devstats-static-cdf"
+  docker image rm -f "${DOCKER_USER}/devstats-static-graphql"
+  docker image rm -f "${DOCKER_USER}/devstats-static-default"
+fi
 if [ -z "$SKIP_PRUNE" ]
 then
   docker system prune -f
