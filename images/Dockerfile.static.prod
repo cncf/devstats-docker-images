@@ -1,0 +1,3 @@
+FROM nginx
+EXPOSE 80
+COPY index_prod.html /usr/share/nginx/html/

@@ -51,7 +51,11 @@ fi
 
 if [ -z "$SKIP_STATIC" ]
 then
-  docker build -f ./images/Dockerfile.static -t "${DOCKER_USER}/devstats-static" . || exit 23
+  docker build -f ./images/Dockerfile.static.prod -t "${DOCKER_USER}/devstats-static-prod" . || exit 23
+  docker build -f ./images/Dockerfile.static.test -t "${DOCKER_USER}/devstats-static-test" . || exit 24
+  docker build -f ./images/Dockerfile.static.cdf -t "${DOCKER_USER}/devstats-static-cdf" . || exit 25
+  docker build -f ./images/Dockerfile.static.graphql -t "${DOCKER_USER}/devstats-static-graphql" . || exit 26
+  docker build -f ./images/Dockerfile.static.default -t "${DOCKER_USER}/devstats-static-default" . || exit 27
 fi
 
 rm -f devstats.tar devstatscode.tar devstats-grafana.tar devstats-docker-images.tar grafana-bins.tar index_*.html
@@ -88,7 +92,11 @@ fi
 
 if [ -z "$SKIP_STATIC" ]
 then
-  docker push "${DOCKER_USER}/devstats-static" || exit 24
+  docker push "${DOCKER_USER}/devstats-static-prod" || exit 24
+  docker push "${DOCKER_USER}/devstats-static-test" || exit 28
+  docker push "${DOCKER_USER}/devstats-static-cdf" || exit 29
+  docker push "${DOCKER_USER}/devstats-static-graphql" || exit 30
+  docker push "${DOCKER_USER}/devstats-static-default" || exit 31
 fi
 
 echo 'OK'
