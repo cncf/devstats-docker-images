@@ -1,4 +1,4 @@
 FROM nginx
 EXPOSE 80
-COPY index_default.html /usr/share/nginx/html/index.html
 COPY *.svg /usr/share/nginx/html/
+COPY index_default.html /usr/share/nginx/html/index.html
