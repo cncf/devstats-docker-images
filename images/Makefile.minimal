@@ -168,15 +168,18 @@ dockerinstall: ${DOCKER_BINARIES} copydata
 	chmod 777 ${DATADIR}/example 2>/dev/null || echo "..."
 	mkdir ${DATADIR}/gql 2>/dev/null || echo "..."
 	chmod 777 ${DATADIR}/gql 2>/dev/null || echo "..."
+	mkdir ${DATADIR}/devstats-helm 2>/dev/null || echo "..."
+	chmod 777 ${DATADIR}/devstats-helm 2>/dev/null || echo "..."
 	cp k8s/projects.yaml ${DATADIR}/k8s/ || exit 11
 	cp example/projects.yaml ${DATADIR}/example/ || exit 12
 	cp gql/projects.yaml ${DATADIR}/gql/ || exit 13
+	cp devstats-helm/projects.yaml ${DATADIR}/devstats-helm/ || exit 14
 	${GO_INSTALL} ${GO_DOCKER_BIN_CMDS}
-	cp -v ${GIT_SCRIPTS} ${GOPATH}/bin || exit 14
-	cd ${GOPATH}/bin || exit 15
-	mkdir ${BINARY_PATH} || exit 16
-	cp -v ${DOCKER_BINARIES} ${BINARY_PATH} || exit 17
-	cp -v ${GIT_SCRIPTS} ${BINARY_PATH} || exit 18
+	cp -v ${GIT_SCRIPTS} ${GOPATH}/bin || exit 15
+	cd ${GOPATH}/bin || exit 16
+	mkdir ${BINARY_PATH} || exit 17
+	cp -v ${DOCKER_BINARIES} ${BINARY_PATH} || exit 18
+	cp -v ${GIT_SCRIPTS} ${BINARY_PATH} || exit 19
 
 strip: ${BINARIES}
 	${STRIP} ${BINARIES}

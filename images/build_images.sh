@@ -22,7 +22,7 @@ cp apache/www/index_*.html ../devstats-docker-images/ || exit 22
 
 cd "$cwd" || exit 10
 rm -f devstats-docker-images.tar 2>/dev/null
-tar cf devstats-docker-images.tar k8s example gql patches images/Makefile.* || exit 11
+tar cf devstats-docker-images.tar k8s example gql devstats-helm patches images/Makefile.* || exit 11
 
 if [ -z "$SKIP_FULL" ]
 then

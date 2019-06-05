@@ -1,0 +1,61 @@
+---
+projects:
+  graphql:
+    order: 1
+    name: GraphQL
+    status: "-"
+    command_line: ['graphql']
+    start_date: 2015-07-02T00:00:00Z
+    join_date: null
+    psql_db: graphql
+    main_repo: 'graphql/graphql-js'
+    annotation_regexp: '^v\d+\.\d+\.\d+$'
+    files_skip_pattern: ''
+  graphqljs:
+    order: 2
+    name: GraphQL JavaScript
+    status: "-"
+    command_line: ['graphql/graphql-js']
+    start_date: 2015-07-02T00:00:00Z
+    join_date: null
+    psql_db: graphqljs
+    shared_db: graphql
+    main_repo: 'graphql/graphql-js'
+    annotation_regexp: '^v\d+\.\d+\.\d+$'
+    files_skip_pattern: ''
+  graphiql:
+    order: 3
+    name: GraphQL IDE
+    status: "-"
+    command_line: ['graphql/graphiql']
+    start_date: 2015-08-24T00:00:00Z
+    join_date: null
+    psql_db: graphiql
+    shared_db: graphql
+    main_repo: 'graphql/graphiql'
+    annotation_regexp: '^v\d+\.\d+\.\d+$'
+    files_skip_pattern: ''
+  expressgraphql:
+    order: 4
+    name: Express GraphQL
+    status: "-"
+    command_line: ['graphql/express-graphql']
+    start_date: 2015-08-10T00:00:00Z
+    join_date: null
+    psql_db: expressgraphql
+    shared_db: graphql
+    main_repo: 'graphql/express-graphql'
+    annotation_regexp: '^v\d+\.\d+\.\d+$'
+    files_skip_pattern: ''
+  graphqlspec:
+    order: 5
+    name: GraphQL Spec
+    status: "-"
+    command_line: ['graphql/graphql-spec']
+    start_date: 2015-07-02T00:00:00Z
+    join_date: null
+    psql_db: graphqlspec
+    shared_db: graphql
+    main_repo: 'graphql/graphql-spec' # was: facebook/graphql
+    annotation_regexp: ''
+    files_skip_pattern: ''
