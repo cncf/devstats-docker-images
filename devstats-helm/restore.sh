@@ -1,4 +1,4 @@
-wget "${RESTORE_FROM}${PROJDB}.dump" || exit 1
+wget "${RESTORE_FROM}/${PROJDB}.dump" || exit 1
 db.sh psql postgres -c "create database $PROJDB" || exit 2
 db.sh psql postgres -c "grant all privileges on database \"$PROJDB\" to gha_admin" || exit 3
 db.sh psql "$PROJDB" -c "create extension if not exists pgcrypto" || exit 4
