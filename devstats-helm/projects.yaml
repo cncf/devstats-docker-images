@@ -56,6 +56,6 @@ projects:
     join_date: null
     psql_db: graphqlspec
     shared_db: graphql
-    main_repo: 'graphql/graphql-spec' # was: facebook/graphql
+    main_repo: 'graphql/graphql-spec'
     annotation_regexp: ''
     files_skip_pattern: ''

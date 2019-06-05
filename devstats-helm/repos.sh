@@ -5,7 +5,7 @@ then
   exit 1
 fi
 
-export GHA2DB_PROJECTS_YAML="gql/projects.yaml"
-export LIST_FN_PREFIX="gql/all_"
+export GHA2DB_PROJECTS_YAML="devstats-helm/projects.yaml"
+export LIST_FN_PREFIX="devstats-helm/all_"
 
 GHA2DB_LOCAL=1 GHA2DB_PROCESS_REPOS=1 get_repos
