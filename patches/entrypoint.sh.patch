@@ -1,6 +1,6 @@
 --- entrypoint.sh       2019-04-27 07:34:18.876742806 +0000
 +++ entrypoint.sh   2019-04-27 07:35:28.305213822 +0000
-@@ -12,6 +12,10 @@
+@@ -12,6 +12,11 @@
    dcs:
      postgresql:
        use_pg_rewind: true
@@ -8,6 +8,7 @@
 +        shared_buffers: 96GB
 +        max_parallel_workers_per_gather: 3
 +        max_connections: 300
++        max_wal_size: 16GB
    initdb:
    - auth-host: md5
    - auth-local: trust
