@@ -7,7 +7,6 @@ ADD devstatscode.tar .
 ADD devstats-docker-images.tar .
 ADD grafana-bins.tar .
 RUN cp replacer patches/patch.sh /usr/bin/
-RUN patch.sh testsrv devstats-demo.net 'cncf prometheus kubeflow'
 RUN patch.sh testsrv devstats.graphql.org 'graphql graphqljs graphiql expressgraphql graphqlspec'
 RUN make -f ./images/Makefile.full dockerinstall
 RUN make -f ./images/Makefile.full links
