@@ -12,4 +12,5 @@ GHA2DB_PROJECT="$PROJ" PG_DB="$PROJDB" GHA2DB_LOCAL=1 GHA2DB_VARS_FN_YAML="sync_
 GHA2DB_PROJECT=$PROJ PG_DB=$PROJDB ./shared/get_repos.sh || exit 10
 GHA2DB_PROJECT="$PROJ" PG_DB="$PROJDB" GHA2DB_LOCAL=1 gha2db_sync || exit 11
 ./devel/set_flag.sh "$PROJDB" provisioned || exit 12
+./devel/clear_flag.sh "$PROJDB" devstats_running || exit 13
 echo 'OK'
