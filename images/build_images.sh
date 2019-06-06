@@ -1,4 +1,5 @@
 #!/bin/bash
+# SKIP_FULL=1 SKIP_MIN=1 SKIP_GRAFANA=1 SKIP_TEST=1 SKIP_PATRONI=1 SKIP_STATIC=1 SKIP_PUSH=1
 if [ -z "${DOCKER_USER}" ]
 then
   echo "$0: you need to set docker user via DOCKER_USER=username"
