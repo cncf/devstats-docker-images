@@ -12,6 +12,13 @@ export LIST_FN_PREFIX="devstats-helm/all_"
 for proj in $all
 do
   db=$proj
+  if [ "$proj" = "kubernetes" ]
+  then
+    db="gha"
+  elif [ "$proj" = "all" ]
+  then
+    db="allprj"
+  fi
   ./devel/check_flag.sh "$db" devstats_running 0 || exit 3
   ./devel/clear_flag.sh "$db" provisioned || exit 4
   GHA2DB_PROJECT=$proj PG_DB=$db ./shared/all_affs.sh || exit 5

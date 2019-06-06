@@ -13,6 +13,14 @@ export LIST_FN_PREFIX="devstats-helm/all_"
 for proj in $all
 do
   db=$proj
+  if [ "$proj" = "kubernetes" ]
+  then
+    db="gha"
+  elif [ "$proj" = "all" ]
+  then
+    db="allprj"
+  fi
+
   if [ ! -z "$USE_FLAGS" ]
   then
     ./devel/check_flag.sh "$db" devstats_running 0 || exit 3
