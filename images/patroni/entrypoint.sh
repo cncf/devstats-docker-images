@@ -1,7 +1,4 @@
-
-  shared_buffers: '${PATRONI_POSTGRES_BUFFERS}'
-  max_parallel_workers_per_gather: '${PATRONI_POSTGRES_MAX_PARALLEL}'
-  !/bin/bash
+#!/bin/bash
 
 if [[ $UID -ge 10000 ]]; then
     GID=$(id -g)
@@ -39,7 +36,7 @@ postgresql:
     max_parallel_workers_per_gather: '${PATRONI_POSTGRES_MAX_PARALLEL}'
     max_workers: '${PATRON_POSTGRES_MAX_WORKERS}'
     work_mem: '${PATRONI_POSTGRES_WORK_MEM}'
-    temp_file_limit: '5GB'
+    temp_file_limit: '${PATRONI_POSTGRES_MAX_TEMP_FILE}'
     idle_in_transaction_session_timeout = '60min'
     wal_buffers: '${PATRONI_POSTGRES_WAL_BUFFERS}'
     synchronous_commit: 'off'
