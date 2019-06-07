@@ -37,7 +37,7 @@ postgresql:
     max_workers: '${PATRON_POSTGRES_MAX_WORKERS}'
     work_mem: '${PATRONI_POSTGRES_WORK_MEM}'
     temp_file_limit: '${PATRONI_POSTGRES_MAX_TEMP_FILE}'
-    idle_in_transaction_session_timeout = '60min'
+    idle_in_transaction_session_timeout: '60min'
     wal_buffers: '${PATRONI_POSTGRES_WAL_BUFFERS}'
     synchronous_commit: 'off'
 __EOF__
