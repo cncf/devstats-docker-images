@@ -18,7 +18,8 @@ then
 fi
 if [ -z "$SKIP_PATRONI" ]
 then
-  docker image rm -f "${DOCKER_USER}/devstats-patroni"
+  #docker image rm -f "${DOCKER_USER}/devstats-patroni"
+  docker image rm -f "${DOCKER_USER}/devstats-patroni-new"
 fi
 if [ -z "$SKIP_TEST" ]
 then
