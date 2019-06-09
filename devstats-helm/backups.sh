@@ -20,4 +20,6 @@ if [ ! -z "$failed" ]
 then
   echo "Failed: $failed"
   exit 1
+else
+  echo "All backups OK"
 fi
