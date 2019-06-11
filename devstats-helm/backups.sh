@@ -1,4 +1,5 @@
 #!/bin/bash
+export LIST_FN_PREFIX="devstats-helm/all_"
 failed=''
 . ./devel/all_dbs.sh || exit 2
 for db in $all
