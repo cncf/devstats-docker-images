@@ -1,0 +1,18 @@
+FROM golang:1.12 AS builder
+RUN apt-get update -y && apt-get upgrade -y && apt-get install -y ca-certificates openssh-client postgresql-client git curl make
+RUN go get -u github.com/cncf/devstatscode
+WORKDIR /go/src/github.com/cncf/devstatscode
+ADD devstats.tar .
+ADD devstatscode.tar .
+ADD devstats-docker-images.tar .
+ADD grafana-bins.tar .
+RUN cp replacer patches/patch.sh /usr/bin/
+RUN patch.sh testsrv teststats.cncf.io 'kubernetes prometheus opentracing fluentd linkerd grpc coredns containerd rkt cni envoy jaeger notary tuf rook vitess nats opa spiffe spire cloudevents telepresence helm openmetrics harbor etcd tikv cortex buildpacks falco dragonfly virtualkubelet kubeedge brigade crio networkservicemesh openebs opentelemetry cncf all opencontainers istio knative linux zephyr graphql graphqljs graphiql expressgraphql graphqlspec spinnaker tekton jenkins jenkinsx allcdf'
+RUN make -f ./images/Makefile.full dockerinstall
+RUN make -f ./images/Makefile.full links
+FROM alpine
+RUN apk add git bash postgresql-client xz curl
+COPY --from=builder /etc/gha2db /etc/gha2db
+COPY --from=builder /go/src/github.com/cncf/devstatscode /go/src/devstats
+COPY --from=builder /devstats-minimal/* /usr/bin/
+WORKDIR /go/src/devstats

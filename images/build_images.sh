@@ -29,7 +29,8 @@ tar cf devstats-docker-images.tar k8s example gql devstats-helm patches images/M
 
 if [ -z "$SKIP_FULL" ]
 then
-  docker build -f ./images/Dockerfile.full -t "${DOCKER_USER}/devstats" . || exit 12
+  docker build -f ./images/Dockerfile.full.test -t "${DOCKER_USER}/devstats-test" . || exit 12
+  docker build -f ./images/Dockerfile.full.prod -t "${DOCKER_USER}/devstats-prod" . || exit 33
 fi
 
 if [ -z "$SKIP_MIN" ]
@@ -71,7 +72,8 @@ fi
 
 if [ -z "$SKIP_FULL" ]
 then
-  docker push "${DOCKER_USER}/devstats" || exit 17
+  docker push "${DOCKER_USER}/devstats-test" || exit 17
+  docker push "${DOCKER_USER}/devstats-prod" || exit 34
 fi
 
 if [ -z "$SKIP_MIN" ]
