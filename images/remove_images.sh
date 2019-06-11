@@ -6,7 +6,8 @@ then
 fi
 if [ -z "$SKIP_FULL" ]
 then
-  docker image rm -f "${DOCKER_USER}/devstats"
+  docker image rm -f "${DOCKER_USER}/devstats-test"
+  docker image rm -f "${DOCKER_USER}/devstats-prod"
 fi
 if [ -z "$SKIP_MIN" ]
 then
