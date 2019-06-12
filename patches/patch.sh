@@ -31,6 +31,7 @@ files=`find $projs -name vars.yaml -o -name sync_vars.yaml` || exit 5
 for fn in $files
 do
   echo "Patching $fn"
+  MODE=ss0 FROM='command: [hostname]' TO="value: '$2'" replacer "$fn"
   MODE=ss0 FROM="hostname, os_hostname" TO="hostname, ':$2'" replacer "$fn"
   MODE=ss0 FROM="':$1=$fromh '" TO="':$1=$2 '" replacer "$fn"
   MODE=ss0 FROM="': $fromh=$1'" TO="': $2=$1'" replacer "$fn"
