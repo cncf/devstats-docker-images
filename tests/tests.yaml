@@ -8,7 +8,7 @@ metadata:
     type: tests
 spec:
   containers:
-  - image: lukaszgryglicki/devstats-test
+  - image: lukaszgryglicki/devstats-tests
     imagePullPolicy: Always
     name: tests
   restartPolicy: Never

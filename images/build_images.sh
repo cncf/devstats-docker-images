@@ -1,5 +1,5 @@
 #!/bin/bash
-# DOCKER_USER=lukaszgryglicki SKIP_FULL=1 SKIP_MIN=1 SKIP_GRAFANA=1 SKIP_TEST=1 SKIP_PATRONI=1 SKIP_STATIC=1 SKIP_PUSH=1 ./images/build_images.sh
+# DOCKER_USER=lukaszgryglicki SKIP_FULL=1 SKIP_MIN=1 SKIP_GRAFANA=1 SKIP_TESTS=1 SKIP_PATRONI=1 SKIP_STATIC=1 SKIP_PUSH=1 ./images/build_images.sh
 # DOCKER_USER=lukaszgryglicki ./images/remove_images.sh
 if [ -z "${DOCKER_USER}" ]
 then
@@ -43,9 +43,9 @@ then
   docker build -f ./images/Dockerfile.grafana -t "${DOCKER_USER}/devstats-grafana" . || exit 14
 fi
 
-if [ -z "$SKIP_TEST" ]
+if [ -z "$SKIP_TESTS" ]
 then
-  docker build -f ./images/Dockerfile.test -t "${DOCKER_USER}/devstats-test" . || exit 15
+  docker build -f ./images/Dockerfile.tests -t "${DOCKER_USER}/devstats-tests" . || exit 15
 fi
 
 if [ -z "$SKIP_PATRONI" ]
@@ -86,9 +86,9 @@ then
   docker push "${DOCKER_USER}/devstats-grafana" || exit 19
 fi
 
-if [ -z "$SKIP_TEST" ]
+if [ -z "$SKIP_TESTS" ]
 then
-  docker push "${DOCKER_USER}/devstats-test" || exit 20
+  docker push "${DOCKER_USER}/devstats-tests" || exit 20
 fi
 
 if [ -z "$SKIP_PATRONI" ]

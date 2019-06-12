@@ -22,9 +22,9 @@ then
   #docker image rm -f "${DOCKER_USER}/devstats-patroni"
   docker image rm -f "${DOCKER_USER}/devstats-patroni-new"
 fi
-if [ -z "$SKIP_TEST" ]
+if [ -z "$SKIP_TESTS" ]
 then
-  docker image rm -f "${DOCKER_USER}/devstats-test"
+  docker image rm -f "${DOCKER_USER}/devstats-tests"
 fi
 if [ -z "$SKIP_STATIC" ]
 then
