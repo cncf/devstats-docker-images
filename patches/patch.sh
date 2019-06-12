@@ -6,7 +6,7 @@ then
 fi
 if [ -z "$2" ]
 then
-  echo "$0: you need to specify hostname: devstats-demo.net, graphql.devstats.org etc."
+  echo "$0: you need to specify hostname: devstats.cncf.io, teststats.cncf.io, devstats.cd.foundation, graphql.devstats.org etc."
   exit 2
 fi
 if [ -z "$3" ]
