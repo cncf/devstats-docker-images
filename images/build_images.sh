@@ -35,7 +35,8 @@ fi
 
 if [ -z "$SKIP_MIN" ]
 then
-  docker build -f ./images/Dockerfile.minimal -t "${DOCKER_USER}/devstats-minimal" . || exit 13
+  docker build -f ./images/Dockerfile.minimal.test -t "${DOCKER_USER}/devstats-minimal-test" . || exit 13
+  docker build -f ./images/Dockerfile.minimal.prod -t "${DOCKER_USER}/devstats-minimal-prod" . || exit 35
 fi
 
 if [ -z "$SKIP_GRAFANA" ]
@@ -78,7 +79,8 @@ fi
 
 if [ -z "$SKIP_MIN" ]
 then
-  docker push "${DOCKER_USER}/devstats-minimal" || exit 18
+  docker push "${DOCKER_USER}/devstats-minimal-test" || exit 18
+  docker push "${DOCKER_USER}/devstats-minimal-prod" || exit 36
 fi
 
 if [ -z "$SKIP_GRAFANA" ]

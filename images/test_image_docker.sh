@@ -6,7 +6,7 @@ then
 fi
 if [ -z "$1" ]
 then
-  echo "$0: you need to pass devstats image name as an agument, possible options are: devstats, devstats-minimal, devstats-grafana"
+  echo "$0: you need to pass devstats image name as an agument, possible options are: devstats-test, devstats-prod, devstats-minimal-test, devstats-minimal-prod, devstats-grafana"
   exit 3
 fi
 command="$2"

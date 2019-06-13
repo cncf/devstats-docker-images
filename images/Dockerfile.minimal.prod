@@ -7,7 +7,9 @@ ADD devstatscode.tar .
 ADD devstats-docker-images.tar .
 ADD grafana-bins.tar .
 RUN cp replacer patches/patch.sh /usr/bin/
-RUN patch.sh testsrv devstats.graphql.org 'graphql graphqljs graphiql expressgraphql graphqlspec'
+RUN patch.sh prodsrv devstats.graphql.org 'graphql graphqljs graphiql expressgraphql graphqlspec'
+RUN patch.sh prodsrv devstats.cd.foundation 'spinnaker tekton jenkins jenkinsx allcdf'
+RUN patch.sh prodsrv devstats.cncf.io 'kubernetes prometheus opentracing fluentd linkerd grpc coredns containerd rkt cni envoy jaeger notary tuf rook vitess nats opa spiffe spire cloudevents telepresence helm openmetrics harbor etcd tikv cortex buildpacks falco dragonfly virtualkubelet kubeedge brigade crio networkservicemesh openebs opentelemetry all'
 RUN make -f ./images/Makefile.minimal dockerinstall
 FROM alpine
 RUN apk add git bash

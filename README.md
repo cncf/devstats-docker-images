@@ -17,8 +17,8 @@ Create and remove docker images:
 
 Using kubernetes:
 
-- To test sync DevStats image (`devstats-minimal` container): `DOCKER_USER=... ./images/test_image_kubernetes.sh devstats-minimal`.
-- To test provisioning DevStats image (`devstats` container): `DOCKER_USER=... ./images/test_image_kubernetes.sh devstats`.
+- To test sync DevStats image (`devstats-minimal-test`, `devstats-minimal-prod` containers): `DOCKER_USER=... ./images/test_image_kubernetes.sh devstats-minimal-test`.
+- To test provisioning DevStats image (`devstats-test`, `devstats-prod` containers): `DOCKER_USER=... ./images/test_image_kubernetes.sh devstats-prod`.
 - To test Grafana DevStats image (`devstats-grafana` container): `DOCKER_USER=... ./images/test_image_kubernetes.sh devstats-grafana`.
 - To execute test coverage: `./tests/test_from_docker.sh`.
 - Making pushes to GitHb triggers automatic Travis CI builds.

@@ -6,12 +6,15 @@ then
 fi
 if [ -z "$SKIP_FULL" ]
 then
+  docker image rm -f "${DOCKER_USER}/devstats"
   docker image rm -f "${DOCKER_USER}/devstats-test"
   docker image rm -f "${DOCKER_USER}/devstats-prod"
 fi
 if [ -z "$SKIP_MIN" ]
 then
   docker image rm -f "${DOCKER_USER}/devstats-minimal"
+  docker image rm -f "${DOCKER_USER}/devstats-minimal-test"
+  docker image rm -f "${DOCKER_USER}/devstats-minimal-prod"
 fi
 if [ -z "$SKIP_GRAFANA" ]
 then
@@ -19,7 +22,7 @@ then
 fi
 if [ -z "$SKIP_PATRONI" ]
 then
-  #docker image rm -f "${DOCKER_USER}/devstats-patroni"
+  docker image rm -f "${DOCKER_USER}/devstats-patroni"
   docker image rm -f "${DOCKER_USER}/devstats-patroni-new"
 fi
 if [ -z "$SKIP_TESTS" ]
