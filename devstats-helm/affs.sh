@@ -1,4 +1,5 @@
 #!/bin/bash
+# SKIPTEMP=1 (skip regenerating using temporary database)
 if ( [ -z "$PG_PASS" ] || [ -z "$PG_HOST" ] || [ -z "$PG_PORT" ] )
 then
   echo "$0: you need to set PG_PASS, PG_HOST and PG_PORT to run this script"
@@ -19,7 +20,7 @@ do
   then
     db="allprj"
   fi
-  ./devel/check_flag.sh "$db" devstats_running 0 || exit 3
+  ./devel/wait_flag.sh "$db" devstats_running 0 || exit 3
   ./devel/clear_flag.sh "$db" provisioned || exit 4
   GHA2DB_PROJECT=$proj PG_DB=$db ./shared/all_affs.sh || exit 5
   ./devel/set_flag.sh "$db" provisioned || exit 6
