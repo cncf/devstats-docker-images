@@ -20,7 +20,7 @@ do
   then
     db="allprj"
   fi
-  ./devel/wait_flag.sh "$db" devstats_running 0 || exit 3
+  ./devel/wait_flag.sh "$db" devstats_running 0 30 || exit 3
   ./devel/clear_flag.sh "$db" provisioned || exit 4
   GHA2DB_PROJECT=$proj PG_DB=$db ./shared/all_affs.sh || exit 5
   ./devel/set_flag.sh "$db" provisioned || exit 6
