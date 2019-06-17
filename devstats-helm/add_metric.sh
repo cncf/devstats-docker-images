@@ -23,7 +23,7 @@ do
 
   if [ ! -z "$USE_FLAGS" ]
   then
-    ./devel/check_flag.sh "$db" devstats_running 0 || exit 3
+    ./devel/wait_flag.sh "$db" devstats_running 0 || exit 3
     ./devel/clear_flag.sh "$db" provisioned || exit 4
   fi
   GHA2DB_PROJECT=$proj PG_DB=$db ./devel/add_single_metric.sh || exit 5
