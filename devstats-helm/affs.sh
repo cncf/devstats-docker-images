@@ -1,4 +1,5 @@
 #!/bin/bash
+# USE_FLAGS=1 (will check devstats runnign flag and abort when set, then it will clear provisioned flag for the time of adding new metric and then set it)
 # SKIPTEMP=1 (skip regenerating using temporary database)
 if ( [ -z "$PG_PASS" ] || [ -z "$PG_HOST" ] || [ -z "$PG_PORT" ] )
 then
@@ -20,10 +21,16 @@ do
   then
     db="allprj"
   fi
-  ./devel/wait_flag.sh "$db" devstats_running 0 30 || exit 3
-  ./devel/clear_flag.sh "$db" provisioned || exit 4
+  if [ ! -z "$USE_FLAGS" ]
+  then
+    ./devel/wait_flag.sh "$db" devstats_running 0 30 || exit 3
+    ./devel/clear_flag.sh "$db" provisioned || exit 4
+  fi
   GHA2DB_PROJECT=$proj PG_DB=$db ./shared/all_affs.sh || exit 5
-  ./devel/set_flag.sh "$db" provisioned || exit 6
+  if [ ! -z "$USE_FLAGS" ]
+  then
+    ./devel/set_flag.sh "$db" provisioned || exit 6
+  fi
 done
 
 echo 'All affiliations updated'

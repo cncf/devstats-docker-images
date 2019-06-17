@@ -1,4 +1,5 @@
 #!/bin/bash
+# USE_FLAGS=1 (will check devstats runnign flag and abort when set, then it will clear provisioned flag for the time of adding new metric and then set it)
 if ( [ -z "$PG_PASS" ] || [ -z "$PG_HOST" ] || [ -z "$PG_PORT" ] )
 then
   echo "$0: you need to set PG_PASS, PG_HOST and PG_PORT to run this script"
@@ -19,15 +20,21 @@ do
   then
     db="allprj"
   fi
-  ./devel/check_flag.sh "$db" devstats_running 0 || exit 3
-  ./devel/clear_flag.sh "$db" provisioned || exit 4
+  if [ ! -z "$USE_FLAGS" ]
+  then
+    ./devel/check_flag.sh "$db" devstats_running 0 || exit 3
+    ./devel/clear_flag.sh "$db" provisioned || exit 4
+  fi
   if [ -f "./$proj/reinit.sh" ]
   then
     ./$proj/reinit.sh || exit 5
   else
     GHA2DB_PROJECT=$proj PG_DB=$db ./shared/reinit.sh || exit 6
   fi
-  ./devel/set_flag.sh "$db" provisioned || exit 7
+  if [ ! -z "$USE_FLAGS" ]
+  then
+    ./devel/set_flag.sh "$db" provisioned || exit 7
+  fi
 done
 
 echo 'TS data regenerated'
