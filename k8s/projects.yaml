@@ -772,7 +772,7 @@ projects:
     order: 63
     name: Hyperledger
     status: "-"
-    command_line: ['hyperledger,hyperledger-labs']
+    command_line: ['hyperledger,hyperledger-labs,hyperledger-cicd']
     start_date: 2015-01-01T00:00:00Z
     join_date: null
     psql_db: hyperledger
