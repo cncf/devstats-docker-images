@@ -768,3 +768,14 @@ projects:
     main_repo: 'graphql/graphql-spec' # was: facebook/graphql
     annotation_regexp: ''
     files_skip_pattern: ''
+  hyperledger:
+    order: 63
+    name: Hyperledger
+    status: "-"
+    command_line: ['hyperledger,hyperledger-labs']
+    start_date: 2015-01-01T00:00:00Z
+    join_date: null
+    psql_db: hyperledger
+    main_repo: 'hyperledger/sawtooth-core'
+    annotation_regexp: '^v\d+\.\d+\.\d+$'
+    files_skip_pattern: ''
