@@ -24,6 +24,7 @@ bootstrap:
 restapi:
   connect_address: '${PATRONI_KUBERNETES_POD_IP}:8008'
 postgresql:
+  use_slots: ${PATRONI_POSTGRES_USE_SLOTS}
   connect_address: '${PATRONI_KUBERNETES_POD_IP}:5432'
   authentication:
     superuser:
@@ -31,6 +32,12 @@ postgresql:
     replication:
       password: '${PATRONI_REPLICATION_PASSWORD}'
   parameters:
+    hot_standby: '${PATRONI_POSTGRES_HOT_STANDBY}'
+    wal_log_hints: '${PATRONI_POSTGRES_WAL_LOG_HINTS}'
+    wal_keep_segments: ${PATRONI_POSTGRES_WAL_KEEP_SEGMENTS}
+    wal_level: '${PATRONI_POSTGRES_WAL_LEVEL}'
+    max_wal_senders: ${PATRONI_POSTGRES_MAX_WAL_SENDERS}
+    max_replication_slots: ${PATRONI_POSTGRES_MAX_REPLICATION_SLOTS}
     shared_buffers: '${PATRONI_POSTGRES_BUFFERS}'
     max_connections: '${PATRONI_POSTGRES_MAX_CONN}'
     max_parallel_workers_per_gather: '${PATRONI_POSTGRES_MAX_PARALLEL_WORKERS_PER_GATHER}'
