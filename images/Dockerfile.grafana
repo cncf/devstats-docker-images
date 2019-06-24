@@ -5,3 +5,4 @@ RUN dpkg -i grafana_6.2.2_amd64.deb
 ADD devstats-grafana.tar .
 ADD grafana-bins.tar .
 RUN cp replacer sqlitedb grafana/shared/grafana_start.sh grafana/shared/expose_grafana_db.sh grafana/shared/grafana_health_check.sh /usr/bin/
+RUN grafana-cli plugins install grafana-worldmap-panel
