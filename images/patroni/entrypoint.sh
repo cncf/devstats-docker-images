@@ -10,6 +10,11 @@ fi
 cat > /home/postgres/patroni.yml <<__EOF__
 bootstrap:
   dcs:
+    loop_wait: ${PATRONI_LOOP_WAIT}
+    ttl: ${PATRONI_TTL}
+    retry_timeout: ${PATRONI_RETRY_TIMEOUT}
+    master_start_timeout: ${PATRONI_MASTER_START_TIMEOUT}
+    maximum_lag_on_failover: ${PATRONI_MAXIMUM_LAG_ON_FAILOVER}
     postgresql:
       use_pg_rewind: true
   initdb:
