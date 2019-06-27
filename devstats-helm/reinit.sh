@@ -22,7 +22,7 @@ do
   fi
   if [ ! -z "$USE_FLAGS" ]
   then
-    ./devel/check_flag.sh "$db" devstats_running 0 || exit 3
+    ./devel/wait_flag.sh "$db" devstats_running 0 || exit 3
     ./devel/clear_flag.sh "$db" provisioned || exit 4
   fi
   if [ -f "./$proj/reinit.sh" ]
