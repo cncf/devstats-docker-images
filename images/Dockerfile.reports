@@ -1,0 +1,7 @@
+FROM alpine AS builder
+WORKDIR /builder
+ADD devstats.tar .
+ADD grafana-bins.tar .
+FROM alpine
+RUN apk add git bash postgresql-client xz curl vim
+COPY --from=builder /builder/runq /usr/bin/

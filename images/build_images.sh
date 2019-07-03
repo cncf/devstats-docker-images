@@ -1,5 +1,5 @@
 #!/bin/bash
-# DOCKER_USER=lukaszgryglicki SKIP_FULL=1 SKIP_MIN=1 SKIP_GRAFANA=1 SKIP_TESTS=1 SKIP_PATRONI=1 SKIP_STATIC=1 SKIP_PUSH=1 ./images/build_images.sh
+# DOCKER_USER=lukaszgryglicki SKIP_FULL=1 SKIP_MIN=1 SKIP_GRAFANA=1 SKIP_TESTS=1 SKIP_PATRONI=1 SKIP_STATIC=1 SKIP_REPORTS=1 SKIP_PUSH=1 ./images/build_images.sh
 # DOCKER_USER=lukaszgryglicki ./images/remove_images.sh
 if [ -z "${DOCKER_USER}" ]
 then
@@ -11,10 +11,10 @@ cwd="`pwd`"
 cd ../devstats || exit 2
 cd ../devstatscode || exit 3
 
-make replacer sqlitedb || exit 4
+make replacer sqlitedb runq || exit 4
 rm -f ../devstats-docker-images/devstatscode.tar ../devstats-docker-images/grafana-bins.tar 2>/dev/null
 tar cf ../devstats-docker-images/devstatscode.tar cmd vendor *.go || exit 5
-tar cf ../devstats-docker-images/grafana-bins.tar replacer sqlitedb || exit 6
+tar cf ../devstats-docker-images/grafana-bins.tar replacer sqlitedb runq || exit 6
 
 cd ../devstats || exit 7
 rm -f ../devstats-docker-images/index_*.html ../devstats-docker-images/devstats.tar ../devstats-docker-images/devstats-grafana.tar ../devstats-docker-images/*.svg 2>/dev/null
@@ -64,6 +64,11 @@ then
   docker build -f ./images/Dockerfile.static.default -t "${DOCKER_USER}/devstats-static-default" . || exit 27
 fi
 
+if [ -z "$SKIP_REPORTS" ]
+then
+  docker build -f ./images/Dockerfile.reports -t "${DOCKER_USER}/devstats-reports" . || exit 37
+fi
+
 rm -f devstats.tar devstatscode.tar devstats-grafana.tar devstats-docker-images.tar grafana-bins.tar index_*.html *.svg
 
 if [ ! -z "$SKIP_PUSH" ]
@@ -106,6 +111,11 @@ then
   docker push "${DOCKER_USER}/devstats-static-cdf" || exit 29
   docker push "${DOCKER_USER}/devstats-static-graphql" || exit 30
   docker push "${DOCKER_USER}/devstats-static-default" || exit 31
+fi
+
+if [ -z "$SKIP_REPORTS" ]
+then
+  docker push "${DOCKER_USER}/devstats-reports" || exit 38
 fi
 
 echo 'OK'
