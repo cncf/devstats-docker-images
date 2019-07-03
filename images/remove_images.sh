@@ -37,6 +37,10 @@ then
   docker image rm -f "${DOCKER_USER}/devstats-static-graphql"
   docker image rm -f "${DOCKER_USER}/devstats-static-default"
 fi
+if [ -z "$SKIP_REPORTS" ]
+then
+  docker image rm -f "${DOCKER_USER}/devstats-reports"
+fi
 if [ -z "$SKIP_PRUNE" ]
 then
   docker system prune -f

@@ -29,6 +29,11 @@ Using docker:
 - To execute test coverage: `./tests/test_from_k8s.sh`.
 
 
+# Reports
+
+- To run `devstats-reports` image using docker: `DOCKER_USER=... ./images/devstats_reports_docker.sh`.
+
+
 # Adding new projects
 
 See `cncf/devstats-helm`:`ADDING_NEW_PROJECTS.md` or `NEW_PROJECT.md` (this is only for updating docker images and adding to bare kubernetes deployment).
