@@ -5,3 +5,5 @@ ADD grafana-bins.tar .
 FROM alpine
 RUN apk add git bash postgresql-client xz curl vim
 COPY --from=builder /builder/runq /usr/bin/
+COPY --from=builder /builder/util_sql/exclude_bots.sql /etc/gha2db/util_sql/exclude_bots.sql
+ADD devstats-reports.tar .

@@ -9,12 +9,17 @@ fi
 
 cwd="`pwd`"
 cd ../devstats || exit 2
+cd ../devstats-reports || exit 39
 cd ../devstatscode || exit 3
 
 make replacer sqlitedb runq || exit 4
 rm -f ../devstats-docker-images/devstatscode.tar ../devstats-docker-images/grafana-bins.tar 2>/dev/null
 tar cf ../devstats-docker-images/devstatscode.tar cmd vendor *.go || exit 5
 tar cf ../devstats-docker-images/grafana-bins.tar replacer sqlitedb runq || exit 6
+
+cd ../devstats-reports || exit 40
+rm -f ../devstats-docker-images/devstats-reports.tar 2>/dev/null
+tar cf ../devstats-docker-images/devstats-reports.tar sh sql || exit 41
 
 cd ../devstats || exit 7
 rm -f ../devstats-docker-images/index_*.html ../devstats-docker-images/devstats.tar ../devstats-docker-images/devstats-grafana.tar ../devstats-docker-images/*.svg 2>/dev/null
