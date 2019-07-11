@@ -14,8 +14,11 @@ fi
 # export GHA2DB_USE_ES
 # export GHA2DB_USE_ES_RAW
 export GHA2DB_PROJECTS_YAML="k8s/projects.yaml"
-export GHA2DB_ES_URL="${ES_PROTO}://${ES_HOST}:${ES_PORT}"
 export LIST_FN_PREFIX="k8s/all_"
+if [ ! -z "$GHA2DB_USE_ES" ]
+then
+  export GHA2DB_ES_URL="${ES_PROTO}://${ES_HOST}:${ES_PORT}"
+fi
 
 # GHA2DB_LOCAL=1 GHA2DB_PROCESS_REPOS=1 get_repos
 . ./devel/all_projs.sh || exit 3

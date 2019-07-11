@@ -12,7 +12,10 @@ then
   exit 2
 fi
 
-export GHA2DB_ES_URL="${ES_PROTO}://${ES_HOST}:${ES_PORT}"
+if [ ! -z "$GHA2DB_USE_ES" ]
+then
+  export GHA2DB_ES_URL="${ES_PROTO}://${ES_HOST}:${ES_PORT}"
+fi
 export GHA2DB_PROJECTS_YAML="k8s/projects.yaml"
 export LIST_FN_PREFIX="k8s/all_"
 

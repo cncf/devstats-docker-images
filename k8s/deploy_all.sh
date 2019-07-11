@@ -42,7 +42,10 @@ export GHA2DB_PROJECTS_YAML="k8s/projects.yaml"
 # export GHA2DB_USE_ES_RAW="${GHA2DB_USE_ES_RAW}"
 export GHA2DB_USE_ES
 export GHA2DB_USE_ES_RAW
-export GHA2DB_ES_URL="${ES_PROTO}://${ES_HOST}:${ES_PORT}"
+if [ ! -z "$GHA2DB_USE_ES" ]
+then
+  export GHA2DB_ES_URL="${ES_PROTO}://${ES_HOST}:${ES_PORT}"
+fi
 export LIST_FN_PREFIX="k8s/all_"
 if [ ! -z "$ONLY" ]
 then
