@@ -779,3 +779,14 @@ projects:
     main_repo: 'hyperledger/sawtooth-core'
     annotation_regexp: '^v\d+\.\d+\.\d+$'
     files_skip_pattern: ''
+  thanos:
+    order: 64
+    name: Thanos
+    status: Sandbox
+    command_line: ['improbable-eng/promlts,improbable-eng/thanos,thanos-io']
+    start_date: 2017-11-01T00:00:00Z
+    join_date: null
+    psql_db: thanos
+    main_repo: 'improbable-eng/thanos'
+    annotation_regexp: '^v\d+\.\d+\.\d+$'
+    files_skip_pattern: ''
