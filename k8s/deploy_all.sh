@@ -34,7 +34,7 @@ then
   fi
 fi
 
-export PG_ADMIN_USER=sa
+# export PG_ADMIN_USER=sa
 export GHA2DB_PROJECTS_YAML="k8s/projects.yaml"
 # export GHA2DB_AFFILIATIONS_JSON="docker/docker_affiliations.json"
 # export GHA2DB_AFFILIATIONS_JSON="github_users.json"
