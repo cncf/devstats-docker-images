@@ -67,6 +67,7 @@ then
   docker build -f ./images/Dockerfile.static.cdf -t "${DOCKER_USER}/devstats-static-cdf" . || exit 25
   docker build -f ./images/Dockerfile.static.graphql -t "${DOCKER_USER}/devstats-static-graphql" . || exit 26
   docker build -f ./images/Dockerfile.static.default -t "${DOCKER_USER}/devstats-static-default" . || exit 27
+  docker build -f ./images/Dockerfile.static.backups -t "${DOCKER_USER}/backups-page" . || exit 42
 fi
 
 if [ -z "$SKIP_REPORTS" ]
@@ -116,6 +117,7 @@ then
   docker push "${DOCKER_USER}/devstats-static-cdf" || exit 29
   docker push "${DOCKER_USER}/devstats-static-graphql" || exit 30
   docker push "${DOCKER_USER}/devstats-static-default" || exit 31
+  docker push "${DOCKER_USER}/backups-page" || exit 43
 fi
 
 if [ -z "$SKIP_REPORTS" ]
