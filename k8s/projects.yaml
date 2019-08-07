@@ -801,3 +801,14 @@ projects:
     main_repo: 'fluxcd/flux'
     annotation_regexp: '^\d+\.\d+\.\d+$'
     files_skip_pattern: ''
+  intoto:
+    order: 66
+    name: in-toto
+    status: Sandbox
+    command_line: ['in-toto']
+    start_date: 2016-10-18T00:00:00Z
+    join_date: 2019-08-14T00:00:00Z
+    psql_db: intoto
+    main_repo: 'in-toto/in-toto'
+    annotation_regexp: '^v?\d+\.\d+\.\d+$'
+    files_skip_pattern: ''
