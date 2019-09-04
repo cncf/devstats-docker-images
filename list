@@ -10,9 +10,36 @@ AZF:
   Azure/azure-webjobs-sdk-templates -> Azure/azure-functions-templates
 Pivotal Riff:
   markfisher/sk8s -> projectriff/riff
+  ericbottard/sk8s-go
+  ericbottard/sk8s-types
+  ericbottard/kubernetes-model
+  ericbottard/sk8s-http-gateway
+  ericbottard/function-sidecar
+  ericbottard/sk8s-topic-controller
+  jldec/projectriff.io
+  pivotal-cf/pfs-system-test
+Oracle Fn:
+  treeder/fn-plugin-example
+  treeder/fn-ext-dns
+  treeder/fn-ext-example
+  treeder/fn-ext-auth
+  fnhub/katacoda-scenarios
 Apache OpenWhisk:
   apache/incubator-openwhisk -> apache/openwhisk
 OpenFaaS:
   alexellis/faas -> openfaas/faas
   open-faas/nats-queue-worker -> openfaas/nats-queue-worker
   alexellis/faas-cli -> openfaas/faas-cli
+  alexellis/java-afterburn
+  alexellis/faas-netes
+  alexellis/caddy-builder
+  alexellis/openfaas-workshop
+  alexellis/derek
+  alexellis/java-openfaas-fast-fork
+  alexellis/openfaas-cloud
+  stefanprodan/caddy-builder
+  alexellis/faas-nats
+  alexellis/serverless-faas
+  alexellis/faas-provider
+  alexellis/nodejs-afterburn
+
