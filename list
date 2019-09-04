@@ -10,3 +10,5 @@ AZF:
   Azure/azure-webjobs-sdk-templates -> Azure/azure-functions-templates
 Pivotal Riff:
   markfisher/sk8s -> projectriff/riff
+Apache OpenWhisk:
+  apache/incubator-openwhisk -> apache/openwhisk

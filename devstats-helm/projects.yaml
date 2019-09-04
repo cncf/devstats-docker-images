@@ -760,6 +760,20 @@ projects:
     annotation_regexp: '^v\d+\.\d+\.(0|\d*[05]0)$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
     disabled: true
+  openwhisk:
+    order: 10012
+    name: Apache OpenWhisk
+    status: "-"
+    command_line:
+      - 'apache/openwhisk'
+    start_date: 2017-05-12T00:00:00Z
+    join_date: null
+    psql_db: openwhisk
+    shared_db: allprj
+    main_repo: apache/openwhisk
+    annotation_regexp: ''
+    files_skip_pattern: ''
+    disabled: true
   graphql:
     order: 3001
     name: GraphQL
