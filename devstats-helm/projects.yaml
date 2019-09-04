@@ -715,6 +715,37 @@ projects:
     annotation_regexp: '^v\d+\.\d+\.\d+$'
     files_skip_pattern: ''
     disabled: true
+  azf:
+    order: 10009
+    name: AZF
+    status: "-"
+    command_line:
+      - "Azure/azure-functions-host,Azure/azure-webjobs-sdk,Azure/azure-webjobs-sdk-extensions,Azure/azure-functions-durable-extension,\
+         Azure/azure-functions-durable-js,Azure/azure-functions-core-tools,Azure/azure-functions-nodejs-worker,Azure/azure-functions-java-worker,\
+         Azure/azure-functions-python-worker,Azure/azure-functions-ux,Azure/azure-functions-templates,Azure/azure-webjobs-sdk-script-samples,\
+         Azure/azure-functions-vs-build-sdk"
+    start_date: 2015-04-27T00:00:00Z
+    join_date: null
+    psql_db: azf
+    shared_db: allprj
+    main_repo: Azure/azure-webjobs-sdk
+    annotation_regexp: '^v\d+\.\d+\.\d+$'
+    files_skip_pattern: ''
+    disabled: true
+  riff:
+    order: 10010
+    name: Pivotal Riff
+    status: "-"
+    command_line:
+      - 'projectriff'
+    start_date: 2017-07-28T00:00:00Z
+    join_date: null
+    psql_db: riff
+    shared_db: allprj
+    main_repo: projectriff/riff
+    annotation_regexp: '^v\d+\.\d+\.\d+$'
+    files_skip_pattern: ''
+    disabled: true
   graphql:
     order: 3001
     name: GraphQL

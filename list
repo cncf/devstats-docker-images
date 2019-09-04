@@ -1,0 +1,12 @@
+AWS SAM:
+  awslabs/aws-sam-local -> awslabs/aws-sam-cli
+AZF:
+  Azure/azure-webjobs-sdk-script -> Azure/azure-functions-host
+  Azure/azure-functions-cli -> Azure/azure-functions-core-tools
+  projectkudu/AzureFunctions -> Azure/azure-functions-ux
+  projectkudu/WebJobsPortal -> Azure/azure-functions-ux
+  projectkudu/AzureFunctionsPortal -> Azure/azure-functions-ux
+  projectkudu/azure-functions-ux -> Azure/azure-functions-ux
+  Azure/azure-webjobs-sdk-templates -> Azure/azure-functions-templates
+Pivotal Riff:
+  markfisher/sk8s -> projectriff/riff
