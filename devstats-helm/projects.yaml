@@ -774,6 +774,20 @@ projects:
     annotation_regexp: ''
     files_skip_pattern: ''
     disabled: true
+  openfaas:
+    order: 10013
+    name: OpenFaaS
+    status: "-"
+    command_line:
+      - 'openfaas'
+    start_date: 2016-12-22T00:00:00Z
+    join_date: null
+    psql_db: openfaas
+    shared_db: allprj
+    main_repo: openfaas/faas
+    annotation_regexp: '^\d+\.\d+\.0$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+    disabled: true
   graphql:
     order: 3001
     name: GraphQL

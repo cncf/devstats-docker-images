@@ -12,3 +12,7 @@ Pivotal Riff:
   markfisher/sk8s -> projectriff/riff
 Apache OpenWhisk:
   apache/incubator-openwhisk -> apache/openwhisk
+OpenFaaS:
+  alexellis/faas -> openfaas/faas
+  open-faas/nats-queue-worker -> openfaas/nats-queue-worker
+  alexellis/faas-cli -> openfaas/faas-cli
