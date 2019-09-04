@@ -701,6 +701,20 @@ projects:
     annotation_regexp: '^v\d+\.\d+\.\d+$'
     files_skip_pattern: ''
     disabled: true
+  awssam:
+    order: 10008
+    name: AWS SAM
+    status: "-"
+    command_line:
+      - 'awslabs/aws-sam-cli,awslabs/serverless-application-model'
+    start_date: 2016-11-17T00:00:00Z
+    join_date: null
+    psql_db: awssam
+    shared_db: allprj
+    main_repo: awslabs/serverless-application-model
+    annotation_regexp: '^v\d+\.\d+\.\d+$'
+    files_skip_pattern: ''
+    disabled: true
   graphql:
     order: 3001
     name: GraphQL
