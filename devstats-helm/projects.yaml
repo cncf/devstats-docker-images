@@ -746,6 +746,20 @@ projects:
     annotation_regexp: '^v\d+\.\d+\.\d+$'
     files_skip_pattern: ''
     disabled: true
+  fn:
+    order: 10011
+    name: Oracle Fn
+    status: "-"
+    command_line:
+      - 'fnproject'
+    start_date: 2017-07-25T00:00:00Z
+    join_date: null
+    psql_db: fn
+    shared_db: allprj
+    main_repo: fnproject/fn
+    annotation_regexp: '^v\d+\.\d+\.(0|\d*[05]0)$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+    disabled: true
   graphql:
     order: 3001
     name: GraphQL
