@@ -569,6 +569,19 @@ projects:
     main_repo: strimzi/strimzi-kafka-operator
     annotation_regexp: '^\d+\.\d+\.0$'
     files_skip_pattern: ''
+  kubevirt:
+    order: 43
+    name: kubevirt
+    status: Sandbox
+    command_line:
+      - kubevirt
+    start_date: 2016-04-27T00:00:00Z
+    join_date: 2019-09-06T00:00:00Z
+    psql_db: kubevirt
+    shared_db: allprj
+    main_repo: kubevirt/kubevirt
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   opencontainers:
     order: 10001
     name: OCI
@@ -626,38 +639,6 @@ projects:
     annotation_regexp: '^v\d+\.\d+\.(0|\d*[05]0)$'
     files_skip_pattern: ''
     disabled: true
-  all:
-    order: 1001
-    name: All CNCF
-    status: "-"
-    command_line:
-      - "kubernetes,kubernetes-client,kubernetes-incubator,kubernetes-helm,\
-         kubernetes-graveyard,kubernetes-incubator-retired,kubernetes-sig-testing,\
-         kubernetes-providers,kubernetes-addons,kubernetes-retired,kubernetes-sigs,\
-         kubernetes-extensions,kubernetes-federation,kubernetes-security,\
-         kubernetes-sidecars,kubernetes-tools,kubernetes-test,kubernetes-charts,\
-         prometheus,opentracing,fluent,linkerd,grpc,coredns,containerd,rkt,\
-         containernetworking,envoyproxy,jaegertracing,theupdateframework,\
-         rook,cncf,crosscloudci,vitessio,nats-io,open-policy-agent,spiffe,\
-         cloudevents,telepresenceio,helm,kubernetes-csi,goharbor,tikv,etcd-io,\
-         OpenObservability,cortexproject,buildpack,falcosecurity,dragonflyoss,\
-         virtual-kubelet,kubeedge,brigadecore,cri-o,networkservicemesh,openebs,\
-         open-telemetry,thanos-io,fluxcd,in-toto,strimzi"
-    start_date: 2014-01-01T00:00:00Z
-    join_date: 2016-03-10T00:00:00Z
-    psql_db: allprj
-    main_repo: ''
-    annotation_regexp: ''
-    files_skip_pattern: ''
-    env:
-      GHA2DB_EXCLUDE_REPOS:
-        "kubernetes/api,kubernetes/apiextensions-apiserver,kubernetes/apimachinery,\
-         kubernetes/apiserver,kubernetes/client-go,kubernetes/code-generator,\
-         kubernetes/kube-aggregator,kubernetes/metrics,kubernetes/sample-apiserver,\
-         kubernetes/sample-controller,kubernetes/cli-runtime,kubernetes/csi-api,\
-         kubernetes/kube-proxy,kubernetes/kube-controller-manager,\
-         kubernetes/kube-scheduler,kubernetes/kubelet,kubernetes/sample-cli-plugin,\
-         kubernetes/cluster-bootstrap,kubernetes/cloud-provider"
   nodejs:
     order: 10005
     name: Node.js
@@ -788,6 +769,38 @@ projects:
     annotation_regexp: '^\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
     disabled: true
+  all:
+    order: 1001
+    name: All CNCF
+    status: "-"
+    command_line:
+      - "kubernetes,kubernetes-client,kubernetes-incubator,kubernetes-helm,\
+         kubernetes-graveyard,kubernetes-incubator-retired,kubernetes-sig-testing,\
+         kubernetes-providers,kubernetes-addons,kubernetes-retired,kubernetes-sigs,\
+         kubernetes-extensions,kubernetes-federation,kubernetes-security,\
+         kubernetes-sidecars,kubernetes-tools,kubernetes-test,kubernetes-charts,\
+         prometheus,opentracing,fluent,linkerd,grpc,coredns,containerd,rkt,\
+         containernetworking,envoyproxy,jaegertracing,theupdateframework,\
+         rook,cncf,crosscloudci,vitessio,nats-io,open-policy-agent,spiffe,\
+         cloudevents,telepresenceio,helm,kubernetes-csi,goharbor,tikv,etcd-io,\
+         OpenObservability,cortexproject,buildpack,falcosecurity,dragonflyoss,\
+         virtual-kubelet,kubeedge,brigadecore,cri-o,networkservicemesh,openebs,\
+         open-telemetry,thanos-io,fluxcd,in-toto,strimzi"
+    start_date: 2014-01-01T00:00:00Z
+    join_date: 2016-03-10T00:00:00Z
+    psql_db: allprj
+    main_repo: ''
+    annotation_regexp: ''
+    files_skip_pattern: ''
+    env:
+      GHA2DB_EXCLUDE_REPOS:
+        "kubernetes/api,kubernetes/apiextensions-apiserver,kubernetes/apimachinery,\
+         kubernetes/apiserver,kubernetes/client-go,kubernetes/code-generator,\
+         kubernetes/kube-aggregator,kubernetes/metrics,kubernetes/sample-apiserver,\
+         kubernetes/sample-controller,kubernetes/cli-runtime,kubernetes/csi-api,\
+         kubernetes/kube-proxy,kubernetes/kube-controller-manager,\
+         kubernetes/kube-scheduler,kubernetes/kubelet,kubernetes/sample-cli-plugin,\
+         kubernetes/cluster-bootstrap,kubernetes/cloud-provider"
   graphql:
     order: 3001
     name: GraphQL
