@@ -824,3 +824,14 @@ projects:
     main_repo: strimzi/strimzi-kafka-operator
     annotation_regexp: '^\d+\.\d+\.0$'
     files_skip_pattern: ''
+  kubevirt:
+    order: 68
+    name: kubevirt
+    status: Sandbox
+    command_line: ['kubevirt']
+    start_date: 2016-04-27T00:00:00Z
+    join_date: 2019-09-06T00:00:00Z
+    psql_db: kubevirt
+    main_repo: kubevirt/kubevirt
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
