@@ -39,6 +39,21 @@ do
   then
     db="allprj"
   fi
+  if [ ! -z "$GHA2DB_CHECK_IMPORTED_SHA" ]
+  then
+    GHA2DB_PROJECT=$proj PG_DB=$db GHA2DB_LOCAL=1 GHA2DB_ONLY_CHECK_IMPORTED_SHA=1 import_affs
+    code="$?"
+    if [ ! "$code" = "0" ]
+    then
+      if [ "$code" = "3" ]
+      then
+        echo "Project $proj, current affiliations files are already imported"
+        continue
+      fi
+    else
+      exit $code
+    fi
+  fi
   if [ ! -z "$USE_FLAGS" ]
   then
     ./devel/wait_flag.sh "$db" devstats_running 0 30 || exit 3
