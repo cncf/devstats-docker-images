@@ -50,8 +50,11 @@ do
         echo "Project $proj, current affiliations files are already imported"
         continue
       else
-        echo "Project $proj affiliations not imported yet, proceeding"
+        echo "Project $proj error, exiting"
+        exit $code
       fi
+    else
+      echo "Project $proj affiliations not imported yet, proceeding"
     fi
   fi
   if [ ! -z "$USE_FLAGS" ]
