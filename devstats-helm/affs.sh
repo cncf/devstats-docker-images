@@ -1,6 +1,8 @@
 #!/bin/bash
 # USE_FLAGS=1 (will check devstats running flag and abort when set, then it will clear provisioned flag for the time of adding new metric and then set it)
 # SKIPTEMP=1 (skip regenerating using temporary database)
+# GET_JSON=1 (will fetch affiliations JSON from cncf/devstats repo)
+# GHA2DB_CHECK_IMPORTED_SHA=1 (will chekc if given file was already imported)
 if ( [ -z "$PG_PASS" ] || [ -z "$PG_HOST" ] || [ -z "$PG_PORT" ] )
 then
   echo "$0: you need to set PG_PASS, PG_HOST and PG_PORT to run this script"
@@ -9,6 +11,11 @@ fi
 
 export GHA2DB_PROJECTS_YAML="devstats-helm/projects.yaml"
 export LIST_FN_PREFIX="devstats-helm/all_"
+
+if [ ! -z "$GET_JSON" ]
+then
+  wget https://raw.githubusercontent.com/cncf/devstats/master/github_users.json -O /etc/gha2db/github_users.json || exit 7
+fi
 
 . ./devel/all_projs.sh || exit 2
 for proj in $all
