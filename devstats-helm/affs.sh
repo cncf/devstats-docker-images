@@ -14,7 +14,12 @@ export LIST_FN_PREFIX="devstats-helm/all_"
 
 if [ ! -z "$GET_JSON" ]
 then
-  wget https://raw.githubusercontent.com/cncf/devstats/master/github_users.json -O /etc/gha2db/github_users.json || exit 7
+  if [ ! -z "$GHA2DB_AFFILIATIONS_JSON" ]
+  then
+    wget https://raw.githubusercontent.com/cncf/devstats/master/github_users.json -O "/etc/gha2db/$GHA2DB_AFFILIATIONS_JSON" || exit 7
+  else
+    wget https://raw.githubusercontent.com/cncf/devstats/master/github_users.json -O /etc/gha2db/github_users.json || exit 8
+  fi
 fi
 
 . ./devel/all_projs.sh || exit 2
