@@ -16,15 +16,15 @@ if [ ! -z "$GET_AFFS_FILES" ]
 then
   if [ ! -z "$GHA2DB_AFFILIATIONS_JSON" ]
   then
-    wget https://raw.githubusercontent.com/cncf/devstats/master/github_users.json -O "/etc/gha2db/${GHA2DB_AFFILIATIONS_JSON}" || exit 7
+    wget https://raw.githubusercontent.com/cncf/devstats/master/github_users.json -O "$GHA2DB_AFFILIATIONS_JSON" || exit 7
   else
-    wget https://raw.githubusercontent.com/cncf/devstats/master/github_users.json -O /etc/gha2db/github_users.json || exit 8
+    wget https://raw.githubusercontent.com/cncf/devstats/master/github_users.json -O github_users.json || exit 8
   fi
   if [ ! -z "$GHA2DB_COMPANY_ACQ_YAML" ]
   then
-    wget https://raw.githubusercontent.com/cncf/devstats/master/companies.yaml -O "/etc/gha2db/${GHA2DB_COMPANY_ACQ_YAML}" || exit 9
+    wget https://raw.githubusercontent.com/cncf/devstats/master/companies.yaml -O "$GHA2DB_COMPANY_ACQ_YAML" || exit 9
   else
-    wget https://raw.githubusercontent.com/cncf/devstats/master/companies.yaml -O /etc/gha2db/companies.yaml || exit 10
+    wget https://raw.githubusercontent.com/cncf/devstats/master/companies.yaml -O companies.yaml || exit 10
   fi
 fi
 
