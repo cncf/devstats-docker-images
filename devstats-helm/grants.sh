@@ -8,6 +8,11 @@ fi
 export GHA2DB_PROJECTS_YAML="devstats-helm/projects.yaml"
 export LIST_FN_PREFIX="devstats-helm/all_"
 
+if [ ! -z "$PROJDB" ]
+then
+  export ONLY="$PROJDB"
+fi
+
 . ./devel/all_dbs.sh || exit 2
 for db in $all
 do
