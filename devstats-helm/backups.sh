@@ -20,7 +20,8 @@ done
 if [ ! -z "$failed" ]
 then
   echo "Failed: $failed"
-  exit 1
+  # We don't need fatal here, rescheduling won't help in that case
+  # exit 1
 else
   echo "All backups OK"
 fi
