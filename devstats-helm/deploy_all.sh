@@ -36,6 +36,11 @@ then
   export ONLY
 fi
 
+if ( [ "$PROJ" = "allcdf" ] || [ "$PROJ" = "spinnaker" ] || [ "$PROJ" = "tekton" ] || [ "$PROJ" = "jenkins" ] || [ "$PROJ" = "jenkinsx" ] )
+then
+  export ADD_ALLCDF=1
+fi
+
 if [ ! -z "$INIT" ]
 then
   ./devel/init_database.sh || exit 4
