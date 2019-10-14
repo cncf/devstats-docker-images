@@ -827,7 +827,7 @@ projects:
     files_skip_pattern: ''
   strimzi:
     order: 67
-    name: strimzi
+    name: Strimzi
     status: Sandbox
     command_line: ['strimzi']
     start_date: 2016-05-06T00:00:00Z
@@ -838,7 +838,7 @@ projects:
     files_skip_pattern: ''
   kubevirt:
     order: 68
-    name: kubevirt
+    name: KubeVirt
     status: Sandbox
     command_line: ['kubevirt']
     start_date: 2016-04-27T00:00:00Z
