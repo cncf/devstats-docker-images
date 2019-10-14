@@ -847,3 +847,14 @@ projects:
     main_repo: kubevirt/kubevirt
     annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  longhorn:
+    order: 69
+    name: Longhorn
+    status: Sandbox
+    command_line: ['longhorn']
+    start_date: 2017-04-14T00:00:00Z
+    join_date: 2019-10-11T00:00:00Z
+    psql_db: longhorn
+    main_repo: longhorn/longhorn
+    annotation_regexp: '^v\d+\.\d+\.\d+$'
+    files_skip_pattern: ''
