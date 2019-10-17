@@ -794,6 +794,78 @@ projects:
     annotation_regexp: '^\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
     disabled: true
+  cii:
+    order: 10014
+    name: CII
+    status: "-"
+    command_line:
+      - "lodash/lodash,expressjs/express,jquery/jquery,expressjs/body-parser,qos-ch/slf4j,\
+         facebook/react,jquery/jquery-ui,facebook/react,expressjs/morgan,request/request,\
+         moment/moment,twbs/bootstrap,nodejs/readable-stream,qos-ch/logback,\
+         petkaantonov/bluebird,mozilla/source-map,caolan/async,apache/commons-lang,\
+         expressjs/cookie-parser,reduxjs/redux,scala/scala,chalk/supports-color,\
+         FortAwesome/Font-Awesome,jonschlinkert/kind-of,JamesNK/Newtonsoft.Json,\
+         axios/axios,isaacs/minimatch,reduxjs/react-redux,facebook/prop-types,yargs/yargs,\
+         angular/zone.js,FasterXML/jackson-core,sindresorhus/del,qos-ch/logback,\
+         motdotla/dotenv,kelektiv/node-uuid,FasterXML/jackson-databind,google/guava,\
+         sindresorhus/camelcase,@angular/core,isaacs/node-glob,sass/node-sass,\
+         gotwarlost/istanbul,zeit/ms,form-data/form-data,browserify/browserify,\
+         nodejs/string_decoder,angular-ui/ui-router,OverZealous/run-sequence,\
+         angular/angular.js,hughsk/vinyl-source-stream,sindresorhus/object-assign,\
+         broofa/node-mime,@types/node,ljharb/qs,reactivex/rxjs,substack/brfs,\
+         hughsk/vinyl-buffer,acornjs/acorn,isaacs/node-graceful-fs,thlorenz/browserify-shim,\
+         pieroxy/lz-string,que-etc/resize-observer-polyfill,typicaljoe/taffydb,\
+         expressjs/cors,robrich/pretty-hrtime,jashkenas/underscore,\
+         BendingBender/object-assign-shim,JohnPostlethwait/stringify,robrich/orchestrator,\
+         devongovett/browserify-istanbul,angular/angular.js,angular/angular.js,\
+         janvanhelvoort/browserify-conditionalify,omsmith/browserify-ngannotate,\
+         angular-translate/angular-translate,angular/angular.js,jshttp/mime-db,\
+         expressjs/compression,chalk/ansi-styles,isaacs/sax-js,zloirock/core-js,\
+         nanjingboy/uglify,jshttp/mime-types,@angular/common,@angular/forms,\
+         apache/commons-io,necolas/normalize.css,ashtuchkin/iconv-lite,\
+         @angular/http,angular/platform-browser-dynamic,angular/platform-browser,\
+         isaacs/inherits,angular/angular,chalk/strip-ansi,qos-ch/slf4j,\
+         substack/node-wordwrap,Modernizr/Modernizr,rvagg/through2,isaacs/node-lru-cache,\
+         jonschlinkert/is-number,reduxjs/redux-thunk,@angular/animations,\
+         juliangruber/isarray,rzwitserloot/lombok,brix/crypto-js,auth0/node-jsonwebtoken,\
+         epoberezkin/ajv,chalk/ansi-regex,npm/node-semver,jquery-validation/jquery-validation,\
+         jquery/esprima,juliangruber/brace-expansion,bestiejs/punycode.js,\
+         salesforce/tough-cookie,tj/commander.js,JedWatson/classnames,\
+         mcavage/node-assert-plus,chalk/chalk,browserify/resolve,kennethreitz/requests,\
+         angular/cdk,ReactTraining/react-router,dotnet/corefx,ahmadnassri/node-har-validator,\
+         winstonjs/winston,npm/nopt,beatgammit/base64-js,substack/minimist,dotnet/corefx,\
+         hapijs/boom,mysql-net/MySqlConnector,juliangruber/balanced-match,\
+         joyent/http-signature,qos-ch/slf4j,madler/zlib,@ng-bootstrap/ng-bootstrap,\
+         jaredhanson/passport,auth0/angular2-jwt,jonschlinkert/is-glob,\
+         apache/httpcomponents-client,openssl/openssl,expressjs/session,\
+         angular/platform-server,pvorb/node-clone,joyent/node-sshpk,mikeal/tunnel-agent,\
+         yargs/cliui,Gozala/querystring,apache/log4j,sindresorhus/strip-bom,\
+         apache/commons-collections,yargs/yargs-parser,feross/safe-buffer,jshttp/statuses,\
+         ReactTraining/react-router,isaacs/once,eclipse-ee4j/servlet-api,\
+         FasterXML/jackson-annotations,isaacs/node-which,gulpjs/vinyl,\
+         calvinmetcalf/process-nextick-args,chalk/chalk,dougwilson/nodejs-depd,hapijs/hoek,\
+         mikeal/caseless,substack/node-mkdirp,google/gson,qos-ch/slf4j,apache/commons-codec,\
+         mde/ejs,micromatch/braces,isaacs/abbrev-js,broofa/node-uuid,sindresorhus/string-width,\
+         visionmedia/bytes.js,request/request-promise,jonschlinkert/isobject,hueniverse/hawk,\
+         beanvalidation/beanvalidation-api,google/guice,felixge/node-combined-stream,\
+         jshttp/http-errors,expressjs/serve-favicon,sindresorhus/path-exists,mikeal/oauth-sign,\
+         sindresorhus/has-flag,hueniverse/sntp,eclipse-ee4j/jaxrs-api,\
+         davepacheco/node-extsprintf,sindresorhus/path-type,DataTables/DataTables,Raynos/xtend,\
+         wesleytodd/setprototypeof,pillarjs/send,jonschlinkert/arr-diff,apache/commons-logging,\
+         hapijs/cryptiles,sindresorhus/is-fullwidth-code-point,jonschlinkert/is-extglob,\
+         isaacs/rimraf,jonschlinkert/define-property,davepacheco/node-verror,\
+         maxogden/concat-stream,sindresorhus/load-json-file,sindresorhus/find-up,\
+         moment/moment-timezone,micromatch/micromatch,joyent/node-jsprim,feross/is-buffer,\
+         jonschlinkert/fill-range,jshttp/accepts,mafintosh/end-of-stream,\
+         moxystudio/node-cross-spawn,sindresorhus/pify,spring-projects/spring-boot.git,\
+         sindresorhus/read-pkg,nunit/nunit,pillarjs/finalhandler,jonschlinkert/is-extendable"
+    start_date: 2015-01-01T00:00:00Z
+    join_date: null
+    psql_db: cii
+    main_repo: lodash/lodash
+    annotation_regexp: ''
+    files_skip_pattern: ''
+    disabled: true
   all:
     order: 1001
     name: All CNCF
