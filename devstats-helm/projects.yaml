@@ -808,11 +808,11 @@ projects:
          axios/axios,isaacs/minimatch,reduxjs/react-redux,facebook/prop-types,yargs/yargs,\
          angular/zone.js,FasterXML/jackson-core,sindresorhus/del,qos-ch/logback,\
          motdotla/dotenv,kelektiv/node-uuid,FasterXML/jackson-databind,google/guava,\
-         sindresorhus/camelcase,@angular/core,isaacs/node-glob,sass/node-sass,\
+         sindresorhus/camelcase,angular/core,isaacs/node-glob,sass/node-sass,\
          gotwarlost/istanbul,zeit/ms,form-data/form-data,browserify/browserify,\
          nodejs/string_decoder,angular-ui/ui-router,OverZealous/run-sequence,\
          angular/angular.js,hughsk/vinyl-source-stream,sindresorhus/object-assign,\
-         broofa/node-mime,@types/node,ljharb/qs,reactivex/rxjs,substack/brfs,\
+         broofa/node-mime,types/node,ljharb/qs,reactivex/rxjs,substack/brfs,\
          hughsk/vinyl-buffer,acornjs/acorn,isaacs/node-graceful-fs,thlorenz/browserify-shim,\
          pieroxy/lz-string,que-etc/resize-observer-polyfill,typicaljoe/taffydb,\
          expressjs/cors,robrich/pretty-hrtime,jashkenas/underscore,\
@@ -821,12 +821,12 @@ projects:
          janvanhelvoort/browserify-conditionalify,omsmith/browserify-ngannotate,\
          angular-translate/angular-translate,angular/angular.js,jshttp/mime-db,\
          expressjs/compression,chalk/ansi-styles,isaacs/sax-js,zloirock/core-js,\
-         nanjingboy/uglify,jshttp/mime-types,@angular/common,@angular/forms,\
+         nanjingboy/uglify,jshttp/mime-types,angular/common,angular/forms,\
          apache/commons-io,necolas/normalize.css,ashtuchkin/iconv-lite,\
-         @angular/http,angular/platform-browser-dynamic,angular/platform-browser,\
+         angular/http,angular/platform-browser-dynamic,angular/platform-browser,\
          isaacs/inherits,angular/angular,chalk/strip-ansi,qos-ch/slf4j,\
          substack/node-wordwrap,Modernizr/Modernizr,rvagg/through2,isaacs/node-lru-cache,\
-         jonschlinkert/is-number,reduxjs/redux-thunk,@angular/animations,\
+         jonschlinkert/is-number,reduxjs/redux-thunk,angular/animations,\
          juliangruber/isarray,rzwitserloot/lombok,brix/crypto-js,auth0/node-jsonwebtoken,\
          epoberezkin/ajv,chalk/ansi-regex,npm/node-semver,jquery-validation/jquery-validation,\
          jquery/esprima,juliangruber/brace-expansion,bestiejs/punycode.js,\
@@ -835,7 +835,7 @@ projects:
          angular/cdk,ReactTraining/react-router,dotnet/corefx,ahmadnassri/node-har-validator,\
          winstonjs/winston,npm/nopt,beatgammit/base64-js,substack/minimist,dotnet/corefx,\
          hapijs/boom,mysql-net/MySqlConnector,juliangruber/balanced-match,\
-         joyent/http-signature,qos-ch/slf4j,madler/zlib,@ng-bootstrap/ng-bootstrap,\
+         joyent/http-signature,qos-ch/slf4j,madler/zlib,ng-bootstrap/ng-bootstrap,\
          jaredhanson/passport,auth0/angular2-jwt,jonschlinkert/is-glob,\
          apache/httpcomponents-client,openssl/openssl,expressjs/session,\
          angular/platform-server,pvorb/node-clone,joyent/node-sshpk,mikeal/tunnel-agent,\
