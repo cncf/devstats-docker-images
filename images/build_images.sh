@@ -75,7 +75,7 @@ then
   docker build -f ./images/Dockerfile.reports -t "${DOCKER_USER}/devstats-reports" . || exit 37
 fi
 
-rm -f devstats.tar devstatscode.tar devstats-grafana.tar devstats-docker-images.tar grafana-bins.tar index_*.html *.svg
+rm -f devstats.tar devstatscode.tar devstats-grafana.tar devstats-docker-images.tar grafana-bins.tar devstats-reports.tar index_*.html *.svg
 
 if [ ! -z "$SKIP_PUSH" ]
 then
