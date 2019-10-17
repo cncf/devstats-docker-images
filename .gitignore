@@ -55,4 +55,6 @@ sqlite/*.sql
 /report_alltime.txt
 *.secret
 *.tar
+*.svg
+*.html
 /error.yaml
