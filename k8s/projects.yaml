@@ -410,11 +410,12 @@ projects:
   cloudevents:
     order: 32
     name: CloudEvents
-    status: Sandbox
+    status: Incubating
     command_line:
       - cloudevents
     start_date: 2017-12-09T00:00:00Z
     join_date: 2018-05-15T00:00:00Z
+    incubating_date: 2019-10-24T00:00:00Z
     psql_db: cloudevents
     main_repo: cloudevents/spec
     annotation_regexp: '^v(\d+\.){1,2}\d+$'
