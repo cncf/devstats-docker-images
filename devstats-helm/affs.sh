@@ -2,7 +2,7 @@
 # USE_FLAGS=1 (will check devstats running flag and abort when set, then it will clear provisioned flag for the time of adding new metric and then set it)
 # SKIPTEMP=1 (skip regenerating using temporary database)
 # GET_AFFS_FILES=1 (will fetch affiliations JSON and company acquisitions YAML from cncf/devstats repo)
-# GHA2DB_CHECK_IMPORTED_SHA=1 (will chekc if given file was already imported)
+# GHA2DB_CHECK_IMPORTED_SHA=1 (will check if given file was already imported)
 if ( [ -z "$PG_PASS" ] || [ -z "$PG_HOST" ] || [ -z "$PG_PORT" ] )
 then
   echo "$0: you need to set PG_PASS, PG_HOST and PG_PORT to run this script"
