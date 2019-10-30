@@ -3,6 +3,8 @@
 # SKIPTEMP=1 (skip regenerating using temporary database)
 # GET_AFFS_FILES=1 (will fetch affiliations JSON and company acquisitions YAML from cncf/devstats repo)
 # GHA2DB_CHECK_IMPORTED_SHA=1 (will check if given file was already imported)
+# SKIP_IMP_AFFS=1 skip import_affs.sh phase
+# SKIP_UPD_AFFS=1 skip update_affs.sh phase
 if ( [ -z "$PG_PASS" ] || [ -z "$PG_HOST" ] || [ -z "$PG_PORT" ] )
 then
   echo "$0: you need to set PG_PASS, PG_HOST and PG_PORT to run this script"
