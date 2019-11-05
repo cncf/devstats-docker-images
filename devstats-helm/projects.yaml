@@ -18,6 +18,7 @@ projects:
     main_repo: kubernetes/kubernetes
     annotation_regexp: '^v((0\.\d+)|(\d+\.\d+\.0))$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+    sync_probabilty: 0.8
     env:
       GHA2DB_EXCLUDE_REPOS:
         "kubernetes/api,kubernetes/apiextensions-apiserver,kubernetes/apimachinery,\
@@ -637,6 +638,7 @@ projects:
     main_repo: istio/istio
     annotation_regexp: ''
     files_skip_pattern: ''
+    sync_probabilty: 0.7
     disabled: true
   knative:
     order: 10003
@@ -651,6 +653,7 @@ projects:
     main_repo: knative/serving
     annotation_regexp: '^v\d+\.\d+\.\d+$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+    sync_probabilty: 0.7
     disabled: true
   cncf:
     order: 10004
@@ -665,6 +668,7 @@ projects:
     main_repo: cncf/landscapeapp
     annotation_regexp: '^v\d+\.\d+\.(0|\d*[05]0)$'
     files_skip_pattern: ''
+    sync_probabilty: 0.8
     disabled: true
   nodejs:
     order: 10005
@@ -679,6 +683,7 @@ projects:
     main_repo: nodejs/node
     annotation_regexp: ''
     files_skip_pattern: ''
+    sync_probabilty: 0.7
     disabled: true
   linux:
     order: 10006
@@ -694,6 +699,7 @@ projects:
     main_repo: torvalds/linux
     annotation_regexp: '^v(\d+\.){1,2}\d+$'
     files_skip_pattern: ''
+    sync_probabilty: 0.7
     disabled: true
   zephyr:
     order: 10007
@@ -708,6 +714,7 @@ projects:
     main_repo: zephyrproject-rtos/zephyr
     annotation_regexp: '^v\d+\.\d+\.\d+$'
     files_skip_pattern: ''
+    sync_probabilty: 0.7
     disabled: true
   sam:
     order: 10008
@@ -842,6 +849,7 @@ projects:
     main_repo: ''
     annotation_regexp: ''
     files_skip_pattern: ''
+    sync_probabilty: 0.55
     disabled: true
   all:
     order: 1001
@@ -867,6 +875,7 @@ projects:
     main_repo: ''
     annotation_regexp: ''
     files_skip_pattern: ''
+    sync_probabilty: 0.6
     env:
       GHA2DB_EXCLUDE_REPOS:
         "kubernetes/api,kubernetes/apiextensions-apiserver,kubernetes/apimachinery,\
@@ -973,6 +982,7 @@ projects:
     main_repo: jenkinsci/jenkins
     annotation_regexp: '^jenkins-\d+\.\d*0$'
     files_skip_pattern: ''
+    sync_probabilty: 0.6
     shared_db: allcdf
   jenkinsx:
     order: 4004
@@ -986,6 +996,7 @@ projects:
     main_repo: jenkins-x/jx
     annotation_regexp: '^v\d+\.\d+\.(0|\d*00)$'
     files_skip_pattern: ''
+    sync_probabilty: 0.7
     shared_db: allcdf
   allcdf:
     order: 5001
@@ -999,3 +1010,4 @@ projects:
     main_repo: ''
     annotation_regexp: ''
     files_skip_pattern: ''
+    sync_probabilty: 0.6
