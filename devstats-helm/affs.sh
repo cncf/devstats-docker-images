@@ -12,7 +12,7 @@ then
 fi
 
 # FIXME: temprary disable
-if [ -z "$RUN" ]
+if [ ! "$GHA2DB_DEBUG" = "0" ]
 then
   exit 0
 fi
