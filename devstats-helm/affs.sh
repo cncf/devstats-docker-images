@@ -11,11 +11,10 @@ then
   exit 1
 fi
 
-# FIXME: temprary disable
-if [ ! "$GHA2DB_DEBUG" = "0" ]
-then
-  exit 0
-fi
+#if [ ! "$GHA2DB_DEBUG" = "0" ]
+#then
+#  exit 0
+#fi
 
 export GHA2DB_PROJECTS_YAML="devstats-helm/projects.yaml"
 export LIST_FN_PREFIX="devstats-helm/all_"
