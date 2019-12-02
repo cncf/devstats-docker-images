@@ -852,6 +852,19 @@ projects:
     files_skip_pattern: ''
     sync_probabilty: 0.55
     disabled: true
+  prestodb:
+    order: 10015
+    name: Presto
+    status: "-"
+    command_line:
+      - 'prestodb'
+    start_date: 2015-01-05T00:00:00Z
+    join_date: null
+    psql_db: prestodb
+    main_repo: prestodb/presto
+    annotation_regexp: '^v\d+\.(0|\d*[05]0)$'
+    files_skip_pattern: ''
+    disabled: true
   all:
     order: 1001
     name: All CNCF
