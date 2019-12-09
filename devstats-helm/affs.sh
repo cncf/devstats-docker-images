@@ -51,22 +51,22 @@ then
   if [ ! -z "$GHA2DB_AFFILIATIONS_JSON" ]
   then
     wget https://github.com/cncf/devstats/raw/master/github_users.json -O "$GHA2DB_AFFILIATIONS_JSON" || exit 7
-    sum1=`sha256sum "$GHA2DB_AFFILIATIONS_JSON"`
+    sum1=`sha256sum "$GHA2DB_AFFILIATIONS_JSON" | awk '{print $1}'`
   else
     wget https://github.com/cncf/devstats/raw/master/github_users.json -O github_users.json || exit 8
-    sum1=`sha256sum github_users.json`
+    sum1=`sha256sum github_users.json | awk '{print $1}'`
   fi
   if [ ! -z "$GHA2DB_COMPANY_ACQ_YAML" ]
   then
     wget https://github.com/cncf/devstats/raw/master/companies.yaml -O "$GHA2DB_COMPANY_ACQ_YAML" || exit 9
-    sum2=`sha256sum "$GHA2DB_COMPANY_ACQ_YAML"`
+    sum2=`sha256sum "$GHA2DB_COMPANY_ACQ_YAML" | awk '{print $1}'`
   else
     wget https://github.com/cncf/devstats/raw/master/companies.yaml -O companies.yaml || exit 10
-    sum2=`sha256sum companies.yaml`
+    sum2=`sha256sum companies.yaml | awk '{print $1}'`
   fi
 else
-  sum1=`sha256sum github_users.json`
-  sum2=`sha256sum companies.yaml`
+  sum1=`sha256sum github_users.json | awk '{print $1}'`
+  sum2=`sha256sum companies.yaml | awk '{print $1}'`
 fi
 
 echo "Importing SHA pair ('$sum1', '$sum2')"
