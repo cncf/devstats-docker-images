@@ -18,7 +18,7 @@ fi
 
 function set_flag {
   err="$?"
-
+  echo "Exit handler, final status is '$err'"
   user=gha_admin
   if [ ! -z "${PG_USER}" ]
   then
@@ -69,9 +69,12 @@ else
   sum2=`sha256sum companies.yaml`
 fi
 
+echo "Importing SHA pair ('$sum1', '$sum2')"
+
 if [ ! -z "$USE_FLAGS" ]
 then
   trap set_flag EXIT
+  echo "Exit function set"
 fi
 
 . ./devel/all_projs.sh || exit 2
