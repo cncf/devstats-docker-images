@@ -16,6 +16,33 @@ fi
 #  exit 0
 #fi
 
+function set_flag {
+  err="$?"
+
+  user=gha_admin
+  if [ ! -z "${PG_USER}" ]
+  then
+    user="${PG_USER}"
+  fi
+
+  for proj in $all
+  do
+    db=$proj
+    if [ "$proj" = "kubernetes" ]
+    then
+      db="gha"
+    elif [ "$proj" = "all" ]
+    then
+      db="allprj"
+    fi
+    ./devel/set_flag.sh "$db" provisioned
+    if [ ! "$err" = "0" ]
+    then
+      PG_USER="$user" ./devel/db.sh psql "$db" -c "delete from gha_imported_shas where sha in ('$sum1', '$sum2')"
+    fi
+  done
+}
+
 export GHA2DB_PROJECTS_YAML="devstats-helm/projects.yaml"
 export LIST_FN_PREFIX="devstats-helm/all_"
 
@@ -24,15 +51,27 @@ then
   if [ ! -z "$GHA2DB_AFFILIATIONS_JSON" ]
   then
     wget https://github.com/cncf/devstats/raw/master/github_users.json -O "$GHA2DB_AFFILIATIONS_JSON" || exit 7
+    sum1=`sha256sum "$GHA2DB_AFFILIATIONS_JSON"`
   else
     wget https://github.com/cncf/devstats/raw/master/github_users.json -O github_users.json || exit 8
+    sum1=`sha256sum github_users.json`
   fi
   if [ ! -z "$GHA2DB_COMPANY_ACQ_YAML" ]
   then
     wget https://github.com/cncf/devstats/raw/master/companies.yaml -O "$GHA2DB_COMPANY_ACQ_YAML" || exit 9
+    sum2=`sha256sum "$GHA2DB_COMPANY_ACQ_YAML"`
   else
     wget https://github.com/cncf/devstats/raw/master/companies.yaml -O companies.yaml || exit 10
+    sum2=`sha256sum companies.yaml`
   fi
+else
+  sum1=`sha256sum github_users.json`
+  sum2=`sha256sum companies.yaml`
+fi
+
+if [ ! -z "$USE_FLAGS" ]
+then
+  trap set_flag EXIT
 fi
 
 . ./devel/all_projs.sh || exit 2
