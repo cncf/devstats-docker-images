@@ -1,5 +1,6 @@
 #!/bin/bash
 # USE_FLAGS=1 (will check devstats running flag and abort when set, then it will clear provisioned flag for the time of adding new metric and then set it)
+# GIANT=1 - use giant lock
 if ( [ -z "$PG_PASS" ] || [ -z "$PG_HOST" ] || [ -z "$PG_PORT" ] )
 then
   echo "$0: you need to set PG_PASS, PG_HOST and PG_PORT to run this script"
@@ -8,6 +9,21 @@ fi
 
 export GHA2DB_PROJECTS_YAML="devstats-helm/projects.yaml"
 export LIST_FN_PREFIX="devstats-helm/all_"
+
+if [ ! -z "$GIANT" ]
+then
+  ./devel/wait_flag.sh devstats giant_lock 0 30 || exit 8
+  ./devel/set_flag.sh devstats giant_lock || exit 9
+fi
+
+function clear_flag {
+  ./devel/clear_flag.sh devstats giant_lock
+}
+
+if [ ! -z "$GIANT" ]
+then
+  trap clear_flag EXIT
+fi
 
 . ./devel/all_projs.sh || exit 2
 for proj in $all

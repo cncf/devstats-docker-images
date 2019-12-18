@@ -5,16 +5,21 @@
 # GHA2DB_CHECK_IMPORTED_SHA=1 (will check if given file was already imported)
 # SKIP_IMP_AFFS=1 skip import_affs.sh phase
 # SKIP_UPD_AFFS=1 skip update_affs.sh phase
+# GIANT=lock|wait|'' lock giant lock or only wait for giant lock or do not use giant lock
 if ( [ -z "$PG_PASS" ] || [ -z "$PG_HOST" ] || [ -z "$PG_PORT" ] )
 then
   echo "$0: you need to set PG_PASS, PG_HOST and PG_PORT to run this script"
   exit 1
 fi
 
-#if [ ! "$GHA2DB_DEBUG" = "0" ]
-#then
-#  exit 0
-#fi
+if [ ! -z "$GIANT" ]
+then
+  ./devel/wait_flag.sh devstats giant_lock 0 30 || exit 11
+  if [ "$GIANT" = "lock" ]
+  then
+    ./devel/set_flag.sh devstats giant_lock || exit 12
+  fi
+fi
 
 function set_flag {
   err="$?"
@@ -41,6 +46,11 @@ function set_flag {
       PG_USER="$user" ./devel/db.sh psql "$db" -c "delete from gha_imported_shas where sha in ('$sum1', '$sum2')"
     fi
   done
+
+  if [ "$GIANT" = "lock" ]
+  then
+    ./devel/clear_flag.sh devstats giant_lock
+  fi
 }
 
 export GHA2DB_PROJECTS_YAML="devstats-helm/projects.yaml"
