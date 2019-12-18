@@ -23,29 +23,32 @@ fi
 
 function set_flag {
   err="$?"
-  echo "Exit handler, final status is '$err'"
-  user=gha_admin
-  if [ ! -z "${PG_USER}" ]
+  if [ ! -z "$USE_FLAGS" ]
   then
-    user="${PG_USER}"
-  fi
+    echo "Exit handler, final status is '$err'"
+    user=gha_admin
+    if [ ! -z "${PG_USER}" ]
+    then
+      user="${PG_USER}"
+    fi
 
-  for proj in $all
-  do
-    db=$proj
-    if [ "$proj" = "kubernetes" ]
-    then
-      db="gha"
-    elif [ "$proj" = "all" ]
-    then
-      db="allprj"
-    fi
-    ./devel/set_flag.sh "$db" provisioned
-    if [ ! "$err" = "0" ]
-    then
-      PG_USER="$user" ./devel/db.sh psql "$db" -c "delete from gha_imported_shas where sha in ('$sum1', '$sum2')"
-    fi
-  done
+    for proj in $all
+    do
+      db=$proj
+      if [ "$proj" = "kubernetes" ]
+      then
+        db="gha"
+      elif [ "$proj" = "all" ]
+      then
+        db="allprj"
+      fi
+      ./devel/set_flag.sh "$db" provisioned
+      if [ ! "$err" = "0" ]
+      then
+        PG_USER="$user" ./devel/db.sh psql "$db" -c "delete from gha_imported_shas where sha in ('$sum1', '$sum2')"
+      fi
+    done
+  fi
 
   if [ "$GIANT" = "lock" ]
   then
@@ -81,11 +84,7 @@ fi
 
 echo "Importing SHA pair ('$sum1', '$sum2')"
 
-if [ ! -z "$USE_FLAGS" ]
-then
-  trap set_flag EXIT
-  echo "Exit function set"
-fi
+trap set_flag EXIT
 
 . ./devel/all_projs.sh || exit 2
 for proj in $all

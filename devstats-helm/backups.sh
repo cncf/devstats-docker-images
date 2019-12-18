@@ -1,4 +1,20 @@
 #!/bin/bash
+# GIANT=lock|wait|'' lock giant lock or only wait for giant lock or do not use giant lock
+if [ ! -z "$GIANT" ]
+then
+  ./devel/wait_flag.sh devstats giant_lock 0 30 || exit 3
+  if [ "$GIANT" = "lock" ]
+  then
+    ./devel/set_flag.sh devstats giant_lock || exit 4
+  fi
+fi
+function clear_flag {
+  ./devel/clear_flag.sh devstats giant_lock
+}
+if [ "$GIANT" = "lock" ]
+then
+  trap clear_flag EXIT
+fi
 export LIST_FN_PREFIX="devstats-helm/all_"
 failed=''
 failed_full=''
