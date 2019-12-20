@@ -14,7 +14,7 @@ fi
 
 if [ ! -z "$GIANT" ]
 then
-  ./devel/wait_flag.sh devstats giant_lock 0 30 || exit 11
+  ./devel/wait_flag.sh devstats giant_lock 0 60 || exit 11
   if [ "$GIANT" = "lock" ]
   then
     ./devel/set_flag.sh devstats giant_lock || exit 12

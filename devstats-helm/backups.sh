@@ -2,7 +2,7 @@
 # GIANT=lock|wait|'' lock giant lock or only wait for giant lock or do not use giant lock
 if [ ! -z "$GIANT" ]
 then
-  ./devel/wait_flag.sh devstats giant_lock 0 30 || exit 3
+  ./devel/wait_flag.sh devstats giant_lock 0 60 || exit 3
   if [ "$GIANT" = "lock" ]
   then
     ./devel/set_flag.sh devstats giant_lock || exit 4

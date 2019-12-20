@@ -12,7 +12,7 @@ export LIST_FN_PREFIX="devstats-helm/all_"
 
 if [ ! -z "$GIANT" ]
 then
-  ./devel/wait_flag.sh devstats giant_lock 0 30 || exit 8
+  ./devel/wait_flag.sh devstats giant_lock 0 20 || exit 8
   ./devel/set_flag.sh devstats giant_lock || exit 9
 fi
 
