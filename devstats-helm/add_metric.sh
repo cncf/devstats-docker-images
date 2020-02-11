@@ -8,6 +8,8 @@ fi
 
 export GHA2DB_PROJECTS_YAML="devstats-helm/projects.yaml"
 export LIST_FN_PREFIX="devstats-helm/all_"
+export GHA2DB_GHAPIFORCELICENSES=1
+export GHA2DB_GHAPIFORCELANGS=1
 
 . ./devel/all_projs.sh || exit 2
 for proj in $all
