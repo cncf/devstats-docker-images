@@ -11,6 +11,7 @@ export GHA2DB_GHAPIFORCELICENSES=1
 export GHA2DB_GHAPIFORCELANGS=1
 export GHA2DB_GHAPISKIPEVENTS=1
 export GHA2DB_GHAPISKIPCOMMITS=1
+export GHA2DB_GITHUB_DEBUG=1
 
 . ./devel/all_projs.sh || exit 2
 for proj in $all
