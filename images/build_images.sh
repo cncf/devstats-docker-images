@@ -1,6 +1,8 @@
 #!/bin/bash
-# DOCKER_USER=lukaszgryglicki SKIP_FULL=1 SKIP_MIN=1 SKIP_GRAFANA=1 SKIP_TESTS=1 SKIP_PATRONI=1 SKIP_STATIC=1 SKIP_REPORTS=1 SKIP_PUSH=1 ./images/build_images.sh
+# DOCKER_USER=lukaszgryglicki SKIP_TEST=1 SKIP_PROD=1 SKIP_FULL=1 SKIP_MIN=1 SKIP_GRAFANA=1 SKIP_TESTS=1 SKIP_PATRONI=1 SKIP_STATIC=1 SKIP_REPORTS=1 SKIP_PUSH=1 ./images/build_images.sh
 # DOCKER_USER=lukaszgryglicki ./images/remove_images.sh
+# SKIP_TEST=1 (skip test images)
+# SKIP_PROD=1 (skip prod images)
 if [ -z "${DOCKER_USER}" ]
 then
   echo "$0: you need to set docker user via DOCKER_USER=username"
@@ -34,14 +36,26 @@ tar cf devstats-docker-images.tar k8s example gql devstats-helm patches images/M
 
 if [ -z "$SKIP_FULL" ]
 then
-  docker build -f ./images/Dockerfile.full.test -t "${DOCKER_USER}/devstats-test" . || exit 12
-  docker build -f ./images/Dockerfile.full.prod -t "${DOCKER_USER}/devstats-prod" . || exit 33
+  if [ -z "$SKIP_TEST" ]
+  then
+    docker build -f ./images/Dockerfile.full.test -t "${DOCKER_USER}/devstats-test" . || exit 12
+  fi
+  if [ -z "$SKIP_PROD" ]
+  then
+    docker build -f ./images/Dockerfile.full.prod -t "${DOCKER_USER}/devstats-prod" . || exit 33
+  fi
 fi
 
 if [ -z "$SKIP_MIN" ]
 then
-  docker build -f ./images/Dockerfile.minimal.test -t "${DOCKER_USER}/devstats-minimal-test" . || exit 13
-  docker build -f ./images/Dockerfile.minimal.prod -t "${DOCKER_USER}/devstats-minimal-prod" . || exit 35
+  if [ -z "$SKIP_TEST" ]
+  then
+    docker build -f ./images/Dockerfile.minimal.test -t "${DOCKER_USER}/devstats-minimal-test" . || exit 13
+  fi
+  if [ -z "$SKIP_PROD" ]
+  then
+    docker build -f ./images/Dockerfile.minimal.prod -t "${DOCKER_USER}/devstats-minimal-prod" . || exit 35
+  fi
 fi
 
 if [ -z "$SKIP_GRAFANA" ]
@@ -62,8 +76,14 @@ fi
 
 if [ -z "$SKIP_STATIC" ]
 then
-  docker build -f ./images/Dockerfile.static.prod -t "${DOCKER_USER}/devstats-static-prod" . || exit 23
-  docker build -f ./images/Dockerfile.static.test -t "${DOCKER_USER}/devstats-static-test" . || exit 24
+  if [ -z "$SKIP_TEST" ]
+  then
+    docker build -f ./images/Dockerfile.static.test -t "${DOCKER_USER}/devstats-static-test" . || exit 24
+  fi
+  if [ -z "$SKIP_PROD" ]
+  then
+    docker build -f ./images/Dockerfile.static.prod -t "${DOCKER_USER}/devstats-static-prod" . || exit 23
+  fi
   docker build -f ./images/Dockerfile.static.cdf -t "${DOCKER_USER}/devstats-static-cdf" . || exit 25
   docker build -f ./images/Dockerfile.static.graphql -t "${DOCKER_USER}/devstats-static-graphql" . || exit 26
   docker build -f ./images/Dockerfile.static.default -t "${DOCKER_USER}/devstats-static-default" . || exit 27
@@ -84,14 +104,26 @@ fi
 
 if [ -z "$SKIP_FULL" ]
 then
-  docker push "${DOCKER_USER}/devstats-test" || exit 17
-  docker push "${DOCKER_USER}/devstats-prod" || exit 34
+  if [ -z "$SKIP_TEST" ]
+  then
+    docker push "${DOCKER_USER}/devstats-test" || exit 17
+  fi
+  if [ -z "$SKIP_PROD" ]
+  then
+    docker push "${DOCKER_USER}/devstats-prod" || exit 34
+  fi
 fi
 
 if [ -z "$SKIP_MIN" ]
 then
-  docker push "${DOCKER_USER}/devstats-minimal-test" || exit 18
-  docker push "${DOCKER_USER}/devstats-minimal-prod" || exit 36
+  if [ -z "$SKIP_TEST" ]
+  then
+    docker push "${DOCKER_USER}/devstats-minimal-test" || exit 18
+  fi
+  if [ -z "$SKIP_PROD" ]
+  then
+    docker push "${DOCKER_USER}/devstats-minimal-prod" || exit 36
+  fi
 fi
 
 if [ -z "$SKIP_GRAFANA" ]
@@ -112,8 +144,14 @@ fi
 
 if [ -z "$SKIP_STATIC" ]
 then
-  docker push "${DOCKER_USER}/devstats-static-prod" || exit 24
-  docker push "${DOCKER_USER}/devstats-static-test" || exit 28
+  if [ -z "$SKIP_TEST" ]
+  then
+    docker push "${DOCKER_USER}/devstats-static-test" || exit 28
+  fi
+  if [ -z "$SKIP_PROD" ]
+  then
+    docker push "${DOCKER_USER}/devstats-static-prod" || exit 24
+  fi
   docker push "${DOCKER_USER}/devstats-static-cdf" || exit 29
   docker push "${DOCKER_USER}/devstats-static-graphql" || exit 30
   docker push "${DOCKER_USER}/devstats-static-default" || exit 31

@@ -9,7 +9,7 @@ Create and remove docker images:
 
 - To create DevStats docker container images and publish them, use: `DOCKER_USER=... ./images/build_images.sh`.
 - To drop local DevStats docker container images use: `DOCKER_USER=... ./images/remove_images.sh`.
-- You can add various flags to skip specific images like `SKIP_FULL=1` or `SKIP_MIN=1` see `images/build_images.sh`.
+- You can add various flags to skip specific images like `SKIP_FULL=1`, `SKIP_MIN=1`, `SKIP_TEST=1`, `SKIP_PROD=1` see `images/build_images.sh`.
 - You can skip publishing to docker hub via `SKIP_PUSH=1`.
 
 
