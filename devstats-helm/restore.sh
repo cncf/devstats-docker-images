@@ -10,9 +10,10 @@
 #GHA2DB_PROJECT="$PROJ" PG_DB="$PROJDB" GHA2DB_LOCAL=1 vars || exit 8
 #GHA2DB_PROJECT="$PROJ" PG_DB="$PROJDB" GHA2DB_LOCAL=1 GHA2DB_VARS_FN_YAML="sync_vars.yaml" vars || exit 9
 #GHA2DB_PROJECT=$PROJ PG_DB=$PROJDB ./shared/get_repos.sh || exit 10
-GHA2DB_PROJECT="$PROJ" PG_DB="$PROJDB" GHA2DB_LOCAL=1 tags || exit 11
-GHA2DB_PROJECT="$PROJ" PG_DB="$PROJDB" GHA2DB_LOCAL=1 annotations || exit 12
-GHA2DB_PROJECT="$PROJ" PG_DB="$PROJDB" GHA2DB_LOCAL=1 gha2db_sync || exit 13
-./devel/set_flag.sh "$PROJDB" provisioned || exit 14
-./devel/clear_flag.sh "$PROJDB" devstats_running || exit 15
+GHA2DB_PROJECT=$PROJ PG_DB=$PROJDB ./shared/setup_repo_groups.sh || exit 11
+GHA2DB_PROJECT=$PROJ PG_DB=$PROJDB GHA2DB_LOCAL=1 tags || exit 12
+GHA2DB_PROJECT=$PROJ PG_DB=$PROJDB GHA2DB_LOCAL=1 annotations || exit 13
+GHA2DB_PROJECT=$PROJ PG_DB=$PROJDB GHA2DB_LOCAL=1 gha2db_sync || exit 14
+./devel/set_flag.sh "$PROJDB" provisioned || exit 15
+./devel/clear_flag.sh "$PROJDB" devstats_running || exit 16
 echo 'OK'
