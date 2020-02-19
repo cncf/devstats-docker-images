@@ -23,6 +23,10 @@ nfull=0
 week="604800"
 day="86400"
 . ./devel/all_dbs.sh || exit 2
+if [ ! -z "$NOAGE" ]
+then
+  echo "Force backup $all"
+fi
 for db in $all
 do
   echo "`date '+%Y-%m-%d %H:%M:%S'` $db"
