@@ -1,5 +1,6 @@
 #!/bin/bash
 # GIANT=lock|wait|'' lock giant lock or only wait for giant lock or do not use giant lock
+# NOAGE=1 - always backup databases, do not check minimum age + randomize
 if [ ! -z "$GIANT" ]
 then
   ./devel/wait_flag.sh devstats giant_lock 0 60 || exit 3
@@ -42,7 +43,7 @@ do
     age=$((day*5))
   fi
   rage=$(((day*4)+(RANDOM*19)%week))
-  if (( age > rage ))
+  if ((( age > rage )) || [ ! -z "$NOAGE" ])
   then
     echo "`date '+%Y-%m-%d %H:%M:%S'` full $db"
     db.sh pg_dump -Fc "$db" -f "/root/$db.dump"
