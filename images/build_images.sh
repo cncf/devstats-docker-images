@@ -99,7 +99,14 @@ fi
 
 if [ -z "$SKIP_API" ]
 then
-  docker build -f ./images/Dockerfile.api -t "${DOCKER_USER}/devstats-api" . || exit 46
+  if [ -z "$SKIP_PROD" ]
+  then
+    docker build -f ./images/Dockerfile.api -t "${DOCKER_USER}/devstats-api-prod" . || exit 46
+  fi
+  if [ -z "$SKIP_TEST" ]
+  then
+    docker build -f ./images/Dockerfile.api -t "${DOCKER_USER}/devstats-api-test" . || exit 48
+  fi
 fi
 
 rm -f devstats.tar devstatscode.tar devstats-grafana.tar devstats-docker-images.tar grafana-bins.tar api-bins.tar api-config.tar devstats-reports.tar index_*.html *.svg
@@ -172,7 +179,14 @@ fi
 
 if [ -z "$SKIP_API" ]
 then
-  docker push "${DOCKER_USER}/devstats-api" || exit 47
+  if [ -z "$SKIP_PROD" ]
+  then
+    docker push "${DOCKER_USER}/devstats-api-prod" || exit 47
+  fi
+  if [ -z "$SKIP_TEST" ]
+  then
+    docker push "${DOCKER_USER}/devstats-api-test" || exit 49
+  fi
 fi
 
 echo 'OK'
