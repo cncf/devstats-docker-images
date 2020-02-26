@@ -1,5 +1,5 @@
 #!/bin/bash
-# DOCKER_USER=lukaszgryglicki SKIP_TEST=1 SKIP_PROD=1 SKIP_FULL=1 SKIP_MIN=1 SKIP_GRAFANA=1 SKIP_TESTS=1 SKIP_PATRONI=1 SKIP_STATIC=1 SKIP_REPORTS=1 SKIP_PUSH=1 ./images/build_images.sh
+# DOCKER_USER=lukaszgryglicki SKIP_TEST=1 SKIP_PROD=1 SKIP_FULL=1 SKIP_MIN=1 SKIP_GRAFANA=1 SKIP_TESTS=1 SKIP_PATRONI=1 SKIP_STATIC=1 SKIP_REPORTS=1 SKIP_API=1 SKIP_PUSH=1 ./images/build_images.sh
 # DOCKER_USER=lukaszgryglicki ./images/remove_images.sh
 # SKIP_TEST=1 (skip test images)
 # SKIP_PROD=1 (skip prod images)
@@ -14,10 +14,11 @@ cd ../devstats || exit 2
 cd ../devstats-reports || exit 39
 cd ../devstatscode || exit 3
 
-make replacer sqlitedb runq || exit 4
-rm -f ../devstats-docker-images/devstatscode.tar ../devstats-docker-images/grafana-bins.tar 2>/dev/null
+make replacer sqlitedb runq api || exit 4
+rm -f ../devstats-docker-images/devstatscode.tar ../devstats-docker-images/grafana-bins.tar ../devstats-docker-images/api-bins.tar 2>/dev/null
 tar cf ../devstats-docker-images/devstatscode.tar cmd vendor *.go || exit 5
 tar cf ../devstats-docker-images/grafana-bins.tar replacer sqlitedb runq || exit 6
+tar cf ../devstats-docker-images/api-bins.tar api || exit 44
 
 cd ../devstats-reports || exit 40
 rm -f ../devstats-docker-images/devstats-reports.tar 2>/dev/null
@@ -31,8 +32,9 @@ cp apache/www/index_*.html ../devstats-docker-images/ || exit 22
 cp grafana/img/*.svg ../devstats-docker-images/ || exit 32
 
 cd "$cwd" || exit 10
-rm -f devstats-docker-images.tar 2>/dev/null
+rm -f devstats-docker-images.tar api-config.tar 2>/dev/null
 tar cf devstats-docker-images.tar k8s example gql devstats-helm patches images/Makefile.* || exit 11
+tar cf api-config.tar devstats-helm/projects.yaml || exit 45
 
 if [ -z "$SKIP_FULL" ]
 then
@@ -95,7 +97,12 @@ then
   docker build -f ./images/Dockerfile.reports -t "${DOCKER_USER}/devstats-reports" . || exit 37
 fi
 
-rm -f devstats.tar devstatscode.tar devstats-grafana.tar devstats-docker-images.tar grafana-bins.tar devstats-reports.tar index_*.html *.svg
+if [ -z "$SKIP_API" ]
+then
+  docker build -f ./images/Dockerfile.api -t "${DOCKER_USER}/devstats-api" . || exit 46
+fi
+
+rm -f devstats.tar devstatscode.tar devstats-grafana.tar devstats-docker-images.tar grafana-bins.tar api-bins.tar api-config.tar devstats-reports.tar index_*.html *.svg
 
 if [ ! -z "$SKIP_PUSH" ]
 then
@@ -161,6 +168,11 @@ fi
 if [ -z "$SKIP_REPORTS" ]
 then
   docker push "${DOCKER_USER}/devstats-reports" || exit 38
+fi
+
+if [ -z "$SKIP_API" ]
+then
+  docker push "${DOCKER_USER}/devstats-api" || exit 47
 fi
 
 echo 'OK'
