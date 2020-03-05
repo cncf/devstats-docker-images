@@ -364,7 +364,7 @@ projects:
     start_date: 2014-01-02T00:00:00Z
     join_date: 2018-03-15T00:00:00Z
     psql_db: nats
-    main_repo: nats-io/gnatsd
+    main_repo: nats-io/nats-server
     annotation_regexp: '^v\d+\.\d+\.\d+$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   opa:
