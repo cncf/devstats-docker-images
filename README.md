@@ -12,6 +12,10 @@ Create and remove docker images:
 - You can add various flags to skip specific images like `SKIP_FULL=1`, `SKIP_MIN=1`, `SKIP_TEST=1`, `SKIP_PROD=1` see `images/build_images.sh`.
 - You can skip publishing to docker hub via `SKIP_PUSH=1`.
 
+Shortcuts:
+
+- Build only API images: `./example/build_api.sh`.
+
 
 # Testing images
 
