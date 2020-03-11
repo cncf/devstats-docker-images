@@ -36,6 +36,7 @@ do
   then
     GHA2DB_PROJECT=$proj PG_DB=$db ./shared/get_repos.sh || exit 4
   fi
+  GHA2DB_LOCAL=1 GHA2DB_PROJECT=$proj PG_DB=$db GHA2DB_SKIPTABLE=1 GHA2DB_MGETC=y structure || exit 7
   if [ ! -z "$USE_FLAGS" ]
   then
     ./devel/set_flag.sh "$db" provisioned || exit 6
