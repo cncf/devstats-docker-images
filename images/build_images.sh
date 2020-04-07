@@ -22,7 +22,7 @@ tar cf ../devstats-docker-images/api-bins.tar api || exit 44
 
 cd ../devstats-reports || exit 40
 rm -f ../devstats-docker-images/devstats-reports.tar 2>/dev/null
-tar cf ../devstats-docker-images/devstats-reports.tar sh sql affs contributors velocity || exit 41
+tar cf ../devstats-docker-images/devstats-reports.tar sh sql affs rep contributors velocity || exit 41
 
 cd ../devstats || exit 7
 rm -f ../devstats-docker-images/index_*.html ../devstats-docker-images/devstats.tar ../devstats-docker-images/devstats-grafana.tar ../devstats-docker-images/*.svg 2>/dev/null
