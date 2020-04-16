@@ -1,4 +1,4 @@
-# Uses Go v1.13 and Postgres 12
+# Uses Go v1.12 and Postgres 12
 # Go 1.13 is not working with postgres-12, let's wait for 1.14 (libicu60 errors)
 FROM golang:1.12
 RUN apt-get update -y && apt-get upgrade -y && apt-get install -y ca-certificates openssh-client git curl make sudo locales locales-all
