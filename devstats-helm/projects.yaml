@@ -739,6 +739,19 @@ projects:
     main_repo: kudobuilder/kudo
     annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  cloudcustodian:
+    order: 53
+    name: Cloud Custodian
+    status: Sandbox
+    command_line:
+      - cloud-custodian
+    start_date: 2016-04-18T00:00:00Z
+    join_date: 2020-06-25T00:00:00Z
+    psql_db: cloudcustodian
+    shared_db: allprj
+    main_repo: cloud-custodian/cloud-custodian
+    annotation_regexp: '^\d+\.\d+\.\d+\.0$'
+    files_skip_pattern: ''
   opencontainers:
     order: 10001
     name: OCI
@@ -1014,7 +1027,7 @@ projects:
          virtual-kubelet,kubeedge,brigadecore,cri-o,networkservicemesh,openebs,\
          open-telemetry,thanos-io,fluxcd,in-toto,strimzi,kubevirt,cdfoundation,\
          longhorn,chubaofs,kedacore,servicemeshinterface,argoproj,volcano-sh,\
-         cni-genie,keptn,kudobuilder"
+         cni-genie,keptn,kudobuilder,cloud-custodian"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
