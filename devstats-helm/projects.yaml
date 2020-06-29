@@ -752,6 +752,19 @@ projects:
     main_repo: cloud-custodian/cloud-custodian
     annotation_regexp: '^\d+\.\d+\.\d+\.0$'
     files_skip_pattern: ''
+  dex:
+    order: 54
+    name: Dex
+    status: Sandbox
+    command_line:
+      - dexidp
+    start_date: 2015-09-13T00:00:00Z
+    join_date: 2020-06-25T00:00:00Z
+    psql_db: dex
+    shared_db: allprj
+    main_repo: dexidp/dex
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   opencontainers:
     order: 10001
     name: OCI
@@ -1027,7 +1040,7 @@ projects:
          virtual-kubelet,kubeedge,brigadecore,cri-o,networkservicemesh,openebs,\
          open-telemetry,thanos-io,fluxcd,in-toto,strimzi,kubevirt,cdfoundation,\
          longhorn,chubaofs,kedacore,servicemeshinterface,argoproj,volcano-sh,\
-         cni-genie,keptn,kudobuilder,cloud-custodian"
+         cni-genie,keptn,kudobuilder,cloud-custodian,dexidp"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
