@@ -765,6 +765,19 @@ projects:
     main_repo: dexidp/dex
     annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  litmuschaos:
+    order: 55
+    name: LitmusChaos
+    status: Sandbox
+    command_line:
+      - litmuschaos
+    start_date: 2017-03-15T00:00:00Z
+    join_date: 2020-06-25T00:00:00Z
+    psql_db: litmuschaos
+    shared_db: allprj
+    main_repo: litmuschaos/litmus
+    annotation_regexp: '^\d+\.\d+\.0$'
+    files_skip_pattern: ''
   opencontainers:
     order: 10001
     name: OCI
@@ -1040,7 +1053,7 @@ projects:
          virtual-kubelet,kubeedge,brigadecore,cri-o,networkservicemesh,openebs,\
          open-telemetry,thanos-io,fluxcd,in-toto,strimzi,kubevirt,cdfoundation,\
          longhorn,chubaofs,kedacore,servicemeshinterface,argoproj,volcano-sh,\
-         cni-genie,keptn,kudobuilder,cloud-custodian,dexidp"
+         cni-genie,keptn,kudobuilder,cloud-custodian,dexidp,litmuschaos"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
