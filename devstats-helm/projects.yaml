@@ -700,6 +700,32 @@ projects:
     main_repo: volcano-sh/volcano
     annotation_regexp: '^v(\d+\.){1,2}\d+$'
     files_skip_pattern: ''
+  cnigenie:
+    order: 50
+    name: CNI-Genie
+    status: Sandbox
+    command_line:
+      - cni-genie
+    start_date: 2017-03-25T00:00:00Z
+    join_date: 2020-06-25T00:00:00Z
+    psql_db: cnigenie
+    shared_db: allprj
+    main_repo: cni-genie/CNI-Genie
+    annotation_regexp: ''
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  keptn:
+    order: 51
+    name: Keptn
+    status: Sandbox
+    command_line:
+      - keptn
+    start_date: 2019-02-01T00:00:00Z
+    join_date: 2020-06-25T00:00:00Z
+    psql_db: keptn
+    shared_db: allprj
+    main_repo: keptn/keptn
+    annotation_regexp: '^\d+\.\d+\.\d+'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   opencontainers:
     order: 10001
     name: OCI
@@ -974,7 +1000,8 @@ projects:
          OpenObservability,cortexproject,buildpacks,falcosecurity,dragonflyoss,\
          virtual-kubelet,kubeedge,brigadecore,cri-o,networkservicemesh,openebs,\
          open-telemetry,thanos-io,fluxcd,in-toto,strimzi,kubevirt,cdfoundation,\
-         longhorn,chubaofs,kedacore,servicemeshinterface,argoproj,volcano-sh"
+         longhorn,chubaofs,kedacore,servicemeshinterface,argoproj,volcano-sh,\
+         cni-genie,keptn"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
