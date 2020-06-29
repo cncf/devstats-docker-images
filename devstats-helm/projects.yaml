@@ -804,6 +804,19 @@ projects:
     main_repo: Kong/kuma
     annotation_regexp: '^\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  parsec:
+    order: 58
+    name: PARSEC
+    status: Sandbox
+    command_line:
+      - parallaxsecond
+    start_date: 2019-04-25T00:00:00Z
+    join_date: 2020-06-25T00:00:00Z
+    psql_db: parsec
+    shared_db: allprj
+    main_repo: parallaxsecond/parsec
+    annotation_regexp: '^\d+\.\d+\.\d+$'
+    files_skip_pattern: ''
   opencontainers:
     order: 10001
     name: OCI
@@ -1080,7 +1093,8 @@ projects:
          open-telemetry,thanos-io,fluxcd,in-toto,strimzi,kubevirt,cdfoundation,\
          longhorn,chubaofs,kedacore,servicemeshinterface,argoproj,volcano-sh,\
          cni-genie,keptn,kudobuilder,cloud-custodian,dexidp,litmuschaos,artifacthub,\
-         Kong/kuma,Kong/kuma-website,Kong/kuma-demo,Kong/kuma-gui,Kong/kumacut"
+         Kong/kuma,Kong/kuma-website,Kong/kuma-demo,Kong/kuma-gui,Kong/kumacut,\
+         parallaxsecond"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
