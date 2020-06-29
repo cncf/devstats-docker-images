@@ -789,8 +789,21 @@ projects:
     psql_db: artifacthub
     shared_db: allprj
     main_repo: artifacthub/hub
-    annotation_regexp: '^\d+\.\d+\.0$'
+    annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: ''
+  kuma:
+    order: 57
+    name: Artifact Hub
+    status: Sandbox
+    command_line:
+      - Kong/kuma,Kong/kuma-website,Kong/kuma-demo,Kong/kuma-gui,Kong/kumacut
+    start_date: 2019-09-09T00:00:00Z
+    join_date: 2020-06-25T00:00:00Z
+    psql_db: kuma
+    shared_db: allprj
+    main_repo: Kong/kuma
+    annotation_regexp: '^\d+\.\d+\.0$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   opencontainers:
     order: 10001
     name: OCI
@@ -1067,7 +1080,7 @@ projects:
          open-telemetry,thanos-io,fluxcd,in-toto,strimzi,kubevirt,cdfoundation,\
          longhorn,chubaofs,kedacore,servicemeshinterface,argoproj,volcano-sh,\
          cni-genie,keptn,kudobuilder,cloud-custodian,dexidp,litmuschaos,artifacthub,\
-         "
+         Kong/kuma,Kong/kuma-website,Kong/kuma-demo,Kong/kuma-gui,Kong/kumacut"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
