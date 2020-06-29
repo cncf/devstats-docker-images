@@ -778,6 +778,19 @@ projects:
     main_repo: litmuschaos/litmus
     annotation_regexp: '^\d+\.\d+\.0$'
     files_skip_pattern: ''
+  artifacthub:
+    order: 56
+    name: Artifact Hub
+    status: Sandbox
+    command_line:
+      - artifacthub
+    start_date: 2020-03-10T00:00:00Z
+    join_date: 2020-06-25T00:00:00Z
+    psql_db: artifacthub
+    shared_db: allprj
+    main_repo: artifacthub/hub
+    annotation_regexp: '^\d+\.\d+\.0$'
+    files_skip_pattern: ''
   opencontainers:
     order: 10001
     name: OCI
@@ -1053,7 +1066,8 @@ projects:
          virtual-kubelet,kubeedge,brigadecore,cri-o,networkservicemesh,openebs,\
          open-telemetry,thanos-io,fluxcd,in-toto,strimzi,kubevirt,cdfoundation,\
          longhorn,chubaofs,kedacore,servicemeshinterface,argoproj,volcano-sh,\
-         cni-genie,keptn,kudobuilder,cloud-custodian,dexidp,litmuschaos"
+         cni-genie,keptn,kudobuilder,cloud-custodian,dexidp,litmuschaos,artifacthub,\
+         "
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
