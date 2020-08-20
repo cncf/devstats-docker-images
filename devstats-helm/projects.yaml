@@ -909,7 +909,7 @@ projects:
     psql_db: k3s
     shared_db: allprj
     main_repo: rancher/k3s
-    annotation_regexp: '^v\d+\.\d+\.\d*0(+k3s\.?1)?$'
+    annotation_regexp: '^v\d+\.\d+\.\d*0(\+k3s\.?1)?$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   opencontainers:
     order: 10001
