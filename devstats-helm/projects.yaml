@@ -298,7 +298,7 @@ projects:
     name: SPIRE
     status: Incubating
     command_line:
-      - 'regexp:(?i)^(spiffe\/spire.*)$'
+      - 'regexp:(?i)^spiffe\/spire.*$'
     start_date: 2017-09-28T00:00:00Z
     join_date: 2018-03-29T00:00:00Z
     incubating_date: 2020-06-22T00:00:00Z
@@ -898,6 +898,19 @@ projects:
     main_repo: serverlessworkflow/specification
     annotation_regexp: ''
     files_skip_pattern: ''
+  k3s:
+    order: 65
+    name: K3s
+    status: Sandbox
+    command_line:
+      - 'regexp:(?i)^(ibuildthecloud|rancher)\/.*k3(s|d).*$'
+    start_date: 2018-05-31T00:00:00Z
+    join_date: 2020-08-19T00:00:00Z
+    psql_db: k3s
+    shared_db: allprj
+    main_repo: rancher/k3s
+    annotation_regexp: '^v\d+\.\d+\.\d*0(+k3s\.?1)?$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   opencontainers:
     order: 10001
     name: OCI
