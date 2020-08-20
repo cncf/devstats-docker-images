@@ -383,11 +383,12 @@ projects:
   spiffe:
     order: 30
     name: SPIFFE
-    status: Sandbox
+    status: Incubating
     command_line:
       - spiffe
     start_date: 2017-08-23T00:00:00Z
     join_date: 2018-03-29T00:00:00Z
+    incubating_date: 2020-06-22T00:00:00Z
     psql_db: spiffe
     main_repo: spiffe/spiffe
     annotation_regexp: ''
@@ -397,11 +398,12 @@ projects:
   spire:
     order: 31
     name: SPIRE
-    status: Sandbox
+    status: Incubating
     command_line:
       - 'regexp:(?i)^(spiffe\/spire.*)$'
     start_date: 2017-09-28T00:00:00Z
     join_date: 2018-03-29T00:00:00Z
+    incubating_date: 2020-06-22T00:00:00Z
     psql_db: spire
     main_repo: spiffe/spire
     annotation_regexp: '^v?(\d+\.){1,2}\d+$'
@@ -497,11 +499,12 @@ projects:
   cortex:
     order: 39
     name: Cortex
-    status: Sandbox
+    status: Incubating
     command_line:
       - cortexproject
     start_date: 2016-09-09T00:00:00Z
     join_date: 2018-09-20T00:00:00Z
+    incubating_date: 2020-08-20T00:00:00Z
     psql_db: cortex
     main_repo: cortexproject/cortex
     annotation_regexp: ''
@@ -797,10 +800,11 @@ projects:
   thanos:
     order: 64
     name: Thanos
-    status: Sandbox
+    status: Incubating
     command_line: ['thanos-io']
     start_date: 2017-11-01T00:00:00Z
     join_date: 2019-07-14T00:00:00Z
+    incubating_date: 2020-08-19T00:00:00Z
     psql_db: thanos
     main_repo: 'thanos-io/thanos'
     annotation_regexp: '^v\d+\.\d+\.\d+$'
