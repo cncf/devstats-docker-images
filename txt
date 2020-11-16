@@ -1,0 +1,2 @@
+Updated references in [devstats repo](https://github.com/cncf/devstats/commit/5bbc4befcc4889f66622682ca9dd32ff39572f9f), [devstats-helm repo](https://github.com/cncf/devstats-helm/commit/9560d54ab7347f9c267fdbae5324bdbfb5aacecb), rebuilt docker images (grafana and pages) and redeployed with new branding.
+
