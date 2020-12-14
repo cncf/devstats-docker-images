@@ -1,4 +1,4 @@
-FROM postgres:11
+FROM postgres:13
 MAINTAINER Josh Berkus <josh@berkus.org>
 
 RUN export DEBIAN_FRONTEND=noninteractive \

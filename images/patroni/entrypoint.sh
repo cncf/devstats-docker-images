@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 
 if [[ $UID -ge 10000 ]]; then
     GID=$(id -g)
@@ -10,13 +10,26 @@ fi
 cat > /home/postgres/patroni.yml <<__EOF__
 bootstrap:
   dcs:
-    loop_wait: ${PATRONI_LOOP_WAIT}
-    ttl: ${PATRONI_TTL}
-    retry_timeout: ${PATRONI_RETRY_TIMEOUT}
-    master_start_timeout: ${PATRONI_MASTER_START_TIMEOUT}
-    maximum_lag_on_failover: ${PATRONI_MAXIMUM_LAG_ON_FAILOVER}
     postgresql:
       use_pg_rewind: true
+    parameters:
+      shared_buffers: '32GB'
+      max_connections: 300
+      max_worker_processes: 56
+      max_parallel_workers: 56
+      max_parallel_workers_per_gather: 28
+      work_mem: '1GB'
+      maintenance_work_mem: '1GB'
+      temp_file_limit: '20GB'
+      idle_in_transaction_session_timeout = '60min'
+      wal_buffers: '128MB'
+      max_wal_size: '8GB'
+      min_wal_size: '1GB'
+      checkpoint_completion_target: 0.9
+      default_statistics_target: 1000
+      effective_cache_size: '192GB'
+      effective_io_concurrency: 8
+      random_page_cost: 1.5
   initdb:
   - auth-host: md5
   - auth-local: trust
@@ -29,37 +42,19 @@ bootstrap:
 restapi:
   connect_address: '${PATRONI_KUBERNETES_POD_IP}:8008'
 postgresql:
-  use_slots: ${PATRONI_POSTGRES_USE_SLOTS}
   connect_address: '${PATRONI_KUBERNETES_POD_IP}:5432'
   authentication:
     superuser:
       password: '${PATRONI_SUPERUSER_PASSWORD}'
     replication:
       password: '${PATRONI_REPLICATION_PASSWORD}'
-  parameters:
-    hot_standby: '${PATRONI_POSTGRES_HOT_STANDBY}'
-    wal_log_hints: '${PATRONI_POSTGRES_WAL_LOG_HINTS}'
-    wal_keep_segments: ${PATRONI_POSTGRES_WAL_KEEP_SEGMENTS}
-    wal_level: '${PATRONI_POSTGRES_WAL_LEVEL}'
-    max_wal_senders: ${PATRONI_POSTGRES_MAX_WAL_SENDERS}
-    max_replication_slots: ${PATRONI_POSTGRES_MAX_REPLICATION_SLOTS}
-    shared_buffers: '${PATRONI_POSTGRES_BUFFERS}'
-    max_connections: '${PATRONI_POSTGRES_MAX_CONN}'
-    max_parallel_workers_per_gather: '${PATRONI_POSTGRES_MAX_PARALLEL_WORKERS_PER_GATHER}'
-    max_worker_processes: '${PATRON_POSTGRES_MAX_WORKER_PROCESSES}'
-    max_parallel_workers: '${PATRON_POSTGRES_MAX_PARALLEL_WORKERS}'
-    work_mem: '${PATRONI_POSTGRES_WORK_MEM}'
-    temp_file_limit: '${PATRONI_POSTGRES_MAX_TEMP_FILE}'
-    idle_in_transaction_session_timeout: '60min'
-    wal_buffers: '${PATRONI_POSTGRES_WAL_BUFFERS}'
-    synchronous_commit: 'off'
 __EOF__
 
 unset PATRONI_SUPERUSER_PASSWORD PATRONI_REPLICATION_PASSWORD
 export KUBERNETES_NAMESPACE=$PATRONI_KUBERNETES_NAMESPACE
 export POD_NAME=$PATRONI_NAME
 
-chown -R postgres /home/postgres/pgdata
 chmod -R 0700 /home/postgres/pgdata
+chmod 0700 /home/postgres/pgdata/pgroot/data
 
 exec /usr/bin/python3 /usr/local/bin/patroni /home/postgres/patroni.yml
