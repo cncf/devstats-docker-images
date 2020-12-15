@@ -50,8 +50,16 @@ postgresql:
     max_parallel_workers: '${PATRON_POSTGRES_MAX_PARALLEL_WORKERS}'
     work_mem: '${PATRONI_POSTGRES_WORK_MEM}'
     temp_file_limit: '${PATRONI_POSTGRES_MAX_TEMP_FILE}'
-    idle_in_transaction_session_timeout: '60min'
     wal_buffers: '${PATRONI_POSTGRES_WAL_BUFFERS}'
+    maintenance_work_mem: '${PATRONI_POSTGRES_MAINTENANCE_WORK_MEM}'
+    idle_in_transaction_session_timeout: '${PATRONI_POSTGRES_IDLE_TRANSACTION_TIMEOUT}'
+    max_wal_size: '${PATRONI_POSTGRES_MAX_WAL_SIZE}'
+    min_wal_size: '${PATRONI_POSTGRES_MIN_WAL_SIZE}'
+    checkpoint_completion_target: '${PATRONI_POSTGRES_CHECKPOINT_COMPLETION_TARGET}'
+    default_statistics_target: '${PATRONI_POSTGRES_DEFAULT_STATISTICS_TARGET}'
+    effective_cache_size: '${PATRONI_POSTGRES_CACHE_SIZE}'
+    effective_io_concurrency: '${PATRONI_POSTGRES_IO_CONCURRENCY}'
+    random_page_cost: '${PATRONI_POSTGRES_RANDOM_PAGE_COST}'
     synchronous_commit: 'off'
 __EOF__
 
