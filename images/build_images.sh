@@ -155,6 +155,7 @@ if [ -z "$SKIP_PATRONI" ]
 then
   #docker push "${DOCKER_USER}/devstats-patroni" || exit 21
   docker push "${DOCKER_USER}/devstats-patroni-new" || exit 21
+  docker push "${DOCKER_USER}/devstats-patroni-13" || exit 21
 fi
 
 if [ -z "$SKIP_STATIC" ]
