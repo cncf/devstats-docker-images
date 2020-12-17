@@ -12,8 +12,10 @@ RUN cp replacer patches/patch.sh /usr/bin/
 RUN patch.sh testsrv teststats.cncf.io 'kubernetes prometheus opentracing fluentd linkerd grpc coredns containerd rkt cni envoy jaeger notary tuf rook vitess nats opa spiffe spire cloudevents telepresence helm openmetrics harbor etcd tikv cortex buildpacks falco dragonfly virtualkubelet kubeedge brigade crio networkservicemesh openebs opentelemetry thanos flux intoto strimzi kubevirt longhorn chubaofs keda smi argo volcano cnigenie keptn kudo cloudcustodian dex litmuschaos artifacthub kuma parsec bfe crossplane contour operatorframework chaosmesh serverlessworkflow k3s backstage tremor metal3 porter openyurt openservicemesh keylime schemahero cdk8s certmanager openkruise tinkerbell pravega kyverno cncf all opencontainers istio knative linux zephyr sam azf riff fn openwhisk openfaas graphql graphqljs graphiql expressgraphql graphqlspec spinnaker tekton jenkins jenkinsx allcdf cii prestodb godotengine'
 RUN make -f ./images/Makefile.full dockerinstall
 RUN make -f ./images/Makefile.full links
-FROM alpine
-RUN apk add git bash postgresql-client xz curl
+#FROM alpine
+#RUN apk add git bash postgresql-client xz curl
+FROM postgres:13-alpine
+RUN apk add git curl
 COPY --from=builder /etc/gha2db /etc/gha2db
 COPY --from=builder /go/src/github.com/cncf/devstatscode /go/src/devstats
 COPY --from=builder /devstats-minimal/* /usr/bin/
