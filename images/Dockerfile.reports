@@ -5,7 +5,7 @@ ADD grafana-bins.tar .
 #FROM alpine
 #RUN apk add git bash postgresql-client xz curl vim zip
 FROM postgres:13-alpine
-RUN apk add git curl vim zip
+RUN apk add git curl vim zip xz
 COPY --from=builder /builder/devel/db.sh /usr/bin/
 COPY --from=builder /builder/runq /usr/bin/
 COPY --from=builder /builder/util_sql/exclude_bots.sql /etc/gha2db/util_sql/exclude_bots.sql

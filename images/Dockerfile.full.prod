@@ -17,7 +17,7 @@ RUN make -f ./images/Makefile.full links
 #FROM alpine
 #RUN apk add git bash postgresql-client xz curl
 FROM postgres:13-alpine
-RUN apk add git curl
+RUN apk add git curl xz
 COPY --from=builder /etc/gha2db /etc/gha2db
 COPY --from=builder /go/src/github.com/cncf/devstatscode /go/src/devstats
 COPY --from=builder /devstats-minimal/* /usr/bin/
