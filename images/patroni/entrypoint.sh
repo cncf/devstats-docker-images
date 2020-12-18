@@ -40,6 +40,7 @@ postgresql:
     hot_standby: '${PATRONI_POSTGRES_HOT_STANDBY}'
     wal_log_hints: '${PATRONI_POSTGRES_WAL_LOG_HINTS}'
     wal_keep_segments: ${PATRONI_POSTGRES_WAL_KEEP_SEGMENTS}
+    wal_keep_size: ${PATRONI_POSTGRES_WAL_KEEP_SIZE}
     wal_level: '${PATRONI_POSTGRES_WAL_LEVEL}'
     max_wal_senders: ${PATRONI_POSTGRES_MAX_WAL_SENDERS}
     max_replication_slots: ${PATRONI_POSTGRES_MAX_REPLICATION_SLOTS}
