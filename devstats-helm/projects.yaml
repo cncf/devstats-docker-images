@@ -1139,6 +1139,19 @@ projects:
     main_repo: 'indeedeng/k8dash'
     annotation_regexp: ''
     files_skip_pattern: ''
+  athenz:
+    order: 83
+    name: Athenz
+    status: Sandbox
+    command_line:
+      - 'regexp:(?i)^yahoo\/.*athenz.*$'
+    start_date: 2017-01-13T00:00:00Z
+    join_date: 2021-01-26T00:00:00Z
+    psql_db: athenz
+    shared_db: allprj
+    main_repo: 'yahoo/athenz'
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: ''
   opencontainers:
     order: 10001
     name: OCI
@@ -1432,7 +1445,7 @@ projects:
          chaos-mesh,serverlessworkflow,tremor-rs,metal3-io,openservicemesh,keylime,\
          Kong/kumacut,Kong/docker-kuma,getporter,schemahero,openkruise,alibaba/openyurt,\
          awslabs/cdk8s,jetstack/cert-manager,tinkerbell,pravega,kyverno,cert-manager,\
-         k3s-io,gitops-working-group,piraeusdatastore,indeedeng/k8dash,\
+         k3s-io,gitops-working-group,piraeusdatastore,indeedeng/k8dash,yahoo/athenz\
          indeedeng/k8dash-website"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
