@@ -1175,9 +1175,22 @@ projects:
     join_date: 2021-01-26T00:00:00Z
     psql_db: curiefense
     shared_db: allprj
-    main_repo: 'curiefense'
+    main_repo: 'curiefense/curiefense'
     annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: ''
+  distribution:
+    order: 86
+    name: Distribution
+    status: Sandbox
+    command_line:
+      - 'distribution'
+    start_date: 2015-01-01T00:00:00Z
+    join_date: 2021-01-26T00:00:00Z
+    psql_db: distribution
+    shared_db: allprj
+    main_repo: 'distribution/distribution'
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   opencontainers:
     order: 10001
     name: OCI
@@ -1472,7 +1485,7 @@ projects:
          Kong/kumacut,Kong/docker-kuma,getporter,schemahero,openkruise,alibaba/openyurt,\
          awslabs/cdk8s,jetstack/cert-manager,tinkerbell,pravega,kyverno,cert-manager,\
          k3s-io,gitops-working-group,piraeusdatastore,indeedeng/k8dash,yahoo/athenz\
-         indeedeng/k8dash-website,alauda/kube-ovn,curiefense"
+         indeedeng/k8dash-website,alauda/kube-ovn,curiefense,distribution"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
