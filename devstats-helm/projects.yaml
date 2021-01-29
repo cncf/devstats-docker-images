@@ -1152,6 +1152,32 @@ projects:
     main_repo: 'yahoo/athenz'
     annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: ''
+  kubeovn:
+    order: 84
+    name: Kube-OVN
+    status: Sandbox
+    command_line:
+      - 'alauda/kube-ovn'
+    start_date: 2019-03-22T00:00:00Z
+    join_date: 2021-01-26T00:00:00Z
+    psql_db: kubeovn
+    shared_db: allprj
+    main_repo: 'alauda/kube-ovn'
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  curiefense:
+    order: 85
+    name: Curiefense
+    status: Sandbox
+    command_line:
+      - 'curiefense'
+    start_date: 2020-02-06T00:00:00Z
+    join_date: 2021-01-26T00:00:00Z
+    psql_db: curiefense
+    shared_db: allprj
+    main_repo: 'curiefense'
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: ''
   opencontainers:
     order: 10001
     name: OCI
@@ -1446,7 +1472,7 @@ projects:
          Kong/kumacut,Kong/docker-kuma,getporter,schemahero,openkruise,alibaba/openyurt,\
          awslabs/cdk8s,jetstack/cert-manager,tinkerbell,pravega,kyverno,cert-manager,\
          k3s-io,gitops-working-group,piraeusdatastore,indeedeng/k8dash,yahoo/athenz\
-         indeedeng/k8dash-website"
+         indeedeng/k8dash-website,alauda/kube-ovn,curiefense"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
