@@ -1113,6 +1113,32 @@ projects:
     main_repo: 'gitops-working-group/gitops-working-group'
     annotation_regexp: ''
     files_skip_pattern: ''
+  piraeus:
+    order: 81
+    name: Piraeus-Datastore
+    status: Sandbox
+    command_line:
+      - 'piraeusdatastore'
+    start_date: 2019-07-09T00:00:00Z
+    join_date: 2021-01-26T00:00:00Z
+    psql_db: piraeus
+    shared_db: allprj
+    main_repo: 'piraeusdatastore/piraeus-operator'
+    annotation_regexp: '^v\d+\.\d+\.\d+$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  k8dash:
+    order: 82
+    name: k8dash
+    status: Sandbox
+    command_line:
+      - 'indeedeng/k8dash,indeedeng/k8dash-website'
+    start_date: 2019-03-05T00:00:00Z
+    join_date: 2021-01-26T00:00:00Z
+    psql_db: k8dash
+    shared_db: allprj
+    main_repo: 'indeedeng/k8dash'
+    annotation_regexp: ''
+    files_skip_pattern: ''
   opencontainers:
     order: 10001
     name: OCI
@@ -1406,7 +1432,8 @@ projects:
          chaos-mesh,serverlessworkflow,tremor-rs,metal3-io,openservicemesh,keylime,\
          Kong/kumacut,Kong/docker-kuma,getporter,schemahero,openkruise,alibaba/openyurt,\
          awslabs/cdk8s,jetstack/cert-manager,tinkerbell,pravega,kyverno,cert-manager,\
-         k3s-io,gitops-working-group"
+         k3s-io,gitops-working-group,piraeusdatastore,indeedeng/k8dash,\
+         indeedeng/k8dash-website"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
