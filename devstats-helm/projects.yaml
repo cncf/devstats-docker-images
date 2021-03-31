@@ -1194,6 +1194,58 @@ projects:
     main_repo: 'distribution/distribution'
     annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  ingraind:
+    order: 87
+    name: ingraind
+    status: Sandbox
+    command_line:
+      - 'ingraind'
+    start_date: 2018-09-25T00:00:00Z
+    join_date: 2021-03-30T00:00:00Z
+    psql_db: ingraind
+    shared_db: allprj
+    main_repo: 'ingraind/ingraind'
+    annotation_regexp: '^v\d+\.\d+(\.\d+)?$'
+    files_skip_pattern: ''
+  kuberhealthy:
+    order: 88
+    name: Kuberhealthy
+    status: Sandbox
+    command_line:
+      - 'Comcast/kuberhealthy'
+    start_date: 2018-07-18T00:00:00Z
+    join_date: 2021-03-30T00:00:00Z
+    psql_db: kuberhealthy
+    shared_db: allprj
+    main_repo: 'Comcast/kuberhealthy'
+    annotation_regexp: '^v\d+\.\d+(\.0)?$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  k8gb:
+    order: 89
+    name: K8GB
+    status: Sandbox
+    command_line:
+      - 'AbsaOSS/k8gb'
+    start_date: 2019-11-27T00:00:00Z
+    join_date: 2021-03-30T00:00:00Z
+    psql_db: k8gb
+    shared_db: allprj
+    main_repo: 'AbsaOSS/k8gb'
+    annotation_regexp: '^v\d+\.\d+(\.0)?$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  trickster:
+    order: 90
+    name: Trickster
+    status: Sandbox
+    command_line:
+      - 'tricksterproxy'
+    start_date: 2018-03-29T00:00:00Z
+    join_date: 2021-03-30T00:00:00Z
+    psql_db: trickster
+    shared_db: allprj
+    main_repo: 'tricksterproxy/trickster'
+    annotation_regexp: '^v\d+\.\d+(\.0)?$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   opencontainers:
     order: 10001
     name: OCI
@@ -1488,7 +1540,8 @@ projects:
          Kong/kumacut,Kong/docker-kuma,getporter,schemahero,openkruise,openyurtio,\
          jetstack/cert-manager,tinkerbell,pravega,kyverno,cert-manager,cdk8s-team,\
          k3s-io,gitops-working-group,piraeusdatastore,indeedeng/k8dash,AthenZ,\
-         indeedeng/k8dash-website,alauda/kube-ovn,curiefense,distribution,kubeovn"
+         indeedeng/k8dash-website,alauda/kube-ovn,curiefense,distribution,kubeovn,\
+         ingraind,Comcast/kuberhealthy,AbsaOSS/k8gb,tricksterproxy"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
