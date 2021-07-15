@@ -1373,7 +1373,7 @@ projects:
     join_date: 2021-06-22T00:00:00Z
     psql_db: servicemeshperformance
     shared_db: allprj
-    main_repo: 'service-mesh-performanc/service-mesh-performance'
+    main_repo: 'service-mesh-performance/service-mesh-performance'
     annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: ''
   kubevela:
