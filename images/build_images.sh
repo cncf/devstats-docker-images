@@ -14,20 +14,21 @@ cd ../devstats || exit 2
 cd ../devstats-reports || exit 39
 cd ../devstatscode || exit 3
 
-make replacer sqlitedb runq api || exit 4
+make replacer sqlitedb runq api calc_metric || exit 4
 rm -f ../devstats-docker-images/devstatscode.tar ../devstats-docker-images/grafana-bins.tar ../devstats-docker-images/api-bins.tar 2>/dev/null
 tar cf ../devstats-docker-images/devstatscode.tar cmd vendor *.go || exit 5
 tar cf ../devstats-docker-images/grafana-bins.tar replacer sqlitedb runq || exit 6
-tar cf ../devstats-docker-images/api-bins.tar api || exit 44
+tar cf ../devstats-docker-images/api-bins.tar api calc_metric || exit 44
 
 cd ../devstats-reports || exit 40
 rm -f ../devstats-docker-images/devstats-reports.tar 2>/dev/null
 tar cf ../devstats-docker-images/devstats-reports.tar sh sql affs rep contributors velocity find.sh || exit 41
 
 cd ../devstats || exit 7
-rm -f ../devstats-docker-images/index_*.html ../devstats-docker-images/devstats.tar ../devstats-docker-images/devstats-grafana.tar ../devstats-docker-images/*.svg 2>/dev/null
+rm -f ../devstats-docker-images/index_*.html ../devstats-docker-images/devstats.tar ../devstats-docker-images/devstats-grafana.tar ../devstats-docker-images/*.svg ../devstats-docker-images/api-files.tar 2>/dev/null
 tar cf ../devstats-docker-images/devstats.tar hide git metrics cdf devel util_sql envoy all lfn shared iovisor mininet opennetworkinglab opensecuritycontroller openswitch p4lang openbmp tungstenfabric cord scripts partials docs cron zephyr linux sam azf riff fn openwhisk openfaas cii prestodb godotengine kubernetes prometheus opentracing fluentd linkerd grpc coredns containerd rkt cni jaeger notary tuf rook vitess nats opa spiffe spire cloudevents telepresence helm openmetrics harbor etcd tikv cortex buildpacks falco dragonfly virtualkubelet kubeedge brigade crio networkservicemesh openebs opentelemetry thanos flux intoto strimzi kubevirt longhorn chubaofs keda smi argo volcano cnigenie keptn kudo cloudcustodian dex litmuschaos artifacthub kuma parsec bfe crossplane contour operatorframework chaosmesh serverlessworkflow k3s backstage tremor metal3 porter openyurt openservicemesh keylime schemahero cdk8s certmanager openkruise tinkerbell pravega kyverno gitopswg piraeus k8dash athenz kubeovn curiefense distribution ingraind kuberhealthy k8gb trickster emissaryingress wasmedge chaosblade vineyard antrea fluid submariner pixie meshery servicemeshperformance kubevela kubevip kubedl krustlet krator oras wasmcloud cncf opencontainers istio spinnaker knative tekton jenkins jenkinsx allcdf graphql graphqljs graphiql expressgraphql graphqlspec kubeflow hyperledger jsons/.keep util_sh projects.yaml companies.yaml skip_dates.yaml github_users.json || exit 8
 tar cf ../devstats-docker-images/devstats-grafana.tar grafana/shared grafana/img/*.svg grafana/img/*.png grafana/*/change_title_and_icons.sh grafana/*/custom_sqlite.sql grafana/dashboards/*/*.json || exit 9
+tar cf ../devstats-docker-images/api-metrics.tar metrics util_sql || exit 50
 cp apache/www/index_*.html ../devstats-docker-images/ || exit 22
 cp grafana/img/*.svg ../devstats-docker-images/ || exit 32
 
@@ -110,7 +111,7 @@ then
   fi
 fi
 
-rm -f devstats.tar devstatscode.tar devstats-grafana.tar devstats-docker-images.tar grafana-bins.tar api-bins.tar api-config.tar devstats-reports.tar index_*.html *.svg
+rm -f devstats.tar devstatscode.tar devstats-grafana.tar devstats-docker-images.tar grafana-bins.tar api-bins.tar api-config.tar api-files.tar devstats-reports.tar index_*.html *.svg
 
 if [ ! -z "$SKIP_PUSH" ]
 then

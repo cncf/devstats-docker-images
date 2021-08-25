@@ -2,7 +2,11 @@ FROM alpine AS builder
 WORKDIR /builder
 ADD api-bins.tar .
 ADD api-config.tar .
+ADD api-files.tar .
 FROM alpine
 COPY --from=builder /builder/api /usr/bin/
+COPY --from=builder /builder/calc_metric /usr/bin/
 COPY --from=builder /builder/devstats-helm/projects.yaml /etc/gha2db/projects.yaml
+COPY --from=builder /builder/metrics /etc/gha2db/metrics
+COPY --from=builder /builder/util_sql /etc/gha2db/util_sql
 CMD api
