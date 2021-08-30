@@ -16,7 +16,7 @@ cd ../devstatscode || exit 3
 
 make replacer sqlitedb runq api calc_metric || exit 4
 rm -f ../devstats-docker-images/devstatscode.tar ../devstats-docker-images/grafana-bins.tar ../devstats-docker-images/api-bins.tar 2>/dev/null
-tar cf ../devstats-docker-images/devstatscode.tar cmd vendor *.go || exit 5
+tar cf ../devstats-docker-images/devstatscode.tar cmd *.go || exit 5
 tar cf ../devstats-docker-images/grafana-bins.tar replacer sqlitedb runq || exit 6
 tar cf ../devstats-docker-images/api-bins.tar api calc_metric || exit 44
 
