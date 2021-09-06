@@ -6,18 +6,24 @@
 # SKIP_IMP_AFFS=1 skip import_affs.sh phase
 # SKIP_UPD_AFFS=1 skip update_affs.sh phase
 # GIANT=lock|wait|'' lock giant lock or only wait for giant lock or do not use giant lock
+# SKIP_AFFS_LOCK=1 (will skip affs_lock flag - it prevents multiple affiliations import at the same time)
 if ( [ -z "$PG_PASS" ] || [ -z "$PG_HOST" ] || [ -z "$PG_PORT" ] )
 then
   echo "$0: you need to set PG_PASS, PG_HOST and PG_PORT to run this script"
   exit 1
 fi
 
-if [ ! -z "$GIANT" ]
+if ( [ ! -z "$USE_FLAGS" ] && [ ! -z "$GIANT" ] )
 then
   ./devel/wait_flag.sh devstats giant_lock 0 60 || exit 11
   if [ "$GIANT" = "lock" ]
   then
     ./devel/set_flag.sh devstats giant_lock || exit 12
+  fi
+  if [ -z "$SKIP_AFFS_LOCK" ]
+  then
+    ./devel/wait_flag.sh devstats affs_lock 0 30 || exit 13
+    ./devel/set_flag.sh devstats affs_lock 0 30 || exit 14
   fi
 fi
 
@@ -31,7 +37,6 @@ function set_flag {
     then
       user="${PG_USER}"
     fi
-
     for proj in $all
     do
       db=$proj
@@ -49,7 +54,10 @@ function set_flag {
       fi
     done
   fi
-
+  if [ -z "$SKIP_AFFS_LOCK" ]
+  then
+    ./devel/clear_flag.sh devstats affs_lock
+  fi
   if [ "$GIANT" = "lock" ]
   then
     ./devel/clear_flag.sh devstats giant_lock
