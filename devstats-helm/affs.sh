@@ -22,8 +22,8 @@ then
   fi
   if [ -z "$SKIP_AFFS_LOCK" ]
   then
-    ./devel/wait_flag.sh devstats affs_lock 0 30 || exit 13
-    ./devel/set_flag.sh devstats affs_lock 0 30 || exit 14
+    ./devel/wait_flag.sh devstats affs_lock 0 90 || exit 13
+    ./devel/set_flag.sh devstats affs_lock || exit 14
   fi
 fi
 
