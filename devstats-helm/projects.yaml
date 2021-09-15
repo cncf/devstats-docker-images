@@ -1497,6 +1497,45 @@ projects:
     main_repo: 'metallb/metallb'
     annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  karmada:
+    order: 110
+    name: Karmada
+    status: Sandbox
+    command_line:
+    - 'karmada-io'
+    start_date: 2021-04-03T00:00:00Z
+    join_date: 2021-09-14T00:00:00Z
+    psql_db: karmada
+    shared_db: allprj
+    main_repo: 'karmada-io/karmada'
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  inclavarecontainers:
+    order: 111
+    name: Inclavare Containers
+    status: Sandbox
+    command_line:
+    - 'alibaba/inclavare-containers'
+    start_date: 2020-05-12T00:00:00Z
+    join_date: 2021-09-14T00:00:00Z
+    psql_db: inclavarecontainers
+    shared_db: allprj
+    main_repo: 'alibaba/inclavare-containers'
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: ''
+  supredge:
+    order: 112
+    name: SuperEdge
+    status: Sandbox
+    command_line:
+    - 'superedge'
+    start_date: 2020-12-19T00:00:00Z
+    join_date: 2021-09-14T00:00:00Z
+    psql_db: superedge
+    shared_db: allprj
+    main_repo: 'superedge/superedge'
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   opencontainers:
     order: 10001
     name: OCI
