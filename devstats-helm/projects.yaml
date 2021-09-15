@@ -849,11 +849,12 @@ projects:
   crossplane:
     order: 60
     name: Crossplane
-    status: Sandbox
+    status: Incubating
     command_line:
       - crossplane
     start_date: 2018-12-04T00:00:00Z
     join_date: 2020-06-25T00:00:00Z
+    incubating_date: 2021-09-14T00:00:00Z
     psql_db: crossplane
     shared_db: allprj
     main_repo: crossplane/crossplane
@@ -1469,6 +1470,19 @@ projects:
     shared_db: allprj
     main_repo: 'wasmCloud/wasmCloud'
     annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: ''
+  akri:
+    order: 108
+    name: akri
+    status: Sandbox
+    command_line:
+    - 'deislabs/akri'
+    start_date: 2020-10-19T00:00:00Z
+    join_date: 2021-09-14T00:00:00Z
+    psql_db: akri
+    shared_db: allprj
+    main_repo: 'deislabs/akri'
+    annotation_regexp: '^v\d+\.\d+\.\d+$'
     files_skip_pattern: ''
   opencontainers:
     order: 10001
