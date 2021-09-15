@@ -1473,7 +1473,7 @@ projects:
     files_skip_pattern: ''
   akri:
     order: 108
-    name: akri
+    name: Akri
     status: Sandbox
     command_line:
     - 'deislabs/akri'
@@ -1484,6 +1484,19 @@ projects:
     main_repo: 'deislabs/akri'
     annotation_regexp: '^v\d+\.\d+\.\d+$'
     files_skip_pattern: ''
+  metallb:
+    order: 109
+    name: MetalLB
+    status: Sandbox
+    command_line:
+    - 'metallb'
+    start_date: 2017-11-08T00:00:00Z
+    join_date: 2021-09-14T00:00:00Z
+    psql_db: metallb
+    shared_db: allprj
+    main_repo: 'metallb/metallb'
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   opencontainers:
     order: 10001
     name: OCI
