@@ -47,7 +47,7 @@ function set_flag {
       then
         db="allprj"
       fi
-      ./devel/set_flag.sh "$db" provisioned
+      DURABLE=1 ./devel/set_flag.sh "$db" provisioned
       if [ ! "$err" = "0" ]
       then
         PG_USER="$user" ./devel/db.sh psql "$db" -c "delete from gha_imported_shas where sha in ('$sum1', '$sum2')"
@@ -56,11 +56,11 @@ function set_flag {
   fi
   if [ -z "$SKIP_AFFS_LOCK" ]
   then
-    ./devel/clear_flag.sh devstats affs_lock
+    DURABLE=1 ./devel/clear_flag.sh devstats affs_lock
   fi
   if [ "$GIANT" = "lock" ]
   then
-    ./devel/clear_flag.sh devstats giant_lock
+    DURABLE=1 ./devel/clear_flag.sh devstats giant_lock
   fi
 }
 
@@ -133,7 +133,7 @@ do
   GHA2DB_PROJECT=$proj PG_DB=$db ./shared/all_affs.sh || exit 5
   if [ ! -z "$USE_FLAGS" ]
   then
-    ./devel/set_flag.sh "$db" provisioned || exit 6
+    DURABLE=1 ./devel/set_flag.sh "$db" provisioned || exit 6
   fi
 done
 
