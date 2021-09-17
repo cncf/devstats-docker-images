@@ -7,12 +7,22 @@
 # SKIP_UPD_AFFS=1 skip update_affs.sh phase
 # GIANT=lock|wait|'' lock giant lock or only wait for giant lock or do not use giant lock
 # SKIP_AFFS_LOCK=1 (will skip affs_lock flag - it prevents multiple affiliations import at the same time)
+# AFFS_LOCK_DB=dbname - use different DB for dealing with affiliations lock (default is devstats).
+# NO_DURABLE=1 - do not use durable flags
 if ( [ -z "$PG_PASS" ] || [ -z "$PG_HOST" ] || [ -z "$PG_PORT" ] )
 then
   echo "$0: you need to set PG_PASS, PG_HOST and PG_PORT to run this script"
   exit 1
 fi
-
+affsLockDB=devstats
+if [ ! -z "$AFFS_LOCK_DB" ]
+then
+  affsLockDB="$AFFS_LOCK_DB"
+fi
+if [ -z "$NO_DURABLE" ]
+then
+  export DURABLE=1
+fi
 if ( [ ! -z "$USE_FLAGS" ] && [ ! -z "$GIANT" ] )
 then
   ./devel/wait_flag.sh devstats giant_lock 0 60 || exit 11
@@ -22,8 +32,8 @@ then
   fi
   if [ -z "$SKIP_AFFS_LOCK" ]
   then
-    ./devel/wait_flag.sh devstats affs_lock 0 90 || exit 13
-    ./devel/set_flag.sh devstats affs_lock || exit 14
+    ./devel/wait_flag.sh "$affsLockDB" affs_lock 0 90 || exit 13
+    ./devel/set_flag.sh "$affsLockDB" affs_lock || exit 14
   fi
 fi
 
@@ -47,7 +57,7 @@ function set_flag {
       then
         db="allprj"
       fi
-      DURABLE=1 ./devel/set_flag.sh "$db" provisioned
+      ./devel/set_flag.sh "$db" provisioned
       if [ ! "$err" = "0" ]
       then
         PG_USER="$user" ./devel/db.sh psql "$db" -c "delete from gha_imported_shas where sha in ('$sum1', '$sum2')"
@@ -56,11 +66,11 @@ function set_flag {
   fi
   if [ -z "$SKIP_AFFS_LOCK" ]
   then
-    DURABLE=1 ./devel/clear_flag.sh devstats affs_lock
+    ./devel/clear_flag.sh "$affsLockDB" affs_lock
   fi
   if [ "$GIANT" = "lock" ]
   then
-    DURABLE=1 ./devel/clear_flag.sh devstats giant_lock
+    ./devel/clear_flag.sh devstats giant_lock
   fi
 }
 
