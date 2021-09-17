@@ -19,7 +19,7 @@ if [ ! -z "$AFFS_LOCK_DB" ]
 then
   affsLockDB="$AFFS_LOCK_DB"
 fi
-if [ -z "$NO_DURABLE" ]
+if ( [ -z "$NO_DURABLE" ] || [ "$NO_DURABLE" = "0" ] || [ "$NO_DURABLE" = "false" ] )
 then
   export DURABLE=1
 fi
@@ -30,7 +30,7 @@ then
   then
     ./devel/set_flag.sh devstats giant_lock || exit 12
   fi
-  if [ -z "$SKIP_AFFS_LOCK" ]
+  if ( [ -z "$SKIP_AFFS_LOCK" ] || [ "$SKIP_AFFS_LOCK" = "0" ] || [ "$SKIP_AFFS_LOCK" = "false" ] )
   then
     ./devel/wait_flag.sh "$affsLockDB" affs_lock 0 90 || exit 13
     ./devel/set_flag.sh "$affsLockDB" affs_lock || exit 14
@@ -64,7 +64,7 @@ function set_flag {
       fi
     done
   fi
-  if [ -z "$SKIP_AFFS_LOCK" ]
+  if ( [ -z "$SKIP_AFFS_LOCK" ] || [ "$SKIP_AFFS_LOCK" = "0" ] || [ "$SKIP_AFFS_LOCK" = "false" ] )
   then
     ./devel/clear_flag.sh "$affsLockDB" affs_lock
   fi
