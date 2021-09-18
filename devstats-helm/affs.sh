@@ -25,6 +25,10 @@ then
 fi
 if ( [ ! -z "$USE_FLAGS" ] && [ ! -z "$GIANT" ] )
 then
+  if ( [ -z "$SKIP_AFFS_LOCK" ] || [ "$SKIP_AFFS_LOCK" = "0" ] || [ "$SKIP_AFFS_LOCK" = "false" ] )
+  then
+    ./devel/set_flag.sh devstats "affs_lock_${ONLY}" || exit 15
+  fi
   ./devel/wait_flag.sh devstats giant_lock 0 60 || exit 11
   if [ "$GIANT" = "lock" ]
   then
@@ -71,6 +75,10 @@ function set_flag {
   if [ "$GIANT" = "lock" ]
   then
     ./devel/clear_flag.sh devstats giant_lock
+  fi
+  if ( [ -z "$SKIP_AFFS_LOCK" ] || [ "$SKIP_AFFS_LOCK" = "0" ] || [ "$SKIP_AFFS_LOCK" = "false" ] )
+  then
+    ./devel/clear_flag.sh devstats "affs_lock_${ONLY}"
   fi
 }
 
@@ -143,7 +151,7 @@ do
   GHA2DB_PROJECT=$proj PG_DB=$db ./shared/all_affs.sh || exit 5
   if [ ! -z "$USE_FLAGS" ]
   then
-    DURABLE=1 ./devel/set_flag.sh "$db" provisioned || exit 6
+    ./devel/set_flag.sh "$db" provisioned || exit 6
   fi
 done
 
