@@ -23,6 +23,10 @@ if ( [ -z "$NO_DURABLE" ] || [ "$NO_DURABLE" = "0" ] || [ "$NO_DURABLE" = "false
 then
   export DURABLE=1
 fi
+if [ -z "$GHA2DB_MAX_RUN_DURATION" ]
+then
+  export GHA2DB_MAX_RUN_DURATION="annotations:1h:102,calc_metric:24h:102,columns:2h:102,get_repos:24h:102,gha2db:24h:102,ghapi2db:24h:102,import_affs:8h:102,structure:4h:102,tags:2h:102"
+fi
 if ( [ ! -z "$USE_FLAGS" ] && [ ! -z "$GIANT" ] )
 then
   if ( [ -z "$SKIP_AFFS_LOCK" ] || [ "$SKIP_AFFS_LOCK" = "0" ] || [ "$SKIP_AFFS_LOCK" = "false" ] )
