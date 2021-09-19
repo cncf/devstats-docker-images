@@ -26,6 +26,7 @@ fi
 if [ -z "$GHA2DB_MAX_RUN_DURATION" ]
 then
   export GHA2DB_MAX_RUN_DURATION="annotations:1h:102,calc_metric:24h:102,columns:2h:102,get_repos:24h:102,gha2db:24h:102,ghapi2db:24h:102,import_affs:8h:102,structure:4h:102,tags:2h:102"
+  echo "using the default max run duration setting: '$GHA2DB_MAX_RUN_DURATION'"
 fi
 if ( [ ! -z "$USE_FLAGS" ] && [ ! -z "$GIANT" ] )
 then
