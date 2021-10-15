@@ -9,6 +9,7 @@ export GHA2DB_PROJECTS_YAML="devstats-helm/projects.yaml"
 export LIST_FN_PREFIX="devstats-helm/all_"
 export GHA2DB_SKIP_METRICS=''
 export GHA2DB_EXCLUDE_VARS=''
+export NO_FATAL_DELAY=1
 
 ONLY='' ./devel/add_all_annotations.sh
 # should be run within devstats-provision-prestodb pod, after other project added their annotations or run devstats-helm/annotations.sh first.
