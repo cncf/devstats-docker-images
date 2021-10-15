@@ -45,7 +45,7 @@ then
     ./devel/set_flag.sh "$affsLockDB" affs_lock || exit 14
   fi
 fi
-
+export NO_FATAL_DELAY=1
 function set_flag {
   err="$?"
   if [ ! -z "$USE_FLAGS" ]
