@@ -8,3 +8,4 @@ RUN cp grafana/shared/install_plugins.sh /usr/bin/
 RUN install_plugins.sh
 #RUN service grafana-server restart
 RUN cp replacer sqlitedb grafana/shared/grafana_start.sh grafana/shared/expose_grafana_db.sh grafana/shared/grafana_health_check.sh /usr/bin/
+RUN rm -f grafana_8.2.5_amd64.deb devstats-grafana.tar grafana-bins.tar
