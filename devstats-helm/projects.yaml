@@ -1670,7 +1670,7 @@ projects:
     psql_db: devfile
     shared_db: allprj
     main_repo: 'devfile/api'
-    annotation_regexp: '^(vd+\.\d+\.0|v1*)$'
+    annotation_regexp: '^v(\d+\.\d+\.\d+$|1)'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   opencontainers:
     order: 10001
