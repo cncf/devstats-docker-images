@@ -1984,7 +1984,7 @@ projects:
          layer5io/mesheryctl-smi-conformance-action,deislabs/krustlet,wasmCloud,\
          project-akri,metallb,karmada-io,alibaba/inclavare-containers,superedge,cilium,\
          dapr,kubesphere/openelb,open-cluster-management-io,vscode-kubernetes-tools,\
-         nocalhost,kubearmor,k8up-io,kube-rs"
+         nocalhost,kubearmor,k8up-io,kube-rs,devfile"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
