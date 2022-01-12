@@ -1659,6 +1659,19 @@ projects:
     main_repo: 'kube-rs/kube-rs'
     annotation_regexp: '^v?\d+\.\d+\.0$'
     files_skip_pattern: ''
+  devfile:
+    order: 122
+    name: Devfile
+    status: Sandbox
+    command_line:
+    - 'devfile'
+    start_date: 2019-12-05T00:00:00Z
+    join_date: 2022-01-11T00:00:00Z
+    psql_db: devfile
+    shared_db: allprj
+    main_repo: 'devfile/api'
+    annotation_regexp: '^(vd+\.\d+\.0|v1*)$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   opencontainers:
     order: 10001
     name: OCI
