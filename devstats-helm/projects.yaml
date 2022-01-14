@@ -1970,18 +1970,7 @@ projects:
          backstage,kuberhealthy,WasmEdge,chaosblade-io,v6d-io,antrea-io,pixie-io,\
          fluid-cloudnative,submariner-io,argoproj-labs,kube-vip,alibaba/kubedl,\
          oam-dev/kubevela,oam-dev/kubevela.io,oam-dev/kubevela-core-api,oam-dev/velacp,\
-         oam-dev/kubevela-tutorials,layer5io/meshery,layer5io/service-mesh-benchmark-spec,\
-         layer5io/meshery-istio,layer5io/meshery-linkerd,layer5io/meshery-octarine,\
-         layer5io/meshery-consul,layer5io/meshery-nsm,layer5io/istio-service-mesh-workshop,\
-         layer5io/meshery-app-mesh,layer5io/meshery-maesh,layer5io/meshery-kuma,\
-         layer5io/meshery-cpx,layer5io/meshery-nsx-sm,layer5io/meshery-adapter-template,\
-         layer5io/meshery.io,layer5io/meshery-tmp,layer5io/service-mesh-performance-specification,\
-         layer5io/meshery-tanzu-sm,layer5io/meshery-operator,layer5io/meshery-osm,\
-         layer5io/meshery-adapter-kit,layer5io/service-mesh-performance,meshery,\
-         layer5io/meshery-nginx-sm,layer5io/advanced-istio-service-mesh-workshop,\
-         layer5io/meshery-adapter-library,layer5io/linkerd-service-mesh-workshop,\
-         layer5io/service-mesh-labs,layer5io/meshery-traefik-mesh,krator-rs,oras-project,\
-         layer5io/mesheryctl-smi-conformance-action,deislabs/krustlet,wasmCloud,\
+         oam-dev/kubevela-tutorials,oras-project,deislabs/krustlet,wasmCloud,\
          project-akri,metallb,karmada-io,alibaba/inclavare-containers,superedge,cilium,\
          dapr,kubesphere/openelb,open-cluster-management-io,vscode-kubernetes-tools,\
          nocalhost,kubearmor,k8up-io,kube-rs,devfile"
