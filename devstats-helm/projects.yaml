@@ -1683,7 +1683,7 @@ projects:
     psql_db: knative
     shared_db: allprj
     main_repo: knative/serving
-    annotation_regexp: '^v\d+\.\d+\.\d+$'
+    annotation_regexp: '^(knative-)?v\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   opencontainers:
     order: 10001
