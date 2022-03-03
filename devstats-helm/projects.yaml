@@ -1672,6 +1672,19 @@ projects:
     main_repo: 'devfile/api'
     annotation_regexp: '^v(\d+\.\d+\.\d+$|1)'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  knative:
+    order: 123
+    name: Knative
+    status: "-"
+    command_line:
+      - 'knative,knative-sandbox'
+    start_date: 2018-07-23T00:00:00Z
+    join_date: 2022-03-02T00:00:00Z
+    psql_db: knative
+    shared_db: allprj
+    main_repo: knative/serving
+    annotation_regexp: '^v\d+\.\d+\.\d+$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   opencontainers:
     order: 10001
     name: OCI
@@ -1700,21 +1713,6 @@ projects:
     main_repo: istio/istio
     annotation_regexp: ''
     files_skip_pattern: ''
-    sync_probabilty: 0.7
-    disabled: true
-  knative:
-    order: 10003
-    name: Knative
-    status: "-"
-    command_line:
-      - 'knative,knative-sandbox'
-    start_date: 2018-07-23T00:00:00Z
-    join_date: null
-    psql_db: knative
-    shared_db: allprj
-    main_repo: knative/serving
-    annotation_regexp: '^v\d+\.\d+\.\d+$'
-    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
     sync_probabilty: 0.7
     disabled: true
   cncf:
