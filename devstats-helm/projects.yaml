@@ -2016,7 +2016,7 @@ projects:
          kubernetes-providers,kubernetes-addons,kubernetes-retired,kubernetes-sigs,\
          kubernetes-extensions,kubernetes-federation,kubernetes-security,\
          kubernetes-sidecars,kubernetes-tools,kubernetes-test,kubernetes-charts,\
-         prometheus,opentracing,fluent,linkerd,grpc,coredns,containerd,\
+         prometheus,opentracing,fluent,linkerd,grpc,coredns,containerd,rkt,\
          containernetworking,envoyproxy,jaegertracing,theupdateframework,\
          rook,cncf,crosscloudci,vitessio,nats-io,open-policy-agent,spiffe,\
          cloudevents,telepresenceio,helm,kubernetes-csi,goharbor,tikv,etcd-io,\
