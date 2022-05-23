@@ -60,6 +60,7 @@ projects:
     main_repo: opentracing/opentracing-go
     annotation_regexp: '^v(\d+\.){1,2}\d+$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+    disabled: true
   fluentd:
     order: 4
     name: Fluentd
@@ -553,7 +554,7 @@ projects:
     name: OpenTelemetry
     status: Incubating
     command_line:
-      - open-telemetry
+      - open-telemetry,opentracing
     start_date: 2019-04-29T00:00:00Z
     join_date: 2019-05-07T00:00:00Z
     incubating_date: 2021-08-26T00:00:00Z
@@ -2015,7 +2016,7 @@ projects:
          kubernetes-providers,kubernetes-addons,kubernetes-retired,kubernetes-sigs,\
          kubernetes-extensions,kubernetes-federation,kubernetes-security,\
          kubernetes-sidecars,kubernetes-tools,kubernetes-test,kubernetes-charts,\
-         prometheus,opentracing,fluent,linkerd,grpc,coredns,containerd,rkt,\
+         prometheus,opentracing,fluent,linkerd,grpc,coredns,containerd,\
          containernetworking,envoyproxy,jaegertracing,theupdateframework,\
          rook,cncf,crosscloudci,vitessio,nats-io,open-policy-agent,spiffe,\
          cloudevents,telepresenceio,helm,kubernetes-csi,goharbor,tikv,etcd-io,\
