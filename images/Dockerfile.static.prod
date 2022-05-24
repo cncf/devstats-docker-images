@@ -6,5 +6,6 @@ COPY images/nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY images/health/static_page_health_check.sh /usr/bin
 COPY index_prod.html /usr/share/nginx/html/index.html
 ADD devstats-grafana.tar /
+ADD grafana-bins.tar /
 ADD images/static/entrypoint.sh /
 CMD ["/bin/bash", "/entrypoint.sh"]
