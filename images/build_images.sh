@@ -12,6 +12,7 @@ fi
 cwd="`pwd`"
 cd ../devstats || exit 2
 cd ../devstats-reports || exit 39
+cd ../velocity || exit 45
 cd ../devstatscode || exit 3
 
 make replacer sqlitedb runq api calc_metric || exit 4
@@ -22,6 +23,7 @@ tar cf ../devstats-docker-images/api-bins.tar api calc_metric || exit 44
 
 cd ../devstats-reports || exit 40
 rm -f ../devstats-docker-images/devstats-reports.tar 2>/dev/null
+cp ../velocity/forks.json velocity/ || exit 46
 tar cf ../devstats-docker-images/devstats-reports.tar sh sql affs rep contributors velocity find.sh || exit 41
 
 cd ../devstats || exit 7
