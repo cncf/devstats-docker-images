@@ -1,6 +1,6 @@
 FROM amd64/ubuntu:20.04
 RUN apt-get update -y && apt-get upgrade -y && apt-get install -y apt-utils ca-certificates openssh-client wget bash libfontconfig vim sqlite3
-RUN wget https://dl.grafana.com/oss/release/grafana_8.5.10_amd64.deb
-RUN dpkg -i grafana_8.5.10_amd64.deb
+RUN wget https://dl.grafana.com/oss/release/grafana_8.5.11_amd64.deb
+RUN dpkg -i grafana_8.5.11_amd64.deb
 ADD images/grafana/entrypoint.sh /usr/bin/grafana_start.sh
-RUN rm -f grafana_8.5.10_amd64.deb devstats-grafana.tar grafana-bins.tar
+RUN rm -f grafana_8.5.11_amd64.deb devstats-grafana.tar grafana-bins.tar
