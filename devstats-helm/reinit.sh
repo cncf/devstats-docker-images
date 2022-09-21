@@ -12,6 +12,12 @@ export LIST_FN_PREFIX="devstats-helm/all_"
 export GHA2DB_GHAPIFORCELICENSES=1
 export GHA2DB_GHAPIFORCELANGS=1
 
+if [ -z "$GHA2DB_MAX_RUN_DURATION" ]
+then
+  export GHA2DB_MAX_RUN_DURATION="annotations:1h:102,calc_metric:24h:102,columns:2h:102,get_repos:24h:102,gha2db:24h:102,ghapi2db:24h:102,import_affs:8h:102,structure:2h:102,tags:xi21h:102"
+  echo "using the default max run duration setting: '$GHA2DB_MAX_RUN_DURATION'"
+fi
+
 if [ ! -z "$GIANT" ]
 then
   ./devel/wait_flag.sh devstats giant_lock 0 20 || exit 8
