@@ -4,7 +4,7 @@ ADD devstats.tar .
 ADD grafana-bins.tar .
 #FROM alpine
 #RUN apk add git bash postgresql-client xz curl vim zip
-FROM postgres:13-alpine
+FROM postgres:15-alpine
 RUN apk add git curl vim zip xz jq
 COPY --from=builder /builder/devel/db.sh /usr/bin/
 COPY --from=builder /builder/runq /usr/bin/
