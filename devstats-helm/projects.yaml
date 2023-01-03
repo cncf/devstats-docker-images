@@ -1578,12 +1578,12 @@ projects:
     name: OpenELB
     status: Sandbox
     command_line:
-    - 'kubesphere/openelb'
+    - 'openelb/openelb'
     start_date: 2019-02-01T00:00:00Z
     join_date: 2021-11-09T00:00:00Z
     psql_db: openelb
     shared_db: allprj
-    main_repo: 'kubesphere/openelb'
+    main_repo: 'openelb/openelb'
     annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   openclustermanagement:
@@ -2388,7 +2388,7 @@ projects:
          backstage,kuberhealthy,WasmEdge,chaosblade-io,v6d-io,antrea-io,pixie-io,\
          fluid-cloudnative,submariner-io,argoproj-labs,kube-vip,kubedl-io,oras-project,\
          wasmCloud,project-akri,metallb,karmada-io,krustlet,inclavare-containers,\
-         superedge,cilium,dapr,kubesphere/openelb,open-cluster-management-io,\
+         superedge,cilium,dapr,openelb,open-cluster-management-io,kubescape,\
          vscode-kubernetes-tools,nocalhost,kubearmor,service-mesh-performance,meshery,\
          knative,knative-sandbox,FabEdge,confidential-containers,SpectralOps/teller,\
          SpectralOps/helm-teller,SpectralOps/setup-teller-action,OpenFunction,\
@@ -2399,7 +2399,7 @@ projects:
          vmware-tanzu/carvel-kapp,vmware-tanzu/carvel-ytt,vmware-tanzu/carvel-imgpkg,\
          vmware-tanzu/carvel-kbld,vmware-tanzu/carvel-vendir,vmware-tanzu/carvel-kwt,\
          vmware-tanzu/carvel-secretgen-controller,istio,merbridge,devspace-cloud,\
-         capsule-rs,project-zot,paralus,carina-io,ko-build,opcr-io,werf,kubescape"
+         capsule-rs,project-zot,paralus,carina-io,ko-build,opcr-io,werf"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
