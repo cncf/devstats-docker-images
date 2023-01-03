@@ -1578,7 +1578,7 @@ projects:
     name: OpenELB
     status: Sandbox
     command_line:
-    - 'openelb/openelb'
+    - 'openelb'
     start_date: 2019-02-01T00:00:00Z
     join_date: 2021-11-09T00:00:00Z
     psql_db: openelb
