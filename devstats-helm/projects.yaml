@@ -2496,11 +2496,11 @@ projects:
     name: Tekton
     status: "-"
     command_line:
-      - tektoncd,knative/build
+      - tektoncd,knative/build,tektoncd-catalog
     start_date: 2018-07-23T00:00:00Z
     join_date: null
     psql_db: tekton
-    main_repo: knative/build
+    main_repo: tektoncd/pipeline
     annotation_regexp: '^v\d+\.\d+\.\d+$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
     shared_db: allcdf
@@ -2537,7 +2537,7 @@ projects:
     name: All CDF
     status: "-"
     command_line:
-      - 'spinnaker,tektoncd,knative/build,jenkinsci,jenkins-infra,jenkins-x,jenkins-x-quickstarts,jenkins-x-apps,jenkins-x-charts,jenkins-x-buildpacks,jenkins-x-images,jenkins-x-plugins'
+      - 'spinnaker,tektoncd,tektoncd-catalog,knative/build,jenkinsci,jenkins-infra,jenkins-x,jenkins-x-quickstarts,jenkins-x-apps,jenkins-x-charts,jenkins-x-buildpacks,jenkins-x-images,jenkins-x-plugins'
     start_date: 2012-07-01T00:00:00Z
     join_date: 2019-03-04T00:00:00Z
     psql_db: allcdf
