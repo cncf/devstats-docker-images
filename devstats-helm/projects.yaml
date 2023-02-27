@@ -1773,12 +1773,12 @@ projects:
     name: OpenCost
     status: Sandbox
     command_line:
-      - 'kubecost'
+      - 'kubecost,opencost'
     start_date: 2018-11-21T00:00:00Z
     join_date: 2022-06-17T00:00:00Z
     psql_db: opencost
     shared_db: allprj
-    main_repo: kubecost/opencost
+    main_repo: opencost/opencost
     annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   aerakimesh:
@@ -2396,7 +2396,7 @@ projects:
          kubewarden,devstream-io,kubevela,hexa-org,konveyor,G-Research/armada,\
          external-secrets,Serverless-Devs,ContainerSSH,openfga,kubereboot,\
          lima-vm,carvel-dev,istio,merbridge,devspace-cloud,capsule-rs,project-zot,\
-         paralus,carina-io,ko-build,opcr-io,werf"
+         paralus,carina-io,ko-build,opcr-io,werf,opencost"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
