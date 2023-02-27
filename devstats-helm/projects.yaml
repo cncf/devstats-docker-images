@@ -763,11 +763,12 @@ projects:
   cloudcustodian:
     order: 53
     name: Cloud Custodian
-    status: Sandbox
+    status: Incubating
     command_line:
       - cloud-custodian
     start_date: 2016-04-18T00:00:00Z
     join_date: 2020-06-25T00:00:00Z
+    incubating_date: 2022-09-14T00:00:00Z
     psql_db: cloudcustodian
     shared_db: allprj
     main_repo: cloud-custodian/cloud-custodian
@@ -1055,11 +1056,12 @@ projects:
   certmanager:
     order: 75
     name: cert-manager
-    status: Sandbox
+    status: Incubating
     command_line:
       - 'cert-manager'
     start_date: 2017-08-07T00:00:00Z
     join_date: 2020-11-10T00:00:00Z
+    incubating_date: 2022-10-19T00:00:00Z
     psql_db: certmanager
     shared_db: allprj
     main_repo: cert-manager/cert-manager
