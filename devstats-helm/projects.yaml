@@ -2500,7 +2500,7 @@ projects:
     join_date: null
     psql_db: tekton
     main_repo: tektoncd/pipeline
-    annotation_regexp: '^v\d+\.\d+\.\d+$'
+    annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
     shared_db: allcdf
   jenkins:
