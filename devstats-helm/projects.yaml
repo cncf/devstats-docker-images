@@ -2416,7 +2416,7 @@ projects:
          backstage,kuberhealthy,WasmEdge,chaosblade-io,v6d-io,antrea-io,pixie-io,\
          fluid-cloudnative,submariner-io,argoproj-labs,kube-vip,kubedl-io,oras-project,\
          wasmCloud,project-akri,metallb,karmada-io,krustlet,inclavare-containers,\
-         superedge,cilium,dapr,openelb,open-cluster-management-io,kubescape,\
+         superedge,cilium,dapr,openelb,open-cluster-management-io,kubescape,clusternet,\
          vscode-kubernetes-tools,nocalhost,kubearmor,service-mesh-performance,meshery,\
          knative,knative-sandbox,FabEdge,confidential-containers,SpectralOps/teller,\
          SpectralOps/helm-teller,SpectralOps/setup-teller-action,OpenFunction,\
@@ -2424,7 +2424,7 @@ projects:
          kubewarden,devstream-io,kubevela,hexa-org,konveyor,G-Research/armada,\
          external-secrets,Serverless-Devs,ContainerSSH,openfga,kubereboot,\
          lima-vm,carvel-dev,istio,merbridge,devspace-cloud,capsule-rs,project-zot,\
-         paralus,carina-io,ko-build,opcr-io,werf,opencost"
+         paralus,carina-io,ko-build,opcr-io,werf,opencost,inspektor-gadget"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
