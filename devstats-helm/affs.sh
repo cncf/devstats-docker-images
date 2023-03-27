@@ -3,8 +3,8 @@
 # SKIPTEMP=1 (skip regenerating using temporary database)
 # GET_AFFS_FILES=1 (will fetch affiliations JSON and company acquisitions YAML from cncf/devstats repo)
 # GHA2DB_CHECK_IMPORTED_SHA=1 (will check if given file was already imported)
-# SKIP_IMP_AFFS=1 skip import_affs.sh phase
-# SKIP_UPD_AFFS=1 skip update_affs.sh phase
+# SKIP_IMP_AFFS=percent - % chance to skip import_affs.sh phase, "0" to force always run
+# SKIP_UPD_AFFS=percent - % chance to skip update_affs.sh phase (default 50%), "0" to force always run
 # GIANT=lock|wait|'' lock giant lock or only wait for giant lock or do not use giant lock
 # SKIP_AFFS_LOCK=1 (will skip affs_lock flag - it prevents multiple affiliations import at the same time)
 # AFFS_LOCK_DB=dbname - use different DB for dealing with affiliations lock (default is devstats).
