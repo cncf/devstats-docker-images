@@ -2153,6 +2153,19 @@ projects:
     main_repo: clusternet/clusternet
     annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  keycloak:
+    order: 159
+    name: Keycloak
+    status: Incubating
+    command_line:
+      - keycloak
+    start_date: 2014-01-01T00:00:00Z
+    join_date: 2023-04-13T00:00:00Z
+    psql_db: 'keycloak'
+    shared_db: allprj
+    main_repo: keycloak/keycloak
+    annotation_regexp: '^\d+\.0\.0(\.Final)?$'
+    files_skip_pattern: ''
   opencontainers:
     order: 10001
     name: OCI
@@ -2429,7 +2442,7 @@ projects:
          kubewarden,devstream-io,kubevela,hexa-org,konveyor,G-Research/armada,\
          external-secrets,Serverless-Devs,ContainerSSH,openfga,kubereboot,\
          lima-vm,carvel-dev,istio,merbridge,devspace-cloud,capsule-rs,project-zot,\
-         paralus,carina-io,ko-build,opcr-io,werf,opencost,inspektor-gadget"
+         paralus,carina-io,ko-build,opcr-io,werf,opencost,inspektor-gadget,keycloak"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
