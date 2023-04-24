@@ -33,6 +33,7 @@ tar cf ../devstats-docker-images/devstats-grafana.tar grafana/shared grafana/img
 tar cf ../devstats-docker-images/api-files.tar metrics util_sql || exit 50
 cp apache/www/index_*.html ../devstats-docker-images/ || exit 22
 cp grafana/img/*.svg ../devstats-docker-images/ || exit 32
+cp grafana/img/cncf-devstats.png ../devstats-docker-images/ || exit 51
 
 cd "$cwd" || exit 10
 rm -f devstats-docker-images.tar api-config.tar 2>/dev/null
