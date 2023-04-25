@@ -33,6 +33,7 @@ do
     then
       user="${PG_USER}"
     fi
+    echo "Deleting current affiliations as ${user} user"
     PG_USER="$user" ./devel/db.sh psql "$db" -c "delete from sannotations"
     PG_USER="$user" ./devel/db.sh psql "$db" -c "delete from tquick_ranges"
   fi
