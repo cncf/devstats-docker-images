@@ -78,7 +78,7 @@ projects:
   linkerd:
     order: 5
     name: Linkerd
-    status: Incubating
+    status: Graduated
     command_line:
       - linkerd
     start_date: 2016-01-13T00:00:00Z
@@ -165,7 +165,7 @@ projects:
   envoy:
     order: 11
     name: Envoy
-    status: Incubating
+    status: Graduated
     command_line:
       - envoyproxy
     start_date: 2016-09-14T00:00:00Z
