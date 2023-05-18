@@ -2173,6 +2173,71 @@ projects:
     main_repo: keycloak/keycloak
     annotation_regexp: '^\d+\.0\.0(\.Final)?$'
     files_skip_pattern: ''
+  sops:
+    order: 160
+    name: SOPS
+    status: sandbox
+    command_line:
+      - 'mozilla/sops,mozilla/sotp'
+    start_date: 2015-08-13T00:00:00Z
+    join_date: 2023-05-17T00:00:00Z
+    psql_db: 'sops'
+    shared_db: allprj
+    main_repo: mozilla/sops
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  headlamp:
+    order: 161
+    name: Headlamp
+    status: sandbox
+    command_line:
+      - 'headlamp-k8s'
+    start_date: 2020-04-01T00:00:00Z
+    join_date: 2023-05-17T00:00:00Z
+    psql_db: 'headlamp'
+    shared_db: allprj
+    main_repo: headlamp-k8s/headlamp
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: ''
+  slimtoolkit:
+    order: 162
+    name: SlimToolkit
+    status: sandbox
+    command_line:
+      - 'slimtoolkit'
+    start_date: 2015-09-09T00:00:00Z
+    join_date: 2023-05-17T00:00:00Z
+    psql_db: 'slimtoolkit'
+    shared_db: allprj
+    main_repo: slimtoolkit/slim
+    annotation_regexp: '^\d+\.\d+\.0$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  kepler:
+    order: 163
+    name: Kepler
+    status: sandbox
+    command_line:
+      - 'sustainable-computing-io'
+    start_date: 2021-10-18T00:00:00Z
+    join_date: 2023-05-17T00:00:00Z
+    psql_db: 'kepler'
+    shared_db: allprj
+    main_repo: sustainable-computing-io/kepler
+    annotation_regexp: '^v\d+\.\d+(\.0)?$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  pipecd:
+    order: 164
+    name: PipeCD
+    status: sandbox
+    command_line:
+      - 'pipe-cd'
+    start_date: 2020-09-28T00:00:00Z
+    join_date: 2023-05-17T00:00:00Z
+    psql_db: 'pipecd'
+    shared_db: allprj
+    main_repo: pipe-cd/pipecd
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   opencontainers:
     order: 10001
     name: OCI
@@ -2418,12 +2483,12 @@ projects:
     name: All CNCF
     status: "-"
     command_line:
-      - "kubernetes,kubernetes-client,kubernetes-incubator,kubernetes-helm,\
+      - "kubernetes,kubernetes-client,kubernetes-incubator,kubernetes-helm,mozilla/sops,\
          kubernetes-graveyard,kubernetes-incubator-retired,kubernetes-sig-testing,\
          kubernetes-providers,kubernetes-addons,kubernetes-retired,kubernetes-sigs,\
          kubernetes-extensions,kubernetes-federation,kubernetes-security,crossplaneio,\
          kubernetes-sidecars,kubernetes-tools,kubernetes-test,kubernetes-charts,\
-         prometheus,opentracing,fluent,linkerd,grpc,coredns,containerd,rkt,\
+         prometheus,opentracing,fluent,linkerd,grpc,coredns,containerd,rkt,mozilla/sotp,\
          containernetworking,envoyproxy,jaegertracing,theupdateframework,crossplane-contrib,\
          rook,cncf,crosscloudci,vitessio,nats-io,open-policy-agent,spiffe,notaryproject,\
          cloudevents,telepresenceio,helm,kubernetes-csi,goharbor,tikv,etcd-io,\
@@ -2451,10 +2516,11 @@ projects:
          lima-vm,carvel-dev,istio,merbridge,devspace-cloud,project-zot,krator-rs,\
          paralus,carina-io,ko-build,opcr-io,werf,opencost,inspektor-gadget,keycloak,\
          clastix/capsule,clastix/capsule-proxy,clastix/capsule-addon-rancher,\
-         clastix/capsule-community,clastix/capsule-addon-cloudcasa,\
+         clastix/capsule-community,clastix/capsule-addon-cloudcasa,headlamp-k8s,\
          clastix/capsule-k8s-charm,clastix/clastix/capsule-lens-extension,\
-         clastix/capsule-helm-chart,clastix/flux2-capsule-multi-tenancy,\
-         clastix/capsule-ns-filter,clastix/Capsule,clastix/ckd-capsule-app"
+         clastix/capsule-helm-chart,clastix/flux2-capsule-multi-tenancy,slimtoolkit,\
+         clastix/capsule-ns-filter,clastix/Capsule,clastix/ckd-capsule-app,pipe-cd,\
+         sustainable-computing-io"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
