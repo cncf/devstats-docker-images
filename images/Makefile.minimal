@@ -153,6 +153,7 @@ copydata:
 	cp -R docs/ ${DATADIR}/docs/ || exit 7
 	cp -R partials/ ${DATADIR}/partials/ || exit 8
 	cp -R scripts/ ${DATADIR}/scripts/ || exit 9
+	cp -R hide/ ${DATADIR}/hide/ || exit 20
 	cp devel/*.txt ${DATADIR}/ || exit 11
 	cp projects.yaml skip_dates.yaml ${DATADIR}/ || exit 12
 
