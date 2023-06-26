@@ -18,7 +18,7 @@ make || exit 13
 make test || exit 14
 GHA2DB_PROJECT=kubernetes GHA2DB_LOCAL=1 PG_PASS=pwd ./dbtest.sh || exit 15
 cd /go/src/github.com/cncf/devstats || exit 15
-vim -c "%s/github.com\/cncf\/devstatscode \(.*\)$/github.com\/cncf\/devstatscode master/g" -c wq go.mod
+vim -c '%s/github.com\/cncf\/devstatscode \(.*\)$/github.com\/cncf\/devstatscode master/g' -c wq go.mod
 cat go.mod
 go mod tidy || exit 17
 cat go.mod
