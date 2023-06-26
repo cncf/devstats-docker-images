@@ -15,3 +15,14 @@ RUN sudo apt update -y && sudo apt -y install postgresql-13 postgresql-client-13
 RUN go get -u golang.org/x/lint/golint && go get -u golang.org/x/tools/cmd/goimports && go get -u github.com/jgautheron/goconst/cmd/goconst && go get -u github.com/jgautheron/usedexports && go get -u github.com/kisielk/errcheck && go get -u github.com/olivere/elastic && go get -u gopkg.in/yaml.v2 && go get -u github.com/rs/cors && go get -u github.com/json-iterator/go
 ADD tests/test.sh .
 CMD ./test.sh
+
+# Moved this out to test.sh - so this happens every time, to avoid testing already built old image.
+# RUN git config --global pull.ff only
+# WORKDIR /go/src/github.com/cncf/
+# RUN git clone https://github.com/cncf/devstatscode && git clone https://github.com/cncf/devstats
+# WORKDIR /go/src/github.com/cncf/devstatscode
+# RUN go mod tidy
+# RUN make
+# WORKDIR /go/src/github.com/cncf/devstats
+# RUN go mod tidy
+# RUN vim -c '%s/github.com\/cncf\/devstatscode \(.*\)$/github.com\/cncf\/devstatscode master/g' -c wq go.mod

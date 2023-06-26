@@ -8,14 +8,5 @@ RUN sudo apt-key add ACCC4CF8.asc
 ADD tests/pgdg.list /etc/apt/sources.list.d/pgdg.list
 RUN sudo apt update -y && sudo apt -y install postgresql-15 postgresql-client-15 vim
 RUN go install golang.org/x/lint/golint@latest && go install golang.org/x/tools/cmd/goimports@latest && go install github.com/jgautheron/goconst/cmd/goconst@latest && go install github.com/jgautheron/usedexports@latest && go install github.com/kisielk/errcheck@latest
-RUN git config --global pull.ff only
-WORKDIR /go/src/github.com/cncf/
-RUN git clone https://github.com/cncf/devstatscode && git clone https://github.com/cncf/devstats
-WORKDIR /go/src/github.com/cncf/devstatscode
-RUN go mod tidy
-RUN make
-WORKDIR /go/src/github.com/cncf/devstats
-RUN go mod tidy
-RUN vim -c '%s/github.com\/cncf\/devstatscode \(.*\)$/github.com\/cncf\/devstatscode master/g' -c wq go.mod
 ADD tests/test.sh .
 CMD ./test.sh
