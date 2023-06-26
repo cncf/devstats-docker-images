@@ -16,6 +16,6 @@ RUN go mod tidy
 RUN make
 WORKDIR /go/src/github.com/cncf/devstats
 RUN go mod tidy
-RUN vim -c "%s/github.com\/cncf\/devstatscode \(.*\)$/github.com\/cncf\/devstatscode master/g" -c wq go.mod
+RUN vim -c '%s/github.com\/cncf\/devstatscode \(.*\)$/github.com\/cncf\/devstatscode master/g' -c wq go.mod
 ADD tests/test.sh .
 CMD ./test.sh
