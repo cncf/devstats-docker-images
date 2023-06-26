@@ -1,6 +1,6 @@
 # Uses Go v1.12 and Postgres 12
 # Go 1.13 is not working with postgres-12, let's wait for 1.16 (libicu60 errors)
-FROM golang:1.12
+FROM golang:1.20.4
 RUN apt-get update -y && apt-get upgrade -y && apt-get install -y ca-certificates openssh-client git curl make sudo locales locales-all
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
@@ -8,7 +8,7 @@ ENV LANGUAGE en_US.UTF-8
 ADD tests/ACCC4CF8.asc .
 RUN sudo apt-key add ACCC4CF8.asc
 ADD tests/pgdg.list /etc/apt/sources.list.d/pgdg.list
-RUN sudo apt update -y && sudo apt -y install postgresql-12
+RUN sudo apt update -y && sudo apt -y install postgresql-13 postgresql-client-13
 RUN go get -u golang.org/x/lint/golint && go get -u golang.org/x/tools/cmd/goimports && go get -u github.com/jgautheron/goconst/cmd/goconst && go get -u github.com/jgautheron/usedexports && go get -u github.com/kisielk/errcheck && go get -u github.com/olivere/elastic && go get -u gopkg.in/yaml.v2 && go get -u github.com/rs/cors && go get -u github.com/json-iterator/go
 ADD tests/test.sh .
 CMD ./test.sh
