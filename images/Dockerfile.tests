@@ -6,7 +6,7 @@ ENV LANGUAGE en_US.UTF-8
 ADD tests/ACCC4CF8.asc .
 RUN sudo apt-key add ACCC4CF8.asc
 ADD tests/pgdg.list /etc/apt/sources.list.d/pgdg.list
-RUN sudo apt update -y && sudo apt -y install postgresql-15 postgresql-client-15 vim
+RUN sudo apt update -y && sudo apt -y install postgresql-15 postgresql-client-15
 RUN go install golang.org/x/lint/golint@latest && go install golang.org/x/tools/cmd/goimports@latest && go install github.com/jgautheron/goconst/cmd/goconst@latest && go install github.com/jgautheron/usedexports@latest && go install github.com/kisielk/errcheck@latest
 ADD tests/test.sh .
 CMD ./test.sh
