@@ -26,3 +26,4 @@ go get "github.com/cncf/devstatscode@${hsh}" || exit 18
 cat go.mod | grep devstatscode
 make check || exit 19
 PG_PASS=pwd make test || exit 20
+echo 'All tests OK'
