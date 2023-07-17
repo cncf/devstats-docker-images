@@ -2179,12 +2179,12 @@ projects:
     name: SOPS
     status: Sandbox
     command_line:
-      - 'mozilla/sops,mozilla/sotp'
+      - 'getsops'
     start_date: 2015-08-13T00:00:00Z
     join_date: 2023-05-17T00:00:00Z
     psql_db: 'sops'
     shared_db: allprj
-    main_repo: mozilla/sops
+    main_repo: getsops/sops
     annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   headlamp:
@@ -2576,12 +2576,12 @@ projects:
     name: All CNCF
     status: "-"
     command_line:
-      - "kubernetes,kubernetes-client,kubernetes-incubator,kubernetes-helm,mozilla/sops,\
+      - "kubernetes,kubernetes-client,kubernetes-incubator,kubernetes-helm,getsops,\
          kubernetes-graveyard,kubernetes-incubator-retired,kubernetes-sig-testing,\
          kubernetes-providers,kubernetes-addons,kubernetes-retired,kubernetes-sigs,\
          kubernetes-extensions,kubernetes-federation,kubernetes-security,crossplaneio,\
          kubernetes-sidecars,kubernetes-tools,kubernetes-test,kubernetes-charts,\
-         prometheus,opentracing,fluent,linkerd,grpc,coredns,containerd,rkt,mozilla/sotp,\
+         prometheus,opentracing,fluent,linkerd,grpc,coredns,containerd,rkt,\
          containernetworking,envoyproxy,jaegertracing,theupdateframework,crossplane-contrib,\
          rook,cncf,crosscloudci,vitessio,nats-io,open-policy-agent,spiffe,notaryproject,\
          cloudevents,telepresenceio,helm,kubernetes-csi,goharbor,tikv,etcd-io,\
