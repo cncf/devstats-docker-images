@@ -1698,7 +1698,7 @@ projects:
     name: Knative
     status: Incubating
     command_line:
-      - 'knative,knative-sandbox'
+      - 'knative,knative-sandbox,knative-extensions'
     start_date: 2018-07-23T00:00:00Z
     join_date: 2022-03-02T00:00:00Z
     psql_db: knative
@@ -2616,7 +2616,7 @@ projects:
          clastix/capsule-helm-chart,clastix/flux2-capsule-multi-tenancy,slimtoolkit,\
          clastix/capsule-ns-filter,clastix/Capsule,clastix/ckd-capsule-app,pipe-cd,\
          sustainable-computing-io,GoogleContainerTools/kpt,kubeclipper,kubeclipper-labs,\
-         buildpacks-community"
+         buildpacks-community,knative-extensions"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
