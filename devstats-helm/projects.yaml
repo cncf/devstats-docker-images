@@ -2040,12 +2040,12 @@ projects:
     name: Capsule
     status: Sandbox
     command_line:
-      - 'regexp:(?i)^clastix\/.*capsule.*$'
+      - 'projectcapsule'
     start_date: 2020-06-29T00:00:00Z
     join_date: 2022-12-13T00:00:00Z
     psql_db: 'capsule'
     shared_db: allprj
-    main_repo: clastix/capsule
+    main_repo: projectcapsule/capsule
     annotation_regexp: '^v?\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   zot:
@@ -2677,11 +2677,7 @@ projects:
          external-secrets,Serverless-Devs,ContainerSSH,openfga,kubereboot,\
          lima-vm,carvel-dev,istio,merbridge,devspace-cloud,project-zot,krator-rs,\
          paralus,carina-io,ko-build,opcr-io,werf,opencost,inspektor-gadget,keycloak,\
-         clastix/capsule,clastix/capsule-proxy,clastix/capsule-addon-rancher,kubeflow,\
-         clastix/capsule-community,clastix/capsule-addon-cloudcasa,headlamp-k8s,\
-         clastix/capsule-k8s-charm,clastix/clastix/capsule-lens-extension,xline-kv,\
-         clastix/capsule-helm-chart,clastix/flux2-capsule-multi-tenancy,slimtoolkit,\
-         clastix/capsule-ns-filter,clastix/Capsule,clastix/ckd-capsule-app,pipe-cd,\
+         kubeflow,headlamp-k8s,xline-kv,slimtoolkit,pipe-cd,projectcapsule,\
          sustainable-computing-io,GoogleContainerTools/kpt,kubeclipper,kubeclipper-labs,\
          buildpacks-community,knative-extensions,project-copacetic,kube-logging,kanisterio,\
          kcp-dev,kcl-lang"
