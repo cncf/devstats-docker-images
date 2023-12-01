@@ -14,6 +14,7 @@ then
   echo "$0: you need to set PG_PASS, PG_HOST and PG_PORT to run this script"
   exit 1
 fi
+echo "Initial import/update TSDB: '${SKIP_IMP_AFFS}'/'${SKIP_UPD_AFFS}'"
 affsLockDB=devstats
 if [ ! -z "$AFFS_LOCK_DB" ]
 then
