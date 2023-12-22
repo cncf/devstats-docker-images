@@ -2774,7 +2774,8 @@ projects:
          kubeflow,headlamp-k8s,xline-kv,slimtoolkit,pipe-cd,projectcapsule,\
          sustainable-computing-io,GoogleContainerTools/kpt,kubeclipper,kubeclipper-labs,\
          buildpacks-community,knative-extensions,project-copacetic,kube-logging,kanisterio,\
-         kcp-dev,kcl-lang"
+         kcp-dev,kcl-lang,kube-burner,kuasar-io,redhat-chaoss,kubestellar,megaease,\
+         spidernet-io,k8sgpt-ai"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
