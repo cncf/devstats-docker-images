@@ -2290,12 +2290,12 @@ projects:
     name: kpt
     status: Sandbox
     command_line:
-      - 'regexp:(?i)^GoogleContainerTools\/.*kpt.*$'
+      - 'kptdev'
     start_date: 2020-02-03T00:00:00Z
     join_date: 2023-06-30T00:00:00Z
     psql_db: 'kpt'
     shared_db: allprj
-    main_repo: GoogleContainerTools/kpt
+    main_repo: kptdev/kpt
     annotation_regexp: '^v\d+\.\d+\.0$'
     annotation_regexp: '^v\d+\.\d+\.0(-beta\.\d*0)?$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
@@ -2772,7 +2772,7 @@ projects:
          lima-vm,carvel-dev,istio,merbridge,devspace-cloud,project-zot,krator-rs,\
          paralus,carina-io,ko-build,opcr-io,werf,opencost,inspektor-gadget,keycloak,\
          kubeflow,headlamp-k8s,xline-kv,slimtoolkit,pipe-cd,projectcapsule,\
-         sustainable-computing-io,GoogleContainerTools/kpt,kubeclipper,kubeclipper-labs,\
+         sustainable-computing-io,kptdev,kubeclipper,kubeclipper-labs,\
          buildpacks-community,knative-extensions,project-copacetic,kube-logging,kanisterio,\
          kcp-dev,kcl-lang,kube-burner,kuasar-io,redhat-chaoss,kubestellar,megaease,\
          spidernet-io,k8sgpt-ai"
