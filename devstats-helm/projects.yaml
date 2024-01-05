@@ -2030,12 +2030,12 @@ projects:
     name: DevSpace
     status: Sandbox
     command_line:
-      - devspace-cloud
+      - 'devspace-cloud,devspace-sh'
     start_date: 2017-10-13T00:00:00Z
     join_date: 2022-12-13T00:00:00Z
     psql_db: 'devspace'
     shared_db: allprj
-    main_repo: devspace-cloud/devspace-cloud
+    main_repo: devspace-sh/devspace
     annotation_regexp: '^v?\d+\.\d+\.0$'
     files_skip_pattern: ''
   capsule:
@@ -2768,7 +2768,7 @@ projects:
          SpectralOps/setup-teller-action,OpenFunction,cncf/tag-app-delivery,microcks,\
          sealerio,clusterpedia-io,aeraki-mesh,opencurve,open-feature,\
          kubewarden,devstream-io,kubevela,hexa-org,konveyor,armadaproject,eraser-dev,\
-         external-secrets,Serverless-Devs,ContainerSSH,openfga,kubereboot,\
+         external-secrets,Serverless-Devs,ContainerSSH,openfga,kubereboot,devspace-sh,\
          lima-vm,carvel-dev,istio,merbridge,devspace-cloud,project-zot,krator-rs,\
          paralus,carina-io,ko-build,opcr-io,werf,opencost,inspektor-gadget,keycloak,\
          kubeflow,headlamp-k8s,xline-kv,slimtoolkit,pipe-cd,projectcapsule,\
