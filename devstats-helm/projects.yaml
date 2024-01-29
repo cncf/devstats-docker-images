@@ -2358,7 +2358,7 @@ projects:
     command_line:
       - 'kube-logging'
     start_date: 2018-08-02T00:00:00Z
-    join_date: 2023-09-20T00:00:00Z
+    join_date: 2023-09-19T00:00:00Z
     psql_db: 'loggingoperator'
     shared_db: allprj
     main_repo: kube-logging/logging-operator
@@ -2410,10 +2410,10 @@ projects:
     command_line:
       - 'kube-burner'
     start_date: 2020-09-02T00:00:00Z
-    join_date: 2023-12-19T00:00:00Z
+    join_date: 2023-12-18T00:00:00Z
     psql_db: 'kubeburner'
     shared_db: allprj
-    main_repo: cloud-bulldozer/kube-burner
+    main_repo: kube-burner/kube-burner
     annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   kuasar:
@@ -2434,12 +2434,12 @@ projects:
     name: KrknChaos
     status: Sandbox
     command_line:
-      - 'redhat-chaos'
+      - 'krkn-chaos'
     start_date: 2020-04-19T00:00:00Z
     join_date: 2023-12-19T00:00:00Z
     psql_db: 'krknchaos'
     shared_db: allprj
-    main_repo: redhat-chaos/krknChaos
+    main_repo: krkn-chaos/krkn
     annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: ''
   kubestellar:
@@ -2772,9 +2772,9 @@ projects:
          lima-vm,carvel-dev,istio,merbridge,devspace-cloud,project-zot,krator-rs,\
          paralus,carina-io,ko-build,opcr-io,werf,opencost,inspektor-gadget,keycloak,\
          kubeflow,headlamp-k8s,xline-kv,slimtoolkit,pipe-cd,projectcapsule,\
-         sustainable-computing-io,kptdev,kubeclipper,kubeclipper-labs,\
+         sustainable-computing-io,kptdev,kubeclipper,kubeclipper-labs,krkn-chaos,\
          buildpacks-community,knative-extensions,project-copacetic,kube-logging,kanisterio,\
-         kcp-dev,kcl-lang,kube-burner,kuasar-io,redhat-chaoss,kubestellar,megaease,\
+         kcp-dev,kcl-lang,kube-burner,kuasar-io,kubestellar,megaease,\
          spidernet-io,k8sgpt-ai"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
