@@ -1140,10 +1140,10 @@ projects:
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   gitopswg:
     order: 80
-    name: GitOps WG
+    name: OpenGitOps
     status: Sandbox
     command_line:
-      - 'cncf/tag-app-delivery,gitops-working-group'
+      - 'open-gitops,cncf/tag-app-delivery,gitops-working-group'
     start_date: 2019-06-07T00:00:00Z
     join_date: 2020-12-17T00:00:00Z
     psql_db: gitopswg
@@ -2780,7 +2780,7 @@ projects:
          kubeflow,headlamp-k8s,xline-kv,slimtoolkit,pipe-cd,projectcapsule,\
          sustainable-computing-io,kptdev,kubeclipper,kubeclipper-labs,krkn-chaos,\
          buildpacks-community,knative-extensions,project-copacetic,kube-logging,kanisterio,\
-         kcp-dev,kcl-lang,kube-burner,kuasar-io,kubestellar,megaease,\
+         kcp-dev,kcl-lang,kube-burner,kuasar-io,kubestellar,megaease,open-gitops,\
          spidernet-io,k8sgpt-ai,OpenMetrics,openmetrics"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
