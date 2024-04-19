@@ -1,4 +1,4 @@
-FROM golang:1.20.4
+FROM golang:1.22
 RUN apt-get update -y && apt-get upgrade -y && apt-get install -y ca-certificates openssh-client git curl make sudo locales locales-all
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8

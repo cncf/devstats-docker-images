@@ -1,4 +1,4 @@
-FROM golang:1.20.4 AS builder
+FROM golang:1.22 AS builder
 RUN apt-get update -y && apt-get upgrade -y && apt-get install -y ca-certificates openssh-client postgresql-client git curl make
 WORKDIR /go/src/github.com/cncf
 RUN git clone https://github.com/cncf/devstatscode
