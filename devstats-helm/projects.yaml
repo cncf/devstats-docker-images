@@ -2583,6 +2583,110 @@ projects:
     main_repo: radius-project/radius
     annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  bankvaults:
+    order: 190
+    name: Bank-Vaults
+    status: Sandbox
+    command_line:
+      - bank-vaults
+    start_date: 2018-03-07T00:00:00Z
+    join_date: 2024-04-16T00:00:00Z
+    psql_db: bankvaults
+    shared_db: allprj
+    main_repo: bank-vaults/bank-vaults
+    annotation_regexp: '^v?\d+\.\d+\.0$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  atlantis:
+    order: 191
+    name: Atlantis
+    status: Sandbox
+    command_line:
+      - runatlantis
+    start_date: 2018-02-06T00:00:00Z
+    join_date: 2024-04-16T00:00:00Z
+    psql_db: atlantis
+    shared_db: allprj
+    main_repo: runatlantis/atlantis
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  stacker:
+    order: 192
+    name: Stacker
+    status: Sandbox
+    command_line:
+      - project-stacker
+    start_date: 2017-11-30T00:00:00Z
+    join_date: 2024-04-16T00:00:00Z
+    psql_db: stacker
+    shared_db: allprj
+    main_repo: project-stacker/stacker
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  trestlegrc:
+    order: 193
+    name: TrestleGRC
+    status: Sandbox
+    command_line:
+      - oscal-compass
+    start_date: 2020-08-30T00:00:00Z
+    join_date: 2024-04-16T00:00:00Z
+    psql_db: trestlegrc
+    shared_db: allprj
+    main_repo: oscal-compass/compliance-trestle
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: ''
+  kuadrant:
+    order: 194
+    name: Kuadrant
+    status: Sandbox
+    command_line:
+      - Kuadrant
+    start_date: 2020-12-22T00:00:00Z
+    join_date: 2024-04-16T00:00:00Z
+    psql_db: kuadrant
+    shared_db: allprj
+    main_repo: Kuadrant/authorino
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  opengemini:
+    order: 195
+    name: openGemini
+    status: Sandbox
+    command_line:
+      - openGemini
+    start_date: 2022-06-27T00:00:00Z
+    join_date: 2024-04-16T00:00:00Z
+    psql_db: opengemini
+    shared_db: allprj
+    main_repo: openGemini/openGemini
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  score:
+    order: 196
+    name: Score
+    status: Sandbox
+    command_line:
+      - score-spec
+    start_date: 2022-10-16T00:00:00Z
+    join_date: 2024-04-16T00:00:00Z
+    psql_db: score
+    shared_db: allprj
+    main_repo: score-spec/score-go
+    annotation_regexp: '^v\d+\.\d+\.\d+$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  bpfman:
+    order: 197
+    name: bpfman
+    status: Sandbox
+    command_line:
+      - bpfman
+    start_date: 2022-01-14T00:00:00Z
+    join_date: 2024-04-16T00:00:00Z
+    psql_db: bpfman
+    shared_db: allprj
+    main_repo: bpfman/bpfman
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: ''
   opencontainers:
     order: 10001
     name: OCI
@@ -2833,12 +2937,12 @@ projects:
          kubernetes-providers,kubernetes-addons,kubernetes-retired,kubernetes-sigs,\
          kubernetes-extensions,kubernetes-federation,kubernetes-security,crossplaneio,\
          kubernetes-sidecars,kubernetes-tools,kubernetes-test,kubernetes-charts,\
-         prometheus,opentracing,fluent,linkerd,grpc,coredns,containerd,rkt,\
+         prometheus,opentracing,fluent,linkerd,grpc,coredns,containerd,rkt,bank-vaults,\
          containernetworking,envoyproxy,jaegertracing,theupdateframework,crossplane-contrib,\
          rook,cncf,crosscloudci,vitessio,nats-io,open-policy-agent,spiffe,notaryproject,\
          cloudevents,telepresenceio,helm,kubernetes-csi,goharbor,tikv,etcd-io,\
          OpenObservability,cortexproject,buildpacks,falcosecurity,dragonflyoss,\
-         virtual-kubelet,kubeedge,brigadecore,cri-o,networkservicemesh,\
+         virtual-kubelet,kubeedge,brigadecore,cri-o,networkservicemesh,runatlantis,\
          open-telemetry,thanos-io,fluxcd,in-toto,strimzi,kubevirt,cdfoundation,\
          longhorn,chubaofs,cubefs,kedacore,servicemeshinterface,argoproj,volcano-sh,\
          cni-genie,keptn,kudobuilder,cloud-custodian,dexidp,litmuschaos,artifacthub,\
@@ -2846,8 +2950,8 @@ projects:
          chaos-mesh,serverlessworkflow,tremor-rs,metal3-io,openservicemesh,keylime,\
          Kong/kumacut,Kong/docker-kuma,getporter,schemahero,openkruise,openyurtio,\
          tinkerbell,pravega,kyverno,cert-manager,cdk8s-team,k8up-io,kube-rs,devfile,\
-         k3s-io,gitops-working-group,piraeusdatastore,skooner-k8s,AthenZ,\
-         distribution,kubeovn,k8gb-io,trickstercache,emissary-ingress,\
+         k3s-io,gitops-working-group,piraeusdatastore,skooner-k8s,AthenZ,oscal-compass,\
+         distribution,kubeovn,k8gb-io,trickstercache,emissary-ingress,project-stacker,\
          backstage,kuberhealthy,WasmEdge,chaosblade-io,v6d-io,antrea-io,pixie-io,\
          fluid-cloudnative,submariner-io,argoproj-labs,kube-vip,kubedl-io,oras-project,\
          wasmCloud,project-akri,metallb,karmada-io,krustlet,inclavare-containers,\
@@ -2855,12 +2959,12 @@ projects:
          vscode-kubernetes-tools,nocalhost,kubearmor,service-mesh-performance,meshery,\
          knative,knative-sandbox,FabEdge,confidential-containers,tellerops,hwameistor,\
          SpectralOps/setup-teller-action,OpenFunction,cncf/tag-app-delivery,microcks,\
-         sealerio,clusterpedia-io,aeraki-mesh,opencurve,open-feature,\
+         sealerio,clusterpedia-io,aeraki-mesh,opencurve,open-feature,Kuadrant,bpfman,\
          kubewarden,devstream-io,kubevela,hexa-org,konveyor,armadaproject,eraser-dev,\
          external-secrets,Serverless-Devs,ContainerSSH,openfga,kubereboot,devspace-sh,\
-         lima-vm,carvel-dev,istio,merbridge,devspace-cloud,project-zot,\
+         lima-vm,carvel-dev,istio,merbridge,devspace-cloud,project-zot,openGemini,\
          paralus,carina-io,ko-build,opcr-io,werf,opencost,inspektor-gadget,keycloak,\
-         kubeflow,headlamp-k8s,xline-kv,slimtoolkit,pipe-cd,projectcapsule,\
+         kubeflow,headlamp-k8s,xline-kv,slimtoolkit,pipe-cd,projectcapsule,score-spec,\
          sustainable-computing-io,kptdev,kubeclipper,kubeclipper-labs,krkn-chaos,\
          buildpacks-community,knative-extensions,project-copacetic,kube-logging,kanisterio,\
          kcp-dev,kcl-lang,kube-burner,kuasar-io,kubestellar,easegress-io,open-gitops,\
