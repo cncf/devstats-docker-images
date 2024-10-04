@@ -3036,19 +3036,19 @@ projects:
          rook,cncf,crosscloudci,vitessio,nats-io,open-policy-agent,spiffe,notaryproject,\
          cloudevents,telepresenceio,helm,kubernetes-csi,goharbor,tikv,etcd-io,\
          OpenObservability,cortexproject,buildpacks,falcosecurity,dragonflyoss,\
-         virtual-kubelet,kubeedge,brigadecore,cri-o,networkservicemesh,runatlantis,\
+         virtual-kubelet,kubeedge,cri-o,networkservicemesh,runatlantis,\
          open-telemetry,thanos-io,fluxcd,in-toto,strimzi,kubevirt,cdfoundation,\
-         longhorn,chubaofs,cubefs,kedacore,servicemeshinterface,argoproj,volcano-sh,\
+         longhorn,chubaofs,cubefs,kedacore,argoproj,volcano-sh,\
          cni-genie,keptn,kudobuilder,cloud-custodian,dexidp,litmuschaos,artifacthub,\
          parallaxsecond,bfenetworks,crossplane,kumahq,projectcontour,operator-framework,\
-         chaos-mesh,serverlessworkflow,tremor-rs,metal3-io,openservicemesh,keylime,\
+         chaos-mesh,serverlessworkflow,tremor-rs,metal3-io,keylime,\
          Kong/kumacut,Kong/docker-kuma,getporter,schemahero,openkruise,openyurtio,\
          tinkerbell,pravega,kyverno,cert-manager,cdk8s-team,k8up-io,kube-rs,devfile,\
          k3s-io,gitops-working-group,piraeusdatastore,skooner-k8s,AthenZ,oscal-compass,\
          distribution,kubeovn,k8gb-io,trickstercache,emissary-ingress,project-stacker,\
          backstage,kuberhealthy,WasmEdge,chaosblade-io,v6d-io,antrea-io,pixie-io,\
          fluid-cloudnative,submariner-io,argoproj-labs,kube-vip,kubedl-io,oras-project,\
-         wasmCloud,project-akri,metallb,karmada-io,krustlet,inclavare-containers,\
+         wasmCloud,project-akri,metallb,karmada-io,inclavare-containers,\
          superedge,cilium,dapr,openelb,open-cluster-management-io,kubescape,clusternet,\
          vscode-kubernetes-tools,nocalhost,kubearmor,service-mesh-performance,meshery,\
          knative,knative-sandbox,FabEdge,confidential-containers,tellerops,hwameistor,\
