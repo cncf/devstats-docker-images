@@ -640,7 +640,7 @@ projects:
     name: KubeVirt
     status: Incubating
     command_line:
-      - kubevirt
+      - 'kubevirt,k8snetworkplumbingwg/kubemacpool,k8snetworkplumbingwg/multi-networkpolicy-iptables,k8snetworkplumbingwg/sriov-network-operator,nmstate/kubernetes-nmstate'
     start_date: 2016-04-27T00:00:00Z
     join_date: 2019-09-06T00:00:00Z
     incubating_date: 2022-04-19T00:00:00Z
@@ -3064,7 +3064,9 @@ projects:
          kcp-dev,kcl-lang,kube-burner,kuasar-io,kubestellar,easegress-io,open-gitops,\
          spidernet-io,k8sgpt-ai,OpenMetrics,openmetrics,kubeslice,connectrpc,kairos-io,\
          kubean-io,koordinator-sh,radius-project,loxilb-io,lyft/cartography,perses,\
-         ratify-project,Project-HAMi,shipwright-io,flatcar,flatcar-linux"
+         ratify-project,Project-HAMi,shipwright-io,flatcar,flatcar-linux,\
+         k8snetworkplumbingwg/kubemacpool,k8snetworkplumbingwg/multi-networkpolicy-iptables,\
+         k8snetworkplumbingwg/sriov-network-operator,nmstate/kubernetes-nmstate"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
