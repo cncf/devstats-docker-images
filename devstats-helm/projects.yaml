@@ -2781,6 +2781,19 @@ projects:
     main_repo: flatcar/mantle
     annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  kusionstack:
+    order: 205
+    name: KusionStack
+    status: Sandbox
+    command_line:
+      - KusionStack
+    start_date: 2022-05-06T00:00:00Z
+    join_date: 2024-08-02T00:00:00Z
+    psql_db: kusionstack
+    shared_db: allprj
+    main_repo: KusionStack/kusion
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   opencontainers:
     order: 10001
     name: OCI
@@ -3038,7 +3051,7 @@ projects:
          OpenObservability,cortexproject,buildpacks,falcosecurity,dragonflyoss,\
          virtual-kubelet,kubeedge,cri-o,networkservicemesh,runatlantis,\
          open-telemetry,thanos-io,fluxcd,in-toto,strimzi,kubevirt,cdfoundation,\
-         longhorn,chubaofs,cubefs,kedacore,argoproj,volcano-sh,\
+         longhorn,chubaofs,cubefs,kedacore,argoproj,volcano-sh,KusionStack,\
          cni-genie,keptn,kudobuilder,cloud-custodian,dexidp,litmuschaos,artifacthub,\
          parallaxsecond,bfenetworks,crossplane,kumahq,projectcontour,operator-framework,\
          chaos-mesh,serverlessworkflow,tremor-rs,metal3-io,keylime,\
