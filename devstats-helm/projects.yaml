@@ -492,7 +492,7 @@ projects:
   kubeedge:
     order: 33
     name: KubeEdge
-    status: Incubating
+    status: Graduated
     command_line:
       - 'kubeedge'
     start_date: 2018-11-12T00:00:00Z
@@ -1078,7 +1078,7 @@ projects:
   certmanager:
     order: 75
     name: cert-manager
-    status: Incubating
+    status: Graduated
     command_line:
       - 'cert-manager'
     start_date: 2017-08-07T00:00:00Z
