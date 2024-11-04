@@ -2881,7 +2881,7 @@ projects:
     name: CNCF
     status: "-"
     command_line:
-      - 'cncf,crosscloudci,cdfoundation'
+      - 'cncf,crosscloudci,cdfoundation,cncf-tags'
     start_date: 2015-12-07T18:00:00Z
     join_date: 2015-12-07T18:00:00Z
     psql_db: cncf
@@ -3128,7 +3128,7 @@ projects:
          distribution,kubeovn,k8gb-io,trickstercache,emissary-ingress,project-stacker,\
          backstage,kuberhealthy,WasmEdge,chaosblade-io,v6d-io,antrea-io,pixie-io,\
          fluid-cloudnative,submariner-io,argoproj-labs,kube-vip,kubedl-io,oras-project,\
-         wasmCloud,project-akri,metallb,karmada-io,inclavare-containers,\
+         wasmCloud,project-akri,metallb,karmada-io,inclavare-containers,cncf-tags,\
          superedge,cilium,dapr,openelb,open-cluster-management-io,kubescape,clusternet,\
          vscode-kubernetes-tools,nocalhost,kubearmor,service-mesh-performance,meshery,\
          knative,knative-sandbox,FabEdge,confidential-containers,tellerops,hwameistor,\
