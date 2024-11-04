@@ -2801,12 +2801,12 @@ projects:
     name: Youki
     status: Sandbox
     command_line:
-      - containers/youki
+      - youki-dev
     start_date: 2021-03-27T00:00:00Z
     join_date: 2024-10-17T00:00:00Z
     psql_db: youki
     shared_db: allprj
-    main_repo: containers/youki
+    main_repo: youki-dev/youki
     annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: ''
   kaito:
@@ -2814,12 +2814,12 @@ projects:
     name: KAITO
     status: Sandbox
     command_line:
-      - Azure/kaito
+      - kaito-project
     start_date: 2023-11-15T00:00:00Z
     join_date: 2024-10-17T00:00:00Z
     psql_db: kaito
     shared_db: allprj
-    main_repo: Azure/kaito
+    main_repo: kaito-project/kaito
     annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   sermant:
@@ -3116,12 +3116,12 @@ projects:
          rook,cncf,crosscloudci,vitessio,nats-io,open-policy-agent,spiffe,notaryproject,\
          cloudevents,telepresenceio,helm,kubernetes-csi,goharbor,tikv,etcd-io,sermant-io,\
          OpenObservability,cortexproject,buildpacks,falcosecurity,dragonflyoss,kmesh-net,\
-         virtual-kubelet,kubeedge,cri-o,networkservicemesh,runatlantis,containers/youki,\
+         virtual-kubelet,kubeedge,cri-o,networkservicemesh,runatlantis,youki-dev,\
          open-telemetry,thanos-io,fluxcd,in-toto,strimzi,kubevirt,cdfoundation,\
          longhorn,chubaofs,cubefs,kedacore,argoproj,volcano-sh,KusionStack,ovn-org,\
          cni-genie,keptn,kudobuilder,cloud-custodian,dexidp,litmuschaos,artifacthub,\
          parallaxsecond,bfenetworks,crossplane,kumahq,projectcontour,operator-framework,\
-         chaos-mesh,serverlessworkflow,tremor-rs,metal3-io,keylime,Azure/kaito,\
+         chaos-mesh,serverlessworkflow,tremor-rs,metal3-io,keylime,kaito-project,\
          Kong/kumacut,Kong/docker-kuma,getporter,schemahero,openkruise,openyurtio,\
          tinkerbell,pravega,kyverno,cert-manager,cdk8s-team,k8up-io,kube-rs,devfile,\
          k3s-io,gitops-working-group,piraeusdatastore,openebs,AthenZ,oscal-compass,\

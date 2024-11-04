@@ -5,7 +5,7 @@ projects:
     name: CNCF
     status: "-"
     command_line:
-      - 'cncf,crosscloudci,cdfoundation'
+      - 'cncf,crosscloudci,cdfoundation,cncf-tags'
     start_date: 2015-12-07T18:00:00Z
     join_date: 2015-12-07T18:00:00Z
     psql_db: cncf
