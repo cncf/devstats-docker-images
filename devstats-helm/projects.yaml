@@ -2598,7 +2598,7 @@ projects:
     command_line:
       - bank-vaults
     start_date: 2018-03-07T00:00:00Z
-    join_date: 2024-06-18T00:00:00
+    join_date: 2024-06-18T00:00:00Z
     psql_db: bankvaults
     shared_db: allprj
     main_repo: bank-vaults/bank-vaults
