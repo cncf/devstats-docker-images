@@ -2869,6 +2869,19 @@ projects:
     main_repo: ovn-org/ovn-kubernetes
     annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  tratteria:
+    order: 211
+    name: Tratteria
+    status: Sandbox
+    command_line:
+      - tratteria
+    start_date: 2024-05-20T00:00:00Z
+    join_date: 2025-01-21T00:00:00Z
+    psql_db: tratteria
+    shared_db: allprj
+    main_repo: tratteria
+    annotation_regexp: '^v\d+\.\d+\.\d+$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   opencontainers:
     order: 10001
     name: OCI
