@@ -1454,11 +1454,12 @@ projects:
   kubedl:
     order: 103
     name: KubeDL
-    status: Sandbox
+    status: Archived
     command_line:
     - 'kubedl-io'
     start_date: 2020-02-01T00:00:00Z
     join_date: 2021-06-22T00:00:00Z
+    archived_date: 2025-03-25T00:00:00Z
     psql_db: kubedl
     shared_db: allprj
     main_repo: 'kubedl-io/kubedl'
@@ -1575,11 +1576,12 @@ projects:
   superedge:
     order: 112
     name: SuperEdge
-    status: Sandbox
+    status: Archived
     command_line:
     - 'superedge'
     start_date: 2020-12-19T00:00:00Z
     join_date: 2021-09-14T00:00:00Z
+    archived_date: 2025-03-25T00:00:00Z
     psql_db: superedge
     shared_db: allprj
     main_repo: 'superedge/superedge'
@@ -1655,11 +1657,12 @@ projects:
   nocalhost:
     order: 118
     name: Nocalhost
-    status: Sandbox
+    status: Archived
     command_line:
     - 'nocalhost'
     start_date: 2020-11-05T00:00:00Z
     join_date: 2021-11-16T00:00:00Z
+    archived_date: 2025-03-25T00:00:00Z
     psql_db: nocalhost
     shared_db: allprj
     main_repo: 'nocalhost/nocalhost'
@@ -3383,10 +3386,10 @@ projects:
          k3s-io,gitops-working-group,piraeusdatastore,openebs,AthenZ,oscal-compass,\
          distribution,kubeovn,k8gb-io,trickstercache,emissary-ingress,project-stacker,\
          backstage,kuberhealthy,WasmEdge,chaosblade-io,v6d-io,antrea-io,pixie-io,\
-         fluid-cloudnative,submariner-io,argoproj-labs,kube-vip,kubedl-io,oras-project,\
+         fluid-cloudnative,submariner-io,argoproj-labs,kube-vip,oras-project,\
          wasmCloud,project-akri,metallb,karmada-io,inclavare-containers,cncf-tags,\
-         superedge,cilium,dapr,openelb,open-cluster-management-io,kubescape,clusternet,\
-         vscode-kubernetes-tools,nocalhost,kubearmor,service-mesh-performance,meshery,\
+         cilium,dapr,openelb,open-cluster-management-io,kubescape,clusternet,\
+         vscode-kubernetes-tools,kubearmor,service-mesh-performance,meshery,\
          knative,knative-sandbox,confidential-containers,tellerops,hwameistor,\
          SpectralOps/setup-teller-action,OpenFunction,cncf/tag-app-delivery,microcks,\
          sealerio,clusterpedia-io,aeraki-mesh,open-feature,Kuadrant,bpfman,ovn-kubernetes,\
