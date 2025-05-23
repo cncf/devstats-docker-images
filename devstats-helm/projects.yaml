@@ -743,11 +743,12 @@ projects:
   cnigenie:
     order: 50
     name: CNI-Genie
-    status: Sandbox
+    status: Archived
     command_line:
       - cni-genie
     start_date: 2017-03-25T00:00:00Z
     join_date: 2020-06-25T00:00:00Z
+    archived_date: 2025-05-22T00:00:00Z
     psql_db: cnigenie
     shared_db: allprj
     main_repo: cni-genie/CNI-Genie
@@ -1623,7 +1624,7 @@ projects:
     - 'openelb'
     start_date: 2019-02-01T00:00:00Z
     join_date: 2021-11-09T00:00:00Z
-    archived_date: 2025-05-23T00:00:00Z
+    archived_date: 2025-05-22T00:00:00Z
     psql_db: openelb
     shared_db: allprj
     main_repo: 'openelb/openelb'
@@ -1782,7 +1783,7 @@ projects:
       - 'tellerops,SpectralOps/setup-teller-action'
     start_date: 2021-03-24T00:00:00Z
     join_date: 2022-04-26T00:00:00Z
-    archived_date: 2025-05-23T00:00:00Z
+    archived_date: 2025-05-22T00:00:00Z
     psql_db: teller
     shared_db: allprj
     main_repo: tellerops/teller
@@ -1796,7 +1797,7 @@ projects:
       - 'sealerio/sealer'
     start_date: 2021-04-29T00:00:00Z
     join_date: 2022-04-26T00:00:00Z
-    archived_date: 2025-05-23T00:00:00Z
+    archived_date: 2025-05-22T00:00:00Z
     psql_db: sealer
     shared_db: allprj
     main_repo: sealerio/sealer
@@ -1892,7 +1893,7 @@ projects:
       - 'devstream-io'
     start_date: 2021-10-09T00:00:00Z
     join_date: 2022-06-17T00:00:00Z
-    archived_date: 2025-05-23T00:00:00Z
+    archived_date: 2025-05-22T00:00:00Z
     psql_db: devstream
     shared_db: allprj
     main_repo: devstream-io/devstream
@@ -2051,7 +2052,7 @@ projects:
       - merbridge
     start_date: 2022-01-12T00:00:00Z
     join_date: 2022-12-14T00:00:00Z
-    archived_date: 2025-05-23T00:00:00Z
+    archived_date: 2025-05-22T00:00:00Z
     psql_db: 'merbridge'
     shared_db: allprj
     main_repo: merbridge/merbridge
@@ -3396,7 +3397,7 @@ projects:
          virtual-kubelet,kubeedge,cri-o,networkservicemesh,runatlantis,youki-dev,\
          open-telemetry,thanos-io,fluxcd,in-toto,strimzi,kubevirt,cdfoundation,\
          longhorn,chubaofs,cubefs,kedacore,argoproj,volcano-sh,KusionStack,ovn-org,\
-         cni-genie,keptn,kudobuilder,cloud-custodian,dexidp,litmuschaos,artifacthub,\
+         keptn,kudobuilder,cloud-custodian,dexidp,litmuschaos,artifacthub,\
          parallaxsecond,bfenetworks,crossplane,kumahq,projectcontour,operator-framework,\
          chaos-mesh,serverlessworkflow,tremor-rs,metal3-io,keylime,kaito-project,\
          Kong/kumacut,Kong/docker-kuma,getporter,schemahero,openkruise,openyurtio,\
