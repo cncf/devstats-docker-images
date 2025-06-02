@@ -3139,6 +3139,45 @@ projects:
     main_repo: opentofu/opentofu
     annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  cadence:
+    order: 231
+    name: Cadence
+    status: Sandbox
+    command_line:
+      - cadence-workflow
+    start_date: 2017-06-06T00:00:00Z
+    join_date: 2025-05-22T00:00:00Z
+    psql_db: cadence
+    shared_db: allprj
+    main_repo: cadence-workflow/cadence
+    annotation_regexp: '^v\d+\.\d+\.(0|\d+0)$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  kagent:
+    order: 232
+    name: kagent
+    status: Sandbox
+    command_line:
+      - kagent-dev
+    start_date: 2025-02-20T00:00:00Z
+    join_date: 2025-05-22T00:00:00Z
+    psql_db: kagent
+    shared_db: allprj
+    main_repo: kagent-dev/kagent
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: ''
+  urunc:
+    order: 233
+    name: urunc
+    status: Sandbox
+    command_line:
+      - urunc-dev
+    start_date: 2023-09-14T00:00:00Z
+    join_date: 2025-05-22T00:00:00Z
+    psql_db: urunc
+    shared_db: allprj
+    main_repo: urunc-dev/urunc
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   opencontainers:
     order: 10001
     name: OCI
@@ -3397,7 +3436,7 @@ projects:
          virtual-kubelet,kubeedge,cri-o,networkservicemesh,runatlantis,youki-dev,\
          open-telemetry,thanos-io,fluxcd,in-toto,strimzi,kubevirt,cdfoundation,\
          longhorn,chubaofs,cubefs,kedacore,argoproj,volcano-sh,KusionStack,ovn-org,\
-         keptn,kudobuilder,cloud-custodian,dexidp,litmuschaos,artifacthub,\
+         keptn,kudobuilder,cloud-custodian,dexidp,litmuschaos,artifacthub,cadence-workflow,\
          parallaxsecond,bfenetworks,crossplane,kumahq,projectcontour,operator-framework,\
          chaos-mesh,serverlessworkflow,tremor-rs,metal3-io,keylime,kaito-project,\
          Kong/kumacut,Kong/docker-kuma,getporter,schemahero,openkruise,openyurtio,\
@@ -3411,9 +3450,9 @@ projects:
          service-mesh-performance,meshery,meshery-extensions,knative,knative-sandbox,\
          confidential-containers,hwameistor,OpenFunction,cncf/tag-app-delivery,microcks,\
          clusterpedia-io,aeraki-mesh,open-feature,Kuadrant,bpfman,ovn-kubernetes,\
-         kubewarden,kubevela,hexa-org,konveyor,armadaproject,eraser-dev,\
+         kubewarden,kubevela,hexa-org,konveyor,armadaproject,eraser-dev,kagent-dev,\
          external-secrets,Serverless-Devs,ContainerSSH,openfga,kubereboot,devspace-sh,\
-         lima-vm,carvel-dev,istio,devspace-cloud,project-zot,openGemini,\
+         lima-vm,carvel-dev,istio,devspace-cloud,project-zot,openGemini,urunc-dev,\
          paralus,carina-io,ko-build,opcr-io,werf,opencost,inspektor-gadget,keycloak,\
          kubeflow,headlamp-k8s,xline-kv,slimtoolkit,pipe-cd,projectcapsule,score-spec,\
          sustainable-computing-io,kptdev,kubeclipper,kubeclipper-labs,krkn-chaos,\
@@ -3435,7 +3474,6 @@ projects:
          interTwin-eu/interlink-htcondor-plugin,interTwin-eu/interlink-kueue-plugin,\
          interTwin-eu/interlink-arc-plugin,interTwin-eu/interlink-unicore-plugin,\
          cozystack,kitops-ml,drasi-project,kgateway-dev,hyperlight-dev,kubefleet-dev,opentofu"
-
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
