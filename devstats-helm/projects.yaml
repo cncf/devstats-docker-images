@@ -3188,7 +3188,7 @@ projects:
     join_date: 2025-06-05T00:00:00Z
     psql_db: xregistry
     shared_db: allprj
-    main_repo: xRegistry/server
+    main_repo: xregistry/server
     annotation_regexp: '^.*$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   modelpack:
