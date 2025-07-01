@@ -72,4 +72,7 @@ export POD_NAME=$PATRONI_NAME
 chown -R postgres /home/postgres/pgdata
 chmod -R 0700 /home/postgres/pgdata
 
+# Disable core dumps
+ulimit -c 0
+
 exec /usr/bin/python3 /usr/local/bin/patroni /home/postgres/patroni.yml
