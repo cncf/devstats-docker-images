@@ -3196,12 +3196,12 @@ projects:
     name: ModelPack
     status: Sandbox
     command_line:
-      - CloudNativeAI
+      - CloudNativeAI,modelpack
     start_date: 2024-08-28T00:00:00Z
     join_date: 2025-06-05T00:00:00Z
     psql_db: modelpack
     shared_db: allprj
-    main_repo: CloudNativeAI/model-spec
+    main_repo: modelpack/model-spec
     annotation_regexp: '^v\d+\.\d+\.\d+$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   opencontainers:
@@ -3488,7 +3488,7 @@ projects:
          kubean-io,koordinator-sh,radius-project,loxilb-io,cartography-cncf,perses,\
          ratify-project,Project-HAMi,shipwright-io,flatcar,flatcar-linux,prometheus-community,\
          k8snetworkplumbingwg/kubemacpool,k8snetworkplumbingwg/multi-networkpolicy-iptables,\
-         k8snetworkplumbingwg/sriov-network-operator,nmstate/kubernetes-nmstate,\
+         k8snetworkplumbingwg/sriov-network-operator,nmstate/kubernetes-nmstate,modelpack,\
          tokenetes,spinframework,k0sproject,SlimPlanet,container2wasm,runmedev,cloudnative-pg,\
          Azure/Fleet-PRSE,Azure/fleet-networking,Azure/fleet,Azure/azure-rest-api-specs-fleet,\
          podman-desktop,containers/podman,containers/buildah,containers/skopeo,CloudNativeAI,\
