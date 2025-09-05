@@ -757,12 +757,13 @@ projects:
   keptn:
     order: 51
     name: Keptn
-    status: Incubating
+    status: Archived
     command_line:
       - keptn
     start_date: 2019-02-01T00:00:00Z
     join_date: 2020-06-25T00:00:00Z
     incubating_date: 2022-07-13T00:00:00Z
+    archived_date: 2025-09-03T00:00:00Z
     psql_db: keptn
     shared_db: allprj
     main_repo: keptn/keptn
@@ -3463,7 +3464,7 @@ projects:
          virtual-kubelet,kubeedge,cri-o,networkservicemesh,runatlantis,youki-dev,\
          open-telemetry,thanos-io,fluxcd,in-toto,strimzi,kubevirt,cdfoundation,\
          longhorn,chubaofs,cubefs,kedacore,argoproj,volcano-sh,KusionStack,ovn-org,\
-         keptn,kudobuilder,cloud-custodian,dexidp,litmuschaos,artifacthub,cadence-workflow,\
+         kudobuilder,cloud-custodian,dexidp,litmuschaos,artifacthub,cadence-workflow,\
          parallaxsecond,bfenetworks,crossplane,kumahq,projectcontour,operator-framework,\
          chaos-mesh,serverlessworkflow,tremor-rs,metal3-io,keylime,kaito-project,\
          Kong/kumacut,Kong/docker-kuma,getporter,schemahero,openkruise,openyurtio,\
