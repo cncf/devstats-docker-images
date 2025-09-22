@@ -2300,11 +2300,12 @@ projects:
   xline:
     order: 166
     name: Xline
-    status: Sandbox
+    status: Archived
     command_line:
       - 'xline-kv'
     start_date: 2022-05-05T00:00:00Z
     join_date: 2023-06-30T00:00:00Z
+    archived_date: 2025-09-19T00:00:00Z
     psql_db: 'xline'
     shared_db: allprj
     main_repo: xline-kv/Xline
@@ -3484,7 +3485,7 @@ projects:
          external-secrets,Serverless-Devs,ContainerSSH,openfga,kubereboot,devspace-sh,\
          lima-vm,carvel-dev,istio,devspace-cloud,project-zot,openGemini,urunc-dev,\
          paralus,carina-io,ko-build,opcr-io,werf,opencost,inspektor-gadget,keycloak,\
-         kubeflow,headlamp-k8s,xline-kv,slimtoolkit,pipe-cd,projectcapsule,score-spec,\
+         kubeflow,headlamp-k8s,slimtoolkit,pipe-cd,projectcapsule,score-spec,\
          sustainable-computing-io,kptdev,kubeclipper,kubeclipper-labs,krkn-chaos,\
          buildpacks-community,knative-extensions,project-copacetic,kube-logging,kanisterio,\
          kcp-dev,kcl-lang,kube-burner,kuasar-io,kubestellar,easegress-io,open-gitops,\
