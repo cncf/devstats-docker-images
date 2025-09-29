@@ -3492,7 +3492,7 @@ projects:
          fluid-cloudnative,submariner-io,argoproj-labs,kube-vip,oras-project,wasmCloud,\
          project-akri,metallb,karmada-io,inclavare-containers,cncf-tags,cilium,dapr,\
          open-cluster-management-io,kubescape,clusternet,vscode-kubernetes-tools,kubearmor,\
-         meshery,meshery-extensions,knative,knative-sandbox,\
+         meshery,meshery-extensions,knative,knative-sandbox,kserve,\
          confidential-containers,hwameistor,OpenFunction,cncf/tag-app-delivery,microcks,\
          clusterpedia-io,aeraki-mesh,open-feature,Kuadrant,bpfman,ovn-kubernetes,\
          kubewarden,kubevela,hexa-org,konveyor,armadaproject,eraser-dev,kagent-dev,\
