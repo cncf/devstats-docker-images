@@ -3076,7 +3076,7 @@ projects:
     name: Interlink
     status: Sandbox
     command_line:
-      - 'regexp:(?i)^(interlink-hq\/.*|interTwin-eu\/(.*interlink.*|vk-test-set))$'
+      - 'interlink-hq'
     start_date: 2023-07-05T00:00:00Z
     join_date: 2025-03-04T00:00:00Z
     psql_db: interlink
@@ -3581,12 +3581,7 @@ projects:
          Azure/Fleet-PRSE,Azure/fleet-networking,Azure/fleet,Azure/azure-rest-api-specs-fleet,\
          podman-desktop,containers/podman,containers/buildah,containers/skopeo,CloudNativeAI,\
          containers/netavark,containers/aardvark-dns,containers/image,containers/storage,\
-         containers/common,containers/conmon,containers/podman-py,bootc-dev,composefs,\
-         interTwin-eu/interLink,interTwin-eu/vk-test-set,interTwin-eu/interlink-jhub,\
-         interTwin-eu/interlink-slurm-plugin,interTwin-eu/interlink-docker-plugin,\
-         interTwin-eu/interlink-helm-chart,interTwin-eu/interlink-monitoring-stack,\
-         interTwin-eu/interlink-htcondor-plugin,interTwin-eu/interlink-kueue-plugin,\
-         interTwin-eu/interlink-arc-plugin,interTwin-eu/interlink-unicore-plugin,xregistry,\
+         containers/common,containers/conmon,containers/podman-py,bootc-dev,composefs,xregistry,\
          cozystack,kitops-ml,drasi-project,kgateway-dev,hyperlight-dev,kubefleet-dev,opentofu,\
          oxia-db,cedar-policy,project-dalec,robusta-dev/holmesgpt,robusta-dev/homebrew-holmesgpt,\
          robusta-dev/holmesgpt-community-toolsets"
