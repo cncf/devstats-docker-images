@@ -14,7 +14,7 @@ export GHA2DB_GHAPIFORCELANGS=1
 
 if [ -z "$GHA2DB_MAX_RUN_DURATION" ]
 then
-  export GHA2DB_MAX_RUN_DURATION="annotations:1h:102,calc_metric:24h:102,columns:2h:102,get_repos:24h:102,gha2db:24h:102,ghapi2db:24h:102,import_affs:8h:102,structure:2h:102,tags:2h:102"
+  export GHA2DB_MAX_RUN_DURATION="annotations:1h:102,calc_metric:48h:102,columns:3h:102,get_repos:24h:102,gha2db:48h:102,ghapi2db:48h:102,import_affs:8h:102,structure:3h:102,tags:3h:102"
   echo "using the default max run duration setting: '$GHA2DB_MAX_RUN_DURATION'"
 fi
 

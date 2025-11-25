@@ -18,7 +18,7 @@ bootstrap:
     postgresql:
       use_pg_rewind: true
       use_slots: ${PATRONI_POSTGRES_USE_SLOTS}
-      
+
   initdb:
   - auth-host: md5
   - auth-local: trust
@@ -64,6 +64,13 @@ postgresql:
     effective_io_concurrency: '${PATRONI_POSTGRES_IO_CONCURRENCY}'
     random_page_cost: '${PATRONI_POSTGRES_RANDOM_PAGE_COST}'
     synchronous_commit: 'off'
+    autovacuum_max_workers: '${PATRONI_POSTGRES_AUTOVACUUM_MAX_WORKERS}'
+    autovacuum_naptime: '${PATRONI_POSTGRES_AUTOVACUUM_NAPTIME}'
+    autovacuum_vacuum_cost_limit: '${PATRONI_POSTGRES_AUTOVACUUM_VACUUM_COST_LIMIT}'
+    autovacuum_vacuum_threshold: '${PATRONI_POSTGRES_AUTOVACUUM_VACUUM_THRESHOLD}'
+    autovacuum_vacuum_scale_factor: '${PATRONI_POSTGRES_AUTOVACUUM_VACUUM_SCALE_FACTOR}'
+    autovacuum_analyze_threshold: '${PATRONI_POSTGRES_AUTOVACUUM_ANALYZE_THRESHOLD}'
+    autovacuum_analyze_scale_factor: '${PATRONI_POSTGRES_AUTOVACUUM_ANALYZE_SCALE_FACTOR}'
 tags:
     nofailover: false
     noloadbalance: false
@@ -77,5 +84,8 @@ export POD_NAME=$PATRONI_NAME
 
 chown -R postgres /home/postgres/pgdata
 chmod -R 0700 /home/postgres/pgdata
+
+# Disable core dumps
+ulimit -c 0
 
 exec /usr/bin/python3 /usr/local/bin/patroni /home/postgres/patroni.yml

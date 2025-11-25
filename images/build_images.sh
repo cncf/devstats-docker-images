@@ -23,12 +23,12 @@ tar cf ../devstats-docker-images/api-bins.tar api calc_metric || exit 44
 
 cd ../devstats-reports || exit 40
 rm -f ../devstats-docker-images/devstats-reports.tar 2>/dev/null
-cp ../velocity/forks.json velocity/ || exit 46
+cp ../velocity/forks.json ../velocity/lf_forks.json ../velocity/all_forks.json velocity/ || exit 46
 tar cf ../devstats-docker-images/devstats-reports.tar sh sql affs rep contributors velocity find.sh || exit 41
 
 cd ../devstats || exit 7
 rm -f ../devstats-docker-images/index_*.html ../devstats-docker-images/devstats.tar ../devstats-docker-images/devstats-grafana.tar ../devstats-docker-images/*.svg ../devstats-docker-images/api-files.tar 2>/dev/null
-tar cf ../devstats-docker-images/devstats.tar hide git metrics cdf devel util_sql envoy all lfn shared iovisor mininet opennetworkinglab opensecuritycontroller openswitch p4lang openbmp tungstenfabric cord scripts partials docs cron zephyr linux sam azf riff fn openwhisk openfaas cii prestodb godotengine kubernetes prometheus opentracing fluentd linkerd grpc coredns containerd rkt cni jaeger notary tuf rook vitess nats opa spiffe spire cloudevents telepresence helm openmetrics harbor etcd tikv cortex buildpacks falco dragonfly virtualkubelet kubeedge brigade crio networkservicemesh openebs opentelemetry thanos flux intoto strimzi kubevirt longhorn chubaofs keda smi argo volcano cnigenie keptn kudo cloudcustodian dex litmuschaos artifacthub kuma parsec bfe crossplane contour operatorframework chaosmesh serverlessworkflow k3s backstage tremor metal3 porter openyurt openservicemesh keylime schemahero cdk8s certmanager openkruise tinkerbell pravega kyverno gitopswg piraeus k8dash athenz kubeovn curiefense distribution ingraind kuberhealthy k8gb trickster emissaryingress wasmedge chaosblade vineyard antrea fluid submariner pixie meshery servicemeshperformance kubevela kubevip kubedl krustlet krator oras wasmcloud akri metallb karmada inclavarecontainers superedge cilium dapr openelb openclustermanagement vscodek8stools nocalhost kubearmor k8up kubers devfile knative fabedge confidentialcontainers openfunction teller sealer clusterpedia opencost aerakimesh curve openfeature kubewarden devstream hexapolicyorchestrator konveyor armada externalsecretsoperator serverlessdevs containerssh openfga kured carvel lima istio merbridge devspace capsule zot paralus carina ko opcr werf kubescape inspektorgadget clusternet keycloak sops headlamp slimtoolkit kepler pipecd cncf opencontainers spinnaker tekton jenkins jenkinsx cdevents ortelius pyrsia screwdrivercd shipwright allcdf graphql graphqljs graphiql expressgraphql graphqlspec kubeflow hyperledger jsons/.keep util_sh projects.yaml companies.yaml skip_dates.yaml github_users.json || exit 8
+tar cf ../devstats-docker-images/devstats.tar hide git metrics cdf devel util_sql envoy all lfn shared iovisor mininet opennetworkinglab opensecuritycontroller openswitch p4lang openbmp tungstenfabric cord scripts partials docs cron zephyr linux sam azf riff fn openwhisk openfaas cii prestodb godotengine kubernetes prometheus opentracing fluentd linkerd grpc coredns containerd rkt cni jaeger notary tuf rook vitess nats opa spiffe spire cloudevents telepresence helm openmetrics harbor etcd tikv cortex buildpacks falco dragonfly virtualkubelet kubeedge brigade crio networkservicemesh openebs opentelemetry thanos flux intoto strimzi kubevirt longhorn chubaofs keda smi argo volcano cnigenie keptn kudo cloudcustodian dex litmuschaos artifacthub kuma parsec bfe crossplane contour operatorframework chaosmesh serverlessworkflow k3s backstage tremor metal3 porter openyurt openservicemesh keylime schemahero cdk8s certmanager openkruise tinkerbell pravega kyverno gitopswg piraeus k8dash athenz kubeovn curiefense distribution ingraind kuberhealthy k8gb trickster emissaryingress wasmedge chaosblade vineyard antrea fluid submariner pixie meshery servicemeshperformance kubevela kubevip kubedl krustlet krator oras wasmcloud akri metallb karmada inclavarecontainers superedge cilium dapr openelb openclustermanagement vscodek8stools nocalhost kubearmor k8up kubers devfile knative fabedge confidentialcontainers openfunction teller sealer clusterpedia opencost aerakimesh curve openfeature kubewarden devstream hexapolicyorchestrator konveyor armada externalsecretsoperator serverlessdevs containerssh openfga kured carvel lima istio merbridge devspace capsule zot paralus carina ko opcr werf kubescape inspektorgadget clusternet keycloak sops headlamp slimtoolkit kepler pipecd eraser xline hwameistor kpt microcks kubeclipper kubeflow copacetic loggingoperator kanister kcp kcl kubeburner kuasar krknchaos kubestellar easegress spiderpool k8sgpt kubeslice connect kairos kubean koordinator radius bankvaults atlantis stacker trestlegrc kuadrant opengemini score bpfman loxilb cartography perses ratify hami shipwrightcncf flatcar kusionstack youki kaito sermant kmesh ovnkubernetes tratteria spin spinkube slimfaas container2wasm k0s runmenotebooks cloudnativepg kubefleet podmandesktop podmancontainertools bootc composefs drasi interlink cozystack kgateway kitops hyperlight opentofu cadence kagent urunc xregistry modelpack kserve oauth2proxy oxia holmesgpt cedarpolicy dalec cncf opencontainers spinnaker tekton jenkins jenkinsx cdevents ortelius pyrsia screwdrivercd shipwright allcdf graphql graphqljs graphiql expressgraphql graphqlspec hyperledger jsons/.keep util_sh projects.yaml companies.yaml skip_dates.yaml github_users.json || exit 8
 tar cf ../devstats-docker-images/devstats-grafana.tar grafana/shared grafana/img/*.svg grafana/img/*.png grafana/*/change_title_and_icons.sh grafana/*/custom_sqlite.sql grafana/dashboards/*/*.json || exit 9
 tar cf ../devstats-docker-images/api-files.tar metrics util_sql || exit 50
 cp apache/www/index_*.html ../devstats-docker-images/ || exit 22
@@ -76,9 +76,10 @@ fi
 
 if [ -z "$SKIP_PATRONI" ]
 then
-  #docker build -f ./images/Dockerfile.patroni -t "${DOCKER_USER}/devstats-patroni" . || exit 16
+  # docker build -f ./images/Dockerfile.patroni -t "${DOCKER_USER}/devstats-patroni" . || exit 16
   docker build -f ./images/Dockerfile.patroni -t "${DOCKER_USER}/devstats-patroni-new" . || exit 16
   docker build -f ./images/Dockerfile.patroni.13 -t "${DOCKER_USER}/devstats-patroni-13" . || exit 16
+  docker build -f ./images/Dockerfile.patroni.hll.13 -t "${DOCKER_USER}/devstats-patroni-hll-13" . || exit 16
 fi
 
 if [ -z "$SKIP_STATIC" ]
@@ -160,6 +161,7 @@ then
   #docker push "${DOCKER_USER}/devstats-patroni" || exit 21
   docker push "${DOCKER_USER}/devstats-patroni-new" || exit 21
   docker push "${DOCKER_USER}/devstats-patroni-13" || exit 21
+  docker push "${DOCKER_USER}/devstats-patroni-hll-13" || exit 21
 fi
 
 if [ -z "$SKIP_STATIC" ]

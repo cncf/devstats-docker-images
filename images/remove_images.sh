@@ -31,6 +31,7 @@ then
 fi
 if [ -z "$SKIP_STATIC" ]
 then
+  docker image rm -f "${DOCKER_USER}/backups-page"
   docker image rm -f "${DOCKER_USER}/devstats-static-test"
   docker image rm -f "${DOCKER_USER}/devstats-static-prod"
   docker image rm -f "${DOCKER_USER}/devstats-static-cdf"
@@ -40,6 +41,11 @@ fi
 if [ -z "$SKIP_REPORTS" ]
 then
   docker image rm -f "${DOCKER_USER}/devstats-reports"
+fi
+if [ -z "$SKIP_API" ]
+then
+  docker image rm -f "${DOCKER_USER}/devstats-api-test"
+  docker image rm -f "${DOCKER_USER}/devstats-api-prod"
 fi
 if [ -z "$SKIP_PRUNE" ]
 then

@@ -1,8 +1,8 @@
 FROM amd64/ubuntu:22.04
 # Hack to solve apt-get update error on ubuntu 22.04 image: https://stackoverflow.com/questions/71941032/why-i-cannot-run-apt-update-inside-a-fresh-ubuntu22-04
 RUN sed -i -e 's/^APT/# APT/' -e 's/^DPkg/# DPkg/' /etc/apt/apt.conf.d/docker-clean
-RUN apt-get update -y && apt-get upgrade -y && apt-get install -y apt-utils ca-certificates openssh-client wget bash libfontconfig vim sqlite3
-RUN wget https://dl.grafana.com/oss/release/grafana_8.5.27_amd64.deb
-RUN dpkg -i grafana_8.5.27_amd64.deb
+RUN apt-get update -y && apt-get upgrade -y && apt-get install -y apt-utils ca-certificates openssh-client wget bash libfontconfig vim sqlite3 musl
+RUN wget https://dl.grafana.com/oss/release/grafana_10.2.2_amd64.deb
+RUN dpkg -i grafana_10.2.2_amd64.deb
 ADD images/grafana/entrypoint.sh /usr/bin/grafana_start.sh
-RUN rm -f grafana_8.5.27_amd64.deb devstats-grafana.tar grafana-bins.tar
+RUN rm -f grafana_10.2.2_amd64.deb devstats-grafana.tar grafana-bins.tar

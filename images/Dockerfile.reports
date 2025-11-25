@@ -11,4 +11,5 @@ COPY --from=builder /builder/runq /usr/bin/
 COPY --from=builder /builder/util_sql/exclude_bots.sql /etc/gha2db/util_sql/exclude_bots.sql
 COPY --from=builder /builder/util_sql/only_bots.sql /etc/gha2db/util_sql/only_bots.sql
 COPY --from=builder /builder/devel/all_*.txt /velocity/
+COPY .vimrc /root/.vimrc
 ADD devstats-reports.tar .

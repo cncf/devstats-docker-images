@@ -1,0 +1,14 @@
+FROM jberkus/patroni-simple:v13
+MAINTAINER Lukasz Gryglicki <lgryglicki@cncf.io>
+ADD images/patroni/entrypoint.sh /
+USER root
+RUN mkdir -p /usr/lib/postgresql/13/lib
+RUN mkdir -p /usr/share/postgresql/13/extension
+RUN mkdir -p /usr/lib/postgresql/13/lib/bitcode/hll
+RUN mkdir -p /usr/lib/postgresql/13/lib/bitcode/hll/src/
+ADD ./hll/hll.so /usr/lib/postgresql/13/lib/
+ADD ./hll/hll.control ./hll/hll--2.13--2.14.sql ./hll/hll--2.10--2.11.sql ./hll/hll--2.12--2.13.sql ./hll/hll--2.15--2.16.sql ./hll/hll--2.16--2.17.sql ./hll/hll--2.14--2.15.sql ./hll/hll--2.11--2.12.sql ./hll/hll--2.10.sql /usr/share/postgresql/13/extension/
+ADD ./hll/src/hll.bc ./hll/src/MurmurHash3.bc /usr/lib/postgresql/13/lib/bitcode/hll/src/
+RUN chmod 755 /usr/lib/postgresql/13/lib/hll.so
+RUN chmod 644 /usr/share/postgresql/13/extension/hll.control /usr/share/postgresql/13/extension/hll--*.sql /usr/lib/postgresql/13/lib/bitcode/hll/src/MurmurHash3.bc /usr/lib/postgresql/13/lib/bitcode/hll/src/hll.bc
+USER postgres
