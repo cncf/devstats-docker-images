@@ -80,6 +80,7 @@ then
   docker build -f ./images/Dockerfile.patroni -t "${DOCKER_USER}/devstats-patroni-new" . || exit 16
   docker build -f ./images/Dockerfile.patroni.13 -t "${DOCKER_USER}/devstats-patroni-13" . || exit 16
   docker build -f ./images/Dockerfile.patroni.hll.13 -t "${DOCKER_USER}/devstats-patroni-hll-13" . || exit 16
+  docker build -f ./images/Dockerfile.patroni.18 -t "${DOCKER_USER}/devstats-patroni-18-hll" . || exit 52
 fi
 
 if [ -z "$SKIP_STATIC" ]

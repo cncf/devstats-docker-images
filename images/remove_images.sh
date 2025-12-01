@@ -24,6 +24,9 @@ if [ -z "$SKIP_PATRONI" ]
 then
   docker image rm -f "${DOCKER_USER}/devstats-patroni"
   docker image rm -f "${DOCKER_USER}/devstats-patroni-new"
+  docker image rm -f "${DOCKER_USER}/devstats-patroni-13"
+  docker image rm -f "${DOCKER_USER}/devstats-patroni-hll-13"
+  docker image rm -f "${DOCKER_USER}/devstats-patroni-18"
 fi
 if [ -z "$SKIP_TESTS" ]
 then
