@@ -13,10 +13,12 @@ bootstrap:
     loop_wait: ${PATRONI_LOOP_WAIT}
     ttl: ${PATRONI_TTL}
     retry_timeout: ${PATRONI_RETRY_TIMEOUT}
-    master_start_timeout: ${PATRONI_MASTER_START_TIMEOUT}
+    primary_start_timeout: ${PATRONI_MASTER_START_TIMEOUT}
     maximum_lag_on_failover: ${PATRONI_MAXIMUM_LAG_ON_FAILOVER}
     postgresql:
       use_pg_rewind: true
+      use_slots: ${PATRONI_POSTGRES_USE_SLOTS}
+
   initdb:
   - auth-host: md5
   - auth-local: trust
@@ -29,7 +31,6 @@ bootstrap:
 restapi:
   connect_address: '${PATRONI_KUBERNETES_POD_IP}:8008'
 postgresql:
-  use_slots: ${PATRONI_POSTGRES_USE_SLOTS}
   connect_address: '${PATRONI_KUBERNETES_POD_IP}:5432'
   authentication:
     superuser:
@@ -70,6 +71,11 @@ postgresql:
     autovacuum_vacuum_scale_factor: '${PATRONI_POSTGRES_AUTOVACUUM_VACUUM_SCALE_FACTOR}'
     autovacuum_analyze_threshold: '${PATRONI_POSTGRES_AUTOVACUUM_ANALYZE_THRESHOLD}'
     autovacuum_analyze_scale_factor: '${PATRONI_POSTGRES_AUTOVACUUM_ANALYZE_SCALE_FACTOR}'
+tags:
+    nofailover: false
+    noloadbalance: false
+    clonefrom: false
+    nosync: false
 __EOF__
 
 unset PATRONI_SUPERUSER_PASSWORD PATRONI_REPLICATION_PASSWORD
