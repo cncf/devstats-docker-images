@@ -23,7 +23,9 @@ if [ ! -z "$RESTORE_FROM" ]
 then
   wget "${RESTORE_FROM}/backups/${db}.tar.xz" || exit 3
 fi
+echo "Restoring artificial database $db from /root/$db.tar.xz"
 xz -k -d $db.tar.xz || exit 4
+echo "Extracting /root/$db.tar"
 tar xf $db.tar || exit 5
 rm $db.tar || exit 6
 db.sh psql $db -tAc "\copy gha_events from '/root/$db.events.tsv'" || exit 7
