@@ -163,6 +163,7 @@ then
   docker push "${DOCKER_USER}/devstats-patroni-new" || exit 21
   docker push "${DOCKER_USER}/devstats-patroni-13" || exit 21
   docker push "${DOCKER_USER}/devstats-patroni-hll-13" || exit 21
+  docker push "${DOCKER_USER}/devstats-patroni-18-hll" || exit 53
 fi
 
 if [ -z "$SKIP_STATIC" ]
