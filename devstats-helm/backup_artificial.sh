@@ -32,4 +32,9 @@ db.sh psql $db -tAc "\copy (select * from gha_issues_events_labels where event_i
 db.sh psql $db -tAc "\copy (select * from gha_texts where event_id > 281474976710656) TO '/root/$db.texts.tsv'" || exit 12
 rm -f $db.tar* || exit 13
 tar cf $db.tar $db.*.tsv || exit 14
-xz $db.tar || exit 15
+if [ -z "${FASTXZ}" ]
+then
+  xz $db.tar || exit 15
+else
+  xz -1 $db.tar || exit 16
+fi
