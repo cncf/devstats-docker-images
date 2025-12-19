@@ -43,3 +43,4 @@ else
 fi
 # Fail is OK here
 cp $db.tar.xz /var/www/html/ || echo 'Could not copy backup to /var/www/html/ (this is fine)'
+cp $db.tar.xz /root/ || echo 'Could not copy backup to /root/ (this is fine)'
