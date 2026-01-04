@@ -41,7 +41,7 @@ do
       failed="$failed $db"
     fi
   fi
-  age=`./devel/file_age.sh "/root/$db"`
+  age=`./devel/file_age.sh "/root/${db}.dump"`
   if [ "$age" = "no" ]
   then
     age=$((day*5))
