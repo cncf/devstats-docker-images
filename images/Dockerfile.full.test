@@ -1,4 +1,4 @@
-FROM golang:1.24 AS builder
+FROM golang:1.25 AS builder
 RUN apt-get update -y && apt-get upgrade -y && apt-get install -y ca-certificates openssh-client postgresql-client git curl make
 WORKDIR /go/src/github.com/cncf
 RUN git clone https://github.com/cncf/devstatscode
@@ -14,7 +14,7 @@ RUN make -f ./images/Makefile.full dockerinstall
 RUN make -f ./images/Makefile.full links
 #FROM alpine
 #RUN apk add git bash postgresql-client xz curl
-FROM postgres:15-alpine
+FROM postgres:18-alpine
 RUN apk add git curl xz
 COPY --from=builder /etc/gha2db /etc/gha2db
 COPY --from=builder /go/src/github.com/cncf/devstatscode /go/src/devstats

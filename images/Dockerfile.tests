@@ -1,10 +1,10 @@
-FROM golang:1.24-bookworm
+FROM golang:1.25-bookworm
 ENV LANG=en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8
 ENV LANGUAGE=en_US.UTF-8
 RUN apt-get update -y && apt-get upgrade -y && apt-get install -y --no-install-recommends ca-certificates openssh-client git curl make sudo locales gnupg wget lsb-release && rm -rf /var/lib/apt/lists/*
 RUN install -m 0755 -d /etc/apt/keyrings && wget -qO /etc/apt/keyrings/pgdg.asc https://www.postgresql.org/media/keys/ACCC4CF8.asc && echo "deb [signed-by=/etc/apt/keyrings/pgdg.asc] http://apt.postgresql.org/pub/repos/apt bookworm-pgdg main" > /etc/apt/sources.list.d/pgdg.list
-RUN apt-get update && apt-get install -y --no-install-recommends postgresql-17 postgresql-client-17 && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends postgresql-18 postgresql-client-18 && rm -rf /var/lib/apt/lists/*
 RUN go install golang.org/x/lint/golint@latest && go install golang.org/x/tools/cmd/goimports@latest && go install github.com/jgautheron/goconst/cmd/goconst@latest && go install github.com/jgautheron/usedexports@latest && go install github.com/kisielk/errcheck@latest
 ADD tests/test.sh /test.sh
 CMD ["bash", "/test.sh"]
