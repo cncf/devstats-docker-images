@@ -44,7 +44,7 @@ do
   age=`./devel/file_age.sh "/root/${db}.dump"`
   if [ "$age" = "no" ]
   then
-    age=$((day*5))
+    age=$((day*6))
   fi
   rage=$(((day*4)+(RANDOM*19)%week))
   if ((( age > rage )) || [ ! -z "$NOAGE" ])
