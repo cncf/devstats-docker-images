@@ -2044,7 +2044,7 @@ projects:
     name: Istio
     status: Graduated
     command_line:
-      - istio
+      - istio,istio-ecosystem
     start_date: 2016-12-01T00:00:00Z
     join_date: 2022-09-30T00:00:00Z
     graduated_date: 2023-07-12T00:00:00Z
@@ -3555,7 +3555,7 @@ projects:
          parallaxsecond,bfenetworks,crossplane,kumahq,projectcontour,operator-framework,\
          chaos-mesh,serverlessworkflow,tremor-rs,metal3-io,keylime,kaito-project,\
          Kong/kumacut,Kong/docker-kuma,getporter,schemahero,openkruise,openyurtio,\
-         tinkerbell,kyverno,cert-manager,cdk8s-team,k8up-io,kube-rs,devfile,\
+         tinkerbell,kyverno,cert-manager,cdk8s-team,k8up-io,kube-rs,devfile,istio-ecosystem,\
          k3s-io,gitops-working-group,piraeusdatastore,openebs,AthenZ,oscal-compass,\
          distribution,kubeovn,k8gb-io,trickstercache,emissary-ingress,project-stacker,\
          backstage,kuberhealthy,WasmEdge,chaosblade-io,v6d-io,antrea-io,pixie-io,\
