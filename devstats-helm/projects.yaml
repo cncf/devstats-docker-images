@@ -3293,6 +3293,45 @@ projects:
     main_repo: project-dalec/dalec
     annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  openchoreo:
+    order: 242
+    name: OpenChoreo
+    status: Sandbox
+    command_line:
+      - openchoreo
+    start_date: 2025-02-28T00:00:00Z
+    join_date: 2026-01-15T00:00:00Z
+    psql_db: openchoreo
+    shared_db: allprj
+    main_repo: openchoreo/openchoreo
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  cohdi:
+    order: 243
+    name: CoHDI
+    status: Sandbox
+    command_line:
+      - CoHDI
+    start_date: 2025-06-20T00:00:00Z
+    join_date: 2026-01-27T00:00:00Z
+    psql_db: cohdi
+    shared_db: allprj
+    main_repo: CoHDI/composable-dra-driver
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  kubeelasti:
+    order: 244
+    name: KubeElasti
+    status: Sandbox
+    command_line:
+      - truefoundry/KubeElasti
+    start_date: 2024-12-31T00:00:00Z
+    join_date: 2026-01-30T00:00:00Z
+    psql_db: kubeelasti
+    shared_db: allprj
+    main_repo: truefoundry/KubeElasti
+    annotation_regexp: '^v\d+\.\d+\.\d*0$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   opencontainers:
     order: 10001
     name: OCI
@@ -3585,7 +3624,7 @@ projects:
          containers/common,containers/conmon,containers/podman-py,bootc-dev,composefs,xregistry,\
          cozystack,kitops-ml,drasi-project,kgateway-dev,hyperlight-dev,kubefleet-dev,opentofu,\
          oxia-db,cedar-policy,project-dalec,HolmesGPT,robusta-dev/homebrew-holmesgpt,\
-         robusta-dev/holmesgpt-community-toolsets"
+         robusta-dev/holmesgpt-community-toolsets,openchoreo,CoHDI,truefoundry/KubeElasti"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
