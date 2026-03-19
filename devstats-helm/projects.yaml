@@ -3665,8 +3665,11 @@ projects:
          cozystack,kitops-ml,drasi-project,kgateway-dev,hyperlight-dev,kubefleet-dev,opentofu,\
          oxia-db,cedar-policy,project-dalec,HolmesGPT,robusta-dev/homebrew-holmesgpt,\
          robusta-dev/holmesgpt-community-toolsets,openchoreo,CoHDI,truefoundry/KubeElasti,\
-         NVIDIA/KAI-Scheduler,agones-dev,googleforgames/space-agon,\
-         googleforgames/global-multiplayer-demo"
+         NVIDIA/KAI-Scheduler,agones-dev,googleforgames/space-agon,velero-io,vmware-tanzu/velero,\
+         googleforgames/global-multiplayer-demo,vmware-tanzu/velero-plugin-example,\
+         vmware-tanzu/velero-plugin-for-aws,vmware-tanzu/velero-plugin-for-gcp,\
+         vmware-tanzu/velero-plugin-for-microsoft-azure,vmware-tanzu/velero-plugin-for-vsphere,\
+         vmware-tanzu/velero-plugin-for-csi"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
