@@ -3412,6 +3412,19 @@ projects:
     main_repo: alibaba/higress
     annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+  llmd:
+    order: 250
+    name: llm-d
+    status: Sandbox
+    command_line:
+      - llm-d
+    start_date: 2025-05-14T00:00:00Z
+    join_date: 2026-03-12T00:00:00Z
+    psql_db: llmd
+    shared_db: allprj
+    main_repo: llm-d/llm-d
+    annotation_regexp: '^v\d+\.\d+'
+    files_skip_pattern: ''
   opencontainers:
     order: 10001
     name: OCI
@@ -3707,7 +3720,7 @@ projects:
          robusta-dev/holmesgpt-community-toolsets,openchoreo,CoHDI,truefoundry/KubeElasti,\
          kai-scheduler,agones-dev,googleforgames/space-agon,velero-io,vmware-tanzu/velero,\
          googleforgames/global-multiplayer-demo,vmware-tanzu/velero-plugin-example,\
-         vmware-tanzu/velero-plugin-for-aws,vmware-tanzu/velero-plugin-for-gcp,\
+         vmware-tanzu/velero-plugin-for-aws,vmware-tanzu/velero-plugin-for-gcp,llm-d,\
          vmware-tanzu/velero-plugin-for-microsoft-azure,vmware-tanzu/velero-plugin-for-vsphere,\
          vmware-tanzu/velero-plugin-for-csi,vmware-tanzu/velero-csi-plugin,openeverest,nmstate,
          higress-group,alibaba/higress"
