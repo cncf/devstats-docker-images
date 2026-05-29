@@ -1,0 +1,38 @@
+#!/bin/bash
+# USE_FLAGS=1 (will check devstats running flag and abort when set, then it will clear provisioned flag for the time of refreshing repo groups metrics and then set it)
+if ( [ -z "$PG_PASS" ] || [ -z "$PG_HOST" ] || [ -z "$PG_PORT" ] )
+then
+  echo "$0: you need to set PG_PASS, PG_HOST and PG_PORT to run this script"
+  exit 1
+fi
+
+export GHA2DB_PROJECTS_YAML="devstats-helm/projects.yaml"
+export LIST_FN_PREFIX="devstats-helm/all_"
+export GHA2DB_GHAPIFORCELICENSES=1
+export GHA2DB_GHAPIFORCELANGS=1
+
+. ./devel/all_projs.sh || exit 2
+for proj in $all
+do
+  db=$proj
+  if [ "$proj" = "kubernetes" ]
+  then
+    db="gha"
+  elif [ "$proj" = "all" ]
+  then
+    db="allprj"
+  fi
+
+  if [ ! -z "$USE_FLAGS" ]
+  then
+    ./devel/wait_flag.sh "$db" devstats_running 0 || exit 3
+    ./devel/clear_flag.sh "$db" provisioned || exit 4
+  fi
+  GHA2DB_METRICS_YAML="./metrics/$proj/metrics_repo_groups.yaml" GHA2DB_TAGS_YAML="./metrics/$proj/tags_repo_groups.yaml" GHA2DB_COLUMNS_YAML="./metrics/$proj/columns_repo_groups.yaml" GHA2DB_PROJECT=$proj PG_DB=$db ./devel/add_single_metric.sh || exit 5
+  if [ ! -z "$USE_FLAGS" ]
+  then
+    ./devel/set_flag.sh "$db" provisioned || exit 6
+  fi
+done
+
+echo 'OK'
