@@ -6,6 +6,7 @@
 # IGNORE_NO_DB=1                    optional, merge_dbs allows it only in "-all-" mode
 # SKIP_DBS="db1,db2"                optional, merge_dbs allows it only in "-all-" mode
 # GHA2DB_LOCAL=1                    optional, useful in debug/provision pods
+# MERGE_DT_FROM="YYYY-MM-DD"        optional, copies date-mapped tables starting at YYYY-MM-DD 00:00:00
 
 if ( [ -z "$PG_PASS" ] || [ -z "$PG_HOST" ] || [ -z "$PG_PORT" ] )
 then
@@ -44,6 +45,7 @@ echo "  SKIP_TABLES=${SKIP_TABLES}"
 echo "  SKIP_DBS=${SKIP_DBS}"
 echo "  IGNORE_NO_DB=${IGNORE_NO_DB}"
 echo "  GHA2DB_LOCAL=${GHA2DB_LOCAL}"
+echo "  MERGE_DT_DROM=${MERGE_DT_DROM}"
 echo "  GHA2DB_PROJECTS_YAML=${GHA2DB_PROJECTS_YAML}"
 
 command -v merge_dbs >/dev/null 2>&1
