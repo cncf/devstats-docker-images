@@ -7,6 +7,9 @@
 # SKIP_DBS="db1,db2"                optional, merge_dbs allows it only in "-all-" mode
 # GHA2DB_LOCAL=1                    optional, useful in debug/provision pods
 # MERGE_DT_FROM="YYYY-MM-DD"        optional, copies date-mapped tables starting at YYYY-MM-DD 00:00:00
+# USE_BATCH=1                       optional, enables batch insert mode
+# BATCH_SIZE=1000                   optional, used only with USE_BATCH, valid range effectively 2..1000
+# PARALLEL=1                        optional, number of tables processed concurrently
 
 if ( [ -z "$PG_PASS" ] || [ -z "$PG_HOST" ] || [ -z "$PG_PORT" ] )
 then
@@ -46,6 +49,9 @@ echo "  SKIP_DBS=${SKIP_DBS}"
 echo "  IGNORE_NO_DB=${IGNORE_NO_DB}"
 echo "  GHA2DB_LOCAL=${GHA2DB_LOCAL}"
 echo "  MERGE_DT_DROM=${MERGE_DT_DROM}"
+echo "  USE_BATCH=${USE_BATCH}"
+echo "  BATCH_SIZE=${BATCH_SIZE}"
+echo "  PARALLEL=${PARALLEL}"
 echo "  GHA2DB_PROJECTS_YAML=${GHA2DB_PROJECTS_YAML}"
 
 command -v merge_dbs >/dev/null 2>&1
