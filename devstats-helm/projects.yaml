@@ -3851,7 +3851,7 @@ projects:
     main_repo: tektoncd/pipeline
     annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
-    shared_db: allcdf
+    shared_db: allprj
   jenkins:
     order: 4003
     name: Jenkins
