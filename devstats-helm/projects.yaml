@@ -581,7 +581,7 @@ projects:
     name: Thanos
     status: Incubating
     command_line:
-      - thanos-io
+      - thanos-io,thanos-community
     start_date: 2017-11-01T00:00:00Z
     join_date: 2019-07-14T00:00:00Z
     incubating_date: 2020-08-19T00:00:00Z
@@ -3747,7 +3747,7 @@ projects:
          robusta-dev/holmesgpt-community-toolsets,openchoreo,CoHDI,truefoundry/KubeElasti,\
          kai-scheduler,agones-dev,googleforgames/space-agon,velero-io,llm-d,openeverest,\
          googleforgames/global-multiplayer-demo,vmware-tanzu/velero-plugin-for-vsphere,nmstate,\
-         higress-group,tektoncd,tektoncd-catalog,Apicurio/apicurio-registry"
+         higress-group,tektoncd,tektoncd-catalog,Apicurio/apicurio-registry,thanos-community"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
