@@ -3725,7 +3725,7 @@ projects:
          meshery,meshery-extensions,knative,knative-sandbox,kserve,oauth2-proxy,\
          confidential-containers,hwameistor,OpenFunction,cncf/tag-app-delivery,microcks,\
          clusterpedia-io,aeraki-mesh,open-feature,Kuadrant,bpfman,ovn-kubernetes,\
-         kubewarden,kubevela,hexa-org,konveyor,armadaproject,eraser-dev,kagent-dev,\
+         kubewarden,kubevela,konveyor,armadaproject,eraser-dev,kagent-dev,\
          external-secrets,Serverless-Devs,ContainerSSH,openfga,kubereboot,devspace-sh,\
          lima-vm,carvel-dev,istio,devspace-cloud,project-zot,openGemini,urunc-dev,\
          paralus,carina-io,ko-build,opcr-io,werf,opencost,inspektor-gadget,keycloak,\
