@@ -1917,7 +1917,7 @@ projects:
       - 'hexa-org'
     start_date: 2022-01-13T00:00:00Z
     join_date: 2022-07-26T00:00:00Z
-    archived_date: 20256-06-15T00:00:00Z
+    archived_date: 2026-06-15T00:00:00Z
     psql_db: hexapolicyorchestrator
     shared_db: allprj
     main_repo: hexa-org/policy-orchestrator
