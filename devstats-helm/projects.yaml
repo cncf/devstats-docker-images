@@ -3840,7 +3840,7 @@ projects:
     annotation_regexp: ''
     files_skip_pattern: ''
     shared_db: allcdf
-  tekton:
+  tektoncdf:
     order: 4002
     name: Tekton
     status: "-"
@@ -3848,11 +3848,12 @@ projects:
       - tektoncd,tektoncd-catalog
     start_date: 2018-07-23T00:00:00Z
     join_date: null
-    psql_db: tekton
+    psql_db: tektoncdf
     main_repo: tektoncd/pipeline
     annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
-    shared_db: allprj
+    shared_db: allcdf
+    disabled: true
   jenkins:
     order: 4003
     name: Jenkins
