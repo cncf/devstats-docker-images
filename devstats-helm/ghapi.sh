@@ -31,4 +31,13 @@ do
   echo "Project: $proj, PDB: $db"
   GHA2DB_PROJECT=$proj PG_DB=$db ghapi2db || exit 3
 done
+# Self-correct after a dated backfill: rebuild the generated tables (gha_texts, gha_issues_events_labels,
+# gha_issues_pull_requests) for the same window. The hourly max(event_id) postprocess would otherwise skip
+# older-dated rows that this backfill just inserted. No DTFROM (plain recent sync) => skipped.
+# Set GHA2DB_GHAPI_SKIP_POSTPROCESS=1 to opt out (emergency/performance).
+if [ -n "$DTFROM" ] && [ -z "$GHA2DB_GHAPI_SKIP_POSTPROCESS" ]
+then
+  echo "Running bounded generated-table postprocess for ghapi backfill range [$DTFROM, $DTTO)"
+  ./devstats-helm/postprocess.sh || exit 4
+fi
 echo 'OK'
