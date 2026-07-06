@@ -31,7 +31,19 @@ fi
 # 00:00:00 and drop that whole day, so normalize a date-only TO to the next day 00:00:00.
 if [[ "$GHA2DB_POSTPROCESS_TO" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]
 then
-  GHA2DB_POSTPROCESS_TO="$(date -u -d "$GHA2DB_POSTPROCESS_TO +1 day" '+%Y-%m-%d 00:00:00')"
+  # GNU date first, busybox fallback; fail loudly rather than silently widening the range
+  nxt="$(date -u -d "$GHA2DB_POSTPROCESS_TO +1 day" '+%Y-%m-%d 00:00:00' 2>/dev/null)"
+  if [ -z "$nxt" ]
+  then
+    epoch="$(date -u -D '%Y-%m-%d' -d "$GHA2DB_POSTPROCESS_TO" +%s 2>/dev/null)"
+    [ -n "$epoch" ] && nxt="$(date -u -d "@$((epoch + 86400))" '+%Y-%m-%d 00:00:00' 2>/dev/null)"
+  fi
+  if [ -z "$nxt" ]
+  then
+    echo "$0: cannot normalize date-only GHA2DB_POSTPROCESS_TO='$GHA2DB_POSTPROCESS_TO', pass a full 'YYYY-MM-DD HH:MM:SS' timestamp"
+    exit 1
+  fi
+  GHA2DB_POSTPROCESS_TO="$nxt"
 fi
 # No explicit upper bound at all -> rebuild everything from FROM onward.
 if [ -z "$GHA2DB_POSTPROCESS_TO" ]
