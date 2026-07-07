@@ -66,6 +66,12 @@ do
   then
     db="allprj"
   fi
+  exists=$(./devel/db.sh psql "$db" -tAc "select 1 from information_schema.tables where table_name = 'gha_texts' limit 1" 2>/dev/null)
+  if [ -z "$exists" ]
+  then
+    echo "Project: $proj, PDB: $db - database or gha_texts table missing (not provisioned yet?), skipping"
+    continue
+  fi
   echo "Project: $proj, PDB: $db, postprocess rebuild range: [$GHA2DB_POSTPROCESS_FROM, $GHA2DB_POSTPROCESS_TO)"
   GHA2DB_LOCAL=1 GHA2DB_PROJECT=$proj PG_DB=$db GHA2DB_SKIPTABLE=1 GHA2DB_MGETC=y structure || exit 3
   # Refresh planner stats after the bounded delete/insert (matters for large backfill windows).
