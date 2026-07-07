@@ -8,5 +8,9 @@ fi
 export GHA2DB_PROJECTS_YAML="devstats-helm/projects.yaml"
 export LIST_FN_PREFIX="devstats-helm/all_"
 export GHA2DB_RESTORE_ORPHAN_COMMITS=1
+if [ -z "$GHA2DB_ORPHAN_COMMITS_RANGE" ] && [ ! -z "$GHA2DB_RECENT_RANGE" ]
+then
+  export GHA2DB_ORPHAN_COMMITS_RANGE="$GHA2DB_RECENT_RANGE"
+fi
 
 GHA2DB_LOCAL=1 GHA2DB_PROCESS_REPOS=1 get_repos

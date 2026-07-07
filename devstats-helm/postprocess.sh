@@ -69,7 +69,7 @@ do
   exists=$(./devel/db.sh psql "$db" -tAc "select 1 from information_schema.tables where table_name = 'gha_texts' limit 1" 2>/dev/null)
   if [ -z "$exists" ]
   then
-    echo "Project: $proj, PDB: $db - database or gha_texts table missing (not provisioned yet?), skipping"
+    echo "Project: $proj, PDB: $db - database or gha_texts table missing (archived or not yet provisioned), skipping"
     continue
   fi
   echo "Project: $proj, PDB: $db, postprocess rebuild range: [$GHA2DB_POSTPROCESS_FROM, $GHA2DB_POSTPROCESS_TO)"
