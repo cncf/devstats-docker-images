@@ -1344,11 +1344,12 @@ projects:
   vineyard:
     order: 94
     name: Vineyard
-    status: Sandbox
+    status: Archived
     command_line:
       - 'v6d-io'
     start_date: 2020-10-23T00:00:00Z
     join_date: 2021-04-28T00:00:00Z
+    archived_date: 2026-07-10T00:00:00Z
     psql_db: vineyard
     shared_db: allprj
     main_repo: 'v6d-io/v6d'
