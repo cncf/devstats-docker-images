@@ -20,6 +20,11 @@ if [ ! -z "$AFFS_LOCK_DB" ]
 then
   affsLockDB="$AFFS_LOCK_DB"
 fi
+if [ ! -z "$GHA2DB_AFFILIATIONS_DB" ]
+then
+  affsLockDB=devstats
+fi
+lockOwner="${HOSTNAME}-$$-${RANDOM}"
 if ( [ -z "$NO_DURABLE" ] || [ "$NO_DURABLE" = "0" ] || [ "$NO_DURABLE" = "false" ] )
 then
   export DURABLE=1
@@ -42,8 +47,13 @@ then
   fi
   if ( [ -z "$SKIP_AFFS_LOCK" ] || [ "$SKIP_AFFS_LOCK" = "0" ] || [ "$SKIP_AFFS_LOCK" = "false" ] )
   then
-    ./devel/wait_flag.sh "$affsLockDB" affs_lock 0 90 || exit 13
-    ./devel/set_flag.sh "$affsLockDB" affs_lock || exit 14
+    if [ -z "$GHA2DB_AFFILIATIONS_DB" ]
+    then
+      ./devel/wait_flag.sh "$affsLockDB" affs_lock 0 90 || exit 13
+      ./devel/set_flag.sh "$affsLockDB" affs_lock || exit 14
+    else
+      ./devel/lock_shared.sh "$affsLockDB" affs_lock "$lockOwner" || exit 14
+    fi
   fi
 fi
 export NO_FATAL_DELAY=1
@@ -68,7 +78,7 @@ function set_flag {
         db="allprj"
       fi
       ./devel/set_flag.sh "$db" provisioned
-      if [ ! "$err" = "0" ]
+      if ( [ ! "$err" = "0" ] && [ ! -z "$GHA2DB_CHECK_IMPORTED_SHA" ] )
       then
         PG_USER="$user" ./devel/db.sh psql "$db" -c "delete from gha_imported_shas where sha in ('$sum1', '$sum2')"
       fi
@@ -76,7 +86,12 @@ function set_flag {
   fi
   if ( [ -z "$SKIP_AFFS_LOCK" ] || [ "$SKIP_AFFS_LOCK" = "0" ] || [ "$SKIP_AFFS_LOCK" = "false" ] )
   then
-    ./devel/clear_flag.sh "$affsLockDB" affs_lock
+    if [ -z "$GHA2DB_AFFILIATIONS_DB" ]
+    then
+      ./devel/clear_flag.sh "$affsLockDB" affs_lock
+    else
+      ./devel/unlock_shared.sh "$affsLockDB" affs_lock "$lockOwner"
+    fi
   fi
   if [ "$GIANT" = "lock" ]
   then

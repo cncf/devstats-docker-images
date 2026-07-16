@@ -64,6 +64,31 @@ do
     nfull=$((nfull+1))
   fi
 done
+exists=`db.sh psql postgres -tAc "select 1 from pg_database where datname = 'affiliations'"`
+if [ "$exists" = "1" ]
+then
+  age=`./devel/file_age.sh "/root/affiliations.dump"`
+  if [ "$age" = "no" ]
+  then
+    age=$((day*2))
+  fi
+  if ((( age > day )) || [ ! -z "$NOAGE" ])
+  then
+    echo "`date '+%Y-%m-%d %H:%M:%S'` full affiliations (shared actors/affiliations data)"
+    db.sh pg_dump -Fc "affiliations" -f "/root/affiliations.dump"
+    if [ ! "$?" = "0" ]
+    then
+      echo "`date '+%Y-%m-%d %H:%M:%S'` affiliations full backup failed, proceeding"
+      if [ -z "$failed_full" ]
+      then
+        failed_full="affiliations"
+      else
+        failed_full="$failed_full affiliations"
+      fi
+    fi
+    nfull=$((nfull+1))
+  fi
+fi
 if [ ! -z "$failed" ]
 then
   echo "`date '+%Y-%m-%d %H:%M:%S'` Failed artificial events backups: $failed"
