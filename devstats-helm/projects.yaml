@@ -3749,7 +3749,7 @@ projects:
          tinkerbell,kyverno,cert-manager,cdk8s-team,k8up-io,kube-rs,devfile,istio-ecosystem,\
          k3s-io,gitops-working-group,piraeusdatastore,openebs,AthenZ,oscal-compass,\
          distribution,kubeovn,k8gb-io,trickstercache,emissary-ingress,project-stacker,\
-         backstage,kuberhealthy,WasmEdge,chaosblade-io,antrea-io,pixie-io,\
+         backstage,kuberhealthy,WasmEdge,chaosblade-io,antrea-io,pixie-io,CurvineIO,\
          fluid-cloudnative,submariner-io,argoproj-labs,kube-vip,oras-project,wasmCloud,\
          project-akri,metallb,karmada-io,inclavare-containers,cncf-tags,cilium,dapr,\
          open-cluster-management-io,kubescape,clusternet,vscode-kubernetes-tools,kubearmor,\
