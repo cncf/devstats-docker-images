@@ -1,6 +1,7 @@
 #!/bin/bash
 # GIANT=lock|wait|'' lock giant lock or only wait for giant lock or do not use giant lock
 # NOAGE=1 - always backup databases, do not check minimum age + randomize
+# SKIP_FLAGS=1 - do not check per-DB 'provisioned'/'devstats_running' flags before backups
 if [ ! -z "$GIANT" ]
 then
   ./devel/wait_flag.sh devstats giant_lock 0 60 || exit 3
@@ -19,6 +20,7 @@ fi
 export LIST_FN_PREFIX="devstats-helm/all_"
 failed=''
 failed_full=''
+skipped=''
 nfull=0
 week="604800"
 day="86400"
@@ -30,6 +32,21 @@ fi
 for db in $all
 do
   echo "`date '+%Y-%m-%d %H:%M:%S'` $db"
+  if [ -z "$SKIP_FLAGS" ]
+  then
+    provisioned=`db.sh psql "$db" -tAc "select 1 from gha_computed where metric = 'provisioned' union select 0 order by 1 desc limit 1" 2>/dev/null`
+    if [ "$provisioned" = "0" ]
+    then
+      echo "`date '+%Y-%m-%d %H:%M:%S'` $db is not provisioned (provisioning/reinit in progress?), skipping"
+      if [ -z "$skipped" ]
+      then
+        skipped="$db"
+      else
+        skipped="$skipped $db"
+      fi
+      continue
+    fi
+  fi
   ./devstats-helm/backup_artificial.sh "$db"
   if [ ! "$?" = "0" ]
   then
@@ -49,6 +66,21 @@ do
   rage=$(((day*4)+(RANDOM*19)%week))
   if ((( age > rage )) || [ ! -z "$NOAGE" ])
   then
+    if [ -z "$SKIP_FLAGS" ]
+    then
+      running=`db.sh psql "$db" -tAc "select 1 from gha_computed where metric = 'devstats_running' limit 1" 2>/dev/null`
+      if [ "$running" = "1" ]
+      then
+        echo "`date '+%Y-%m-%d %H:%M:%S'` $db sync is running, skipping full backup this run"
+        if [ -z "$skipped" ]
+        then
+          skipped="$db"
+        else
+          skipped="$skipped $db"
+        fi
+        continue
+      fi
+    fi
     echo "`date '+%Y-%m-%d %H:%M:%S'` full $db"
     db.sh pg_dump -Fc "$db" -f "/root/$db.dump"
     if [ ! "$?" = "0" ]
@@ -88,6 +120,10 @@ then
     fi
     nfull=$((nfull+1))
   fi
+fi
+if [ ! -z "$skipped" ]
+then
+  echo "`date '+%Y-%m-%d %H:%M:%S'` Skipped backups (not provisioned or sync running): $skipped"
 fi
 if [ ! -z "$failed" ]
 then
