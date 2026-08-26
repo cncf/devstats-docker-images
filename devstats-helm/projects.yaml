@@ -939,12 +939,12 @@ projects:
     name: Serverless Workflow
     status: Sandbox
     command_line:
-      - serverlessworkflow
+      - serverlessworkflow,open-workflow-specification
     start_date: 2020-05-15T00:00:00Z
     join_date: 2020-07-14T00:00:00Z
     psql_db: serverlessworkflow
     shared_db: allprj
-    main_repo: serverlessworkflow/specification
+    main_repo: open-workflow-specification/specification
     annotation_regexp: ''
     files_skip_pattern: ''
   k3s:
@@ -3035,12 +3035,12 @@ projects:
     name: "Podman Container Tools"
     status: Sandbox
     command_line:
-      - 'regexp:(?i)^containers\/(podman|buildah|skopeo|netavark|aardvark-dns|image|storage|common|conmon|podman-py)$'
+      - 'regexp:(?i)^(podman-container-tools\/(podman|buildah|skopeo)|containers\/(netavark|aardvark-dns|image|storage|common|conmon|podman-py))$'
     start_date: 2016-03-07T00:00:00Z
     join_date: 2025-01-21T00:00:00Z
     psql_db: podmancontainertools
     shared_db: allprj
-    main_repo: containers/podman
+    main_repo: podman-container-tools/podman
     annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   bootc:
@@ -3468,7 +3468,7 @@ projects:
     start_date: 2022-10-06T00:00:00Z
     join_date: 2026-03-12T00:00:00Z
     psql_db: kbind
-    main_repo: kbind-kbind
+    main_repo: kbind-dev/kbind
     annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
     shared_db: allprj
@@ -3745,7 +3745,7 @@ projects:
          longhorn,chubaofs,cubefs,kedacore,argoproj,volcano-sh,KusionStack,ovn-org,\
          kudobuilder,cloud-custodian,dexidp,litmuschaos,artifacthub,cadence-workflow,\
          parallaxsecond,bfenetworks,crossplane,kumahq,projectcontour,operator-framework,\
-         chaos-mesh,serverlessworkflow,tremor-rs,metal3-io,keylime,kaito-project,\
+         chaos-mesh,serverlessworkflow,open-workflow-specification,tremor-rs,metal3-io,\
          Kong/kumacut,Kong/docker-kuma,getporter,schemahero,openkruise,openyurtio,\
          tinkerbell,kyverno,cert-manager,cdk8s-team,k8up-io,kube-rs,devfile,istio-ecosystem,\
          k3s-io,gitops-working-group,piraeusdatastore,openebs,AthenZ,oscal-compass,\
@@ -3757,7 +3757,7 @@ projects:
          meshery,meshery-extensions,knative,knative-sandbox,kserve,oauth2-proxy,\
          confidential-containers,hwameistor,OpenFunction,cncf/tag-app-delivery,microcks,\
          clusterpedia-io,aeraki-mesh,open-feature,Kuadrant,bpfman,ovn-kubernetes,\
-         kubewarden,kubevela,konveyor,armadaproject,eraser-dev,kagent-dev,\
+         kubewarden,kubevela,konveyor,armadaproject,eraser-dev,kagent-dev,keylime,kaito-project,\
          external-secrets,Serverless-Devs,ContainerSSH,openfga,kubereboot,devspace-sh,\
          lima-vm,carvel-dev,istio,devspace-cloud,project-zot,openGemini,urunc-dev,\
          paralus,carina-io,ko-build,opcr-io,werf,opencost,inspektor-gadget,keycloak,\
@@ -3772,16 +3772,16 @@ projects:
          k8snetworkplumbingwg/sriov-network-operator,nmstate/kubernetes-nmstate,modelpack,\
          tokenetes,spinframework,k0sproject,SlimPlanet,container2wasm,runmedev,cloudnative-pg,\
          Azure/Fleet-PRSE,Azure/fleet-networking,Azure/fleet,Azure/azure-rest-api-specs-fleet,\
-         podman-desktop,containers/podman,containers/buildah,containers/skopeo,CloudNativeAI,\
+         podman-desktop,podman-container-tools/podman,podman-container-tools/buildah,\
          containers/netavark,containers/aardvark-dns,containers/image,containers/storage,\
          containers/common,containers/conmon,containers/podman-py,bootc-dev,composefs,xregistry,\
          cozystack,kitops-ml,drasi-project,kgateway-dev,hyperlight-dev,kubefleet-dev,opentofu,\
          oxia-db,cedar-policy,project-dalec,HolmesGPT,robusta-dev/homebrew-holmesgpt,\
-         robusta-dev/holmesgpt-community-toolsets,openchoreo,CoHDI,KubeElasti,\
+         robusta-dev/holmesgpt-community-toolsets,openchoreo,CoHDI,KubeElasti,CloudNativeAI,\
          kai-scheduler,agones-dev,googleforgames/space-agon,velero-io,llm-d,openeverest,\
          googleforgames/global-multiplayer-demo,vmware-tanzu/velero-plugin-for-vsphere,nmstate,\
          higress-group,tektoncd,tektoncd-catalog,Apicurio/apicurio-registry,thanos-community,\
-         kbind-dev"
+         kbind-dev,podman-container-tools/skopeo"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
