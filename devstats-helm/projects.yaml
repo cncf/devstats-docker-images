@@ -3485,6 +3485,19 @@ projects:
     annotation_regexp: '^v\d+\.\d+\.\d+(-alpha)?$'
     files_skip_pattern: ''
     shared_db: allprj
+  sdc:
+    order: 255
+    name: SDC
+    status: Sandbox
+    command_line:
+      - sdcio
+    start_date: 2023-11-27T00:00:00Z
+    join_date: 2026-08-28T00:00:00Z
+    psql_db: sdc
+    main_repo: sdcio/data-server
+    annotation_regexp: '^v\d+\.\d+\.\d+$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+    shared_db: allprj
   opencontainers:
     order: 10001
     name: OCI
@@ -3781,7 +3794,7 @@ projects:
          kai-scheduler,agones-dev,googleforgames/space-agon,velero-io,llm-d,openeverest,\
          googleforgames/global-multiplayer-demo,vmware-tanzu/velero-plugin-for-vsphere,nmstate,\
          higress-group,tektoncd,tektoncd-catalog,Apicurio/apicurio-registry,thanos-community,\
-         kbind-dev,podman-container-tools/skopeo"
+         kbind-dev,podman-container-tools/skopeo,sdcio"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
