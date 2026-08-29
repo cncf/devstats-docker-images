@@ -3817,10 +3817,11 @@ projects:
   graphql:
     order: 3001
     name: GraphQL
-    status: "-"
+    status: Archived
     command_line: ['graphql']
     start_date: 2015-07-02T00:00:00Z
     join_date: null
+    archived_date: 2026-08-31T00:00:00Z
     psql_db: graphql
     main_repo: 'graphql/graphql-js'
     annotation_regexp: '^v\d+\.\d+\.\d+$'
@@ -3828,10 +3829,11 @@ projects:
   graphqljs:
     order: 2001
     name: GraphQL JavaScript
-    status: "-"
+    status: Archived
     command_line: ['graphql/graphql-js']
     start_date: 2015-07-02T00:00:00Z
     join_date: null
+    archived_date: 2026-08-31T00:00:00Z
     psql_db: graphqljs
     shared_db: graphql
     main_repo: 'graphql/graphql-js'
@@ -3840,10 +3842,11 @@ projects:
   graphiql:
     order: 2002
     name: GraphQL IDE
-    status: "-"
+    status: Archived
     command_line: ['graphql/graphiql']
     start_date: 2015-08-24T00:00:00Z
     join_date: null
+    archived_date: 2026-08-31T00:00:00Z
     psql_db: graphiql
     shared_db: graphql
     main_repo: 'graphql/graphiql'
@@ -3852,10 +3855,11 @@ projects:
   expressgraphql:
     order: 2003
     name: Express GraphQL
-    status: "-"
+    status: Archived
     command_line: ['graphql/express-graphql']
     start_date: 2015-08-10T00:00:00Z
     join_date: null
+    archived_date: 2026-08-31T00:00:00Z
     psql_db: expressgraphql
     shared_db: graphql
     main_repo: 'graphql/express-graphql'
@@ -3864,10 +3868,11 @@ projects:
   graphqlspec:
     order: 2004
     name: GraphQL Spec
-    status: "-"
+    status: Archived
     command_line: ['graphql/graphql-spec']
     start_date: 2015-07-02T00:00:00Z
     join_date: null
+    archived_date: 2026-08-31T00:00:00Z
     psql_db: graphqlspec
     shared_db: graphql
     main_repo: 'graphql/graphql-spec'
