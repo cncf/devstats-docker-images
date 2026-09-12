@@ -36,6 +36,7 @@ then
   docker image rm -f "${DOCKER_USER}/devstats-patroni-13"
   docker image rm -f "${DOCKER_USER}/devstats-patroni-hll-13"
   docker image rm -f "${DOCKER_USER}/devstats-patroni-18"
+  docker image rm -f "${DOCKER_USER}/devstats-patroni-18-hll"
 fi
 if [ -z "$SKIP_TESTS" ]
 then
