@@ -34,8 +34,8 @@ then
 fi
 
 # IMAGE_TAG=xyz: build and push every image as name:xyz instead of the default tag (latest) - e.g. to try new images
-# in the test namespace without touching the tags the production CronJobs pull:
-#   IMAGE_TAG=go127 SKIP_PROD=1 SKIP_GRAFANA=1 SKIP_PATRONI=1 SKIP_REPORTS=1 DOCKER_USER=lukaszgryglicki ./images/build_images.sh
+# in the test namespace without touching the tags the CronJobs pull:
+#   IMAGE_TAG=try SKIP_PROD=1 SKIP_GRAFANA=1 SKIP_PATRONI=1 SKIP_REPORTS=1 DOCKER_USER=lukaszgryglicki ./images/build_images.sh
 TAG=""
 if [ ! -z "${IMAGE_TAG}" ]
 then
@@ -56,21 +56,10 @@ then
   tar cf ../devstats-docker-images/grafana-bins.tar replacer sqlitedb runq || exit 6
   tar cf ../devstats-docker-images/api-bins.tar api calc_metric || exit 44
 else
-  # Rust sources (without build directories) -> compiled inside Docker to static Linux binaries in ./rust-bins/.
-  tar --exclude='target' --exclude='rust/.cargo' -cf ../devstats-docker-images/devstatscode-rust.tar rust || exit 5
-  rust_hash=$(git rev-parse HEAD 2>/dev/null || echo None)
+  # Rust sources -> compiled inside Docker to static Linux binaries in ./rust-bins/ (images/build_rust_bins.sh).
   cd ../devstats-docker-images || exit 55
-  rm -rf rust-bins
-  docker build -f ./images/Dockerfile.rust-bins --build-arg "DEVSTATS_GIT_HASH=${rust_hash}" -t "${DOCKER_USER}/devstats-rust-bins" . || exit 56
-  mkdir rust-bins || exit 57
-  cid=$(docker create "${DOCKER_USER}/devstats-rust-bins" /none) || exit 56
-  docker cp "${cid}:/rust-bins/." rust-bins || exit 56
-  docker rm "${cid}" >/dev/null
+  ./images/build_rust_bins.sh || exit 56
   cd rust-bins || exit 57
-  for b in structure gha2db calc_metric gha2db_sync import_affs annotations tags webhook devstats get_repos merge_dbs replacer vars ghapi2db columns hide_data website_data sync_issues runq api sqlitedb tsplit splitcrons
-  do
-    [ -x "$b" ] || { echo "$0: Rust binary $b was not built"; exit 58; }
-  done
   tar cf ../grafana-bins.tar replacer sqlitedb runq || exit 6
   tar cf ../api-bins.tar api calc_metric || exit 44
   tar cf ../devstats-bins.tar * || exit 59
