@@ -1,0 +1,16 @@
+# Rust variant of images/Makefile.full, used only by the *-rust images (images/Dockerfile.full.*.rust).
+# Same data layout (/etc/gha2db, /devstats-minimal, `links`), but the DevStats binaries are the pre-built
+# static Rust executables from ${RUST_BINDIR} (see images/Dockerfile.rust-bins) instead of `go install` builds.
+# Nothing here is used by the Go images.
+include images/Makefile.full
+
+RUST_BINDIR ?= /rust-bins
+
+dockerinstallrust: copydata
+	mkdir ${BINARY_PATH} || exit 14
+	for b in ${DOCKER_BINARIES}; do cp -v ${RUST_BINDIR}/$$b ${BINARY_PATH} || exit 15; done
+	cp -v ${CRON_SCRIPTS} ${BINARY_PATH} || exit 16
+	cp -v ${GIT_SCRIPTS} ${BINARY_PATH} || exit 17
+	cp -v ${UTIL_SCRIPTS} ${BINARY_PATH} || exit 18
+
+.PHONY: dockerinstallrust

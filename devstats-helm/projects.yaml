@@ -2349,7 +2349,6 @@ projects:
     psql_db: 'kpt'
     shared_db: allprj
     main_repo: kptdev/kpt
-    annotation_regexp: '^v\d+\.\d+\.0$'
     annotation_regexp: '^v\d+\.\d+\.0(-beta\.\d*0)?$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
   microcks:

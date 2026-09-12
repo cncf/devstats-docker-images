@@ -3,10 +3,43 @@
 # DOCKER_USER=lukaszgryglicki ./images/remove_images.sh
 # SKIP_TEST=1 (skip test images)
 # SKIP_PROD=1 (skip prod images)
+# RUST=1 (build the images with the Rust port of the DevStats binaries - devstatscode/rust - instead of the Go ones)
+#   RUST=1 DOCKER_USER=lukaszgryglicki SKIP_PATRONI=1 ./images/build_images.sh
+#   Every image that contains at least one DevStats binary is built under an alternate name with the "-rust" suffix:
+#   devstats-test-rust, devstats-prod-rust, devstats-minimal-test-rust, devstats-minimal-prod-rust, devstats-tests-rust,
+#   devstats-static-test-rust, devstats-static-prod-rust, devstats-reports-rust, devstats-api-prod-rust, devstats-api-test-rust.
+#   Images without DevStats binaries (grafana, patroni, static-cdf/graphql/default, backups-page) are not built in this mode,
+#   and the regular (Go) images are never touched. Binaries are compiled inside Docker (images/Dockerfile.rust-bins,
+#   rust:alpine -> static Linux musl executables; Docker with BuildKit is required) into ./rust-bins/, then shipped
+#   via grafana-bins.tar, api-bins.tar (same Dockerfiles as the Go images) and devstats-bins.tar (images/Dockerfile.*.rust,
+#   generated from the Go Dockerfiles by images/rust_dockerfile.sh; images/Makefile.*.rust lay them out).
 if [ -z "${DOCKER_USER}" ]
 then
   echo "$0: you need to set docker user via DOCKER_USER=username"
   exit 1
+fi
+
+# Rust mode: "-rust" image name suffix, skip images that contain no DevStats binaries.
+SUFFIX=""
+if [ ! -z "${RUST}" ]
+then
+  SUFFIX="-rust"
+  SKIP_GRAFANA=1
+  SKIP_PATRONI=1
+  SKIP_STATIC_NOBINS=1
+  for f in images/Dockerfile.full.test images/Dockerfile.full.prod images/Dockerfile.minimal.test images/Dockerfile.minimal.prod
+  do
+    ./images/rust_dockerfile.sh "$f" > "${f}.rust" || exit 54
+  done
+fi
+
+# IMAGE_TAG=xyz: build and push every image as name:xyz instead of the default tag (latest) - e.g. to try new images
+# in the test namespace without touching the tags the production CronJobs pull:
+#   IMAGE_TAG=go127 SKIP_PROD=1 SKIP_GRAFANA=1 SKIP_PATRONI=1 SKIP_REPORTS=1 DOCKER_USER=lukaszgryglicki ./images/build_images.sh
+TAG=""
+if [ ! -z "${IMAGE_TAG}" ]
+then
+  TAG=":${IMAGE_TAG}"
 fi
 
 cwd="`pwd`"
@@ -15,11 +48,34 @@ cd ../devstats-reports || exit 39
 cd ../velocity || exit 45
 cd ../devstatscode || exit 3
 
-make replacer sqlitedb runq api calc_metric || exit 4
-rm -f ../devstats-docker-images/devstatscode.tar ../devstats-docker-images/grafana-bins.tar ../devstats-docker-images/api-bins.tar 2>/dev/null
-tar cf ../devstats-docker-images/devstatscode.tar cmd *.go || exit 5
-tar cf ../devstats-docker-images/grafana-bins.tar replacer sqlitedb runq || exit 6
-tar cf ../devstats-docker-images/api-bins.tar api calc_metric || exit 44
+rm -f ../devstats-docker-images/devstatscode.tar ../devstats-docker-images/devstatscode-rust.tar ../devstats-docker-images/devstats-bins.tar ../devstats-docker-images/grafana-bins.tar ../devstats-docker-images/api-bins.tar 2>/dev/null
+if [ -z "${RUST}" ]
+then
+  make replacer sqlitedb runq api calc_metric || exit 4
+  tar cf ../devstats-docker-images/devstatscode.tar cmd *.go || exit 5
+  tar cf ../devstats-docker-images/grafana-bins.tar replacer sqlitedb runq || exit 6
+  tar cf ../devstats-docker-images/api-bins.tar api calc_metric || exit 44
+else
+  # Rust sources (without build directories) -> compiled inside Docker to static Linux binaries in ./rust-bins/.
+  tar --exclude='target' --exclude='rust/.cargo' -cf ../devstats-docker-images/devstatscode-rust.tar rust || exit 5
+  rust_hash=$(git rev-parse HEAD 2>/dev/null || echo None)
+  cd ../devstats-docker-images || exit 55
+  rm -rf rust-bins
+  docker build -f ./images/Dockerfile.rust-bins --build-arg "DEVSTATS_GIT_HASH=${rust_hash}" -t "${DOCKER_USER}/devstats-rust-bins" . || exit 56
+  mkdir rust-bins || exit 57
+  cid=$(docker create "${DOCKER_USER}/devstats-rust-bins" /none) || exit 56
+  docker cp "${cid}:/rust-bins/." rust-bins || exit 56
+  docker rm "${cid}" >/dev/null
+  cd rust-bins || exit 57
+  for b in structure gha2db calc_metric gha2db_sync import_affs annotations tags webhook devstats get_repos merge_dbs replacer vars ghapi2db columns hide_data website_data sync_issues runq api sqlitedb tsplit splitcrons
+  do
+    [ -x "$b" ] || { echo "$0: Rust binary $b was not built"; exit 58; }
+  done
+  tar cf ../grafana-bins.tar replacer sqlitedb runq || exit 6
+  tar cf ../api-bins.tar api calc_metric || exit 44
+  tar cf ../devstats-bins.tar * || exit 59
+  cd ../../devstatscode || exit 3
+fi
 
 cd ../devstats-reports || exit 40
 rm -f ../devstats-docker-images/devstats-reports.tar 2>/dev/null
@@ -44,11 +100,11 @@ if [ -z "$SKIP_FULL" ]
 then
   if [ -z "$SKIP_TEST" ]
   then
-    docker build -f ./images/Dockerfile.full.test -t "${DOCKER_USER}/devstats-test" . || exit 12
+    docker build -f "./images/Dockerfile.full.test${SUFFIX:+.rust}" -t "${DOCKER_USER}/devstats-test${SUFFIX}${TAG}" . || exit 12
   fi
   if [ -z "$SKIP_PROD" ]
   then
-    docker build -f ./images/Dockerfile.full.prod -t "${DOCKER_USER}/devstats-prod" . || exit 33
+    docker build -f "./images/Dockerfile.full.prod${SUFFIX:+.rust}" -t "${DOCKER_USER}/devstats-prod${SUFFIX}${TAG}" . || exit 33
   fi
 fi
 
@@ -56,67 +112,71 @@ if [ -z "$SKIP_MIN" ]
 then
   if [ -z "$SKIP_TEST" ]
   then
-    docker build -f ./images/Dockerfile.minimal.test -t "${DOCKER_USER}/devstats-minimal-test" . || exit 13
+    docker build -f "./images/Dockerfile.minimal.test${SUFFIX:+.rust}" -t "${DOCKER_USER}/devstats-minimal-test${SUFFIX}${TAG}" . || exit 13
   fi
   if [ -z "$SKIP_PROD" ]
   then
-    docker build -f ./images/Dockerfile.minimal.prod -t "${DOCKER_USER}/devstats-minimal-prod" . || exit 35
+    docker build -f "./images/Dockerfile.minimal.prod${SUFFIX:+.rust}" -t "${DOCKER_USER}/devstats-minimal-prod${SUFFIX}${TAG}" . || exit 35
   fi
 fi
 
 if [ -z "$SKIP_GRAFANA" ]
 then
-  docker build -f ./images/Dockerfile.grafana -t "${DOCKER_USER}/devstats-grafana" . || exit 14
+  docker build -f ./images/Dockerfile.grafana -t "${DOCKER_USER}/devstats-grafana${TAG}" . || exit 14
 fi
 
 if [ -z "$SKIP_TESTS" ]
 then
-  docker build -f ./images/Dockerfile.tests -t "${DOCKER_USER}/devstats-tests" . || exit 15
+  docker build -f "./images/Dockerfile.tests${SUFFIX:+.rust}" -t "${DOCKER_USER}/devstats-tests${SUFFIX}${TAG}" . || exit 15
 fi
 
 if [ -z "$SKIP_PATRONI" ]
 then
-  # docker build -f ./images/Dockerfile.patroni -t "${DOCKER_USER}/devstats-patroni" . || exit 16
-  # docker build -f ./images/Dockerfile.patroni -t "${DOCKER_USER}/devstats-patroni-new" . || exit 16
-  # docker build -f ./images/Dockerfile.patroni.13 -t "${DOCKER_USER}/devstats-patroni-13" . || exit 16
-  # docker build -f ./images/Dockerfile.patroni.hll.13 -t "${DOCKER_USER}/devstats-patroni-hll-13" . || exit 16
-  docker build -f ./images/Dockerfile.patroni.18 -t "${DOCKER_USER}/devstats-patroni-18-hll" . || exit 52
+  # docker build -f ./images/Dockerfile.patroni -t "${DOCKER_USER}/devstats-patroni${TAG}" . || exit 16
+  # docker build -f ./images/Dockerfile.patroni -t "${DOCKER_USER}/devstats-patroni-new${TAG}" . || exit 16
+  # docker build -f ./images/Dockerfile.patroni.13 -t "${DOCKER_USER}/devstats-patroni-13${TAG}" . || exit 16
+  # docker build -f ./images/Dockerfile.patroni.hll.13 -t "${DOCKER_USER}/devstats-patroni-hll-13${TAG}" . || exit 16
+  docker build -f ./images/Dockerfile.patroni.18 -t "${DOCKER_USER}/devstats-patroni-18-hll${TAG}" . || exit 52
 fi
 
 if [ -z "$SKIP_STATIC" ]
 then
   if [ -z "$SKIP_TEST" ]
   then
-    docker build -f ./images/Dockerfile.static.test -t "${DOCKER_USER}/devstats-static-test" . || exit 24
+    docker build -f ./images/Dockerfile.static.test -t "${DOCKER_USER}/devstats-static-test${SUFFIX}${TAG}" . || exit 24
   fi
   if [ -z "$SKIP_PROD" ]
   then
-    docker build -f ./images/Dockerfile.static.prod -t "${DOCKER_USER}/devstats-static-prod" . || exit 23
+    docker build -f ./images/Dockerfile.static.prod -t "${DOCKER_USER}/devstats-static-prod${SUFFIX}${TAG}" . || exit 23
   fi
-  docker build -f ./images/Dockerfile.static.cdf -t "${DOCKER_USER}/devstats-static-cdf" . || exit 25
-  docker build -f ./images/Dockerfile.static.graphql -t "${DOCKER_USER}/devstats-static-graphql" . || exit 26
-  docker build -f ./images/Dockerfile.static.default -t "${DOCKER_USER}/devstats-static-default" . || exit 27
-  docker build -f ./images/Dockerfile.static.backups -t "${DOCKER_USER}/backups-page" . || exit 42
+  if [ -z "$SKIP_STATIC_NOBINS" ]
+  then
+    docker build -f ./images/Dockerfile.static.cdf -t "${DOCKER_USER}/devstats-static-cdf${TAG}" . || exit 25
+    docker build -f ./images/Dockerfile.static.graphql -t "${DOCKER_USER}/devstats-static-graphql${TAG}" . || exit 26
+    docker build -f ./images/Dockerfile.static.default -t "${DOCKER_USER}/devstats-static-default${TAG}" . || exit 27
+    docker build -f ./images/Dockerfile.static.backups -t "${DOCKER_USER}/backups-page${TAG}" . || exit 42
+  fi
 fi
 
 if [ -z "$SKIP_REPORTS" ]
 then
-  docker build -f ./images/Dockerfile.reports -t "${DOCKER_USER}/devstats-reports" . || exit 37
+  docker build -f ./images/Dockerfile.reports -t "${DOCKER_USER}/devstats-reports${SUFFIX}${TAG}" . || exit 37
 fi
 
 if [ -z "$SKIP_API" ]
 then
   if [ -z "$SKIP_PROD" ]
   then
-    docker build -f ./images/Dockerfile.api -t "${DOCKER_USER}/devstats-api-prod" . || exit 46
+    docker build -f ./images/Dockerfile.api -t "${DOCKER_USER}/devstats-api-prod${SUFFIX}${TAG}" . || exit 46
   fi
   if [ -z "$SKIP_TEST" ]
   then
-    docker build -f ./images/Dockerfile.api -t "${DOCKER_USER}/devstats-api-test" . || exit 48
+    docker build -f ./images/Dockerfile.api -t "${DOCKER_USER}/devstats-api-test${SUFFIX}${TAG}" . || exit 48
   fi
 fi
 
-rm -f devstats.tar devstatscode.tar devstats-grafana.tar devstats-docker-images.tar grafana-bins.tar api-bins.tar api-config.tar api-files.tar devstats-reports.tar index_*.html *.svg
+rm -f devstats.tar devstatscode.tar devstatscode-rust.tar devstats-bins.tar devstats-grafana.tar devstats-docker-images.tar grafana-bins.tar api-bins.tar api-config.tar api-files.tar devstats-reports.tar index_*.html *.svg
+rm -rf rust-bins
 
 if [ ! -z "$SKIP_PUSH" ]
 then
@@ -127,11 +187,11 @@ if [ -z "$SKIP_FULL" ]
 then
   if [ -z "$SKIP_TEST" ]
   then
-    docker push "${DOCKER_USER}/devstats-test" || exit 17
+    docker push "${DOCKER_USER}/devstats-test${SUFFIX}${TAG}" || exit 17
   fi
   if [ -z "$SKIP_PROD" ]
   then
-    docker push "${DOCKER_USER}/devstats-prod" || exit 34
+    docker push "${DOCKER_USER}/devstats-prod${SUFFIX}${TAG}" || exit 34
   fi
 fi
 
@@ -139,63 +199,66 @@ if [ -z "$SKIP_MIN" ]
 then
   if [ -z "$SKIP_TEST" ]
   then
-    docker push "${DOCKER_USER}/devstats-minimal-test" || exit 18
+    docker push "${DOCKER_USER}/devstats-minimal-test${SUFFIX}${TAG}" || exit 18
   fi
   if [ -z "$SKIP_PROD" ]
   then
-    docker push "${DOCKER_USER}/devstats-minimal-prod" || exit 36
+    docker push "${DOCKER_USER}/devstats-minimal-prod${SUFFIX}${TAG}" || exit 36
   fi
 fi
 
 if [ -z "$SKIP_GRAFANA" ]
 then
-  docker push "${DOCKER_USER}/devstats-grafana" || exit 19
+  docker push "${DOCKER_USER}/devstats-grafana${TAG}" || exit 19
 fi
 
 if [ -z "$SKIP_TESTS" ]
 then
-  docker push "${DOCKER_USER}/devstats-tests" || exit 20
+  docker push "${DOCKER_USER}/devstats-tests${SUFFIX}${TAG}" || exit 20
 fi
 
 if [ -z "$SKIP_PATRONI" ]
 then
-  # docker push "${DOCKER_USER}/devstats-patroni" || exit 21
-  # docker push "${DOCKER_USER}/devstats-patroni-new" || exit 21
-  # docker push "${DOCKER_USER}/devstats-patroni-13" || exit 21
-  # docker push "${DOCKER_USER}/devstats-patroni-hll-13" || exit 21
-  docker push "${DOCKER_USER}/devstats-patroni-18-hll" || exit 53
+  # docker push "${DOCKER_USER}/devstats-patroni${TAG}" || exit 21
+  # docker push "${DOCKER_USER}/devstats-patroni-new${TAG}" || exit 21
+  # docker push "${DOCKER_USER}/devstats-patroni-13${TAG}" || exit 21
+  # docker push "${DOCKER_USER}/devstats-patroni-hll-13${TAG}" || exit 21
+  docker push "${DOCKER_USER}/devstats-patroni-18-hll${TAG}" || exit 53
 fi
 
 if [ -z "$SKIP_STATIC" ]
 then
   if [ -z "$SKIP_TEST" ]
   then
-    docker push "${DOCKER_USER}/devstats-static-test" || exit 28
+    docker push "${DOCKER_USER}/devstats-static-test${SUFFIX}${TAG}" || exit 28
   fi
   if [ -z "$SKIP_PROD" ]
   then
-    docker push "${DOCKER_USER}/devstats-static-prod" || exit 24
+    docker push "${DOCKER_USER}/devstats-static-prod${SUFFIX}${TAG}" || exit 24
   fi
-  docker push "${DOCKER_USER}/devstats-static-cdf" || exit 29
-  docker push "${DOCKER_USER}/devstats-static-graphql" || exit 30
-  docker push "${DOCKER_USER}/devstats-static-default" || exit 31
-  docker push "${DOCKER_USER}/backups-page" || exit 43
+  if [ -z "$SKIP_STATIC_NOBINS" ]
+  then
+    docker push "${DOCKER_USER}/devstats-static-cdf${TAG}" || exit 29
+    docker push "${DOCKER_USER}/devstats-static-graphql${TAG}" || exit 30
+    docker push "${DOCKER_USER}/devstats-static-default${TAG}" || exit 31
+    docker push "${DOCKER_USER}/backups-page${TAG}" || exit 43
+  fi
 fi
 
 if [ -z "$SKIP_REPORTS" ]
 then
-  docker push "${DOCKER_USER}/devstats-reports" || exit 38
+  docker push "${DOCKER_USER}/devstats-reports${SUFFIX}${TAG}" || exit 38
 fi
 
 if [ -z "$SKIP_API" ]
 then
   if [ -z "$SKIP_PROD" ]
   then
-    docker push "${DOCKER_USER}/devstats-api-prod" || exit 47
+    docker push "${DOCKER_USER}/devstats-api-prod${SUFFIX}${TAG}" || exit 47
   fi
   if [ -z "$SKIP_TEST" ]
   then
-    docker push "${DOCKER_USER}/devstats-api-test" || exit 49
+    docker push "${DOCKER_USER}/devstats-api-test${SUFFIX}${TAG}" || exit 49
   fi
 fi
 

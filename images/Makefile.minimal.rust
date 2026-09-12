@@ -1,0 +1,26 @@
+# Rust variant of images/Makefile.minimal, used only by the *-rust images (images/Dockerfile.minimal.*.rust).
+# Same data layout (/etc/gha2db, /devstats-minimal), but the DevStats binaries are the pre-built static
+# Rust executables from ${RUST_BINDIR} (see images/Dockerfile.rust-bins) instead of `go install` builds.
+# Nothing here is used by the Go images.
+include images/Makefile.minimal
+
+RUST_BINDIR ?= /rust-bins
+
+dockerinstallrust: copydata
+	mkdir ${DATADIR}/k8s 2>/dev/null || echo "..."
+	chmod 777 ${DATADIR}/k8s 2>/dev/null || echo "..."
+	mkdir ${DATADIR}/example 2>/dev/null || echo "..."
+	chmod 777 ${DATADIR}/example 2>/dev/null || echo "..."
+	mkdir ${DATADIR}/gql 2>/dev/null || echo "..."
+	chmod 777 ${DATADIR}/gql 2>/dev/null || echo "..."
+	mkdir ${DATADIR}/devstats-helm 2>/dev/null || echo "..."
+	chmod 777 ${DATADIR}/devstats-helm 2>/dev/null || echo "..."
+	cp k8s/projects.yaml ${DATADIR}/k8s/ || exit 11
+	cp example/projects.yaml ${DATADIR}/example/ || exit 12
+	cp gql/projects.yaml ${DATADIR}/gql/ || exit 13
+	cp devstats-helm/projects.yaml ${DATADIR}/devstats-helm/ || exit 14
+	mkdir ${BINARY_PATH} || exit 17
+	for b in ${DOCKER_BINARIES}; do cp -v ${RUST_BINDIR}/$$b ${BINARY_PATH} || exit 18; done
+	cp -v ${GIT_SCRIPTS} ${BINARY_PATH} || exit 19
+
+.PHONY: dockerinstallrust

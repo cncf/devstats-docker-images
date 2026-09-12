@@ -58,3 +58,4 @@ sqlite/*.sql
 *.html
 /error.yaml
 src.txt
+/rust-bins/

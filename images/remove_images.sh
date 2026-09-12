@@ -4,17 +4,26 @@ then
   echo "$0: you need to set docker user via DOCKER_USER=username"
   exit 1
 fi
+# RUST=1: remove the "-rust" images (see images/build_images.sh) instead of the regular ones.
+SUFFIX=""
+if [ ! -z "${RUST}" ]
+then
+  SUFFIX="-rust"
+  SKIP_GRAFANA=1
+  SKIP_PATRONI=1
+  SKIP_STATIC_NOBINS=1
+fi
 if [ -z "$SKIP_FULL" ]
 then
-  docker image rm -f "${DOCKER_USER}/devstats"
-  docker image rm -f "${DOCKER_USER}/devstats-test"
-  docker image rm -f "${DOCKER_USER}/devstats-prod"
+  [ -z "${SUFFIX}" ] && docker image rm -f "${DOCKER_USER}/devstats"
+  docker image rm -f "${DOCKER_USER}/devstats-test${SUFFIX}"
+  docker image rm -f "${DOCKER_USER}/devstats-prod${SUFFIX}"
 fi
 if [ -z "$SKIP_MIN" ]
 then
-  docker image rm -f "${DOCKER_USER}/devstats-minimal"
-  docker image rm -f "${DOCKER_USER}/devstats-minimal-test"
-  docker image rm -f "${DOCKER_USER}/devstats-minimal-prod"
+  [ -z "${SUFFIX}" ] && docker image rm -f "${DOCKER_USER}/devstats-minimal"
+  docker image rm -f "${DOCKER_USER}/devstats-minimal-test${SUFFIX}"
+  docker image rm -f "${DOCKER_USER}/devstats-minimal-prod${SUFFIX}"
 fi
 if [ -z "$SKIP_GRAFANA" ]
 then
@@ -30,25 +39,33 @@ then
 fi
 if [ -z "$SKIP_TESTS" ]
 then
-  docker image rm -f "${DOCKER_USER}/devstats-tests"
+  docker image rm -f "${DOCKER_USER}/devstats-tests${SUFFIX}"
 fi
 if [ -z "$SKIP_STATIC" ]
 then
-  docker image rm -f "${DOCKER_USER}/backups-page"
-  docker image rm -f "${DOCKER_USER}/devstats-static-test"
-  docker image rm -f "${DOCKER_USER}/devstats-static-prod"
-  docker image rm -f "${DOCKER_USER}/devstats-static-cdf"
-  docker image rm -f "${DOCKER_USER}/devstats-static-graphql"
-  docker image rm -f "${DOCKER_USER}/devstats-static-default"
+  docker image rm -f "${DOCKER_USER}/devstats-static-test${SUFFIX}"
+  docker image rm -f "${DOCKER_USER}/devstats-static-prod${SUFFIX}"
+  if [ -z "$SKIP_STATIC_NOBINS" ]
+  then
+    docker image rm -f "${DOCKER_USER}/backups-page"
+    docker image rm -f "${DOCKER_USER}/devstats-static-cdf"
+    docker image rm -f "${DOCKER_USER}/devstats-static-graphql"
+    docker image rm -f "${DOCKER_USER}/devstats-static-default"
+  fi
 fi
 if [ -z "$SKIP_REPORTS" ]
 then
-  docker image rm -f "${DOCKER_USER}/devstats-reports"
+  docker image rm -f "${DOCKER_USER}/devstats-reports${SUFFIX}"
 fi
 if [ -z "$SKIP_API" ]
 then
-  docker image rm -f "${DOCKER_USER}/devstats-api-test"
-  docker image rm -f "${DOCKER_USER}/devstats-api-prod"
+  docker image rm -f "${DOCKER_USER}/devstats-api-test${SUFFIX}"
+  docker image rm -f "${DOCKER_USER}/devstats-api-prod${SUFFIX}"
+fi
+if [ ! -z "${SUFFIX}" ]
+then
+  # intermediate image holding the compiled Rust binaries (images/Dockerfile.rust-bins)
+  docker image rm -f "${DOCKER_USER}/devstats-rust-bins"
 fi
 if [ -z "$SKIP_PRUNE" ]
 then

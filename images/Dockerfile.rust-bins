@@ -1,0 +1,21 @@
+# Builds the Rust port of the DevStats binaries (devstatscode/rust) as static musl executables.
+# Used by images/build_images.sh when RUST=1:
+#   docker build -f images/Dockerfile.rust-bins --build-arg DEVSTATS_GIT_HASH=... -t USER/devstats-rust-bins .
+#   docker create ... + docker cp  ->  ./rust-bins/
+# The resulting (scratch) image holds every binary (structure, gha2db, calc_metric, ..., api, sqlitedb) in /rust-bins/,
+# from where the *-rust images take them (grafana-bins.tar, api-bins.tar, devstats-bins.tar).
+# The cargo registry and the build directory are BuildKit cache mounts, so rebuilds are incremental.
+FROM rust:1-alpine AS builder
+RUN apk add --no-cache musl-dev bash git
+WORKDIR /go/src/github.com/cncf/devstatscode
+ADD devstatscode-rust.tar .
+WORKDIR /go/src/github.com/cncf/devstatscode/rust
+# devstatscode-rust.tar has no .git, so the commit baked into the binaries is passed explicitly.
+ARG DEVSTATS_GIT_HASH=None
+ENV DEVSTATS_GIT_HASH=${DEVSTATS_GIT_HASH}
+ENV CARGO_TARGET_DIR=/go/src/github.com/cncf/devstatscode/rust/target
+RUN --mount=type=cache,id=devstats-rust-registry,target=/usr/local/cargo/registry \
+    --mount=type=cache,id=devstats-rust-target,target=/go/src/github.com/cncf/devstatscode/rust/target \
+    BINDIR=/rust-bins ./compile.sh
+FROM scratch
+COPY --from=builder /rust-bins/ /rust-bins/
