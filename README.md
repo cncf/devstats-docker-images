@@ -11,7 +11,7 @@ Create and remove docker images:
 - To drop local DevStats docker container images use: `DOCKER_USER=... ./images/remove_images.sh`.
 - You can add various flags to skip specific images like `SKIP_FULL=1`, `SKIP_MIN=1`, `SKIP_TEST=1`, `SKIP_PROD=1` see `images/build_images.sh`.
 - You can skip publishing to docker hub via `SKIP_PUSH=1`.
-- `IMAGE_TAG=xyz` builds and pushes every image as `name:xyz` instead of the default tag (`latest`) - e.g. `IMAGE_TAG=go127 SKIP_PROD=1 SKIP_GRAFANA=1 SKIP_PATRONI=1 SKIP_STATIC_NOBINS=1 SKIP_TESTS=1 DOCKER_USER=... ./images/build_images.sh` to try new images in the test namespace (`kubectl -n devstats-test set image cronjob/devstats-riff devstats-riff=DOCKER_USER/devstats-minimal-test:go127`) without touching the tags the production CronJobs pull.
+- `IMAGE_TAG=xyz` builds and pushes every image as `name:xyz` instead of the default tag (`latest`) - e.g. `IMAGE_TAG=try SKIP_PROD=1 SKIP_GRAFANA=1 SKIP_PATRONI=1 SKIP_STATIC_NOBINS=1 SKIP_TESTS=1 DOCKER_USER=... ./images/build_images.sh` to try new images in the test namespace (`kubectl -n devstats-test set image cronjob/devstats-riff devstats-riff=DOCKER_USER/devstats-minimal-test:go127`) without touching the tags the production CronJobs pull.
 
 Image contents (Go images, `images/Dockerfile.*`):
 
@@ -29,6 +29,8 @@ Rust images (DevStats binaries from the Rust port in `devstatscode/rust` instead
 - The binaries are compiled inside Docker (`images/Dockerfile.rust-bins`, `rust:alpine` builder, static Linux musl executables with the same names/CLI/env as the Go ones) (a local intermediate image `DOCKER_USER/devstats-rust-bins`, never pushed, exported to `./rust-bins/`) and shipped via `grafana-bins.tar`/`api-bins.tar` (same Dockerfiles as the Go images) and `devstats-bins.tar` (`images/Dockerfile.{full,minimal}.{prod,test}.rust`, generated from the Go Dockerfiles by `images/rust_dockerfile.sh` so project lists stay single-sourced; `images/Makefile.{full,minimal}.rust` lay them out). The `-rust` images have the same runtime content as the Go ones (same base images and packages, `/etc/gha2db`, identical `/go/src/devstats` file set, binaries under the same names, no source code in either) but are smaller: static Rust binaries are less than half the size of the Go ones. Docker with BuildKit (Docker 23+) is required; the cargo registry and build directory are BuildKit cache mounts, so rebuilds are incremental.
 - `devstats-tests-rust` runs `rust/test.sh` (rustfmt, clippy, unit tests and the Go⇄Rust compatibility tests against a local PostgreSQL 18): `docker run -ti DOCKER_USER/devstats-tests-rust`.
 - `RUST=1 DOCKER_USER=... ./images/remove_images.sh` removes the `-rust` images.
+- `DOCKER_USER=... ./images/build_rust_bins.sh [dir]` only builds the static Rust binaries (into `./rust-bins/` by default) - `build_images.sh` uses it in `RUST=1` mode and `devstats/devel/create_grafana_shared_data.sh` takes the `replacer`, `sqlitedb` and `runq` shipped in the shared Grafana data from it, so grafana pods run the same binaries as the images.
+- Since 2026-09-12 the `-rust` images are the ones deployed (all CronJobs and the API in `devstats-test` and `devstats-prod`, `devstats-helm` defaults); the Go images are still built and pushed under their original names as the rollback path.
 
 
 # Testing images
