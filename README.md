@@ -31,6 +31,7 @@ Rust images (DevStats binaries from the Rust port in `devstatscode/rust` instead
 - `RUST=1 DOCKER_USER=... ./images/remove_images.sh` removes the `-rust` images.
 - `DOCKER_USER=... ./images/build_rust_bins.sh [dir]` only builds the static Rust binaries (into `./rust-bins/` by default) - `build_images.sh` uses it in `RUST=1` mode and `devstats/devel/create_grafana_shared_data.sh` takes the `replacer`, `sqlitedb` and `runq` shipped in the shared Grafana data from it, so grafana pods run the same binaries as the images.
 - Since 2026-09-12 the `-rust` images are the ones deployed (all CronJobs and the API in `devstats-test` and `devstats-prod`, `devstats-helm` defaults); the Go images are still built and pushed under their original names as the rollback path.
+- The `full`/`minimal` Dockerfiles (Go and Rust) set `git config --system maintenance.autoDetach false` and `gc.autoDetach false`: git 2.46+ otherwise forks a detached `git maintenance run --auto` after every `fetch`/`pull`/`clone`, and because the `devstats` binary is PID 1 in the sync pods and does not reap orphaned processes, every such run stayed behind as a `[git]` zombie until the pod ended (1-2 per repository per run, harmless but noisy: `pids.max` is in the hundreds of thousands). With the setting the auto maintenance still runs, but in the foreground.
 
 
 # Testing images

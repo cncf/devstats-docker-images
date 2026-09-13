@@ -28,7 +28,7 @@ RUN tar tf /tmp/tars/devstats.tar > /tmp/runtime.files && tar tf /tmp/tars/devst
 # configuration is re-declared below (all but the build-only DOCKER_PG_LLVM_DEPS) - keep it in sync with
 # `docker image inspect postgres:18-alpine`.
 FROM postgres:18-alpine AS pgbase
-RUN apk add --no-cache git curl xz && rm -rf /usr/lib/libLLVM.so* /usr/local/lib/postgresql/llvmjit.so /usr/local/lib/postgresql/llvmjit_types.bc /usr/local/lib/postgresql/bitcode /usr/local/include /usr/local/lib/*.a /var/cache/apk/*
+RUN apk add --no-cache git curl xz && git config --system maintenance.autoDetach false && git config --system gc.autoDetach false && rm -rf /usr/lib/libLLVM.so* /usr/local/lib/postgresql/llvmjit.so /usr/local/lib/postgresql/llvmjit_types.bc /usr/local/lib/postgresql/bitcode /usr/local/include /usr/local/lib/*.a /var/cache/apk/*
 FROM scratch
 COPY --from=pgbase / /
 ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin GOSU_VERSION=1.19 LANG=en_US.utf8 PG_MAJOR=18 PG_VERSION=18.6 PG_SHA256=555610c24d53e4316da5b7d3fc25c279d96856d5e0e23ee308c328c5fa881d9f PGDATA=/var/lib/postgresql/18/docker
