@@ -6,6 +6,8 @@ projects:
     status: Incubating
     command_line:
       - envoyproxy
+    hist_command_line:
+      - 'envoyproxy,lyft/envoy'
     start_date: 2016-09-14T00:00:00Z
     join_date: 2017-09-13T00:00:00Z
     graduated_date: 2018-11-28T00:00:00Z
@@ -140,6 +142,8 @@ projects:
     command_line:
       - torvalds
       - linux
+    hist_command_line:
+      - 'torvalds/linux,linux'
     start_date: 2012-07-01T00:00:00Z
     join_date: null
     psql_db: linux
@@ -156,6 +160,13 @@ projects:
          kubernetes-providers,kubernetes-addons,kubernetes-retired,
          kubernetes-extensions,kubernetes-federation,kubernetes-security,\
          kubernetes-sidecars,kubernetes-tools,kubernetes-test,kubernetes-sigs"
+    hist_command_line:
+      - "kubernetes,kubernetes-client,kubernetes-incubator,kubernetes-csi,\
+         kubernetes-graveyard,kubernetes-incubator-retired,kubernetes-sig-testing,\
+         kubernetes-providers,kubernetes-addons,kubernetes-retired,\
+         kubernetes-extensions,kubernetes-federation,kubernetes-security,\
+         kubernetes-sidecars,kubernetes-tools,kubernetes-test,kubernetes-sigs,\
+         GoogleCloudPlatform/kubernetes"
     start_date: 2014-06-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     graduated_date: 2018-03-06T00:00:00Z
@@ -181,6 +192,9 @@ projects:
     status: Graduated
     command_line:
       - prometheus
+    hist_command_line:
+      - "prometheus,OpenObservability,OpenMetrics,openmetrics,\
+         prometheus-community,RichiH/OpenMetrics,prometheus/prometheus"
     start_date: 2014-01-06T00:00:00Z
     join_date: 2016-05-09T00:00:00Z
     graduated_date: 2018-08-09T00:00:00Z
@@ -219,6 +233,8 @@ projects:
     status: Incubating
     command_line:
       - linkerd
+    hist_command_line:
+      - 'linkerd,BuoyantIO/linkerd'
     start_date: 2016-01-13T00:00:00Z
     join_date: 2017-01-23T00:00:00Z
     incubating_date: 2018-04-06T00:00:00Z
@@ -244,6 +260,8 @@ projects:
     status: Graduated
     command_line:
       - coredns
+    hist_command_line:
+      - 'coredns,miekg/coredns'
     start_date: 2016-03-18T00:00:00Z
     join_date: 2017-02-27T00:00:00Z
     incubating_date: 2018-02-26T00:00:00Z
@@ -258,6 +276,8 @@ projects:
     status: Graduated
     command_line:
       - containerd
+    hist_command_line:
+      - 'containerd,docker/containerd'
     start_date: 2015-12-17T00:00:00Z
     join_date: 2017-03-29T00:00:00Z
     graduated_date: 2019-02-28T00:00:00Z
@@ -271,6 +291,8 @@ projects:
     status: Archived
     command_line:
       - rkt
+    hist_command_line:
+      - 'rkt,coreos/rkt,coreos/rocket,rktproject/rkt'
     start_date: 2014-11-27T00:00:00Z
     join_date: 2017-03-29T00:00:00Z
     archived_date: 2019-08-16T00:00:00Z
@@ -285,6 +307,8 @@ projects:
     status: Incubating
     command_line:
       - containernetworking
+    hist_command_line:
+      - 'containernetworking,appc/cni'
     start_date: 2015-04-05T00:00:00Z
     join_date: 2017-05-23T00:00:00Z
     psql_db: cni
@@ -297,6 +321,8 @@ projects:
     status: Incubating
     command_line:
       - jaegertracing
+    hist_command_line:
+      - 'jaegertracing,uber/jaeger'
     start_date: 2016-11-01T00:00:00Z
     join_date: 2017-09-13T00:00:00Z
     psql_db: jaeger
@@ -310,6 +336,8 @@ projects:
     command_line:
       - theupdateframework
       - notary
+    hist_command_line:
+      - 'theupdateframework/notary,notaryproject,docker/notary'
     start_date: 2015-06-22T00:00:00Z
     join_date: 2017-10-24T00:00:00Z
     psql_db: notary
@@ -349,6 +377,8 @@ projects:
     status: Incubating
     command_line:
       - vitessio
+    hist_command_line:
+      - 'vitessio,youtube/vitess'
     start_date: 2014-01-02T00:00:00Z
     join_date: 2018-02-05T00:00:00Z
     psql_db: vitess
@@ -361,6 +391,8 @@ projects:
     status: Incubating
     command_line:
       - nats-io
+    hist_command_line:
+      - 'nats-io,apcera/nats,apcera/gnatsd'
     start_date: 2014-01-02T00:00:00Z
     join_date: 2018-03-15T00:00:00Z
     psql_db: nats
@@ -414,6 +446,8 @@ projects:
     status: Incubating
     command_line:
       - cloudevents
+    hist_command_line:
+      - 'cloudevents,openeventing'
     start_date: 2017-12-09T00:00:00Z
     join_date: 2018-05-15T00:00:00Z
     incubating_date: 2019-10-24T00:00:00Z
@@ -427,6 +461,8 @@ projects:
     status: Sandbox
     command_line:
       - telepresenceio
+    hist_command_line:
+      - 'telepresenceio,datawire/telepresence'
     start_date: 2017-03-02T00:00:00Z
     join_date: 2018-05-15T00:00:00Z
     psql_db: telepresence
@@ -452,6 +488,8 @@ projects:
     status: Sandbox
     command_line:
       - OpenObservability
+    hist_command_line:
+      - 'OpenObservability,OpenMetrics,openmetrics,RichiH/OpenMetrics'
     start_date: 2017-06-22T00:00:00Z
     join_date: 2018-08-10T00:00:00Z
     psql_db: openmetrics
@@ -464,6 +502,8 @@ projects:
     status: Incubating
     command_line:
       - goharbor
+    hist_command_line:
+      - 'goharbor,vmware/harbor'
     start_date: 2016-03-02T00:00:00Z
     join_date: 2018-07-31T00:00:00Z
     incubating_date: 2018-11-14T00:00:00Z
@@ -478,6 +518,8 @@ projects:
     status: Incubating
     command_line:
       - etcd-io
+    hist_command_line:
+      - 'etcd-io,coreos/etcd,etcd'
     start_date: 2014-01-02T00:00:00Z
     join_date: 2018-12-11T00:00:00Z
     psql_db: etcd
@@ -490,6 +532,8 @@ projects:
     status: Sandbox
     command_line:
       - tikv
+    hist_command_line:
+      - 'tikv,pingcap/tikv'
     start_date: 2016-04-01T00:00:00Z
     join_date: 2018-08-28T00:00:00Z
     psql_db: tikv
@@ -502,6 +546,9 @@ projects:
     status: Incubating
     command_line:
       - cortexproject
+    hist_command_line:
+      - "cortexproject,weaveworks/cortex,weaveworks/prism,\
+         weaveworks/frankenstein"
     start_date: 2016-09-09T00:00:00Z
     join_date: 2018-09-20T00:00:00Z
     incubating_date: 2020-08-20T00:00:00Z
@@ -515,6 +562,8 @@ projects:
     status: Sandbox
     command_line:
       - buildpacks
+    hist_command_line:
+      - 'buildpacks,buildpack,buildpacks-community'
     start_date: 2018-06-01T00:00:00Z
     join_date: 2018-10-03T00:00:00Z
     psql_db: buildpacks
@@ -527,6 +576,8 @@ projects:
     status: Sandbox
     command_line:
       - falcosecurity
+    hist_command_line:
+      - 'falcosecurity,draios/falco'
     start_date: 2016-05-17T00:00:00Z
     join_date: 2018-10-10T00:00:00Z
     psql_db: falco
@@ -539,6 +590,8 @@ projects:
     status: Sandbox
     command_line:
       - dragonflyoss
+    hist_command_line:
+      - 'dragonflyoss,alibaba/Dragonfly'
     start_date: 2017-11-19T00:00:00Z
     join_date: 2018-11-13T00:00:00Z
     psql_db: dragonfly
@@ -551,6 +604,8 @@ projects:
     status: Sandbox
     command_line:
       - 'virtual-kubelet'
+    hist_command_line:
+      - 'virtual-kubelet,Virtual-Kubelet'
     start_date: 2017-12-04T00:00:00Z
     join_date: 2018-12-04T00:00:00Z
     psql_db: virtualkubelet
@@ -576,6 +631,9 @@ projects:
     command_line:
       - opencontainers
       - 'image-tools,image-spec,runtime-tools,runtime-spec,runc'
+    hist_command_line:
+      - 'opencontainers'
+      - 'image-tools,image-spec,runtime-tools,runtime-spec,runc,ocitools,specs'
     start_date: 2015-06-22T00:00:00Z
     join_date: null
     psql_db: opencontainers
@@ -636,6 +694,8 @@ projects:
     status: Sandbox
     command_line:
       - brigadecore
+    hist_command_line:
+      - 'brigadecore,Azure/brigade'
     start_date: 2017-10-24T00:00:00Z
     join_date: 2019-03-18T00:00:00Z
     psql_db: brigade
@@ -648,6 +708,9 @@ projects:
     status: Incubating
     command_line:
       - cri-o
+    hist_command_line:
+      - "cri-o,kubernetes-incubator/ocid,kubernetes-incubator/cri-o,\
+         kubernetes-sigs/cri-o"
     start_date: 2016-09-09T00:00:00Z
     join_date: 2019-04-04T00:00:00Z
     psql_db: crio
@@ -672,6 +735,9 @@ projects:
     status: "-"
     command_line:
       - jenkins-x
+    hist_command_line:
+      - "jenkins-x,jenkins-x-quickstarts,jenkins-x-apps,jenkins-x-charts,\
+         jenkins-x-buildpacks,jenkins-x-images,jenkins-x-plugins"
     start_date: 2018-02-01T00:00:00Z
     join_date: null
     psql_db: jenkinsx
@@ -684,6 +750,8 @@ projects:
     status: "-"
     command_line:
       - 'jenkinsci,jenkins-infra,jenkins-zh,stapler'
+    hist_command_line:
+      - 'jenkinsci,jenkins-infra,jenkins-zh,stapler,jenkinsci/jenkins'
     start_date: 2012-07-01T00:00:00Z
     join_date: null
     psql_db: jenkins
@@ -696,6 +764,8 @@ projects:
     status: Sandbox
     command_line:
       - networkservicemesh
+    hist_command_line:
+      - 'networkservicemesh,NetworkServiceMesh,ligato/networkservicemesh'
     start_date: 2018-04-03T00:00:00Z
     join_date: 2019-04-11T00:00:00Z
     psql_db: networkservicemesh
@@ -720,6 +790,8 @@ projects:
     status: Sandbox
     command_line:
       - open-telemetry
+    hist_command_line:
+      - 'open-telemetry,opentracing'
     start_date: 2019-04-29T00:00:00Z
     join_date: 2019-05-07T00:00:00Z
     psql_db: opentelemetry
@@ -732,6 +804,8 @@ projects:
     status: "-"
     command_line:
       - graphql
+    hist_command_line:
+      - 'graphql,facebook/graphql'
     start_date: 2015-07-02T00:00:00Z
     join_date: null
     psql_db: graphql
@@ -779,6 +853,8 @@ projects:
     name: GraphQL Spec
     status: "-"
     command_line: ['graphql/graphql-spec']
+    hist_command_line:
+      - 'graphql/graphql-spec,facebook/graphql'
     start_date: 2015-07-02T00:00:00Z
     join_date: null
     psql_db: graphqlspec
@@ -802,6 +878,9 @@ projects:
     name: Thanos
     status: Incubating
     command_line: ['thanos-io']
+    hist_command_line:
+      - "thanos-io,thanos-community,improbable-eng/promlts,\
+         improbable-eng/thanos"
     start_date: 2017-11-01T00:00:00Z
     join_date: 2019-07-14T00:00:00Z
     incubating_date: 2020-08-19T00:00:00Z
@@ -814,6 +893,8 @@ projects:
     name: Flux
     status: Sandbox
     command_line: ['fluxcd']
+    hist_command_line:
+      - 'fluxcd,weaveworks/flux'
     start_date: 2016-11-02T00:00:00Z
     join_date: 2019-07-15T00:00:00Z
     psql_db: flux
@@ -836,6 +917,8 @@ projects:
     name: Strimzi
     status: Sandbox
     command_line: ['strimzi']
+    hist_command_line:
+      - 'strimzi,EnMasseProject/barnabas,ppatierno/barnabas,ppatierno/kaas'
     start_date: 2016-05-06T00:00:00Z
     join_date: 2019-08-28T00:00:00Z
     psql_db: strimzi
@@ -847,6 +930,10 @@ projects:
     name: KubeVirt
     status: Sandbox
     command_line: ['kubevirt']
+    hist_command_line:
+      - "kubevirt,k8snetworkplumbingwg/kubemacpool,\
+         k8snetworkplumbingwg/multi-networkpolicy-iptables,\
+         k8snetworkplumbingwg/sriov-network-operator,nmstate/kubernetes-nmstate"
     start_date: 2016-04-27T00:00:00Z
     join_date: 2019-09-06T00:00:00Z
     psql_db: kubevirt
@@ -858,6 +945,8 @@ projects:
     name: Longhorn
     status: Sandbox
     command_line: ['longhorn']
+    hist_command_line:
+      - 'longhorn,rancher/longhorn'
     start_date: 2017-04-14T00:00:00Z
     join_date: 2019-10-11T00:00:00Z
     psql_db: longhorn

@@ -18,6 +18,9 @@ projects:
     status: Graduated
     command_line:
       - prometheus
+    hist_command_line:
+      - "prometheus,OpenObservability,OpenMetrics,openmetrics,\
+         prometheus-community,RichiH/OpenMetrics,prometheus/prometheus"
     start_date: 2014-01-06T00:00:00Z
     join_date: 2016-05-09T00:00:00Z
     psql_db: prometheus
@@ -30,6 +33,8 @@ projects:
     status: "-"
     command_line:
       - kubeflow
+    hist_command_line:
+      - 'kubeflow,google/kubeflow'
     start_date: 2017-11-30T00:00:00Z
     join_date: null
     psql_db: kubeflow

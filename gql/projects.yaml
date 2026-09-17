@@ -5,6 +5,8 @@ projects:
     name: GraphQL
     status: Archived
     command_line: ['graphql']
+    hist_command_line:
+      - 'graphql,facebook/graphql'
     start_date: 2015-07-02T00:00:00Z
     join_date: null
     archived_date: 2026-08-31T00:00:00Z
@@ -56,6 +58,8 @@ projects:
     name: GraphQL Spec
     status: Archived
     command_line: ['graphql/graphql-spec']
+    hist_command_line:
+      - 'graphql/graphql-spec,facebook/graphql'
     start_date: 2015-07-02T00:00:00Z
     join_date: null
     archived_date: 2026-08-31T00:00:00Z
