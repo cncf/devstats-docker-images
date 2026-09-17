@@ -39,7 +39,7 @@ cid=$(docker create "${DOCKER_USER}/devstats-rust-bins" /none) || exit 56
 docker cp "${cid}:/rust-bins/." "${out}" || exit 56
 docker rm "${cid}" >/dev/null
 cd "${out}" || exit 57
-for b in structure gha2db calc_metric gha2db_sync import_affs annotations tags webhook devstats get_repos merge_dbs replacer vars ghapi2db columns hide_data website_data sync_issues runq api sqlitedb tsplit splitcrons
+for b in structure gha2db calc_metric gha2db_sync import_affs annotations tags webhook devstats get_repos merge_dbs reconcile_dbs replacer vars ghapi2db columns hide_data website_data sync_issues runq api sqlitedb tsplit splitcrons
 do
   [ -x "$b" ] || { echo "$0: Rust binary $b was not built"; exit 58; }
 done
