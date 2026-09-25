@@ -2,6 +2,8 @@
 # GIANT=lock|wait|'' lock giant lock or only wait for giant lock or do not use giant lock
 # NOAGE=1 - always backup databases, do not check minimum age + randomize
 # SKIP_FLAGS=1 - do not check per-DB 'provisioned'/'devstats_running' flags before backups
+# BACKUP_WAIT_MAX=28800 - max seconds to wait for a busy DB (not provisioned / sync running) before skipping it
+# BACKUP_WAIT_STEP=60 - seconds between busy re-checks
 if [ ! -z "$GIANT" ]
 then
   ./devel/wait_flag.sh devstats giant_lock 0 60 || exit 3
@@ -13,6 +15,35 @@ fi
 function clear_flag {
   ./devel/clear_flag.sh devstats giant_lock
 }
+function db_busy {
+  # prints why DB $1 is being actively updated, empty when idle; a 'devstats_running' flag older than 9h is an orphan (same as the devstats tool)
+  db.sh psql "$1" -tAc "select coalesce((select 'not provisioned' where not exists (select 1 from gha_computed where metric = 'provisioned')), (select 'sync running since ' || dt::text from gha_computed where metric = 'devstats_running' and dt > now() - interval '9 hours' order by dt desc limit 1), '')" 2>/dev/null
+}
+function wait_idle {
+  # wait_idle db what: 0 when DB is idle, 1 when still busy after BACKUP_WAIT_MAX seconds
+  local waited=0 reason
+  while true
+  do
+    reason=`db_busy "$1"`
+    if [ -z "$reason" ]
+    then
+      return 0
+    fi
+    if (( waited >= wait_max ))
+    then
+      echo "`date '+%Y-%m-%d %H:%M:%S'` $1 still busy after ${waited}s ($reason), skipping $2"
+      return 1
+    fi
+    if (( waited % 600 == 0 ))
+    then
+      echo "`date '+%Y-%m-%d %H:%M:%S'` $1 is busy ($reason), waiting before $2 (${waited}s so far)"
+    fi
+    sleep "$wait_step"
+    waited=$((waited+wait_step))
+  done
+}
+wait_max="${BACKUP_WAIT_MAX:-28800}"
+wait_step="${BACKUP_WAIT_STEP:-60}"
 if [ "$GIANT" = "lock" ]
 then
   trap clear_flag EXIT
@@ -34,10 +65,8 @@ do
   echo "`date '+%Y-%m-%d %H:%M:%S'` $db"
   if [ -z "$SKIP_FLAGS" ]
   then
-    provisioned=`db.sh psql "$db" -tAc "select 1 from gha_computed where metric = 'provisioned' union select 0 order by 1 desc limit 1" 2>/dev/null`
-    if [ "$provisioned" = "0" ]
+    if ! wait_idle "$db" "artificial events backup"
     then
-      echo "`date '+%Y-%m-%d %H:%M:%S'` $db is not provisioned (provisioning/reinit in progress?), skipping"
       if [ -z "$skipped" ]
       then
         skipped="$db"
@@ -68,10 +97,8 @@ do
   then
     if [ -z "$SKIP_FLAGS" ]
     then
-      running=`db.sh psql "$db" -tAc "select 1 from gha_computed where metric = 'devstats_running' limit 1" 2>/dev/null`
-      if [ "$running" = "1" ]
+      if ! wait_idle "$db" "full backup"
       then
-        echo "`date '+%Y-%m-%d %H:%M:%S'` $db sync is running, skipping full backup this run"
         if [ -z "$skipped" ]
         then
           skipped="$db"
@@ -123,7 +150,7 @@ then
 fi
 if [ ! -z "$skipped" ]
 then
-  echo "`date '+%Y-%m-%d %H:%M:%S'` Skipped backups (not provisioned or sync running): $skipped"
+  echo "`date '+%Y-%m-%d %H:%M:%S'` Skipped backups (still not provisioned or sync still running after ${wait_max}s): $skipped"
 fi
 if [ ! -z "$failed" ]
 then
