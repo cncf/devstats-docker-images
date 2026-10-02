@@ -4381,7 +4381,7 @@ projects:
          alibaba/higress,kube-bind,iptecharch,prometheus/prometheus,mit-ll/python-keylime,\
          mit-ll/keylime,nirmata/kyverno,herbrandson/k8dash,curiefense,docker/distribution,\
          foniod,ingraind,redsift/ingraind,plunder-app/kube-vip,krator-rs,rerpc/rerpc,\
-         AxaFrance/SlimFaaS,giuseppe/composefs,cohdi,truefoundry/kubeelasti"
+         AxaFrance/SlimFaaS,giuseppe/composefs,cohdi,truefoundry/kubeelasti,ray-project"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
