@@ -3882,6 +3882,21 @@ projects:
     annotation_regexp: '^v\d+\.\d+\.\d+$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
     shared_db: allprj
+  kuberay:
+    order: 256
+    name: KubeRay
+    status: Sandbox
+    command_line:
+      - ray-project
+    hist_command_line:
+      - 'ray-project'
+    start_date: 2016-09-11T00:00:00Z
+    join_date: 2026-09-29T00:00:00Z
+    psql_db: kuberay
+    main_repo: ray-project/kuberay
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+    shared_db: allprj
   opencontainers:
     order: 10001
     name: OCI
@@ -4210,7 +4225,7 @@ projects:
          kai-scheduler,agones-dev,googleforgames/space-agon,velero-io,llm-d,openeverest,\
          googleforgames/global-multiplayer-demo,vmware-tanzu/velero-plugin-for-vsphere,nmstate,\
          higress-group,tektoncd,tektoncd-catalog,Apicurio/apicurio-registry,thanos-community,\
-         kbind-dev,podman-container-tools/skopeo,sdcio"
+         kbind-dev,podman-container-tools/skopeo,sdcio,ray-project"
     hist_command_line:
       - "kubernetes,kubernetes-client,kubernetes-incubator,kubernetes-helm,getsops,\
          kubernetes-graveyard,kubernetes-incubator-retired,kubernetes-sig-testing,\
