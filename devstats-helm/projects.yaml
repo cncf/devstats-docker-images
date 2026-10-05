@@ -3888,12 +3888,51 @@ projects:
     status: Sandbox
     command_line:
       - ray-project
-    hist_command_line:
-      - 'ray-project'
     start_date: 2016-09-11T00:00:00Z
     join_date: 2026-09-29T00:00:00Z
     psql_db: kuberay
     main_repo: ray-project/kuberay
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+    shared_db: allprj
+  k2s:
+    order: 258
+    name: K2s
+    status: Sandbox
+    command_line:
+      - Siemens-Healthineers/K2s
+    start_date: 2023-12-12T00:00:00Z
+    join_date: 2026-10-02T00:00:00Z
+    psql_db: k2s
+    main_repo: Siemens-Healthineers/K2s
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: ''
+    shared_db: allprj
+  openshell:
+    order: 259
+    name: OpenShell
+    status: Sandbox
+    command_line:
+      - 'regexp:(?i)^NVIDIA\/OpenShell.*$'
+    start_date: 2026-03-16T00:00:00Z
+    join_date: 2026-10-02T00:00:00Z
+    psql_db: openshell
+    main_repo: NVIDIA/OpenShell
+    annotation_regexp: '^v\d+\.\d+\.\d*0$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+    shared_db: allprj
+  hivecommons:
+    order: 260
+    name: 'Hive Commons'
+    status: Sandbox
+    command_line:
+      - hivecommons
+    hist_command_line:
+      - 'hivecommons,kubestellar/hive,kubestellar/supervised-agent'
+    start_date: 2026-04-17T00:00:00Z
+    join_date: 2026-09-29T00:00:00Z
+    psql_db: hivecommons
+    main_repo: hivecommons/hive
     annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
     shared_db: allprj
@@ -4225,7 +4264,9 @@ projects:
          kai-scheduler,agones-dev,googleforgames/space-agon,velero-io,llm-d,openeverest,\
          googleforgames/global-multiplayer-demo,vmware-tanzu/velero-plugin-for-vsphere,nmstate,\
          higress-group,tektoncd,tektoncd-catalog,Apicurio/apicurio-registry,thanos-community,\
-         kbind-dev,podman-container-tools/skopeo,sdcio,ray-project"
+         kbind-dev,podman-container-tools/skopeo,sdcio,ray-project,Siemens-Healthineers/K2s,\
+         NVIDIA/OpenShell,NVIDIA/OpenShell-Research,NVIDIA/OpenShell-Community,hivecommons,\
+         kubestellar/hive,kubestellar/supervised-agent"
     hist_command_line:
       - "kubernetes,kubernetes-client,kubernetes-incubator,kubernetes-helm,getsops,\
          kubernetes-graveyard,kubernetes-incubator-retired,kubernetes-sig-testing,\
@@ -4381,7 +4422,9 @@ projects:
          alibaba/higress,kube-bind,iptecharch,prometheus/prometheus,mit-ll/python-keylime,\
          mit-ll/keylime,nirmata/kyverno,herbrandson/k8dash,curiefense,docker/distribution,\
          foniod,ingraind,redsift/ingraind,plunder-app/kube-vip,krator-rs,rerpc/rerpc,\
-         AxaFrance/SlimFaaS,giuseppe/composefs,cohdi,truefoundry/kubeelasti,ray-project"
+         AxaFrance/SlimFaaS,giuseppe/composefs,cohdi,truefoundry/kubeelasti,ray-project,\
+         Siemens-Healthineers/K2s,NVIDIA/OpenShell,NVIDIA/OpenShell-Research,\
+         NVIDIA/OpenShell-Community,hivecommons,kubestellar/hive,kubestellar/supervised-agent"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
