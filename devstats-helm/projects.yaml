@@ -4265,7 +4265,7 @@ projects:
          googleforgames/global-multiplayer-demo,vmware-tanzu/velero-plugin-for-vsphere,nmstate,\
          higress-group,tektoncd,tektoncd-catalog,Apicurio/apicurio-registry,thanos-community,\
          kbind-dev,podman-container-tools/skopeo,sdcio,ray-project,Siemens-Healthineers/K2s,\
-         NVIDIA/OpenShell,NVIDIA/OpenShell-Research,NVIDIA/OpenShell-Community,hivecommons,\
+         NVIDIA/OpenShell,NVIDIA/OpenShell-Research,NVIDIA/OpenShell-Community,\
          kubestellar/hive,kubestellar/supervised-agent"
     hist_command_line:
       - "kubernetes,kubernetes-client,kubernetes-incubator,kubernetes-helm,getsops,\
@@ -4424,7 +4424,7 @@ projects:
          foniod,ingraind,redsift/ingraind,plunder-app/kube-vip,krator-rs,rerpc/rerpc,\
          AxaFrance/SlimFaaS,giuseppe/composefs,cohdi,truefoundry/kubeelasti,ray-project,\
          Siemens-Healthineers/K2s,NVIDIA/OpenShell,NVIDIA/OpenShell-Research,\
-         NVIDIA/OpenShell-Community,hivecommons,kubestellar/hive,kubestellar/supervised-agent"
+         NVIDIA/OpenShell-Community,kubestellar/hive,kubestellar/supervised-agent"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
