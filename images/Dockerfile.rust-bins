@@ -6,7 +6,8 @@
 # from where the *-rust images take them (grafana-bins.tar, api-bins.tar, devstats-bins.tar).
 # The cargo registry and the build directory are BuildKit cache mounts, so rebuilds are incremental.
 FROM rust:1-alpine AS builder
-RUN apk add --no-cache musl-dev bash git
+# gcc: the mimalloc global allocator (devstatscode/rust/devstatscode/src/lib.rs) is C code compiled by the build script.
+RUN apk add --no-cache musl-dev gcc bash git
 WORKDIR /go/src/github.com/cncf/devstatscode
 ADD devstatscode-rust.tar .
 WORKDIR /go/src/github.com/cncf/devstatscode/rust
