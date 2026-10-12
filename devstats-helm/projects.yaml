@@ -3442,7 +3442,7 @@ projects:
     name: CozyStack
     status: Sandbox
     command_line:
-      - 'regexp:(?i)^(cozystack\/.*|aenix-io\/(.*cozy.*|etcd-operator|talm|talos-bootstrap|kubernetes-in-kubernetes|kubefarm))$'
+      - 'regexp:(?i)^(cozystack\/.*|blockstor\/.*|aenix-io\/(.*cozy.*|etcd-operator|talm|talos-bootstrap|kubernetes-in-kubernetes|kubefarm))$'
     start_date: 2024-02-08T00:00:00Z
     join_date: 2025-03-04T00:00:00Z
     psql_db: cozystack
@@ -4266,7 +4266,7 @@ projects:
          podman-desktop,podman-container-tools/podman,podman-container-tools/buildah,\
          containers/netavark,containers/aardvark-dns,containers/image,containers/storage,\
          containers/common,containers/conmon,containers/podman-py,bootc-dev,composefs,xregistry,\
-         cozystack,kitops-ml,drasi-project,kgateway-dev,hyperlight-dev,kubefleet-dev,opentofu,\
+         cozystack,blockstor,kitops-ml,drasi-project,kgateway-dev,hyperlight-dev,kubefleet-dev,opentofu,\
          oxia-db,cedar-policy,project-dalec,HolmesGPT,robusta-dev/homebrew-holmesgpt,\
          robusta-dev/holmesgpt-community-toolsets,openchoreo,CoHDI,KubeElasti,CloudNativeAI,\
          kai-scheduler,agones-dev,googleforgames/space-agon,velero-io,llm-d,openeverest,\
@@ -4319,7 +4319,7 @@ projects:
          podman-desktop,podman-container-tools/podman,podman-container-tools/buildah,\
          containers/netavark,containers/aardvark-dns,containers/image,containers/storage,\
          containers/common,containers/conmon,containers/podman-py,bootc-dev,composefs,xregistry,\
-         cozystack,kitops-ml,drasi-project,kgateway-dev,hyperlight-dev,kubefleet-dev,opentofu,\
+         cozystack,blockstor,kitops-ml,drasi-project,kgateway-dev,hyperlight-dev,kubefleet-dev,opentofu,\
          oxia-db,cedar-policy,project-dalec,HolmesGPT,robusta-dev/homebrew-holmesgpt,\
          robusta-dev/holmesgpt-community-toolsets,openchoreo,CoHDI,KubeElasti,CloudNativeAI,\
          kai-scheduler,agones-dev,googleforgames/space-agon,velero-io,llm-d,openeverest,\
