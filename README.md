@@ -54,6 +54,16 @@ Using docker:
 
 - To run `devstats-reports` image using docker: `DOCKER_USER=... ./images/devstats_reports_docker.sh`.
 
+# Backups
+
+`devstats-helm/backups.sh` backs up every selected project sequentially (artificial-event archive, then full dump), followed by the shared `affiliations` database if present. Dump age and randomness no longer select projects; `NOAGE` is unnecessary. Existing schedules, `ONLY` selection and replica endpoint remain unchanged.
+
+By default it waits indefinitely for provisioning, project syncs (even those older than nine hours), and shared affiliations imports. `BACKUP_WAIT_STEP` defaults to 60 seconds; a positive `BACKUP_WAIT_MAX` opts into a wait limit. A failed activity check refuses that backup, and failed or skipped backups make the run exit nonzero after processing the remaining databases. Stale flags therefore require investigation rather than automatic expiry. These checks do not lock out new syncs for the duration of a dump.
+
+Full dumps use fast compression (`-Z1`) and replace the previous `.dump` only after successful completion; allow disk space for one additional in-progress dump. Backup connections disable parallel query workers and use 16MB `work_mem`; the existing `FASTXZ=1` chart setting keeps artificial-archive compression light. Backup-only Helm defaults in `cncf/devstats-helm` limit the client pod to 1 CPU/2Gi (request 100m/256Mi); these are not server-side CPU/I/O limits.
+
+Isolated orchestration tests (no real database or `/root` writes): `python3 -m unittest discover -s tests -p test_backups.py`.
+
 
 # Adding new projects
 
