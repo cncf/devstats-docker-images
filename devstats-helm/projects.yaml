@@ -3923,7 +3923,7 @@ projects:
     command_line:
       - 'regexp:(?i)^NVIDIA\/OpenShell.*$'
     start_date: 2026-03-16T00:00:00Z
-    join_date: 2026-10-02T00:00:00Z
+    join_date: 2026-09-26T00:00:00Z
     psql_db: openshell
     main_repo: NVIDIA/OpenShell
     annotation_regexp: '^v\d+\.\d+\.\d*0$'
