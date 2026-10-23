@@ -3,6 +3,7 @@ projects:
   kubernetes:
     order: 1
     name: Kubernetes
+    project_url: 'kubernetes.io'
     status: Graduated
     command_line:
       - "kubernetes,kubernetes-client,kubernetes-incubator,kubernetes-csi,\
@@ -43,6 +44,7 @@ projects:
   prometheus:
     order: 2
     name: Prometheus
+    project_url: 'prometheus.io'
     status: Graduated
     command_line:
       - 'prometheus,OpenObservability,OpenMetrics,openmetrics,prometheus-community'
@@ -61,6 +63,7 @@ projects:
   opentracing:
     order: 3
     name: OpenTracing
+    project_url: 'opentracing.io'
     status: Archived
     command_line:
       - opentracing
@@ -76,6 +79,7 @@ projects:
   fluentd:
     order: 4
     name: Fluentd
+    project_url: 'fluentd.org'
     status: Graduated
     command_line:
       - 'regexp:(?i)^(fluent|fluent-plugins-nursery\/.*fluent.*|.+\/fluentd?-plugin-.+|baritolog\/barito-fluent-plugin|blacknight95\/aws-fluent-plugin-kinesis|sumologic\/fluentd-kubernetes-sumologic|sumologic\/fluentd-output-sumologic|wallynegima\/scenario-manager-plugin|aliyun\/aliyun-odps-fluentd-plugin|awslabs\/aws-fluent-plugin-kinesis|campanja\/fluent-output-router|grafana\/loki\/|jdoconnor\/fluentd_https_out|newrelic\/newrelic-fluentd-output|roma42427\/filter_wms_auth|scalyr\/scalyr-fluentd|sebryu\/fluent_plugin_in_websocket|tagomoris\/fluent-helper-plugin-spec|y-ken\/fluent-mixin-rewrite-tag-name|y-ken\/fluent-mixin-type-converter)$'
@@ -90,6 +94,7 @@ projects:
   linkerd:
     order: 5
     name: Linkerd
+    project_url: 'linkerd.io'
     status: Graduated
     command_line:
       - linkerd
@@ -107,6 +112,7 @@ projects:
   grpc:
     order: 6
     name: gRPC
+    project_url: 'grpc.io'
     status: Incubating
     command_line:
       - grpc
@@ -121,6 +127,7 @@ projects:
   coredns:
     order: 7
     name: CoreDNS
+    project_url: 'coredns.io'
     status: Graduated
     command_line:
       - coredns
@@ -138,6 +145,7 @@ projects:
   containerd:
     order: 8
     name: containerd
+    project_url: 'containerd.io'
     status: Graduated
     command_line:
       - containerd
@@ -154,6 +162,7 @@ projects:
   rkt:
     order: 9
     name: rkt
+    project_url: 'github.com/rkt/rkt'
     status: Archived
     command_line:
       - rkt
@@ -171,6 +180,7 @@ projects:
   cni:
     order: 10
     name: CNI
+    project_url: 'github.com/containernetworking'
     status: Incubating
     command_line:
       - containernetworking
@@ -187,6 +197,7 @@ projects:
   envoy:
     order: 11
     name: Envoy
+    project_url: 'envoyproxy.io'
     status: Graduated
     command_line:
       - envoyproxy
@@ -204,6 +215,7 @@ projects:
   jaeger:
     order: 12
     name: Jaeger
+    project_url: 'jaeger.readthedocs.io/en/latest'
     status: Graduated
     command_line:
       - jaegertracing
@@ -220,6 +232,7 @@ projects:
   notary:
     order: 13
     name: Notary
+    project_url: 'github.com/notaryproject'
     status: Incubating
     command_line:
       - notaryproject
@@ -236,6 +249,7 @@ projects:
   tuf:
     order: 14
     name: TUF
+    project_url: 'github.com/theupdateframework.com'
     status: Graduated
     command_line:
       - theupdateframework
@@ -255,6 +269,7 @@ projects:
   rook:
     order: 15
     name: Rook
+    project_url: 'rook.io'
     status: Graduated
     command_line:
       - rook
@@ -270,6 +285,7 @@ projects:
   vitess:
     order: 16
     name: Vitess
+    project_url: 'vitess.io'
     status: Graduated
     command_line:
       - vitessio
@@ -286,6 +302,7 @@ projects:
   nats:
     order: 17
     name: NATS
+    project_url: 'nats.io'
     status: Incubating
     command_line:
       - nats-io
@@ -301,6 +318,7 @@ projects:
   opa:
     order: 18
     name: "Open Policy Agent"
+    project_url: 'openpolicyagent.org'
     status: Graduated
     command_line:
       - open-policy-agent
@@ -316,6 +334,7 @@ projects:
   spiffe:
     order: 19
     name: SPIFFE
+    project_url: 'spiffe.io'
     status: Graduated
     command_line:
       - spiffe
@@ -334,6 +353,7 @@ projects:
   spire:
     order: 20
     name: SPIRE
+    project_url: 'spiffe.io'
     status: Graduated
     command_line:
       - 'regexp:(?i)^spiffe\/spire.*$'
@@ -351,6 +371,7 @@ projects:
   cloudevents:
     order: 21
     name: CloudEvents
+    project_url: 'cloudevents.io'
     status: Graduated
     command_line:
       - cloudevents
@@ -368,6 +389,7 @@ projects:
   telepresence:
     order: 22
     name: Telepresence
+    project_url: 'telepresence.io'
     status: Sandbox
     command_line:
       - telepresenceio
@@ -384,6 +406,7 @@ projects:
   helm:
     order: 23
     name: Helm
+    project_url: 'helm.sh'
     status: Graduated
     command_line:
       - helm,kubernetes-helm,kubernetes-charts,kubernetes/helm,kubernetes/deployment-manager,kubernetes/charts,kubernetes/application-dm-templates
@@ -399,6 +422,7 @@ projects:
   openmetrics:
     order: 24
     name: OpenMetrics
+    project_url: 'openmetrics.io'
     status: Archived # Merged into Prometheus
     command_line:
       - "OpenObservability,OpenMetrics,openmetrics,prometheus/OpenMetrics"
@@ -417,6 +441,7 @@ projects:
   harbor:
     order: 25
     name: Harbor
+    project_url: 'goharbor.io'
     status: Graduated
     command_line:
       - goharbor
@@ -434,6 +459,7 @@ projects:
   etcd:
     order: 26
     name: etcd
+    project_url: 'coreos.com/etcd'
     status: Graduated
     command_line:
       - etcd-io
@@ -450,6 +476,7 @@ projects:
   tikv:
     order: 27
     name: TiKV
+    project_url: 'tikv.org'
     status: Graduated
     command_line:
       - tikv
@@ -466,6 +493,7 @@ projects:
   cortex:
     order: 28
     name: Cortex
+    project_url: 'github.com/cortexproject'
     status: Incubating
     command_line:
       - cortexproject
@@ -483,6 +511,7 @@ projects:
   buildpacks:
     order: 29
     name: Buildpacks
+    project_url: 'buildpacks.io'
     status: Graduated
     command_line:
       - buildpacks,buildpacks-community
@@ -501,6 +530,7 @@ projects:
   falco:
     order: 30
     name: Falco
+    project_url: 'falco.org'
     status: Graduated
     command_line:
       - falcosecurity
@@ -518,6 +548,7 @@ projects:
   dragonfly:
     order: 31
     name: Dragonfly
+    project_url: 'd7y.io/en-us'
     status: Graduated
     command_line:
       - dragonflyoss
@@ -535,6 +566,7 @@ projects:
   virtualkubelet:
     order: 32
     name: Virtual Kubelet
+    project_url: 'virtual-kubelet.io'
     status: Sandbox
     command_line:
       - 'virtual-kubelet'
@@ -551,6 +583,7 @@ projects:
   kubeedge:
     order: 33
     name: KubeEdge
+    project_url: 'kubeedge.io'
     status: Graduated
     command_line:
       - 'kubeedge'
@@ -566,6 +599,7 @@ projects:
   brigade:
     order: 34
     name: Brigade
+    project_url: 'brigade.sh'
     status: Archived
     command_line:
       - 'brigadecore'
@@ -584,6 +618,7 @@ projects:
   crio:
     order: 35
     name: CRI-O
+    project_url: 'cri-o.io'
     status: Graduated
     command_line:
       - cri-o
@@ -601,6 +636,7 @@ projects:
   networkservicemesh:
     order: 36
     name: Network Service Mesh
+    project_url: 'networkservicemesh.io'
     status: Sandbox
     command_line:
       - networkservicemesh
@@ -616,6 +652,7 @@ projects:
   openebs:
     order: 37
     name: OpenEBS
+    project_url: 'openebs.io'
     status: Sandbox
     command_line:
       - openebs
@@ -629,6 +666,7 @@ projects:
   opentelemetry:
     order: 38
     name: OpenTelemetry
+    project_url: 'opentelemetry.io'
     status: Graduated
     command_line:
       - open-telemetry,opentracing
@@ -644,6 +682,7 @@ projects:
   thanos:
     order: 39
     name: Thanos
+    project_url: 'thanos.io'
     status: Incubating
     command_line:
       - thanos-io,thanos-community
@@ -661,6 +700,7 @@ projects:
   flux:
     order: 40
     name: Flux
+    project_url: 'github.com/fluxcd'
     status: Graduated
     command_line:
       - fluxcd
@@ -681,6 +721,7 @@ projects:
   intoto:
     order: 41
     name: in-toto
+    project_url: 'in-toto.io'
     status: Graduated
     command_line:
       - in-toto
@@ -697,6 +738,7 @@ projects:
   strimzi:
     order: 42
     name: Strimzi
+    project_url: 'strimzi.io'
     status: Incubating
     command_line:
       - strimzi
@@ -713,6 +755,7 @@ projects:
   kubevirt:
     order: 43
     name: KubeVirt
+    project_url: 'kubevirt.io'
     status: Incubating
     command_line:
       - 'kubevirt,k8snetworkplumbingwg/kubemacpool,k8snetworkplumbingwg/multi-networkpolicy-iptables,k8snetworkplumbingwg/sriov-network-operator,nmstate/kubernetes-nmstate'
@@ -729,6 +772,7 @@ projects:
   longhorn:
     order: 44
     name: Longhorn
+    project_url: 'github.com/longhorn'
     status: Incubating
     command_line:
       - longhorn
@@ -746,6 +790,7 @@ projects:
   chubaofs:
     order: 45
     name: CubeFS
+    project_url: 'cubefs.io'
     status: Graduated
     command_line:
       - 'cubefs,chubaofs'
@@ -765,6 +810,7 @@ projects:
   keda:
     order: 46
     name: KEDA
+    project_url: 'keda.sh'
     status: Graduated
     command_line:
       - kedacore
@@ -783,6 +829,7 @@ projects:
   smi:
     order: 47
     name: SMI
+    project_url: 'smi-spec.io'
     status: Archived
     command_line:
       - servicemeshinterface
@@ -801,6 +848,7 @@ projects:
   argo:
     order: 48
     name: Argo
+    project_url: 'argoproj.github.io'
     status: Graduated
     command_line:
       - 'argoproj,argoproj-labs'
@@ -815,6 +863,7 @@ projects:
   volcano:
     order: 49
     name: Volcano
+    project_url: 'volcano.sh'
     status: Incubating
     command_line:
       - volcano-sh
@@ -829,6 +878,7 @@ projects:
   cnigenie:
     order: 50
     name: CNI-Genie
+    project_url: 'cni-genie.io'
     status: Archived
     command_line:
       - cni-genie
@@ -845,6 +895,7 @@ projects:
   keptn:
     order: 51
     name: Keptn
+    project_url: 'kepth.sh'
     status: Archived
     command_line:
       - keptn
@@ -860,6 +911,7 @@ projects:
   kudo:
     order: 52
     name: Kudo
+    project_url: 'kudo.dev'
     status: Sandbox
     command_line:
       - kudobuilder
@@ -876,6 +928,7 @@ projects:
   cloudcustodian:
     order: 53
     name: Cloud Custodian
+    project_url: 'cloudcustodian.io'
     status: Incubating
     command_line:
       - cloud-custodian
@@ -892,6 +945,7 @@ projects:
   dex:
     order: 54
     name: Dex
+    project_url: 'github.com/dexidp'
     status: Sandbox
     command_line:
       - dexidp
@@ -907,6 +961,7 @@ projects:
   litmuschaos:
     order: 55
     name: LitmusChaos
+    project_url: 'litmuschaos.io'
     status: Incubating
     command_line:
       - litmuschaos
@@ -923,6 +978,7 @@ projects:
   artifacthub:
     order: 56
     name: Artifact Hub
+    project_url: 'artifacthub.io'
     status: Incubating
     command_line:
       - artifacthub
@@ -939,6 +995,7 @@ projects:
   kuma:
     order: 57
     name: Kuma
+    project_url: 'kuma.io'
     status: Sandbox
     command_line:
       - 'kumahq,Kong/kumacut,Kong/docker-kuma'
@@ -955,6 +1012,7 @@ projects:
   parsec:
     order: 58
     name: PARSEC
+    project_url: 'github.com/parallaxsecond/parsec'
     status: Sandbox
     command_line:
       - parallaxsecond
@@ -970,6 +1028,7 @@ projects:
   bfe:
     order: 59
     name: BFE
+    project_url: 'bfe-networks.net'
     status: Sandbox
     command_line:
       - bfenetworks
@@ -985,6 +1044,7 @@ projects:
   crossplane:
     order: 60
     name: Crossplane
+    project_url: 'crossplane.io'
     status: Graduated
     command_line:
       - crossplane,crossplaneio,crossplane-contrib
@@ -1002,6 +1062,7 @@ projects:
   contour:
     order: 61
     name: Contour
+    project_url: 'projectcontour.io'
     status: Incubating
     command_line:
       - projectcontour
@@ -1017,6 +1078,7 @@ projects:
   operatorframework:
     order: 62
     name: Operator Framework
+    project_url: 'operatorhub.io'
     status: Incubating
     command_line:
       - operator-framework
@@ -1030,6 +1092,7 @@ projects:
   chaosmesh:
     order: 63
     name: Chaos Mesh
+    project_url: 'chaos-mesh.org'
     status: Incubating
     command_line:
       - chaos-mesh
@@ -1046,6 +1109,7 @@ projects:
   serverlessworkflow:
     order: 64
     name: Open Workflow Specification
+    project_url: 'open-workflow-specification.org'
     status: Sandbox
     command_line:
       - serverlessworkflow,open-workflow-specification
@@ -1062,6 +1126,7 @@ projects:
   k3s:
     order: 65
     name: K3s
+    project_url: 'k3s.io'
     status: Sandbox
     command_line:
       - 'k3s-io'
@@ -1082,6 +1147,7 @@ projects:
   backstage:
     order: 66
     name: Backstage
+    project_url: 'backstage.io'
     status: Incubating
     command_line:
       - 'backstage'
@@ -1098,6 +1164,7 @@ projects:
   tremor:
     order: 67
     name: Tremor
+    project_url: 'tremor.rs'
     status: Sandbox
     command_line:
       - tremor-rs
@@ -1113,6 +1180,7 @@ projects:
   metal3:
     order: 68
     name: metal3-io
+    project_url: 'metal3.io'
     status: Incubating
     command_line:
       - metal3-io
@@ -1127,6 +1195,7 @@ projects:
   porter:
     order: 69
     name: Porter
+    project_url: 'porter.sh'
     status: Sandbox
     command_line:
       - 'getporter'
@@ -1142,6 +1211,7 @@ projects:
   openyurt:
     order: 70
     name: OpenYurt
+    project_url: 'opeyurt.io'
     status: Incubating
     command_line:
       - 'openyurtio'
@@ -1158,6 +1228,7 @@ projects:
   openservicemesh:
     order: 71
     name: Open Service Mesh
+    project_url: 'openservicemesh.io'
     status: Archived
     command_line:
       - 'openservicemesh'
@@ -1172,6 +1243,7 @@ projects:
   keylime:
     order: 72
     name: Keylime
+    project_url: 'keylime.dev'
     status: Sandbox
     command_line:
       - 'keylime'
@@ -1187,6 +1259,7 @@ projects:
   schemahero:
     order: 73
     name: SchemaHero
+    project_url: 'schemahero.io'
     status: Sandbox
     command_line:
       - 'schemahero'
@@ -1200,6 +1273,7 @@ projects:
   cdk8s:
     order: 74
     name: cdk8s
+    project_url: 'cdk8s.io'
     status: Sandbox
     command_line:
       - 'cdk8s-team'
@@ -1215,6 +1289,7 @@ projects:
   certmanager:
     order: 75
     name: cert-manager
+    project_url: 'cert-manager.io'
     status: Graduated
     command_line:
       - 'cert-manager'
@@ -1232,6 +1307,7 @@ projects:
   openkruise:
     order: 76
     name: OpenKruise
+    project_url: 'openkruise.io'
     status: Incubating
     command_line:
       - 'openkruise'
@@ -1248,6 +1324,7 @@ projects:
   tinkerbell:
     order: 77
     name: Tinkerbell
+    project_url: 'tinkerbell.org'
     status: Sandbox
     command_line:
       - 'tinkerbell'
@@ -1263,6 +1340,7 @@ projects:
   pravega:
     order: 78
     name: Pravega
+    project_url: 'pravega.io'
     status: Archived
     command_line:
       - 'pravega'
@@ -1277,6 +1355,7 @@ projects:
   kyverno:
     order: 79
     name: Kyverno
+    project_url: 'kyverno.io'
     status: Graduated
     command_line:
       - 'kyverno'
@@ -1294,6 +1373,7 @@ projects:
   gitopswg:
     order: 80
     name: OpenGitOps
+    project_url: 'opengitops.dev'
     status: Sandbox
     command_line:
       - 'open-gitops,cncf/tag-app-delivery,gitops-working-group'
@@ -1311,6 +1391,7 @@ projects:
   piraeus:
     order: 81
     name: Piraeus-Datastore
+    project_url: 'piraeus.io'
     status: Sandbox
     command_line:
       - 'piraeusdatastore'
@@ -1324,6 +1405,7 @@ projects:
   k8dash:
     order: 82
     name: Skooner
+    project_url: 'skooner.io'
     status: Archived
     command_line:
       - 'skooner-k8s'
@@ -1341,6 +1423,7 @@ projects:
   athenz:
     order: 83
     name: Athenz
+    project_url: 'athenz.io'
     status: Sandbox
     command_line:
       - 'AthenZ'
@@ -1356,6 +1439,7 @@ projects:
   kubeovn:
     order: 84
     name: Kube-OVN
+    project_url: 'kube-ovn.io'
     status: Sandbox
     command_line:
       - 'kubeovn'
@@ -1371,6 +1455,7 @@ projects:
   curiefense:
     order: 85
     name: Curiefense
+    project_url: 'curiefense.io'
     status: Archived
     command_line:
       - 'curiefense'
@@ -1385,6 +1470,7 @@ projects:
   distribution:
     order: 86
     name: Distribution
+    project_url: 'github.com/distribution'
     status: Sandbox
     command_line:
       - 'distribution'
@@ -1400,6 +1486,7 @@ projects:
   ingraind:
     order: 87
     name: Foniod
+    project_url: 'ingraind.org'
     status: Archived
     command_line:
       - 'foniod'
@@ -1416,6 +1503,7 @@ projects:
   kuberhealthy:
     order: 88
     name: Kuberhealthy
+    project_url: 'github.com/Comcast/kuberhealthy'
     status: Sandbox
     command_line:
       - 'kuberhealthy'
@@ -1431,6 +1519,7 @@ projects:
   k8gb:
     order: 89
     name: K8GB
+    project_url: 'github.com/AbsaOSS/k8gb'
     status: Incubating
     command_line:
       - 'k8gb-io'
@@ -1447,6 +1536,7 @@ projects:
   trickster:
     order: 90
     name: Trickster
+    project_url: 'tricksterproxy.io'
     status: Sandbox
     command_line:
       - 'trickstercache'
@@ -1462,6 +1552,7 @@ projects:
   emissaryingress:
     order: 91
     name: Emissary-ingress
+    project_url: 'getambassador.io'
     status: Incubating
     command_line:
       - 'emissary-ingress'
@@ -1477,6 +1568,7 @@ projects:
   wasmedge:
     order: 92
     name: 'WasmEdge Runtime'
+    project_url: 'wasmedge.org'
     status: Sandbox
     command_line:
       - 'WasmEdge'
@@ -1492,6 +1584,7 @@ projects:
   chaosblade:
     order: 93
     name: ChaosBlade
+    project_url: 'github.com/chaosblade-io'
     status: Sandbox
     command_line:
       - 'chaosblade-io'
@@ -1505,6 +1598,7 @@ projects:
   vineyard:
     order: 94
     name: Vineyard
+    project_url: 'v6d.io'
     status: Archived
     command_line:
       - 'v6d-io'
@@ -1521,6 +1615,7 @@ projects:
   antrea:
     order: 95
     name: Antrea
+    project_url: 'antrea.io'
     status: Sandbox
     command_line:
       - 'antrea-io'
@@ -1536,6 +1631,7 @@ projects:
   fluid:
     order: 96
     name: Fluid
+    project_url: 'github.com/fluid-cloudnative'
     status: Incubating
     command_line:
       - 'fluid-cloudnative'
@@ -1552,6 +1648,7 @@ projects:
   submariner:
     order: 97
     name: Submariner
+    project_url: 'submariner.io'
     status: Sandbox
     command_line:
       - 'submariner-io'
@@ -1567,6 +1664,7 @@ projects:
   pixie:
     order: 98
     name: Pixie
+    project_url: 'px.dev'
     status: Sandbox
     command_line:
     - 'pixie-io'
@@ -1583,6 +1681,7 @@ projects:
   meshery:
     order: 99
     name: Meshery
+    project_url: 'layer5.io/meshery'
     status: Incubating
     command_line:
     - 'regexp:(?i)^(layer5io\/.*meshery|meshery\/.*|meshery-extensions\/.*)'
@@ -1597,6 +1696,7 @@ projects:
   servicemeshperformance:
     order: 100
     name: 'Service Mesh Performance'
+    project_url: 'smp-spec.io'
     status: Archived
     command_line:
     - 'regexp:(?i)^(layer5io\/.*(service-mesh|performance|benchmark)|service-mesh-performance\/.*)'
@@ -1611,6 +1711,7 @@ projects:
   kubevela:
     order: 101
     name: KubeVela
+    project_url: 'kubevela.io'
     status: Incubating
     command_line:
     - 'kubevela'
@@ -1627,6 +1728,7 @@ projects:
   kubevip:
     order: 102
     name: kube-vip
+    project_url: 'kube-vip.io'
     status: Sandbox
     command_line:
     - 'kube-vip'
@@ -1642,6 +1744,7 @@ projects:
   kubedl:
     order: 103
     name: KubeDL
+    project_url: 'kubedl.io'
     status: Archived
     command_line:
     - 'kubedl-io'
@@ -1658,6 +1761,7 @@ projects:
   krustlet:
     order: 104
     name: Krustlet
+    project_url: 'krustlet.dev'
     status: Archived
     command_line:
     - 'krustlet'
@@ -1674,6 +1778,7 @@ projects:
   krator:
     order: 105
     name: Krator
+    project_url: 'docs.rs/krator'
     status: Archived
     command_line:
     - 'krator-rs'
@@ -1688,6 +1793,7 @@ projects:
   oras:
     order: 106
     name: ORAS
+    project_url: 'oras.land'
     status: Sandbox
     command_line:
     - 'oras-project'
@@ -1703,6 +1809,7 @@ projects:
   wasmcloud:
     order: 107
     name: wasmCloud
+    project_url: 'wasmcloud.com'
     status: Incubating
     command_line:
     - 'wasmCloud'
@@ -1719,6 +1826,7 @@ projects:
   akri:
     order: 108
     name: Akri
+    project_url: 'docs.akri.sh'
     status: Sandbox
     command_line:
     - 'project-akri'
@@ -1734,6 +1842,7 @@ projects:
   metallb:
     order: 109
     name: MetalLB
+    project_url: 'metallb.org'
     status: Sandbox
     command_line:
     - 'metallb'
@@ -1749,6 +1858,7 @@ projects:
   karmada:
     order: 110
     name: Karmada
+    project_url: 'Karmada.io'
     status: Graduated
     command_line:
     - 'karmada-io'
@@ -1764,6 +1874,7 @@ projects:
   inclavarecontainers:
     order: 111
     name: Inclavare Containers
+    project_url: 'inclavare-containers.io'
     status: Sandbox
     command_line:
     - 'inclavare-containers'
@@ -1779,6 +1890,7 @@ projects:
   superedge:
     order: 112
     name: SuperEdge
+    project_url: 'github.com/superedge'
     status: Archived
     command_line:
     - 'superedge'
@@ -1793,6 +1905,7 @@ projects:
   cilium:
     order: 113
     name: Cilium
+    project_url: 'cilium.io'
     status: Graduated
     command_line:
     - 'cilium'
@@ -1809,6 +1922,7 @@ projects:
   dapr:
     order: 114
     name: Dapr
+    project_url: 'dapr.io'
     status: Graduated
     command_line:
     - 'dapr'
@@ -1823,6 +1937,7 @@ projects:
   openelb:
     order: 115
     name: OpenELB
+    project_url: 'openelb.github.io'
     status: Archived
     command_line:
     - 'openelb'
@@ -1839,6 +1954,7 @@ projects:
   openclustermanagement:
     order: 116
     name: Open Cluster Management
+    project_url: 'open-cluster-management.io'
     status: Sandbox
     command_line:
     - 'open-cluster-management-io'
@@ -1852,6 +1968,7 @@ projects:
   vscodek8stools:
     order: 117
     name: VS Code Kubernetes Tools
+    project_url: 'github.com/vscode-kubernetes-tools/vscode-kubernetes-tools'
     status: Sandbox
     command_line:
     - 'vscode-kubernetes-tools'
@@ -1867,6 +1984,7 @@ projects:
   nocalhost:
     order: 118
     name: Nocalhost
+    project_url: 'nocalhost.dev'
     status: Archived
     command_line:
     - 'nocalhost'
@@ -1881,6 +1999,7 @@ projects:
   kubearmor:
     order: 119
     name: KubeArmor
+    project_url: 'accuknox.com/kubearmor'
     status: Sandbox
     command_line:
     - 'kubearmor'
@@ -1896,6 +2015,7 @@ projects:
   k8up:
     order: 120
     name: K8up
+    project_url: 'k8up.io'
     status: Sandbox
     command_line:
     - 'k8up-io'
@@ -1911,6 +2031,7 @@ projects:
   kubers:
     order: 121
     name: kube-rs
+    project_url: 'docs.rs/kube'
     status: Sandbox
     command_line:
     - 'kube-rs'
@@ -1926,6 +2047,7 @@ projects:
   devfile:
     order: 122
     name: Devfile
+    project_url: 'github.com/devfile'
     status: Sandbox
     command_line:
     - 'devfile'
@@ -1941,6 +2063,7 @@ projects:
   knative:
     order: 123
     name: Knative
+    project_url: 'knative.dev'
     status: Graduated
     command_line:
       - 'knative,knative-sandbox,knative-extensions'
@@ -1955,6 +2078,7 @@ projects:
   fabedge:
     order: 124
     name: FabEdge
+    project_url: 'fabedge.io'
     status: Archived
     command_line:
       - 'FabEdge'
@@ -1969,6 +2093,7 @@ projects:
   confidentialcontainers:
     order: 125
     name: Confidential Containers
+    project_url: 'github.com/confidential-containers'
     status: Incubating
     command_line:
       - 'confidential-containers'
@@ -1983,6 +2108,7 @@ projects:
   openfunction:
     order: 126
     name: OpenFunction
+    project_url: 'openfunction.dev'
     status: Sandbox
     command_line:
       - 'OpenFunction'
@@ -1996,6 +2122,7 @@ projects:
   teller:
     order: 127
     name: Teller
+    project_url: 'tlr.dev'
     status: Archived
     command_line:
       - 'tellerops,SpectralOps/setup-teller-action'
@@ -2013,6 +2140,7 @@ projects:
   sealer:
     order: 128
     name: sealer
+    project_url: 'sealer.cool'
     status: Archived
     command_line:
       - 'sealerio/sealer'
@@ -2029,6 +2157,7 @@ projects:
   clusterpedia:
     order: 129
     name: Clusterpedia
+    project_url: 'clusterpedia.io'
     status: Sandbox
     command_line:
       - 'clusterpedia-io'
@@ -2042,6 +2171,7 @@ projects:
   opencost:
     order: 130
     name: OpenCost
+    project_url: 'kubecost.com'
     status: Incubating
     command_line:
       - 'opencost'
@@ -2057,6 +2187,7 @@ projects:
   aerakimesh:
     order: 131
     name: 'Aeraki Mesh'
+    project_url: 'aeraki.net'
     status: Sandbox
     command_line:
       - 'aeraki-mesh'
@@ -2072,6 +2203,7 @@ projects:
   curve:
     order: 132
     name: Curve
+    project_url: 'opencurve.io'
     status: Archived
     command_line:
       - 'opencurve'
@@ -2086,6 +2218,7 @@ projects:
   openfeature:
     order: 133
     name: OpenFeature
+    project_url: 'openfeature.dev'
     status: Incubating
     command_line:
       - 'open-feature'
@@ -2102,6 +2235,7 @@ projects:
   kubewarden:
     order: 134
     name: kubewarden
+    project_url: 'kubewarden.io'
     status: Sandbox
     command_line:
       - 'kubewarden'
@@ -2117,6 +2251,7 @@ projects:
   devstream:
     order: 135
     name: DevStream
+    project_url: 'devstream.io'
     status: Archived
     command_line:
       - 'devstream-io'
@@ -2133,6 +2268,7 @@ projects:
   hexapolicyorchestrator:
     order: 136
     name: "Hexa"
+    project_url: 'hexaorchestration.org'
     status: Archived
     command_line:
       - 'hexa-org'
@@ -2147,6 +2283,7 @@ projects:
   konveyor:
     order: 137
     name: Konveyor
+    project_url: 'konveyor.io'
     status: Sandbox
     command_line:
       - 'konveyor'
@@ -2162,6 +2299,7 @@ projects:
   armada:
     order: 138
     name: Armada
+    project_url: 'armadaproject.io'
     status: Sandbox
     command_line:
       - 'armadaproject'
@@ -2177,6 +2315,7 @@ projects:
   externalsecretsoperator:
     order: 139
     name: 'External Secrets Operator'
+    project_url: 'external-secrets.io'
     status: Sandbox
     command_line:
       - 'external-secrets'
@@ -2190,6 +2329,7 @@ projects:
   serverlessdevs:
     order: 140
     name: 'Serverless Devs'
+    project_url: 'serverless-devs.com'
     status: Sandbox
     command_line:
       - 'Serverless-Devs'
@@ -2205,6 +2345,7 @@ projects:
   containerssh:
     order: 141
     name: ContainerSSH
+    project_url: 'containerssh.io'
     status: Sandbox
     command_line:
       - 'ContainerSSH'
@@ -2220,6 +2361,7 @@ projects:
   openfga:
     order: 142
     name: OpenFGA
+    project_url: 'openfga.dev'
     status: Incubating
     command_line:
       - 'openfga'
@@ -2234,6 +2376,7 @@ projects:
   kured:
     order: 143
     name: Kured
+    project_url: 'github.com/weaveworks/kured'
     status: Sandbox
     command_line:
       - 'kubereboot'
@@ -2249,6 +2392,7 @@ projects:
   carvel:
     order: 144
     name: Carvel
+    project_url: 'carvel.dev'
     status: Sandbox
     command_line:
       - 'carvel-dev'
@@ -2265,6 +2409,7 @@ projects:
   lima:
     order: 145
     name: Lima
+    project_url: 'github.com/lima-vm/lima'
     status: Incubating
     command_line:
       - 'lima-vm'
@@ -2281,6 +2426,7 @@ projects:
   istio:
     order: 146
     name: Istio
+    project_url: 'istio.io'
     status: Graduated
     command_line:
       - istio,istio-ecosystem
@@ -2296,6 +2442,7 @@ projects:
   merbridge:
     order: 147
     name: Merbridge
+    project_url: 'merbridge.io'
     status: Archived
     command_line:
       - merbridge
@@ -2312,6 +2459,7 @@ projects:
   devspace:
     order: 148
     name: DevSpace
+    project_url: 'loft.sh'
     status: Sandbox
     command_line:
       - 'devspace-cloud,devspace-sh'
@@ -2327,6 +2475,7 @@ projects:
   capsule:
     order: 149
     name: Capsule
+    project_url: 'capsule.clastix.io'
     status: Sandbox
     command_line:
       - 'projectcapsule'
@@ -2342,6 +2491,7 @@ projects:
   zot:
     order: 150
     name: zot
+    project_url: 'zotregistry.io'
     status: Sandbox
     command_line:
       - project-zot
@@ -2357,6 +2507,7 @@ projects:
   paralus:
     order: 151
     name: Paralus
+    project_url: 'paralus.io'
     status: Sandbox
     command_line:
       - paralus
@@ -2370,6 +2521,7 @@ projects:
   carina:
     order: 152
     name: Carina
+    project_url: 'opencarina.com'
     status: Sandbox
     command_line:
       - carina-io
@@ -2383,6 +2535,7 @@ projects:
   ko:
     order: 153
     name: ko
+    project_url: 'ko.build'
     status: Sandbox
     command_line:
       - ko-build
@@ -2398,6 +2551,7 @@ projects:
   opcr:
     order: 154
     name: OPCR
+    project_url: 'openpolicyregistry.io'
     status: Sandbox
     command_line:
       - opcr-io
@@ -2411,6 +2565,7 @@ projects:
   werf:
     order: 155
     name: werf
+    project_url: 'werf.io'
     status: Sandbox
     command_line:
       - werf
@@ -2426,6 +2581,7 @@ projects:
   kubescape:
     order: 156
     name: Kubescape
+    project_url: 'github.com/kubescape'
     status: Incubating
     command_line:
       - kubescape
@@ -2442,6 +2598,7 @@ projects:
   inspektorgadget:
     order: 157
     name: Inspektor Gadget
+    project_url: 'inspektor-gadget.io'
     status: Sandbox
     command_line:
       - inspektor-gadget
@@ -2457,6 +2614,7 @@ projects:
   clusternet:
     order: 158
     name: Clusternet
+    project_url: 'clusternet.io'
     status: Sandbox
     command_line:
       - clusternet
@@ -2470,6 +2628,7 @@ projects:
   keycloak:
     order: 159
     name: Keycloak
+    project_url: 'keycloak.org'
     status: Incubating
     command_line:
       - keycloak
@@ -2485,6 +2644,7 @@ projects:
   sops:
     order: 160
     name: SOPS
+    project_url: 'github.com/mozilla/sops'
     status: Sandbox
     command_line:
       - 'getsops'
@@ -2500,6 +2660,7 @@ projects:
   headlamp:
     order: 161
     name: Headlamp
+    project_url: 'headlamp.dev'
     status: Sandbox
     command_line:
       - 'headlamp-k8s,kubernetes-sigs/headlamp'
@@ -2516,6 +2677,7 @@ projects:
   slimtoolkit:
     order: 162
     name: SlimToolkit
+    project_url: 'slimtoolkit.org'
     status: Sandbox
     command_line:
       - 'slimtoolkit'
@@ -2531,6 +2693,7 @@ projects:
   kepler:
     order: 163
     name: Kepler
+    project_url: 'sustainable-computing.io'
     status: Sandbox
     command_line:
       - 'sustainable-computing-io'
@@ -2544,6 +2707,7 @@ projects:
   pipecd:
     order: 164
     name: PipeCD
+    project_url: 'pipecd.dev'
     status: Sandbox
     command_line:
       - 'pipe-cd'
@@ -2557,6 +2721,7 @@ projects:
   eraser:
     order: 165
     name: Eraser
+    project_url: 'azure.github.io/eraser'
     status: Sandbox
     command_line:
       - 'eraser-dev'
@@ -2572,6 +2737,7 @@ projects:
   xline:
     order: 166
     name: Xline
+    project_url: 'xline.cloud'
     status: Archived
     command_line:
       - 'xline-kv'
@@ -2588,6 +2754,7 @@ projects:
   hwameistor:
     order: 167
     name: Hwameistor
+    project_url: 'hwameistor.io'
     status: Sandbox
     command_line:
       - 'hwameistor'
@@ -2601,6 +2768,7 @@ projects:
   kpt:
     order: 168
     name: kpt
+    project_url: 'kpt.dev'
     status: Sandbox
     command_line:
       - 'kptdev'
@@ -2616,6 +2784,7 @@ projects:
   microcks:
     order: 169
     name: Microcks
+    project_url: 'microcks.io'
     status: Incubating
     command_line:
       - 'microcks'
@@ -2630,6 +2799,7 @@ projects:
   kubeclipper:
     order: 170
     name: Kubeclipper
+    project_url: 'kubeclipper.io'
     status: Sandbox
     command_line:
       - 'kubeclipper,kubeclipper-labs'
@@ -2643,6 +2813,7 @@ projects:
   kubeflow:
     order: 171
     name: Kubeflow
+    project_url: 'kubeflow.org'
     status: Graduated
     command_line:
       - 'kubeflow'
@@ -2659,6 +2830,7 @@ projects:
   copacetic:
     order: 172
     name: Copa
+    project_url: 'project-copacetic.github.io/copacetic'
     status: Sandbox
     command_line:
       - 'project-copacetic'
@@ -2672,6 +2844,7 @@ projects:
   loggingoperator:
     order: 173
     name: 'Logging Operator'
+    project_url: 'kube-logging.dev'
     status: Sandbox
     command_line:
       - 'kube-logging'
@@ -2687,6 +2860,7 @@ projects:
   kanister:
     order: 174
     name: Kanister
+    project_url: 'kanister.io'
     status: Sandbox
     command_line:
       - 'kanisterio'
@@ -2700,6 +2874,7 @@ projects:
   kcp:
     order: 175
     name: kcp
+    project_url: 'kcp.io'
     status: Sandbox
     command_line:
       - 'kcp-dev'
@@ -2713,6 +2888,7 @@ projects:
   kcl:
     order: 176
     name: KCL
+    project_url: 'kcl-lang.io'
     status: Sandbox
     command_line:
       - 'kcl-lang'
@@ -2728,6 +2904,7 @@ projects:
   kubeburner:
     order: 177
     name: 'kube-burner'
+    project_url: 'cloud-bulldozer.github.io/kube-burner/'
     status: Sandbox
     command_line:
       - 'kube-burner'
@@ -2743,6 +2920,7 @@ projects:
   kuasar:
     order: 178
     name: Kuasar
+    project_url: 'kuasar.io'
     status: Sandbox
     command_line:
       - 'kuasar-io'
@@ -2756,6 +2934,7 @@ projects:
   krknchaos:
     order: 179
     name: krkn
+    project_url: 'github.com/redhat-chaos/krknChaos'
     status: Sandbox
     command_line:
       - 'krkn-chaos'
@@ -2772,6 +2951,7 @@ projects:
   kubestellar:
     order: 180
     name: Kubestellar
+    project_url: 'kubestellar.io'
     status: Sandbox
     command_line:
       - 'kubestellar,hivecommons'
@@ -2787,6 +2967,7 @@ projects:
   easegress:
     order: 181
     name: easegress
+    project_url: 'megaease.com/easegress/'
     status: Sandbox
     command_line:
       - 'easegress-io'
@@ -2802,6 +2983,7 @@ projects:
   spiderpool:
     order: 182
     name: Spiderpool
+    project_url: 'spidernet-io.github.io/spiderpool/'
     status: Sandbox
     command_line:
       - 'spidernet-io'
@@ -2815,6 +2997,7 @@ projects:
   k8sgpt:
     order: 183
     name: K8sGPT
+    project_url: 'k8sgpt.ai'
     status: Sandbox
     command_line:
       - 'k8sgpt-ai'
@@ -2828,6 +3011,7 @@ projects:
   kubeslice:
     order: 184
     name: Kubeslice
+    project_url: 'kubeslice.io'
     status: Sandbox
     command_line:
       - kubeslice
@@ -2841,6 +3025,7 @@ projects:
   connect:
     order: 185
     name: "Connect RPC"
+    project_url: 'connectrpc.com'
     status: Sandbox
     command_line:
       - connectrpc
@@ -2856,6 +3041,7 @@ projects:
   kairos:
     order: 186
     name: Kairos
+    project_url: 'kairos.io'
     status: Sandbox
     command_line:
       - kairos-io
@@ -2871,6 +3057,7 @@ projects:
   kubean:
     order: 187
     name: Kubean
+    project_url: 'kubean-io.github.io/kubean/'
     status: Sandbox
     command_line:
       - kubean-io
@@ -2884,6 +3071,7 @@ projects:
   koordinator:
     order: 188
     name: Koordinator
+    project_url: 'koordinator.sh'
     status: Sandbox
     command_line:
       - koordinator-sh
@@ -2897,6 +3085,7 @@ projects:
   radius:
     order: 189
     name: Radius
+    project_url: 'radapp.io'
     status: Sandbox
     command_line:
       - radius-project
@@ -2910,6 +3099,7 @@ projects:
   bankvaults:
     order: 190
     name: Bank-Vaults
+    project_url: 'bank-vaults.dev'
     status: Sandbox
     command_line:
       - bank-vaults
@@ -2925,6 +3115,7 @@ projects:
   atlantis:
     order: 191
     name: Atlantis
+    project_url: 'runatlantis.io'
     status: Sandbox
     command_line:
       - runatlantis
@@ -2940,6 +3131,7 @@ projects:
   stacker:
     order: 192
     name: Stacker
+    project_url: 'stackerbuild.io'
     status: Sandbox
     command_line:
       - project-stacker
@@ -2955,6 +3147,7 @@ projects:
   trestlegrc:
     order: 193
     name: TrestleGRC
+    project_url: 'oscal-compass.github.io'
     status: Sandbox
     command_line:
       - oscal-compass
@@ -2970,6 +3163,7 @@ projects:
   kuadrant:
     order: 194
     name: Kuadrant
+    project_url: 'kuadrant.io'
     status: Sandbox
     command_line:
       - Kuadrant
@@ -2985,6 +3179,7 @@ projects:
   opengemini:
     order: 195
     name: openGemini
+    project_url: 'opengemini.org'
     status: Sandbox
     command_line:
       - openGemini
@@ -2998,6 +3193,7 @@ projects:
   score:
     order: 196
     name: Score
+    project_url: 'score.dev'
     status: Sandbox
     command_line:
       - score-spec
@@ -3011,6 +3207,7 @@ projects:
   bpfman:
     order: 197
     name: bpfman
+    project_url: 'bpfman.io'
     status: Sandbox
     command_line:
       - bpfman
@@ -3026,6 +3223,7 @@ projects:
   loxilb:
     order: 198
     name: LoxiLB
+    project_url: 'loxilb.io'
     status: Sandbox
     command_line:
       - loxilb-io
@@ -3039,6 +3237,7 @@ projects:
   cartography:
     order: 199
     name: Cartography
+    project_url: 'lyft.github.io/cartography'
     status: Sandbox
     command_line:
       - cartography-cncf
@@ -3054,6 +3253,7 @@ projects:
   perses:
     order: 200
     name: Perses
+    project_url: 'perses.dev'
     status: Sandbox
     command_line:
       - perses
@@ -3067,6 +3267,7 @@ projects:
   ratify:
     order: 201
     name: Ratify
+    project_url: 'ratify.dev'
     status: Sandbox
     command_line:
       - "ratify-project,notaryproject/ratify,notaryproject/ratify-web,\
@@ -3085,6 +3286,7 @@ projects:
   hami:
     order: 202
     name: HAMi
+    project_url: 'project-hami.io'
     status: Incubating
     command_line:
       - Project-HAMi
@@ -3099,6 +3301,7 @@ projects:
   shipwrightcncf:
     order: 203
     name: Shipwright
+    project_url: 'shipwright.io'
     status: Sandbox
     command_line:
       - shipwright-io
@@ -3115,6 +3318,7 @@ projects:
   flatcar:
     order: 204
     name: Flatcar
+    project_url: 'flatcar.org'
     status: Incubating
     command_line:
       - flatcar,flatcar-linux
@@ -3131,6 +3335,7 @@ projects:
   kusionstack:
     order: 205
     name: KusionStack
+    project_url: 'kusionstack.io'
     status: Sandbox
     command_line:
       - KusionStack
@@ -3144,6 +3349,7 @@ projects:
   youki:
     order: 206
     name: Youki
+    project_url: 'containers.github.io/youki'
     status: Sandbox
     command_line:
       - youki-dev
@@ -3159,6 +3365,7 @@ projects:
   kaito:
     order: 207
     name: KAITO
+    project_url: 'github.com/kaito-project/kaito'
     status: Sandbox
     command_line:
       - kaito-project
@@ -3174,6 +3381,7 @@ projects:
   sermant:
     order: 208
     name: Sermant
+    project_url: 'sermant.io'
     status: Sandbox
     command_line:
       - sermant-io
@@ -3190,6 +3398,7 @@ projects:
   kmesh:
     order: 209
     name: Kmesh
+    project_url: 'kmesh.net'
     status: Sandbox
     command_line:
       - kmesh-net
@@ -3203,6 +3412,7 @@ projects:
   ovnkubernetes:
     order: 210
     name: OVN-Kubernetes
+    project_url: 'ovn-kubernetes.io'
     status: Sandbox
     command_line:
       - ovn-org,ovn-kubernetes
@@ -3218,6 +3428,7 @@ projects:
   tratteria:
     order: 211
     name: Tokenetes
+    project_url: 'tokenetes.io'
     status: Sandbox
     command_line:
       - tokenetes
@@ -3233,6 +3444,7 @@ projects:
   spin:
     order: 212
     name: Spin
+    project_url: 'developer.fermyon.com/spin'
     status: Sandbox
     command_line:
       - spinframework
@@ -3249,6 +3461,7 @@ projects:
   spinkube:
     order: 213
     name: SpinKube
+    project_url: 'spinkube.dev'
     status: Sandbox
     command_line:
       - spinframework
@@ -3264,6 +3477,7 @@ projects:
   slimfaas:
     order: 214
     name: SlimFaaS
+    project_url: 'github.com/AxaFrance/SlimFaas'
     status: Sandbox
     command_line:
       - SlimPlanet
@@ -3279,6 +3493,7 @@ projects:
   container2wasm:
     order: 215
     name: container2wasm
+    project_url: 'github.com/ktock/container2wasm'
     status: Sandbox
     command_line:
       - container2wasm
@@ -3294,6 +3509,7 @@ projects:
   k0s:
     order: 216
     name: k0s
+    project_url: 'k0sproject.io'
     status: Sandbox
     command_line:
       - k0sproject
@@ -3307,6 +3523,7 @@ projects:
   runmenotebooks:
     order: 217
     name: "Runme Notebooks"
+    project_url: 'runme.dev'
     status: Sandbox
     command_line:
       - runmedev
@@ -3322,6 +3539,7 @@ projects:
   cloudnativepg:
     order: 218
     name: CloudNativePG
+    project_url: 'cloudnative-pg.io'
     status: Sandbox
     command_line:
       - cloudnative-pg
@@ -3335,6 +3553,7 @@ projects:
   kubefleet:
     order: 219
     name: KubeFleet
+    project_url: 'github.com/Azure/fleet'
     status: Sandbox
     command_line:
       - 'regexp:(?i)^(Azure\/.*fleet.*|kubefleet-dev\/.*)$'
@@ -3348,6 +3567,7 @@ projects:
   podmandesktop:
     order: 220
     name: "Podman Desktop"
+    project_url: 'podman-desktop.io'
     status: Sandbox
     command_line:
       - podman-desktop
@@ -3364,6 +3584,7 @@ projects:
   podmancontainertools:
     order: 221
     name: "Podman Container Tools"
+    project_url: 'podman.io'
     status: Sandbox
     command_line:
       - 'regexp:(?i)^(podman-container-tools\/(podman|buildah|skopeo)|containers\/(netavark|aardvark-dns|image|storage|common|conmon|podman-py))$'
@@ -3381,6 +3602,7 @@ projects:
   bootc:
     order: 222
     name: bootc
+    project_url: 'containers.github.io/bootc'
     status: Sandbox
     command_line:
       - bootc-dev
@@ -3396,6 +3618,7 @@ projects:
   composefs:
     order: 223
     name: composefs
+    project_url: 'github.com/containers/composefs'
     status: Sandbox
     command_line:
       - composefs
@@ -3411,6 +3634,7 @@ projects:
   drasi:
     order: 224
     name: Drasi
+    project_url: 'drasi.io'
     status: Sandbox
     command_line:
       - drasi-project
@@ -3424,6 +3648,7 @@ projects:
   interlink:
     order: 225
     name: Interlink
+    project_url: 'interwin.eu'
     status: Sandbox
     command_line:
       - 'interlink-hq'
@@ -3440,6 +3665,7 @@ projects:
   cozystack:
     order: 226
     name: CozyStack
+    project_url: 'cozystack.io'
     status: Sandbox
     command_line:
       - 'regexp:(?i)^(cozystack\/.*|blockstor\/.*|aenix-io\/(.*cozy.*|etcd-operator|talm|talos-bootstrap|kubernetes-in-kubernetes|kubefarm))$'
@@ -3453,6 +3679,7 @@ projects:
   kgateway:
     order: 227
     name: kgateway
+    project_url: 'kgateway.dev'
     status: Sandbox
     command_line:
       - 'kgateway-dev'
@@ -3468,6 +3695,7 @@ projects:
   kitops:
     order: 228
     name: KitOps
+    project_url: 'kitops.ml'
     status: Sandbox
     command_line:
       - 'kitops-ml'
@@ -3484,6 +3712,7 @@ projects:
   hyperlight:
     order: 229
     name: Hyperlight
+    project_url: 'hyperlight.org'
     status: Sandbox
     command_line:
       - hyperlight-dev
@@ -3497,6 +3726,7 @@ projects:
   opentofu:
     order: 230
     name: OpenTofu
+    project_url: 'opentofu.org'
     status: Sandbox
     command_line:
       - opentofu
@@ -3512,6 +3742,7 @@ projects:
   cadence:
     order: 231
     name: Cadence
+    project_url: 'cadenceworkflow.io'
     status: Sandbox
     command_line:
       - cadence-workflow
@@ -3527,6 +3758,7 @@ projects:
   kagent:
     order: 232
     name: kagent
+    project_url: 'kagent.dev'
     status: Sandbox
     command_line:
       - kagent-dev
@@ -3540,6 +3772,7 @@ projects:
   urunc:
     order: 233
     name: urunc
+    project_url: 'urunc.io'
     status: Sandbox
     command_line:
       - urunc-dev
@@ -3555,6 +3788,7 @@ projects:
   xregistry:
     order: 234
     name: xRegistry
+    project_url: 'xregistry.io'
     status: Sandbox
     command_line:
       - xregistry
@@ -3568,6 +3802,7 @@ projects:
   modelpack:
     order: 235
     name: ModelPack
+    project_url: 'github.com/CloudNativeAI/model-spec'
     status: Sandbox
     command_line:
       - CloudNativeAI,modelpack
@@ -3581,6 +3816,7 @@ projects:
   kserve:
     order: 236
     name: KServe
+    project_url: 'kserve.github.io/website'
     status: Incubating
     command_line:
       - kserve
@@ -3596,6 +3832,7 @@ projects:
   oauth2proxy:
     order: 237
     name: "OAuth2-Proxy"
+    project_url: 'oauth2-proxy.dev'
     status: Sandbox
     command_line:
       - oauth2-proxy
@@ -3611,6 +3848,7 @@ projects:
   oxia:
     order: 238
     name: Oxia
+    project_url: 'oxia-db.github.io'
     status: Sandbox
     command_line:
       - oxia-db
@@ -3626,6 +3864,7 @@ projects:
   holmesgpt:
     order: 239
     name: HolmesGPT
+    project_url: 'holmesgpt.dev'
     status: Sandbox
     command_line:
       - HolmesGPT,robusta-dev/homebrew-holmesgpt,robusta-dev/holmesgpt-community-toolsets
@@ -3642,6 +3881,7 @@ projects:
   cedarpolicy:
     order: 240
     name: "Cedar Policy"
+    project_url: 'cedarpolicy.com'
     status: Sandbox
     command_line:
       - cedar-policy
@@ -3655,6 +3895,7 @@ projects:
   dalec:
     order: 241
     name: Dalec
+    project_url: 'azure.github.io/dalec'
     status: Sandbox
     command_line:
       - project-dalec
@@ -3670,6 +3911,7 @@ projects:
   openchoreo:
     order: 242
     name: OpenChoreo
+    project_url: 'openchoreo.dev'
     status: Sandbox
     command_line:
       - openchoreo
@@ -3685,6 +3927,7 @@ projects:
   cohdi:
     order: 243
     name: CoHDI
+    project_url: 'github.com/CoHDI'
     status: Sandbox
     command_line:
       - CoHDI
@@ -3700,6 +3943,7 @@ projects:
   kubeelasti:
     order: 244
     name: KubeElasti
+    project_url: 'kubeelasti.dev'
     status: Sandbox
     command_line:
       - KubeElasti
@@ -3716,6 +3960,7 @@ projects:
   kaischeduler:
     order: 245
     name: KAI-Scheduler
+    project_url: 'github.com/NVIDIA/KAI-Scheduler'
     status: Sandbox
     command_line:
       - kai-scheduler
@@ -3731,6 +3976,7 @@ projects:
   agones:
     order: 246
     name: Agones
+    project_url: 'agones.dev'
     status: Sandbox
     command_line:
       - agones-dev,googleforgames/space-agon,googleforgames/global-multiplayer-demo
@@ -3749,6 +3995,7 @@ projects:
   velero:
     order: 247
     name: Velero
+    project_url: 'velero.io'
     status: Sandbox
     command_line:
       - 'regexp:(?i)^(velero-io\/.*|vmware-tanzu\/.*velero.*)$'
@@ -3766,6 +4013,7 @@ projects:
   openeverest:
     order: 248
     name: OpenEverest
+    project_url: 'openeverest.io'
     status: Sandbox
     command_line:
       - openeverest
@@ -3781,6 +4029,7 @@ projects:
   nmstate:
     order: 249
     name: NMstate
+    project_url: 'nmstate.io'
     status: Sandbox
     command_line:
       - nmstate
@@ -3794,6 +4043,7 @@ projects:
   higress:
     order: 250
     name: Higress
+    project_url: 'higress.ai'
     status: Sandbox
     command_line:
       - higress-group
@@ -3809,6 +4059,7 @@ projects:
   llmd:
     order: 251
     name: llm-d
+    project_url: 'llm-d.ai'
     status: Sandbox
     command_line:
       - llm-d
@@ -3822,6 +4073,7 @@ projects:
   tekton:
     order: 252
     name: Tekton
+    project_url: 'tekton.dev'
     status: Incubating
     command_line:
       - tektoncd,tektoncd-catalog
@@ -3837,6 +4089,7 @@ projects:
   apicurioregistry:
     order: 253
     name: "Apicurio Registry"
+    project_url: 'apicur.io/registry'
     status: Sandbox
     command_line:
       - 'regexp:(?i)^apicurio\/apicurio-registry.*$'
@@ -3850,6 +4103,7 @@ projects:
   kbind:
     order: 254
     name: kbind
+    project_url: 'kbind.dev'
     status: Sandbox
     command_line:
       - kbind-dev
@@ -3865,6 +4119,7 @@ projects:
   curvine:
     order: 255
     name: Curvine
+    project_url: 'curvineio.github.io'
     status: Sandbox
     command_line:
       - CurvineIO
@@ -3878,6 +4133,7 @@ projects:
   sdc:
     order: 256
     name: SDC
+    project_url: 'docs.sdcio.dev'
     status: Sandbox
     command_line:
       - sdcio
@@ -3893,6 +4149,7 @@ projects:
   kuberay:
     order: 257
     name: KubeRay
+    project_url: 'docs.ray.io'
     status: Sandbox
     command_line:
       - ray-project
@@ -3906,6 +4163,7 @@ projects:
   k2s:
     order: 258
     name: K2s
+    project_url: 'siemens-healthineers.github.io/K2s/'
     status: Sandbox
     command_line:
       - Siemens-Healthineers/K2s
@@ -3919,6 +4177,7 @@ projects:
   openshell:
     order: 259
     name: OpenShell
+    project_url: 'docs.nvidia.com/openshell/latest/'
     status: Sandbox
     command_line:
       - 'regexp:(?i)^NVIDIA\/OpenShell.*$'
@@ -3932,6 +4191,7 @@ projects:
   hivecommons:
     order: 260
     name: 'Hive Commons'
+    project_url: 'hivecommons.dev'
     status: Sandbox
     command_line:
       - hivecommons
@@ -3947,6 +4207,7 @@ projects:
   praxis:
     order: 261
     name: Praxis
+    project_url: 'praxis.fast'
     status: Sandbox
     command_line:
       - praxis-proxy
@@ -3962,6 +4223,7 @@ projects:
   airunway:
     order: 262
     name: 'AI Runway'
+    project_url: 'ai-runway.github.io/airunway'
     status: Sandbox
     command_line:
       - ai-runway
@@ -3977,6 +4239,7 @@ projects:
   agentsubstrate:
     order: 263
     name: 'Agent Substrate'
+    project_url: 'groups.google.com/g/ate-dev'
     status: Sandbox
     command_line:
       - agent-substrate
@@ -3990,6 +4253,7 @@ projects:
   openrl:
     order: 264
     name: 'OpenRL'
+    project_url: 'github.com/gke-labs/open-rl'
     status: Sandbox
     command_line:
       - gke-labs/open-rl
@@ -4003,6 +4267,7 @@ projects:
   opencontainers:
     order: 10001
     name: OCI
+    project_url: 'opencontainers.org'
     status: "-"
     command_line:
       - opencontainers
@@ -4021,6 +4286,7 @@ projects:
   cncf:
     order: 10004
     name: CNCF
+    project_url: 'cncf.io'
     status: "-"
     command_line:
       - 'cncf,crosscloudci,cdfoundation,cncf-tags'
@@ -4036,6 +4302,7 @@ projects:
   nodejs:
     order: 10005
     name: Node.js
+    project_url: 'nodejs.org'
     status: "-"
     command_line:
       - 'nodejs'
@@ -4051,6 +4318,7 @@ projects:
   linux:
     order: 10006
     name: Linux
+    project_url: 'kernel.org'
     status: "-"
     command_line:
       - torvalds
@@ -4070,6 +4338,7 @@ projects:
   zephyr:
     order: 10007
     name: Zephyr
+    project_url: 'zephyrproject.org'
     status: "-"
     command_line:
       - zephyrproject-rtos
@@ -4085,6 +4354,7 @@ projects:
   sam:
     order: 10008
     name: AWS SAM
+    project_url: 'aws.amazon.com/serverless/sam'
     status: "-"
     command_line:
       - 'awslabs/aws-sam-cli,awslabs/serverless-application-model'
@@ -4102,6 +4372,7 @@ projects:
   azf:
     order: 10009
     name: AZF
+    project_url: 'azure.microsoft.com'
     status: "-"
     command_line:
       - "Azure/azure-functions-host,Azure/azure-webjobs-sdk,Azure/azure-webjobs-sdk-extensions,Azure/azure-functions-durable-extension,\
@@ -4126,6 +4397,7 @@ projects:
   riff:
     order: 10010
     name: Pivotal Riff
+    project_url: 'projectriff.io'
     status: "-"
     command_line:
       - 'projectriff'
@@ -4145,6 +4417,7 @@ projects:
   fn:
     order: 10011
     name: Oracle Fn
+    project_url: 'fnproject.io'
     status: "-"
     command_line:
       - 'fnproject'
@@ -4162,6 +4435,7 @@ projects:
   openwhisk:
     order: 10012
     name: Apache OpenWhisk
+    project_url: 'openwhisk.apache.org'
     status: "-"
     command_line:
       - 'apache/openwhisk'
@@ -4178,6 +4452,7 @@ projects:
   openfaas:
     order: 10013
     name: OpenFaaS
+    project_url: 'openfaas.com'
     status: "-"
     command_line:
       - 'openfaas'
@@ -4199,6 +4474,7 @@ projects:
   cii:
     order: 10014
     name: CII
+    project_url: 'coreinfrastructure.org'
     status: "-"
     command_line:
       - "BendingBender/object-assign-shim,DataTables/DataTables,FasterXML/jackson-annotations,FasterXML/jackson-core,FasterXML/jackson-databind,\
@@ -4248,6 +4524,7 @@ projects:
   prestodb:
     order: 10015
     name: Presto
+    project_url: 'prestodb.io'
     status: "-"
     command_line:
       - 'prestodb'
@@ -4262,6 +4539,7 @@ projects:
   godotengine:
     order: 10016
     name: Godot Engine
+    project_url: 'godotengine.org'
     status: "-"
     command_line:
       - 'godotengine'
@@ -4275,6 +4553,7 @@ projects:
   all:
     order: 1001
     name: All CNCF
+    project_url: 'cncf.io'
     status: "-"
     command_line:
       - "kubernetes,kubernetes-client,kubernetes-incubator,kubernetes-helm,getsops,\
@@ -4506,7 +4785,7 @@ projects:
          jozu-ai/homebrew-kitops,k14s/kapp,k14s/kapp-controller,k14s/kbld,k14s/vendir,\
          projectatomic/skopeo,stateful/vscode-runme,vmware-tanzu/homebrew-carvel,\
          praxis-proxy,shaneutt/praxis,ai-runway,kaito-project/airunway,\
-         kaito-project/kubeairunway,Azure/kuberunway,sozercan/kube-foundry,
+         kaito-project/kubeairunway,Azure/kuberunway,sozercan/kube-foundry,\
          agent-substrate,gke-labs/open-rl"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
@@ -4530,6 +4809,7 @@ projects:
   graphql:
     order: 3001
     name: GraphQL
+    project_url: 'graphql.org'
     status: Archived
     command_line: ['graphql']
     hist_command_line:
@@ -4544,6 +4824,7 @@ projects:
   graphqljs:
     order: 2001
     name: GraphQL JavaScript
+    project_url: 'github.com/graphql/graphql-js'
     status: Archived
     command_line: ['graphql/graphql-js']
     start_date: 2015-07-02T00:00:00Z
@@ -4557,6 +4838,7 @@ projects:
   graphiql:
     order: 2002
     name: GraphQL IDE
+    project_url: 'github.com/graphql/graphiql'
     status: Archived
     command_line: ['graphql/graphiql']
     start_date: 2015-08-24T00:00:00Z
@@ -4570,6 +4852,7 @@ projects:
   expressgraphql:
     order: 2003
     name: Express GraphQL
+    project_url: 'github.com/graphql/express-graphql'
     status: Archived
     command_line: ['graphql/express-graphql']
     start_date: 2015-08-10T00:00:00Z
@@ -4583,6 +4866,7 @@ projects:
   graphqlspec:
     order: 2004
     name: GraphQL Spec
+    project_url: 'github.com/graphql/graphql-spec'
     status: Archived
     command_line: ['graphql/graphql-spec']
     hist_command_line:
@@ -4598,6 +4882,7 @@ projects:
   spinnaker:
     order: 4001
     name: Spinnaker
+    project_url: 'spinnaker.io'
     status: "-"
     command_line:
       - spinnaker
@@ -4611,6 +4896,7 @@ projects:
   tektoncdf:
     order: 4002
     name: Tekton
+    project_url: 'tekton.dev'
     status: "-"
     command_line:
       - tektoncd,tektoncd-catalog
@@ -4625,6 +4911,7 @@ projects:
   jenkins:
     order: 4003
     name: Jenkins
+    project_url: 'jenkins.io'
     status: "-"
     command_line:
       - 'jenkinsci,jenkins-infra,jenkins-zh,stapler'
@@ -4641,6 +4928,7 @@ projects:
   jenkinsx:
     order: 4004
     name: Jenkins X
+    project_url: 'jenkins-x.io'
     status: "-"
     command_line:
       - jenkins-x,jenkins-x-quickstarts,jenkins-x-apps,jenkins-x-charts,jenkins-x-buildpacks,jenkins-x-images,jenkins-x-plugins
@@ -4655,6 +4943,7 @@ projects:
   cdevents:
     order: 4005
     name: CDEvents
+    project_url: 'cdevents.dev'
     status: "-"
     command_line:
       - cdevents
@@ -4668,6 +4957,7 @@ projects:
   ortelius:
     order: 4006
     name: Ortelius
+    project_url: 'ortelius.io'
     status: "-"
     command_line:
       - "ortelius/azure-infra,ortelius/backstage,ortelius/cli,ortelius/dev-env-setup,ortelius/keptn-config,ortelius/keptn-ortelius-service,\
@@ -4685,6 +4975,7 @@ projects:
   pyrsia:
     order: 4007
     name: Pyrsia
+    project_url: 'pyrsia.io'
     status: "-"
     command_line:
       - pyrsia
@@ -4698,6 +4989,7 @@ projects:
   screwdrivercd:
     order: 4008
     name: 'Screwdriver CD'
+    project_url: 'screwdriver.cd'
     status: "-"
     command_line:
       - screwdriver-cd
@@ -4711,6 +5003,7 @@ projects:
   shipwright:
     order: 4009
     name: Shipwright
+    project_url: 'shipwright.io'
     status: "-"
     command_line:
       - shipwright-io
@@ -4727,6 +5020,7 @@ projects:
   allcdf:
     order: 5001
     name: All CDF
+    project_url: 'cd.foundation'
     status: "-"
     command_line:
       - "spinnaker,tektoncd,tektoncd-catalog,jenkinsci,jenkins-infra,jenkins-x,jenkins-x-quickstarts,jenkins-x-apps,jenkins-x-charts,\
