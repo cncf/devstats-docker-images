@@ -3974,6 +3974,32 @@ projects:
     annotation_regexp: '^v\d+\.\d+\.0$'
     files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
     shared_db: allprj
+  agentsubstrate:
+    order: 263
+    name: 'Agent Substrate'
+    status: Sandbox
+    command_line:
+      - agent-substrate
+    start_date: 2026-05-20T00:00:00Z
+    join_date: 2026-10-21T00:00:00Z
+    psql_db: agentsubstrate
+    main_repo: agent-substrate/substrate
+    annotation_regexp: '^v\d+\.\d+\.0$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+    shared_db: allprj
+  openrl:
+    order: 264
+    name: 'OpenRL'
+    status: Sandbox
+    command_line:
+      - gke-labs/open-rl
+    start_date: 2026-03-18T00:00:00Z
+    join_date: 2026-10-21T00:00:00Z
+    psql_db: openrl
+    main_repo: gke-labs/open-rl
+    annotation_regexp: '^v\d+\.\d+\.\d+$'
+    files_skip_pattern: ''
+    shared_db: allprj
   opencontainers:
     order: 10001
     name: OCI
@@ -4304,7 +4330,8 @@ projects:
          higress-group,tektoncd,tektoncd-catalog,Apicurio/apicurio-registry,thanos-community,\
          kbind-dev,podman-container-tools/skopeo,sdcio,ray-project,Siemens-Healthineers/K2s,\
          NVIDIA/OpenShell,NVIDIA/OpenShell-Research,NVIDIA/OpenShell-Community,\
-         kubestellar/hive,kubestellar/supervised-agent,praxis-proxy,ai-runway"
+         kubestellar/hive,kubestellar/supervised-agent,praxis-proxy,ai-runway,agent-substrate,\
+         gke-labs/open-rl"
     hist_command_line:
       - "kubernetes,kubernetes-client,kubernetes-incubator,kubernetes-helm,getsops,\
          kubernetes-graveyard,kubernetes-incubator-retired,kubernetes-sig-testing,\
@@ -4479,7 +4506,8 @@ projects:
          jozu-ai/homebrew-kitops,k14s/kapp,k14s/kapp-controller,k14s/kbld,k14s/vendir,\
          projectatomic/skopeo,stateful/vscode-runme,vmware-tanzu/homebrew-carvel,\
          praxis-proxy,shaneutt/praxis,ai-runway,kaito-project/airunway,\
-         kaito-project/kubeairunway,Azure/kuberunway,sozercan/kube-foundry"
+         kaito-project/kubeairunway,Azure/kuberunway,sozercan/kube-foundry,
+         agent-substrate,gke-labs/open-rl"
     start_date: 2014-01-01T00:00:00Z
     join_date: 2016-03-10T00:00:00Z
     psql_db: allprj
