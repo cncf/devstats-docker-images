@@ -388,13 +388,14 @@ projects:
   nats:
     order: 28
     name: NATS
-    status: Incubating
+    status: Graduated
     command_line:
       - nats-io
     hist_command_line:
       - 'nats-io,apcera/nats,apcera/gnatsd'
     start_date: 2014-01-02T00:00:00Z
     join_date: 2018-03-15T00:00:00Z
+    graduated_date: 2026-11-02T00:00:00Z
     psql_db: nats
     main_repo: nats-io/nats-server
     annotation_regexp: '^v\d+\.\d+\.\d+$'
