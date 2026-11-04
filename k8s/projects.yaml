@@ -929,7 +929,7 @@ projects:
   kubevirt:
     order: 68
     name: KubeVirt
-    status: Sandbox
+    status: Graduated
     command_line: ['kubevirt']
     hist_command_line:
       - "kubevirt,k8snetworkplumbingwg/kubemacpool,\
@@ -937,6 +937,7 @@ projects:
          k8snetworkplumbingwg/sriov-network-operator,nmstate/kubernetes-nmstate"
     start_date: 2016-04-27T00:00:00Z
     join_date: 2019-09-06T00:00:00Z
+    graduated_date: 2026-11-04T00:00:00Z
     psql_db: kubevirt
     main_repo: kubevirt/kubevirt
     annotation_regexp: '^v\d+\.\d+\.0$'
