@@ -1,6 +1,7 @@
 #!/bin/bash
 # GET_AFFS_FILES=1 (fetch github_users.json and companies.yaml from cncf/devstats repo)
 # GHA2DB_CHECK_IMPORTED_SHA=1 (skip clean+import when the files were already imported)
+# New files: the clean (scripts/clean_affiliations.sql) and the import are one transaction of import_affs (GHA2DB_AFFS_CLEAN)
 # GIANT=lock|wait|'' (giant lock handling, same as affs.sh)
 # SKIP_AFFS_LOCK=1 (skip the affs_lock flag)
 if ( [ -z "$PG_PASS" ] || [ -z "$PG_HOST" ] || [ -z "$PG_PORT" ] )
@@ -84,8 +85,7 @@ then
     PG_DB="$db" GHA2DB_LOCAL=1 runq util_sql/mark_used_names_shared.sql || exit 16
   done
   echo "Importing new affiliations source files into the shared '$adb' DB"
-  PG_DB="$adb" GHA2DB_LOCAL=1 runq scripts/clean_affiliations.sql || exit 9
-  PG_DB="$adb" GHA2DB_LOCAL=1 GHA2DB_CHECK_IMPORTED_SHA=1 import_affs || exit 10
+  PG_DB="$adb" GHA2DB_LOCAL=1 GHA2DB_CHECK_IMPORTED_SHA=1 GHA2DB_AFFS_CLEAN=1 import_affs || exit 10
 else
   echo "Reconciliation import pass (no clean) into the shared '$adb' DB"
   PG_DB="$adb" GHA2DB_LOCAL=1 GHA2DB_CHECK_IMPORTED_SHA='' import_affs || exit 10

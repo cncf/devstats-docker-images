@@ -52,7 +52,7 @@ then
       ./devel/wait_flag.sh "$affsLockDB" affs_lock 0 90 || exit 13
       ./devel/set_flag.sh "$affsLockDB" affs_lock || exit 14
     else
-      ./devel/lock_shared.sh "$affsLockDB" affs_lock "$lockOwner" || exit 14
+      ./devel/lock_shared.sh "$affsLockDB" affs_lock "$lockOwner" 180 120 || exit 14
     fi
   fi
 fi
